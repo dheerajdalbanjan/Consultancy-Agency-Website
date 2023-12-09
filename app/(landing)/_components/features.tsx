@@ -41,8 +41,8 @@ const Features = () => {
     
   return (
     <div className='flex flex-col gap-y-4 md:gap-y-7   justify-center p-6 max-w-8xl mx-auto '>
-        <h2 className='text-3xl sm:text-4xl md:text-5xl max-w-xl my-4 text-center antialiased font-bold'>Features </h2>
-        <div className='flex items-center justify-center md:gap-x-2 flex-col md:flex-row gap-y-4 md:gap-y-0' > 
+        <h2 className='text-3xl sm:text-4xl md:text-5xl max-w-xl my-4 text-center antialiased font-bold '>Features </h2>
+        <div className='flex items-center justify-center md:gap-x-2 flex-col md:flex-row gap-y-2 md:gap-y-0' > 
             {features.map((e, i)=>
                 <Card key={i} className='bg-transparent h-56 w-64 relative group overflow-hidden cursor-pointer '>
                 <CardHeader >
@@ -52,7 +52,7 @@ const Features = () => {
                 <CardContent className='p-5 float-right'>
                     <e.icon className='h-16 w-16'/>
                 </CardContent>
-                <CardFooter className='translate-y-96 origin-bottom bg-background backdrop-blur border-t rounded-xl p-8 group-hover:translate-y-0 absolute bottom-0 transition-all duration-300'>
+                <CardFooter className=' origin-bottom bg-background backdrop-blur dark:border-neutral-500 shadow-lg border-t rounded-xl p-8 group-hover:bottom-0 absolute -bottom-52 transition-all duration-300'>
                   <p>{e.description}</p>
                 </CardFooter>
               </Card>
