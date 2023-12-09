@@ -52,7 +52,7 @@ const Features = () => {
                 <CardContent className='p-5 float-right'>
                     <e.icon className='h-16 w-16'/>
                 </CardContent>
-                <CardFooter className=' origin-bottom bg-background backdrop-blur dark:border-neutral-500 shadow-lg border-t rounded-xl p-8 group-hover:bottom-0 absolute -bottom-52 transition-all duration-300'>
+                <CardFooter className=' origin-bottom bg-background backdrop-blur dark:border-neutral-500 shadow-lg border-t rounded-md p-8 group-hover:bottom-0 absolute -bottom-52 transition-all duration-300'>
                   <p>{e.description}</p>
                 </CardFooter>
               </Card>

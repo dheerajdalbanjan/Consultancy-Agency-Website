@@ -5,6 +5,7 @@ import './globals.css'
 import dynamic  from 'next/dynamic'
 import { ThemeProvider } from '@/components/provider/theme-provider'
 import Footer from './_components/footer'
+import { icons } from 'lucide-react'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -14,7 +15,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'OurSouls',
-  description: 'We encapsulates our commitment to acknowledging every individual’s emotions and experiences. It serves as a reminder that at OurSouls, everyone has a supportive community ready to listen, understand, and provide comfort during difficult times.',
+  description: 'We encapsulates our commitment to acknowledging every individual’s emotions and experiences. It serves as a reminder that at OurSouls, everyone has a supportive community ready to listen, understand, and provide comfort during difficult times.'
 }
 
 export default function RootLayout({
