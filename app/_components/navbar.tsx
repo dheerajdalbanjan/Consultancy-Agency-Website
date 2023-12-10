@@ -35,9 +35,9 @@ const Navbar = () => {
               <SheetTitle>OurSouls</SheetTitle>
               <SheetDescription className='flex h-full w-full flex-col gap-y-8 items-start justify-between'>
                 <div className='flex flex-col gap-y-4 justify-start mt-3 items-start text-[1.05rem]'>
-                  <Link href={'/'}>Home</Link>
-                  <Link href={'/about'}>About</Link>
-                  <Link href={'/contact'}>Contact</Link>
+                  <a href={'/'}>Home</a>
+                  <a href={'/about'}>About</a>
+                  <a href={'/contact'}>Contact</a>
                 </div>
                 <div className='flex items-center justify-between mt-auto gap-x-4 ml-auto'>
                   <Button variant='outline'>Login</Button>
