@@ -6,6 +6,7 @@ import dynamic  from 'next/dynamic'
 import { ThemeProvider } from '@/components/provider/theme-provider'
 import Footer from './_components/footer'
 import { icons } from 'lucide-react'
+import { Toaster } from '@/components/ui/toaster'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -37,6 +38,7 @@ export default function RootLayout({
         
         {children}
         <Footer />
+        <Toaster />
         </ThemeProvider>
         </body>
     </html>
