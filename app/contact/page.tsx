@@ -57,17 +57,17 @@ const submitee = async ( data: z.infer<typeof formSchema>) => {
       <h1 className='text-3xl sm:text-4xl md:text-5xl    antialiased font-bold'>Contact Us</h1>
       <form method='post' onSubmit={handleSubmit(submitee)} className='py-6 px-1' >
         <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg font-thin'>Enter your name</label>
+          <label className='md:text-lg  dark:font-thin'>Enter your name</label>
           <Input  {...register('name')} type='text' placeholder='eg: virat kohli' />
           {errors.name && <span className="text-base text-red-500 font-light antialised">{errors.name.message}</span>}
         </div>
         <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg font-thin'>Enter your email</label>
+          <label className='md:text-lg  dark:font-thin'>Enter your email</label>
           <Input  {...register('email')} type='text' placeholder='eg: viratkohli@gmail.com' />
           {errors.email && <span className="text-base text-red-500 font-light antialised">{errors.email.message}</span>}
         </div>
         <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg font-thin'>Enter your message</label>
+          <label className='md:text-lg  dark:font-thin'>Enter your message</label>
           <Textarea  {...register('message')} placeholder='eg: I want to work with you guys' ></Textarea>
           {errors.message && <span className="text-base text-red-500 font-light antialised">{errors.message.message}</span>}
         </div>

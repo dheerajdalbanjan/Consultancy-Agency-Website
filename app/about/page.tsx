@@ -5,7 +5,7 @@ const page = () => {
   return (
     <div className='min-h-screen max-w-7xl mx-auto px-7 ' >
       <h1 className='text-3xl sm:text-4xl md:text-5xl  my-4  antialiased font-bold'>About Us</h1>
-      <ul className='text-base md:text-lg font-thin list-disc'>
+      <ul className='text-base md:text-lg dark:font-thin list-disc'>
       <li>Get Support When You Need It Most.</li>
 
 <li>Help is Just One Call or Click Away.</li>

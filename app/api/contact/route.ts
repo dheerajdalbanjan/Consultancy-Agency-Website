@@ -17,7 +17,7 @@ export async function POST(req: NextRequest){
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     port: 465,
-  secure: true,
+  secure: false,
     
     auth: {
       user: 'oursouls04@gmail.com',
@@ -31,6 +31,8 @@ export async function POST(req: NextRequest){
     subject: `${name} tried to contact you with ${email}`,
     text: message
   };
+
+  
 
   transporter.sendMail(mailOptions, (error: any, info : any) => {
     if (error) {
