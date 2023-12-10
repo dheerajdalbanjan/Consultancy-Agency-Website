@@ -34,14 +34,12 @@ export async function POST(req: NextRequest){
 
   
 
-  transporter.sendMail(mailOptions, (error: any, info : any) => {
-    if (error) {
-      console.log(error);
-      return new Response('Erro', {status: 500})
-    } else {
-      console.log('Email sent: ' + info.response);
-      return new Response('Success', {status: 200})
-    }
-  });
-    return new Response('okay')
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
+    return new Response('Success', {status: 200});
+} catch (error) {
+    console.log(error);
+    return new Response('Error', {status: 500});
+}
 }
