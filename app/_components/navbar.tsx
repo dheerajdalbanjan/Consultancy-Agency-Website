@@ -40,8 +40,8 @@ const Navbar = () => {
                   <a href={'/contact'}>Contact</a>
                 </div>
                 <div className='flex items-center justify-between mt-auto gap-x-4 ml-auto'>
-                  <Button variant='outline'>Login</Button>
-                  <Button>SignUp</Button>
+                  <Button variant='outline' ><a href="/login">Login</a></Button>
+                  <Button><a href="/signup">SignUp</a></Button>
                 </div>
               </SheetDescription>
             </SheetHeader>
@@ -51,7 +51,7 @@ const Navbar = () => {
         <Logo />
       </div>
       <div className='flex gap-x-2 md:gap-x-4 items-center justify-center'>
-        <Button >Login</Button>
+        <Button ><a href="/login">Login</a></Button>
         <ModeToggle />
       </div>
     </div>
