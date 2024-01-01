@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Logo from './logo'
 import { Button } from '@/components/ui/button'
 import { UseScrollHook } from '@/hooks/UseScrollTop'
@@ -16,10 +16,15 @@ import {
 } from "@/components/ui/sheet"
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
 
 
 const Navbar = () => {
   const scrolled = UseScrollHook();
+  const {data:session} = useSession() ;
+  useEffect(()=>{
+    console.log(session)
+  }, [session])
 
   return (
     <div className={cn(scrolled && "border-b dark:border-gray-600 shadow-sm", 'flex w-full z-50  items-center justify-between  backdrop-blur-lg supports-[backdrop-filter]:bg-background bg-background  px-6 md:px-12 py-4 fixed top-0')}>
@@ -39,10 +44,10 @@ const Navbar = () => {
                   <a href={'/about'}>About</a>
                   <a href={'/contact'}>Contact</a>
                 </div>
-                <div className='flex items-center justify-between mt-auto gap-x-4 ml-auto'>
+                {!session && <div className='flex items-center justify-between mt-auto gap-x-4 ml-auto'>
                   <Button variant='outline' ><a href="/login">Login</a></Button>
                   <Button><a href="/signup">SignUp</a></Button>
-                </div>
+                </div>}
               </SheetDescription>
             </SheetHeader>
           </SheetContent>
@@ -51,7 +56,8 @@ const Navbar = () => {
         <Logo />
       </div>
       <div className='flex gap-x-2 md:gap-x-4 items-center justify-center'>
-        <Button ><a href="/login">Login</a></Button>
+        {!session && <Button ><a href="/login">Login</a></Button>}
+        {session && <Button variant={'secondary'} onClick={()=>signOut()}>Log out</Button>}
         <ModeToggle />
       </div>
     </div>

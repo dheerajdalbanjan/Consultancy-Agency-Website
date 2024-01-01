@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/provider/theme-provider'
 import Footer from './_components/footer'
 import { icons } from 'lucide-react'
 import { Toaster } from '@/components/ui/toaster'
+import { AuthProvider } from './provider'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={"min-h-screen w-full dark:from-neutral-900 dark:to-neutral-950 bg-gradient-to-r from-neutral-50 to-neutral-100/100  m-0 pt-20"}>
+        
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -34,11 +36,14 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey='theme1'
           >
+            <AuthProvider>
         <Navbar />
         
         {children}
         <Footer />
         <Toaster />
+        
+        </AuthProvider>
         </ThemeProvider>
         </body>
     </html>

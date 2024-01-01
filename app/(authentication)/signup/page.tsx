@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
-import React from 'react'
+import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -18,12 +19,45 @@ const formSchema = z.object({
 
 
 const Signup = () => {
+  const router = useRouter() ;
   const {register, handleSubmit, formState:{errors} , reset} = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
-  })
+  }); 
+  const [error, setError] = useState(""); 
 
   const submitt =async (value:z.infer<typeof formSchema>) => {
-    console.log(value) ;
+    const res = await fetch('/api/userExist', {
+      method: 'POST', 
+      headers: {
+        'content-type': 'application/json'
+      }, 
+      body: JSON.stringify({email: value.email})
+    })
+
+    const {user} = await res.json() ;
+    console.log(user + " :userexist")
+
+    if(user){
+      setError("The Email Id already exists.")
+      return ;
+    }
+
+    const response = await fetch('/api/signup', {
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      }, 
+      body: JSON.stringify(value)
+    }); 
+
+
+    if(response.ok){
+      console.log("signup success")
+      router.push('/login')
+    }
+    else {
+      console.log("error occured while signing up")
+    }
   }
   return (
     <div>
@@ -51,10 +85,14 @@ const Signup = () => {
         <Link href='login' className='text-right  text-sm py-5 '>
           Existing User  <span className='underline'>Login</span>
         </Link>
+        {
+          error && <span className='bg-red-100/20 block my-4 font-thin text-red-500 px-5 py-2 rounded-md '>{error}</span>
+        }
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={()=>reset()}>Clear</Button>
           <Button type='submit' >Submit</Button>
         </div>
+        
       </form>  
       
     </div>
