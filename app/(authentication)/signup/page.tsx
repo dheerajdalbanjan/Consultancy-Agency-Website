@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { ReloadIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -24,8 +25,9 @@ const Signup = () => {
     resolver: zodResolver(formSchema)
   }); 
   const [error, setError] = useState(""); 
-
+  const [loading , setLoading] = useState(false) ;
   const submitt =async (value:z.infer<typeof formSchema>) => {
+    setLoading(true)
     const res = await fetch('/api/userExist', {
       method: 'POST', 
       headers: {
@@ -50,7 +52,7 @@ const Signup = () => {
       body: JSON.stringify(value)
     }); 
 
-
+    setLoading(false)
     if(response.ok){
       console.log("signup success")
       router.push('/login')
@@ -86,11 +88,13 @@ const Signup = () => {
           Existing User  <span className='underline'>Login</span>
         </Link>
         {
-          error && <span className='bg-red-100/20 block my-4 font-thin text-red-500 px-5 py-2 rounded-md '>{error}</span>
+          error && <span className='bg-red-100/20 block my-4 font-semibold text-red-500 px-5 py-2 rounded-md '>{error}</span>
         }
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={()=>reset()}>Clear</Button>
-          <Button type='submit' >Submit</Button>
+          <Button type='submit' disabled={loading?true:false} >
+            {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+            Submit</Button>
         </div>
         
       </form>  

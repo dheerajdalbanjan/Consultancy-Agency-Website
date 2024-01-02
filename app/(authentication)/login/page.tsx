@@ -68,7 +68,7 @@ const Login = () => {
         </Link>
 
         {
-          error && <span className='bg-red-100/70 block my-4 text-red-800 px-5 py-2 rounded-md '>{error}</span>
+          error && <span className='bg-red-100/20 block my-4 font-semibold text-red-500 px-5 py-2 rounded-md '>{error}</span>
         }
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={() => reset()}>Clear</Button>

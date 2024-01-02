@@ -12,7 +12,7 @@ export async function POST(req: NextRequest){
     const data  = await req.json();
     console.log(data)
 
-    const {name, email, message}  = data; 
+    const {name, email, category ,message}  = data; 
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -21,15 +21,15 @@ export async function POST(req: NextRequest){
     
     auth: {
       user: 'oursouls04@gmail.com',
-      pass: 'vtcm lbww uaik lxbb'
+      pass: 'yxfp jkvh amay fvig'
     }
   });
 
   const mailOptions = {
     from: email,
     to: 'oursouls04@gmail.com',
-    subject: `${name} tried to contact you with ${email}`,
-    text: message
+    subject: `Customer contact email`,
+    text: `Name: ${name}\nEmail: ${email}\nCategory: ${category}\nMessage: ${message} `
   };
 
   
