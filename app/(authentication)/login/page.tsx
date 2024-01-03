@@ -9,6 +9,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { z } from 'zod'
+import Formerror from '@/components/ui/formerror'
 
 
 const formSchema = z.object({
@@ -34,11 +35,11 @@ const Login = () => {
     try {
       console.log('tryingto lognin')
       setLoading(true)
-      const res = await signIn('credentials', {email, password,redirect:false})
-      
+      const res = await signIn("credentials", {email, password,redirect:false})
+      console.log(res?.status)
       if (res?.error) {
         console.log(res.error)
-        setError('Invalid Credentials');
+        setError(res?.error);
         setLoading(false)
         return
       }
@@ -68,7 +69,7 @@ const Login = () => {
         </Link>
 
         {
-          error && <span className='bg-red-100/20 block my-4 font-semibold text-red-500 px-5 py-2 rounded-md '>{error}</span>
+          error && <Formerror error={error}></Formerror>
         }
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={() => reset()}>Clear</Button>

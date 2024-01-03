@@ -1,5 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
+import Formerror from '@/components/ui/formerror'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ReloadIcon } from '@radix-ui/react-icons'
@@ -88,7 +89,7 @@ const Signup = () => {
           Existing User  <span className='underline'>Login</span>
         </Link>
         {
-          error && <span className='bg-red-100/20 block my-4 font-semibold text-red-500 px-5 py-2 rounded-md '>{error}</span>
+          error && <Formerror error={error}></Formerror>
         }
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={()=>reset()}>Clear</Button>
