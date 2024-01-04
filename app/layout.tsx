@@ -5,9 +5,9 @@ import './globals.css'
 import dynamic  from 'next/dynamic'
 import { ThemeProvider } from '@/components/provider/theme-provider'
 import Footer from './_components/footer'
-import { icons } from 'lucide-react'
 import { Toaster } from '@/components/ui/toaster'
 import { AuthProvider } from './provider'
+import Head from 'next/head'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -17,7 +17,16 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'OurSoulss',
-  description: 'We encapsulates our commitment to acknowledging every individual’s emotions and experiences. It serves as a reminder that at OurSoulss, everyone has a supportive community ready to listen, understand, and provide comfort during difficult times.'
+  description: 'We encapsulates our commitment to acknowledging every individual’s emotions and experiences. It serves as a reminder that at OurSoulss, everyone has a supportive community ready to listen, understand, and provide comfort during difficult times.',
+  icons:{
+    icon: [
+      {
+        media:"(prefers-color-scheme: system)",
+        url: "favicn.jpg",
+        href: "/public/favicn.jpg" 
+      }
+    ]
+  }
 }
 
 export default function RootLayout({
@@ -37,6 +46,10 @@ export default function RootLayout({
             storageKey='theme1'
           >
             <AuthProvider>
+          <Head>
+  <link rel="icon" href="/public/favicn.jpg" />
+</Head>
+
         <Navbar />
         
         {children}

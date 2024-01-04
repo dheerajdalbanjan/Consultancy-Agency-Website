@@ -69,12 +69,15 @@ const Login = () => {
           {errors.password && <span className="text-[0.9rem] text-red-500  antialised">{errors.password.message}</span>}
         </div>
         <Link href='signup' className='text-right  text-sm py-5 '>
-          New to oursoulss <span className='underline'>SignUp</span>
+          New to OurSoulss <span className='underline'>SignUp</span>
         </Link>
 
         {
           error && <Formerror error={error}></Formerror>
         }
+        {success && <div className='py-2'>
+        <Formsuccess msg="Successfully logged In"></Formsuccess>
+      </div>}
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={() => reset()}>Clear</Button>
           <Button type='submit' disabled={loading?true:false} >
@@ -82,9 +85,7 @@ const Login = () => {
             Submit</Button>
         </div>
 
-        {success && <div className='py-2'>
-        <Formsuccess msg="Successfully logged In"></Formsuccess>
-      </div>}
+        
       </form>
 
     </div>

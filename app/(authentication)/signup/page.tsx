@@ -94,6 +94,9 @@ const Signup = () => {
         {
           error && <Formerror error={error}></Formerror>
         }
+        {success && <div className='py-2'>
+        <Formsuccess msg="Successfully Signed Up"></Formsuccess>
+      </div>}
         <div className='w-full flex justify-end gap-x-4 mt-5'>
           <Button type='reset' variant={'outline'} onClick={()=>reset()}>Clear</Button>
           <Button type='submit' disabled={loading?true:false} >
@@ -101,9 +104,7 @@ const Signup = () => {
             Submit</Button>
         </div>
 
-        {success && <div className='py-2'>
-        <Formsuccess msg="Successfully Signed Up"></Formsuccess>
-      </div>}
+        
 
         
       </form>  

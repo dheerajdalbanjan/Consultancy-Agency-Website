@@ -39,12 +39,12 @@ const Pricing = ()=>{
         }
     ];
     return (
-        <div className="flex max-w-6xl mx-auto flex-col space-y-3 items-center justify-center">
-            <h2 className="text-3xl w-full sm:text-5xl font-extrabold antialiased mt-6 mb-3 pl-5 sm:pl-8 list-disc ">Basic Pricing</h2>
-            <div className="flex flex-col md:flex-row my-5 items-center justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+        <div className="flex max-w-6xl w-full sm:w-auto mx-auto flex-col space-y-3 items-center justify-center">
+            <h2 className="text-3xl w-full sm:text-5xl text-center sm:text-start font-extrabold antialiased mt-6 mb-3 pl-5 sm:pl-8 list-disc ">Basic Pricing</h2>
+            <div className="flex flex-col md:flex-row my-5 w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
-                        <Card key={i} className=" pt-6 pb-1 px-1 relative overflow-hidden">
+                        <Card key={i} className="w-full md:w-auto pt-6 pb-1 px-1 relative overflow-hidden">
                             <p className="absolute top-3 -left-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 -rotate-45 text-neutral-900  text-[13px] uppercase">{e.type}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>

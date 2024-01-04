@@ -35,11 +35,11 @@ const Navbar = () => {
       <div className='flex gap-x-3 items-center justify-center'>
         <Sheet >
           <SheetTrigger>
-            <Button variant={'outline'} className='bg-transparent px-2 py-1'>
+            <Button variant={'outline'} className='bg-transparent px-2 py-1 active:scale-95 transition-all duration-300'>
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent side={'left'} className='h-full w-full'>
+          <SheetContent side={'left'} className='h-full w-full '>
             <SheetHeader className='h-full'>
               <SheetTitle>OurSoulss</SheetTitle>
               <SheetDescription className='flex h-full w-full flex-col gap-y-8 items-start justify-between'>
@@ -63,15 +63,15 @@ const Navbar = () => {
       <div className='flex gap-x-2 md:gap-x-4 items-center justify-center'>
         {!session && <Button ><a href="/login">Login</a></Button>}
         {session &&
-          <DropdownMenu>
+          <DropdownMenu >
             <DropdownMenuTrigger className='focus:outline-none'>
-              <Button variant={'outline'} className='rounded-full p-0'>
+              <Button variant={'outline'} className='rounded-full p-0 active:scale-95 transition-all duration-300'>
                 <Avatar>
                   <AvatarFallback>{session.user?.name?.slice(0, 1)}</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent >
               <DropdownMenuLabel>Profile</DropdownMenuLabel>
 
               <DropdownMenuSeparator />

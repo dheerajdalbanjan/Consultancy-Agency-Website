@@ -20,14 +20,14 @@ const Offers = () => {
                     {offers.map((_, index) => (
                         <CarouselItem key={index}>
                             <div className="p-1 w-72 sm:w-auto">
-                                <Card className="overflow-hidden">
-                                    <CardHeader >
+                                <Card className="overflow-hidden group">
+                                    <CardHeader className="z-50">
                                         <CardTitle>{_.title}</CardTitle>
                                         <CardDescription>{_.description}</CardDescription>
                                     </CardHeader>
-                                    <CardContent className="flex aspect-square p-0 items-center justify-center relative ">
-                                        <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-slate-50/10"></div>
-                                        <Image src={_.image} alt="offer_image" width={0} height={0} sizes="100vw" className="w-full h-full object-fill"></Image>
+                                    <CardContent className="flex aspect-square p-0 items-center justify-center relative   overflow-hidden">
+                                        <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-slate-50/10 z-10"></div>
+                                        <Image src={_.image} alt="offer_image" width={0} height={0} sizes="100vw" className="w-full h-full object-fill group-hover:scale-110 transition-all duration-300 -z-0"></Image>
                                     </CardContent>
                                 </Card>
                             </div>

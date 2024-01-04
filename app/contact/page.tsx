@@ -96,6 +96,9 @@ const Page = () => {
         <Textarea className='bg-opacity-60' {...register('message')} placeholder='eg: I want to work with you guys' ></Textarea>
         {errors.message && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.message.message}</span>}
       </div>
+      {success && <div className='py-2'>
+        <Formsuccess msg="Successfully sent to the team"></Formsuccess>
+      </div>}
       <div className='w-full flex justify-end gap-x-4'>
         <Button type='reset' variant={'outline'} onClick={handleClear}>Clear</Button>
         <Button type='submit' disabled={loading?true:false} >
@@ -103,9 +106,7 @@ const Page = () => {
             Submit</Button>
       </div>
 
-      {success && <div className='py-2'>
-        <Formsuccess msg="Successfully sent to the team"></Formsuccess>
-      </div>}
+      
     </form>
 
   )

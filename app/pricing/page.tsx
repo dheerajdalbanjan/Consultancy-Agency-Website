@@ -1,7 +1,11 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Toast } from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 
-const pricing = () =>{
+const Pricing = () =>{
+    const { toast } = useToast();
     var pricing = [
         {
             type: "Starter",
@@ -63,7 +67,14 @@ const pricing = () =>{
             }
         ];
         
-    
+    function handleClick(){
+        console.log("taslaskjdf")
+        toast({
+        variant:"default", 
+        title: "Currently no packs are available",
+        description: "Explore different parts of the website till our team adds on the packs",
+      })
+    }
     
 
 
@@ -85,7 +96,7 @@ const pricing = () =>{
                                <p>Session Length: <span className="px-2 text-center py-0.5 text-base rounded-xl bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</span></p>
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full ">Buy now</Button>
+                                <Button className="w-full " onClick={handleClick}>Buy now</Button>
                             </CardFooter>
                         </Card>
                     ))
@@ -97,7 +108,7 @@ const pricing = () =>{
                 {
                     monthly.map((e, i)=>(
                         <Card key={i} className="min-w-[250px] w-full pt-6 pb-1 px-1 relative overflow-hidden">
-                            <p className="absolute top-3 -left-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-300 to-emerald-400 -rotate-45 text-neutral-900  text-[13px] uppercase">monthly</p>
+                            <p className="absolute top-3 -left-8 py-0.5 w-28 text-center bg-gradient-to-r from-indigo-100 via-indigo-300 to-indigo-500 -rotate-45 text-neutral-950  text-[13px] uppercase">monthly</p>
                             <CardHeader>
                                 <CardTitle>{e.price}</CardTitle>
                                 <CardDescription>{e.name}</CardDescription>
@@ -108,7 +119,7 @@ const pricing = () =>{
 
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full ">Buy now</Button>
+                                <Button className="w-full " onClick={handleClick}>Buy now</Button>
                             </CardFooter>
                         </Card>
                     ))
@@ -118,4 +129,4 @@ const pricing = () =>{
     )
 }
 
-export default pricing ;
+export default Pricing ;
