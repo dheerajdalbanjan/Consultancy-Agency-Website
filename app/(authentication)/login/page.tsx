@@ -10,6 +10,8 @@ import { useForm } from 'react-hook-form'
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { z } from 'zod'
 import Formerror from '@/components/ui/formerror'
+import { cn } from '@/lib/utils'
+import Formsuccess from '@/components/ui/formsuccess'
 
 
 const formSchema = z.object({
@@ -25,7 +27,7 @@ const Login = () => {
   })
 
   const [loading , setLoading] = useState(false) ;
-
+  const [success, setSuccess] = useState(false) ;
   const router = useRouter()
 
   const [error, setError] = useState('')
@@ -43,7 +45,9 @@ const Login = () => {
         setLoading(false)
         return
       }
+      setSuccess(true)
       setLoading(false)
+      
 
       router.replace('/')
       console.log('success')
@@ -55,17 +59,17 @@ const Login = () => {
     <div>
       <form method='POST' onSubmit={handleSubmit(submitt)} >
         <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg  dark:font-thin'>Email</label>
+          <label className={cn(errors.email && 'text-red-500')}>Email</label>
           <Input  {...register('email')} type='text' placeholder='eg: viratkohli@gmail.com' />
-          {errors.email && <span className="text-base text-red-500 font-light antialised">{errors.email.message}</span>}
+          {errors.email && <span className="text-[0.9rem] text-red-500  antialised">{errors.email.message}</span>}
         </div>
         <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg  dark:font-thin'>Password</label>
+          <label className={cn(errors.password && 'text-red-500')}>Password</label>
           <Input  {...register('password')} type='password' placeholder='eg: virat kohli' />
-          {errors.password && <span className="text-base text-red-500 font-light antialised">{errors.password.message}</span>}
+          {errors.password && <span className="text-[0.9rem] text-red-500  antialised">{errors.password.message}</span>}
         </div>
         <Link href='signup' className='text-right  text-sm py-5 '>
-          New to Oursouls <span className='underline'>SignUp</span>
+          New to oursoulss <span className='underline'>SignUp</span>
         </Link>
 
         {
@@ -77,6 +81,10 @@ const Login = () => {
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
             Submit</Button>
         </div>
+
+        {success && <div className='py-2'>
+        <Formsuccess msg="Successfully logged In"></Formsuccess>
+      </div>}
       </form>
 
     </div>

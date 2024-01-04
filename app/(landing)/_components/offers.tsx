@@ -7,7 +7,7 @@ const Offers = () => {
     const offers = [
         {
             title: "First 5mins free, 22th January Offer", 
-            description: "This is offer is specially dedicated to Inaugaration of Shree Ram mandir in Ayodhya.", 
+            description: "This offer is specially dedicated to the Inaugaration of Shree Ram mandir in Ayodhya.", 
             image: "https://www.bhagwanbhagat.com/wp-content/uploads/2021/03/Ram-Mandir-Image-Ayodhya-Photo.jpg"
         }
     ]
@@ -26,7 +26,7 @@ const Offers = () => {
                                         <CardDescription>{_.description}</CardDescription>
                                     </CardHeader>
                                     <CardContent className="flex aspect-square p-0 items-center justify-center relative ">
-                                        <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-950 to-slate-100/10"></div>
+                                        <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-slate-50/10"></div>
                                         <Image src={_.image} alt="offer_image" width={0} height={0} sizes="100vw" className="w-full h-full object-fill"></Image>
                                     </CardContent>
                                 </Card>

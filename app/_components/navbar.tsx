@@ -17,12 +17,16 @@ import {
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { useTheme } from 'next-themes'
 
 
 const Navbar = () => {
+  const {setTheme} = useTheme() ;
   const scrolled = UseScrollHook();
-  const {data:session} = useSession() ;
-  useEffect(()=>{
+  const { data: session } = useSession();
+  useEffect(() => {
     console.log(session)
   }, [session])
 
@@ -58,8 +62,39 @@ const Navbar = () => {
       </div>
       <div className='flex gap-x-2 md:gap-x-4 items-center justify-center'>
         {!session && <Button ><a href="/login">Login</a></Button>}
-        {session && <Button variant={'secondary'} onClick={()=>signOut()}>Log out</Button>}
-        <ModeToggle />
+        {session &&
+          <DropdownMenu>
+            <DropdownMenuTrigger className='focus:outline-none'>
+              <Button variant={'outline'} className='rounded-full p-0'>
+                <Avatar>
+                  <AvatarFallback>{session.user?.name?.slice(0, 1)}</AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Profile</DropdownMenuLabel>
+
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem>{session.user?.name}</DropdownMenuItem>
+                <DropdownMenuItem>{session.user?.email}</DropdownMenuItem>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>Change Theme</DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent>
+                      <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setTheme("system")}>Default</DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className='!hover:bg-red-600/50 cursor-pointer hover:text-red-600' onClick={() => signOut()}>Log out</DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        }
+        {!session && <ModeToggle />}
       </div>
     </div>
   )

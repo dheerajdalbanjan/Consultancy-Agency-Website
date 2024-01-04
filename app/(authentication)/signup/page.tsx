@@ -1,7 +1,9 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import Formerror from '@/components/ui/formerror'
+import Formsuccess from '@/components/ui/formsuccess'
 import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ReloadIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
@@ -27,6 +29,7 @@ const Signup = () => {
   }); 
   const [error, setError] = useState(""); 
   const [loading , setLoading] = useState(false) ;
+  const [success, setSuccess] = useState(false) ; 
   const submitt =async (value:z.infer<typeof formSchema>) => {
     setLoading(true)
     const res = await fetch('/api/userExist', {
@@ -52,7 +55,7 @@ const Signup = () => {
       }, 
       body: JSON.stringify(value)
     }); 
-
+    setSuccess(true)
     setLoading(false)
     if(response.ok){
       console.log("signup success")
@@ -66,24 +69,24 @@ const Signup = () => {
     <div>
       <form action="" method='POST' onSubmit={handleSubmit(submitt)} >
       <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg  dark:font-thin'>Full Name</label>
+          <label className={cn(errors.name && 'text-red-500')}>Full Name</label>
           <Input  {...register('name')} type='text' placeholder='eg: virat kohli' />
-          {errors.name && <span className="text-base text-red-500 font-light antialised">{errors.name.message}</span>}
+          {errors.name && <span className="text-[0.9rem] text-red-500 antialised">{errors.name.message}</span>}
         </div>
       <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg  dark:font-thin'>Email</label>
+          <label className={cn(errors.email && 'text-red-500')}>Email</label>
           <Input  {...register('email')} type='text' placeholder='eg: viratkohli@gmail.com' />
-          {errors.email && <span className="text-base text-red-500 font-light antialised">{errors.email.message}</span>}
+          {errors.email && <span className="text-[0.9rem] text-red-500 antialised">{errors.email.message}</span>}
         </div>
       <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg  dark:font-thin'>Password</label>
+          <label className={cn(errors.password && 'text-red-500')}>Password</label>
           <Input  {...register('password')} type='password' placeholder='eg: virat kohli' />
-          {errors.password && <span className="text-base text-red-500 font-light antialised">{errors.password.message}</span>}
+          {errors.password && <span className="text-[0.9rem] text-red-500 antialised">{errors.password.message}</span>}
         </div>
       <div className='flex flex-col gap-y-2  my-4'>
-          <label className='md:text-lg  dark:font-thin'>Confirm Password</label>
+          <label className={cn(errors.confirmPass && 'text-red-500')}>Confirm Password</label>
           <Input  {...register('confirmPass')} type='password' placeholder='eg: virat kohli' />
-          {errors.confirmPass && <span className="text-base text-red-500 font-light antialised">{errors.confirmPass.message}</span>}
+          {errors.confirmPass && <span className="text-[0.9rem] text-red-500 antialised">{errors.confirmPass.message}</span>}
         </div>
         <Link href='login' className='text-right  text-sm py-5 '>
           Existing User  <span className='underline'>Login</span>
@@ -97,6 +100,11 @@ const Signup = () => {
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
             Submit</Button>
         </div>
+
+        {success && <div className='py-2'>
+        <Formsuccess msg="Successfully Signed Up"></Formsuccess>
+      </div>}
+
         
       </form>  
       
