@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div className='flex flex-col gap-y-4 md:gap-y-7  items-center justify-center p-6 max-w-5xl mx-auto '>
         <h2 className='text-3xl sm:text-4xl md:text-5xl max-w-xl my-4 text-center antialiased font-bold'>Your Feelings Matter, You’re Not Alone</h2>
-        <h4 className='md:text-lg text-base font-light text-center max-w-xl'>We encapsulates our commitment to acknowledging every individual’s emotions and experiences. It serves as a reminder that at OurSouls, everyone has a supportive community ready to listen, understand, and provide comfort during difficult times.</h4>
+        <h4 className='md:text-lg text-base font-light text-center max-w-xl'>We encapsulates our commitment to acknowledging every individual’s emotions and experiences. It serves as a reminder that at OurSoulss, everyone has a supportive community ready to listen, understand, and provide comfort during difficult times.</h4>
         <a href="/contact"><Button onClick={()=>(router.replace('/contact'))}  className='group transition ease py-1 mx-auto max-w-fit duration-500'>
             Try For Free <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
         </Button></a>

@@ -1,9 +1,14 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ArrowRight } from "lucide-react";
 
 
 const Pricing = ()=>{
-
+    const [open, setOpen] = useState(false);
     var pricing = [
         {
             type: "Starter",
@@ -38,6 +43,18 @@ const Pricing = ()=>{
             CounselorMatching: null
         }
     ];
+
+    function handleClick() {
+        console.log("taslaskjdf")
+        // toast({
+        //     variant: "default",
+        //     title: "Currently no packs are available",
+        //     description: "Explore different parts of the website till our team adds on the packs",
+        // })
+
+        setOpen(true)
+    }
+
     return (
         <div className="flex max-w-6xl w-full sm:w-auto mx-auto flex-col space-y-3 items-center justify-center">
             <h2 className="text-3xl w-full sm:text-5xl text-center sm:text-start font-extrabold antialiased mt-6 mb-3 pl-5 sm:pl-8 list-disc ">Basic Pricing</h2>
@@ -54,14 +71,39 @@ const Pricing = ()=>{
                                <p>Session Length: <span className="px-2 text-center py-0.5 text-base rounded-xl bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</span></p>
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full ">Buy now</Button>
+                                <Button onClick={handleClick} className="w-full ">Buy now</Button>
                             </CardFooter>
                         </Card>
                     ))
                 }
             </div>
-            <a href="/pricing"><Button size={'lg'} variant={"outline"} className="rounded-full ">Explore More</Button></a>
+            <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full transition ease py-1 mx-auto max-w-fit duration-500'>
+            Try For Free <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
+        </Button></a>
+            <Dialog open={open} onOpenChange={setOpen} >
+                <DialogContent className="w-80 text-start">
+                    <DialogHeader className="text-start justify-start">
+                        <DialogTitle>Attention here!</DialogTitle>
+                        <DialogDescription>
+                            Due to some technical issues we are able to proceed further payment so please do contact our team for the process of purchase
+                        </DialogDescription>
+                    </DialogHeader>
+
+                    <DialogFooter className="sm:justify-end">
+                        <DialogClose asChild>
+                            <a href="/contact">
+                            <Button  type="button" className="float-right" variant="secondary">
+                                Contact 
+                            </Button>
+                            </a>
+                        </DialogClose>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
         </div>
+
+        
     )
 }
 
