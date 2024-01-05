@@ -78,10 +78,10 @@ const Pricing = ()=>{
                 }
             </div>
             <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full transition ease py-1 mx-auto max-w-fit duration-500'>
-            Try For Free <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
+            Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
         </Button></a>
             <Dialog open={open} onOpenChange={setOpen} >
-                <DialogContent className="w-80 text-start">
+                <DialogContent className="w-80 text-start rounded-xl">
                     <DialogHeader className="text-start justify-start">
                         <DialogTitle>Attention here!</DialogTitle>
                         <DialogDescription>
@@ -91,7 +91,7 @@ const Pricing = ()=>{
 
                     <DialogFooter className="sm:justify-end">
                         <DialogClose asChild>
-                            <a href="/contact">
+                            <a href="/contact?pricing=true">
                             <Button  type="button" className="float-right" variant="secondary">
                                 Contact 
                             </Button>
