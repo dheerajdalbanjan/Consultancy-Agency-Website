@@ -25,6 +25,9 @@ const page = () => {
 <li>Take the First Step Today.</li>
 
 <li>Schedule your first appointment with one of our expert counselors, chatted live with us, call our office, or send us a message - we're always glad to hear from you and answer any of your questions. Your needs and your comfort are our number one priority. There's no need to work through things alone!</li>
+<div className='my-3 float-right'>
+  <p>Developed by <span className='px-2 py-0.5 rounded-full bg-emerald-600/20 '>Dheeraj Dalbanjan</span></p>
+</div>
     </ul>
     </div>
   )
