@@ -21,9 +21,8 @@ export const metadata: Metadata = {
   icons:{
     icon: [
       {
-        media:"(prefers-color-scheme: system)",
         url: "favicn.jpg",
-        href: "/public/favicn.jpg" 
+        href: "/favicn.jpg" 
       }
     ]
   }

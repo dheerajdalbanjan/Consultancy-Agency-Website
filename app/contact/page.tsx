@@ -108,6 +108,7 @@ const Page = () => {
             <SelectItem value="Academic">Academic</SelectItem>
             <SelectItem value="Professional">Professional</SelectItem>
             <SelectItem value="Social">Social</SelectItem>
+            <SelectItem value="Personal">Personal</SelectItem>
           </SelectContent>
         </Select>
         {errors.category && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.category.message}</span>}

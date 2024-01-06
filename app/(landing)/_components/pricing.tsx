@@ -91,7 +91,7 @@ const Pricing = ()=>{
 
                     <DialogFooter className="sm:justify-end">
                         <DialogClose asChild>
-                            <a href="/contact?pricing=true">
+                            <a href="/contact?pricing=true" className="w-fit float-right">
                             <Button  type="button" className="float-right" variant="secondary">
                                 Contact 
                             </Button>

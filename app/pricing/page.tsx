@@ -131,7 +131,7 @@ const Pricing = () => {
             </div>
 
             <Dialog open={open} onOpenChange={setOpen} >
-                <DialogContent className="w-80 text-start">
+                <DialogContent className="w-80 text-start rounded-xl">
                     <DialogHeader className="text-start justify-start">
                         <DialogTitle>Attention here!</DialogTitle>
                         <DialogDescription>
@@ -139,10 +139,10 @@ const Pricing = () => {
                         </DialogDescription>
                     </DialogHeader>
 
-                    <DialogFooter className="sm:justify-end">
+                    <DialogFooter className="">
                         <DialogClose asChild>
-                            <a href="/contact?pricing=true">
-                            <Button  type="button" className="float-right" variant="secondary">
+                            <a href="/contact?pricing=true" className="w-fit float-right">
+                            <Button  type="button" className="float-right " variant="secondary">
                                 Contact 
                             </Button>
                             </a>
