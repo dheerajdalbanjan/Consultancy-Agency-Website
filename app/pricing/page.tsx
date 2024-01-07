@@ -83,7 +83,7 @@ const Pricing = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto min-h-screen">
+        <div className="max-w-7xl px-2 mx-auto min-h-screen">
             <h1 className="bg-clip-text bg-gradient-to-br antialiased pl-5 my-3 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-extrabold  tracking-tight lg:text-5xl">Pricing</h1>
 
             <h2 className="text-2xl sm:text-3xl font-bold antialiased mt-6 pl-5 list-disc">Basic Plans</h2>
@@ -139,7 +139,7 @@ const Pricing = () => {
                         </DialogDescription>
                     </DialogHeader>
 
-                    <DialogFooter className="">
+                    <DialogFooter className="justify-end flex">
                         <DialogClose asChild>
                             <a href="/contact?pricing=true" className="w-fit float-right">
                             <Button  type="button" className="float-right " variant="secondary">

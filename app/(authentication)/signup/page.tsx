@@ -45,6 +45,7 @@ const Signup = () => {
 
     if(user){
       setError("The Email Id already exists.")
+      setLoading(false)
       return ;
     }
 
