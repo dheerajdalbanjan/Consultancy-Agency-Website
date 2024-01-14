@@ -107,7 +107,7 @@ const Pricing = () => {
                 }
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-bold antialiased mt-6 pl-5 list-disc">Monthly Plans</h2>
+            <h2 className="text-2xl sm:text-3xl  font-bold antialiased mt-6 pl-5 list-disc">Monthly Plans</h2>
             <div className="flex flex-col md:flex-row my-5 items-center justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     monthly.map((e, i) => (
@@ -139,10 +139,10 @@ const Pricing = () => {
                         </DialogDescription>
                     </DialogHeader>
 
-                    <DialogFooter className="justify-end flex">
+                    <DialogFooter className="justify-end items-end">
                         <DialogClose asChild>
                             <a href="/contact?pricing=true" className="w-fit float-right">
-                            <Button  type="button" className="float-right " variant="secondary">
+                            <Button  type="button" className=" " variant="secondary">
                                 Contact 
                             </Button>
                             </a>
