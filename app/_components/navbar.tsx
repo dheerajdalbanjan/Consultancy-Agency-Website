@@ -49,8 +49,8 @@ const Navbar = () => {
                   <a href="/pricing">Pricing</a>
                 </div>
                 {!session && <div className='flex items-center justify-between mt-auto gap-x-4 ml-auto'>
-                  <Button variant='outline' ><a href="/login">Login</a></Button>
-                  <Button><a href="/signup">SignUp</a></Button>
+                <a href="/login"><Button variant='outline' >Login</Button></a>
+                <a href="/signup"><Button>SignUp</Button></a>
                 </div>}
               </SheetDescription>
             </SheetHeader>
@@ -60,7 +60,7 @@ const Navbar = () => {
         <Logo />
       </div>
       <div className='flex gap-x-2 md:gap-x-4 items-center justify-center'>
-        {!session && <Button ><a href="/login">Login</a></Button>}
+        {!session && <a href="/login"><Button  >Login</Button></a>}
         {session &&
           <DropdownMenu >
             <DropdownMenuTrigger className='focus:outline-none'>

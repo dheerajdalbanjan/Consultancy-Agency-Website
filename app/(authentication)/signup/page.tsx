@@ -1,5 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
+import { CardContent, CardFooter } from '@/components/ui/card'
 import Formerror from '@/components/ui/formerror'
 import Formsuccess from '@/components/ui/formsuccess'
 import { Input } from '@/components/ui/input'
@@ -69,6 +70,7 @@ const Signup = () => {
   return (
     <div>
       <form action="" method='POST' onSubmit={handleSubmit(submitt)} >
+        <CardContent>
       <div className='flex flex-col gap-y-2  my-4'>
           <label className={cn(errors.name && 'text-red-500')}>Full Name</label>
           <Input  {...register('name')} type='text' placeholder='eg: virat kohli' />
@@ -98,12 +100,14 @@ const Signup = () => {
         {success && <div className='py-2'>
         <Formsuccess msg="Successfully Signed Up"></Formsuccess>
       </div>}
-        <div className='w-full flex justify-end gap-x-4 mt-5'>
-          <Button type='reset' variant={'outline'} onClick={()=>reset()}>Clear</Button>
-          <Button type='submit' disabled={loading?true:false} >
+      </CardContent>
+
+      <CardFooter>
+      <Button type='submit' className='w-full' disabled={loading?true:false} >
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
-            Submit</Button>
-        </div>
+            Sign up</Button>
+      </CardFooter>
+        
 
         
 

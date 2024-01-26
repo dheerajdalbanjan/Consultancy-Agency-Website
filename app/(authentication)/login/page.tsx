@@ -12,6 +12,7 @@ import { z } from 'zod'
 import Formerror from '@/components/ui/formerror'
 import { cn } from '@/lib/utils'
 import Formsuccess from '@/components/ui/formsuccess'
+import { CardContent, CardFooter } from '@/components/ui/card'
 
 
 const formSchema = z.object({
@@ -58,6 +59,7 @@ const Login = () => {
   return (
     <div>
       <form method='POST' onSubmit={handleSubmit(submitt)} >
+        <CardContent>
         <div className='flex flex-col gap-y-2  my-4'>
           <label className={cn(errors.email && 'text-red-500')}>Email</label>
           <Input  {...register('email')} type='text' placeholder='eg: viratkohli@gmail.com' />
@@ -78,13 +80,13 @@ const Login = () => {
         {success && <div className='py-2'>
         <Formsuccess msg="Successfully logged In"></Formsuccess>
       </div>}
-        <div className='w-full flex justify-end gap-x-4 mt-5'>
-          <Button type='reset' variant={'outline'} onClick={() => reset()}>Clear</Button>
-          <Button type='submit' disabled={loading?true:false} >
+      </CardContent>
+      <CardFooter>
+      <Button type='submit' className='w-full' disabled={loading?true:false} >
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
-            Submit</Button>
-        </div>
-
+            Login</Button>
+      </CardFooter>
+        
         
       </form>
 
