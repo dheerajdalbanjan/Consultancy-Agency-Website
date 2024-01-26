@@ -21,7 +21,8 @@ const formSchema = z.object({
   email: z.string().email(),
   category: z.string().nonempty() ,
   pricing: z.string().optional() ,
-  message: z.string().min(5).max(100)
+  message: z.string().min(5).max(100),
+  phone: z.string().length(10)
 })
 
 
@@ -36,7 +37,8 @@ const Page = () => {
       email:"", 
       category:"", 
       pricing:"", 
-      message:""
+      message:"", 
+      phone: ""
     }
   })
   const router = useSearchParams()  ; 
@@ -96,6 +98,11 @@ const Page = () => {
         <label className={cn(errors.email && 'text-red-500')}>Enter your email</label>
         <Input className='bg-opacity-60'  {...register('email')} type='text' placeholder='eg: viratkohli@gmail.com' />
         {errors.email && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.email.message}</span>}
+      </div>
+      <div className='flex flex-col gap-y-2  my-4'>
+        <label className={cn(errors.phone && 'text-red-500')}>Enter your Phone No.</label>
+        <Input className='bg-opacity-60'  {...register('phone')} type='text' placeholder='eg: 9183481414' />
+        {errors.phone && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.phone.message}</span>}
       </div>
       <div className='flex flex-col gap-y-2   my-4'>
         

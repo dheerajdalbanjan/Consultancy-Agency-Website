@@ -6,9 +6,9 @@ const Offers = () => {
 
     const offers = [
         {
-            title: "First 5mins free, 22th January Offer", 
+            title: "First 5 mins free, upto 22nd Feb", 
             description: "This offer is specially dedicated to the Inaugaration of Shree Ram mandir in Ayodhya.", 
-            image: "https://www.bhagwanbhagat.com/wp-content/uploads/2021/03/Ram-Mandir-Image-Ayodhya-Photo.jpg"
+            image: "https://images.news9live.com/wp-content/uploads/2024/01/7-54.png"
         }
     ]
 

@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
   console.log(data)
 
-  const { name, email, category, message, pricing } = data;
+  const { name, email, category, message, pricing, phone } = data;
   console.log(pricing)
 
   const transporter = nodemailer.createTransport({
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     from: email,
     to: 'oursouls04@gmail.com',
     subject: `Customer contact email ${pricing.length > 1 ? "Pricing" : ""}`,
-    text: `Name: ${name}\nEmail: ${email}\nCategory: ${category}\nMessage: ${message}\n${pricing.length > 1 ? 'Pack = ' + pricing : ""} `
+    text: `Name: ${name}\nEmail: ${email}\nCategory: ${category}\nMessage: ${message}\nPhone No: ${phone}\n${pricing.length > 1 ? 'Pack = ' + pricing : ""} `
   };
 
 
