@@ -11,7 +11,7 @@ const Offers = () => {
             image: "https://images.news9live.com/wp-content/uploads/2024/01/7-54.png"
         }, 
         {
-            title: "Valentine's Special: First 7 mins free, upto 22nd Feb",
+            title: "Valentine's Special: First 7 mins free, upto 14th Feb",
             description: "Celebrate the season of love with our special offer dedicated to Valentine's week. Enjoy the first 7 minutes free and make your moments extra special.",
             image: "https://i.ibb.co/5FMKtfD/lovely-frame-with-hearts-valentine-s-day-1361-1063.jpg"
         }, 
