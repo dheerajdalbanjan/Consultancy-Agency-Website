@@ -18,15 +18,17 @@ const Offers = () => {
     ] ;
 
     return (
-        <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-7 md:justify-evenly items-center justify-center  py-6 px-7 max-w-5xl mx-auto">
+        <div className="flex  flex-col md:flex-row gap-y-4 md:gap-y-7 md:justify-evenly items-center justify-center  py-6 px-7 max-w-5xl mx-auto">
             <h1 className="bg-clip-text bg-gradient-to-br  text-center my-2 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-extrabold  tracking-tight lg:text-5xl">Offers</h1>
-            <Carousel className=" max-w-xs">
+            <div className="preview flex min-h-[350px] w-full justify-center p-5 items-center">
+            <Carousel className=" max-w-xs w-full " >
+        
                 <CarouselContent>
                     {offers.map((_, index) => (
                         <CarouselItem key={index}>
-                            <div className="p-1 w-72 sm:w-auto">
+                            <div className="p-1 ">
                                 <Card className="overflow-hidden group">
-                                    <CardHeader className="z-50">
+                                    <CardHeader className="z-10">
                                         <CardTitle>{_.title}</CardTitle>
                                         <CardDescription>{_.description}</CardDescription>
                                     </CardHeader>
@@ -42,6 +44,7 @@ const Offers = () => {
                 <CarouselPrevious />
                 <CarouselNext />
             </Carousel>
+            </div>
         </div>
     )
 }
