@@ -9,8 +9,13 @@ const Offers = () => {
             title: "First 5 mins free, upto 22nd Feb", 
             description: "This offer is specially dedicated to the Inaugaration of Shree Ram mandir in Ayodhya.", 
             image: "https://images.news9live.com/wp-content/uploads/2024/01/7-54.png"
-        }
-    ]
+        }, 
+        {
+            title: "Valentine's Special: First 7 mins free, upto 22nd Feb",
+            description: "Celebrate the season of love with our special offer dedicated to Valentine's week. Enjoy the first 7 minutes free and make your moments extra special.",
+            image: "https://i.ibb.co/5FMKtfD/lovely-frame-with-hearts-valentine-s-day-1361-1063.jpg"
+        }, 
+    ] ;
 
     return (
         <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-7 md:justify-evenly items-center justify-center  py-6 px-7 max-w-5xl mx-auto">

@@ -9,6 +9,10 @@ const nextConfig = {
             {
                 protocol: "https" , 
                 hostname:"images.news9live.com"
+            }, 
+            {
+                protocol : 'https', 
+                hostname: 'i.ibb.co'
             }
         ]
     }

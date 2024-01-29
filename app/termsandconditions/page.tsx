@@ -66,7 +66,7 @@ const page = () => {
                 during, or after consultation sessions.</li>
             <li>You assume full responsibility and complete liability for any and all choices, decisions, actions,
                 behaviors, results, or any other life circumstances that occur prior to, during the course of, or
-                following receipt of services through our platform.</li>
+                following receipt of services through our platform. The guidance received from our counselors is meant only for self-reflection and not as definitive advice, suggestions, legal counsel, medical care, or professional services.</li>
             <li>You are solely accountable for maintaining the confidentiality and security of any user account
                 credentials provided and must immediately notify us of any unauthorized access to or use of your
                 account.</li>
