@@ -16,6 +16,11 @@ const Footer = () => {
           ))}
         </div>
       </div>
+      <div className='flex justify-between self-end px-6 items-center space-x-4'>
+        <a href="/privacy_policy" className='underline '>Privacy Policy</a>
+        <a href="/refund_policy" className='underline '>Refund Policy</a>
+        <a href="/termsandconditions" className='underline '>Terms and Conditions</a>
+      </div>
     </div>
   )
 }
