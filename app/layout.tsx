@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/provider/theme-provider'
 import Footer from './_components/footer'
 import { Toaster } from '@/components/ui/toaster'
 import { AuthProvider } from './provider'
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
@@ -57,6 +58,7 @@ export default function RootLayout({
         
         </AuthProvider>
         </ThemeProvider>
+        <Analytics />
         </body>
     </html>
   )
