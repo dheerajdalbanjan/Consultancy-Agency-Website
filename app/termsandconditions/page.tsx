@@ -52,50 +52,31 @@ const page = () => {
     </div> */}
 
 <div className="max-w-3xl mx-auto p-6 rounded shadow">
-        <h1 className="text-3xl font-semibold mb-6">Terms and Conditions</h1>
+    <h1 className="text-3xl font-semibold mb-6">Terms and Conditions</h1>
 
-        <p className="mb-4">Last Updated: January 29, 2024</p>
+    <p className="mb-4">Last Updated: February 05, 2024</p>
 
-        <p className="mb-4">Welcome to our website. By accessing, browsing, or using our counseling consultation services
-            in any manner, you agree to be legally bound by the following terms and conditions:</p>
+    <p className="mb-4">Welcome to our website. By accessing, browsing, or using our counseling consultation services in any manner, you agree to be legally bound by the following terms and conditions:</p>
 
-        <h2 className="text-2xl font-semibold mb-4">User Responsibilities</h2>
-        <ul className="list-disc pl-6 mb-4">
-            <li>You are solely and fully responsible for the accuracy, completeness, relevance, and overall quality
-                of any personal information, content, materials, or other data you voluntarily provide before,
-                during, or after consultation sessions.</li>
-            <li>You assume full responsibility and complete liability for any and all choices, decisions, actions,
-                behaviors, results, or any other life circumstances that occur prior to, during the course of, or
-                following receipt of services through our platform. The guidance received from our counselors is meant only for self-reflection and not as definitive advice, suggestions, legal counsel, medical care, or professional services.</li>
-            <li>You are solely accountable for maintaining the confidentiality and security of any user account
-                credentials provided and must immediately notify us of any unauthorized access to or use of your
-                account.</li>
-            <li>You must use our website and services only for lawful purposes and personal benefit in compliance
-                with all applicable laws and regulations.</li>
-            <li>You are fully responsible for acquiring any and all equipment, software, applications, internet
-                service, and other technology required to fully access and participate in remote consultation
-                sessions or otherwise use our website and services.</li>
-            <li>You are solely accountable for backing up, downloading, or otherwise preserving any personal notes,
-                summaries, recordings, or other data related to your use of our services.</li>
-        </ul>
+    <h2 className="text-2xl font-semibold mb-4">User Responsibilities</h2>
+    <ul className="list-disc pl-6 mb-4">
+        <li>You are solely and fully responsible for the accuracy, completeness, relevance, and overall quality of any personal information, content, materials, or other data you voluntarily provide before, during, or after consultation sessions, including but not limited to: background descriptions, explanations or summaries of situations or issues, copies of documents, etc.</li>
+        <li>You assume full responsibility and complete liability for any and all choices, decisions, actions, behaviors, results, or any other life circumstances that occur prior to, during the course of, or following receipt of services through our platform. The guidance received from our counselors is meant only for self-reflection and not as definitive advice, suggestions, legal counsel, medical care, or professional services.</li>
+        <li>You are solely accountable for maintaining the confidentiality and security of any user account credentials provided and must immediately notify us of any unauthorized access to or use of your account. Passwords should be robust, changed frequently, and not shared with any third party.</li>
+        <li>You must use our website and services only for personal benefit in compliance with all applicable laws and regulations. Any use for unethical, unscrupulous, or illegal aims, even if merely alleged, may result in immediate service suspension or termination at our sole discretion and legal action will be taken if necessary.</li>
+        <li>You are fully responsible for acquiring any and all equipment, software, applications, internet service and other technology required to fully access and participate in remote consultation sessions or otherwise use our website and services. We are not liable for any technical difficulties, disruption, inconvenience, downtime, missed appointments, or inability to access services caused by problems with your computer, devices, broadband connection, or local environment.</li>
+        <li>You are solely accountable for backing up, downloading, or otherwise preserving any personal notes, summaries, recordings, or other data related to your use of our services. We cannot be held liable for any lost, damaged, unavailable, corrupted, or destroyed user data resulting from use of our website or participation in consultation sessions.</li>
+    </ul>
 
-        <h2 className="text-2xl font-semibold mb-4">Our Role</h2>
-        <ul className="list-disc pl-6 mb-4">
-            <li>We will endeavor to match you with counselor(s) who possess suitable qualifications, skill sets, and
-                experience levels based on any preferences, objectives, or concerns you communicate to us.</li>
-            <li>Our counselors exercise independent professional judgment regarding the personalized guidance,
-                coaching, and suggestions given during consultation sessions.</li>
-            <li>We reserve the right to deny service to any user and to suspend or terminate any user account or block
-                access to our website at any time for any reason without advance notice or liability.</li>
-        </ul>
+    <h2 className="text-2xl font-semibold mb-4">Our Role</h2>
+    <ul className="list-disc pl-6 mb-4">
+        <li>We will endeavor to match you with counselor(s) who possess suitable qualifications, skill sets, and experience levels based on any preferences, objectives, or concerns you communicate to us as well as counselor availability and other factors. However, we cannot guarantee that any counselor will be an ideal fit or able to fully address your particular situation or needs. You may request a different counselor at any time if dissatisfied.</li>
+        <li>Our counselors exercise independent professional judgment regarding the personalized guidance, coaching, and suggestions given during consultation sessions. We do not guarantee adherence to any specific counseling approach or style, nor do we warrant or guarantee any particular individual results from the use of our consultation services.</li>
+        <li>We reserve the right to deny service to any user and to suspend or terminate any user account or block access to our website at any time for any reason without advance notice or liability, especially in response to alleged or suspected violation of terms, safety issues, or unlawful conduct.</li>
+    </ul>
 
-        <p className="mb-4">By voluntarily accessing this website in any manner or purchasing and participating in
-            counseling consultation sessions, you confirm that you have read, fully understand without exception, and
-            take complete responsibility for this agreement. You agree to hold us and our counselors harmless from
-            any liability or damages arising out of or related to your use of website services or information
-            provided. Please carefully review all sections and contact us with any questions before taking actions
-            such as scheduling appointments.</p>
-    </div>
+    <p className="mb-4">By voluntarily accessing this website in any manner or purchasing and participating in counseling consultation sessions, you confirm that you have read, fully understand without exception, and take complete responsibility for this agreement. You agree to hold us and our counselors harmless from any liability or damages arising out of or related to your use of website services or information provided. Please carefully review all sections and contact us with any questions before taking actions such as scheduling appointments.</p>
+</div>
     </div>
   )
 }

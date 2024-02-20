@@ -6,12 +6,6 @@ import Image from "next/image";
 const Offers = () => {
 
     const offers = [
-         
-        {
-            title: "Valentine's Special: First 7 mins free, upto 14th Feb",
-            description: "Celebrate the season of love with our special offer dedicated to Valentine's week. Enjoy the first 7 minutes free and make your moments extra special.",
-            image: "https://i.ibb.co/jVckTJR/IMG-20240130-124736-139.jpg"
-        }, 
         {
             title: "First 5 mins free, upto 22nd Feb", 
             description: "This offer is specially dedicated to the Inaugaration of Shree Ram mandir in Ayodhya.", 
