@@ -7,10 +7,11 @@ const Offers = () => {
 
     const offers = [
         {
-            title: "First 5 mins free, upto 22nd Feb", 
-            description: "This offer is specially dedicated to the Inaugaration of Shree Ram mandir in Ayodhya.", 
-            image: "https://images.news9live.com/wp-content/uploads/2024/01/7-54.png"
-        },
+            title: "Word Peace Day, first 11 minutes free", 
+            description: 'This offer is valid from 23rd Feb to 29th Feb.', 
+            image: "https://i.ibb.co/gJQFYcx/Picsart-24-02-23-14-46-51-932.jpg"
+        }
+        
     ] ;
 
     return (
