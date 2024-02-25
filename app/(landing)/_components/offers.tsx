@@ -7,6 +7,11 @@ const Offers = () => {
 
     const offers = [
         {
+            title: "First 30 Minutes Free", 
+            description:"This is a 1 Month of Oursoulss Offer and is Valid only for 26th Feb.", 
+            image: "https://i.ibb.co/t3GSSCD/photo-6257929524398374520-y.jpg"
+        },
+        {
             title: "Word Peace Day, first 11 minutes free", 
             description: 'This offer is valid from 23rd Feb to 29th Feb.', 
             image: "https://i.ibb.co/gJQFYcx/Picsart-24-02-23-14-46-51-932.jpg"

@@ -9,6 +9,8 @@ import { Toaster } from '@/components/ui/toaster'
 import { AuthProvider } from './provider'
 import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head'
+import { Dialog, DialogHeader } from '@/components/ui/dialog'
+import { DialogContent, DialogTitle } from '@radix-ui/react-dialog'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -58,6 +60,7 @@ export default function RootLayout({
         
         </AuthProvider>
         </ThemeProvider>
+        
         <Analytics />
         </body>
     </html>
