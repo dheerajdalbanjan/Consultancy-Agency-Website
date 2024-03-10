@@ -1,16 +1,70 @@
-import Image from 'next/image'
-import Hero from './_components/hero'
-import Features from './_components/features'
-import Offers from './_components/offers'
-import Pricing from './_components/pricing'
+"use client"
+
+
+import Image from "next/image";
+import Hero from "./_components/hero";
+import Features from "./_components/features";
+import Offers from "./_components/offers";
+import Pricing from "./_components/pricing";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
+  const { data: session } = useSession();
+  const [popupshowed, setPopupshowed] = useState(false); 
+  const [open, setOpen] = useState(false) ;
+
+
+  useEffect(()=>{
+    function handleScroll(){
+      if(window.scrollY > 30 && !popupshowed && !session){
+        setOpen(true) ; 
+      }
+      else {
+        setOpen(false) ; 
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll) ; 
+    return ()=>{
+      window.removeEventListener('scroll', handleScroll) ; 
+    }
+  })
   return (
-    <main className='h-full'>
+    <main className="h-full bg-dot-white/[0.03]">
       <Hero />
-      <Offers/>
+      <Offers />
       <Pricing />
       <Features />
+      <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
+        setPopupshowed(true) ;}}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Sign Up to get Atmost Experience</DialogTitle>
+            <DialogDescription>
+              Or Login if you are existing oursoulss user
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <a href="/signup" ><Button>
+              Sign Up
+            </Button></a>
+            <a href="/login" ><Button variant={'outline'}>
+              Login
+            </Button></a>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </main>
-  )
+  );
 }

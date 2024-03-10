@@ -36,9 +36,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // dark:from-neutral-900 dark:to-neutral-950
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={"min-h-screen w-full dark:from-neutral-900 dark:to-neutral-950 bg-gradient-to-r from-neutral-50 to-neutral-100/100  m-0 pt-20"}>
+      <body className={"min-h-screen w-full  dark:from-neutral-950 dark:to-neutral-900 bg-gradient-to-r from-neutral-50 to-neutral-100/100    m-0 "}>
         
       <ThemeProvider
             attribute="class"
