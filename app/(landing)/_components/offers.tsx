@@ -68,18 +68,18 @@ const Offers = () => {
                       ></Image>
                     </CardContent>
                     <CardFooter className="group-hover:scale-100 scale-0 transition-all absolute bottom-[25%] left-[19%]">
-                      
                       <Dialog>
                         <DialogTrigger asChild>
-                        <button className="bg-transparent px-8 py-3 border-neutral-500 dark:border-neutral-200  active:scale-90 transition-all duration-200 text-neutral-700 dark:text-neutral-200 font-bold bg-opacity-80 border ">
-                          Avail Offer
-                        </button>
+                          <button className="bg-transparent px-8 py-3 border-neutral-500 dark:border-neutral-200  active:scale-90 transition-all duration-200 text-neutral-700 dark:text-neutral-200 font-bold bg-opacity-80 border ">
+                            Avail Offer
+                          </button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-md">
+                        <DialogContent className="mx-2 rounded-md w-fit p-8">
                           <DialogHeader>
                             <DialogTitle>Coupon Code</DialogTitle>
                             <DialogDescription>
-                              Copy the coupon code from below and paste in the contact form to avail the offer.
+                              Copy the coupon code from below and paste in the
+                              contact form to avail the offer.
                             </DialogDescription>
                           </DialogHeader>
                           <div className="flex items-center space-x-2">
@@ -98,16 +98,18 @@ const Offers = () => {
                               <CopyIcon className="h-4 w-4" />
                             </Button>
                           </div>
-                          <DialogFooter className="sm:justify-start">
+                          <DialogFooter className="sm:justify-start w-full">
+                            <div className="w-full flex items-center justify-center space-x-3">
                             <DialogClose asChild>
                               <Button type="button" variant="secondary">
                                 Close
                               </Button>
                             </DialogClose>
-                            
-                            <a href={`/contact?offer=${_.coupon_code}`}><Button>
-                                Avail Offer
-                              </Button></a>
+
+                            <a href={`/contact?offer=${_.coupon_code}`}>
+                              <Button>Avail Offer</Button>
+                            </a>
+                            </div>
                           </DialogFooter>
                         </DialogContent>
                       </Dialog>

@@ -55,9 +55,9 @@ const Navbar = () => {
           <SheetTrigger className="md:hidden">
             <Button
               variant={"outline"}
-              className="bg-transparent px-2 py-1 active:scale-95 transition-all duration-300"
+              className="!bg-transparent px-2  active:scale-95 transition-all duration-300"
             >
-              <ChevronRight/>
+              <ChevronRight width={20}/>
             </Button>
           </SheetTrigger>
           <SheetContent side={"left"} className="h-full w-full ">
