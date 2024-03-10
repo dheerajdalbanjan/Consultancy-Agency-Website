@@ -100,6 +100,8 @@ const Navbar = () => {
           Pricing
         </div></a>
 
+        
+        </div>
         {!session && (
           <a href="/signup">
             <div className="">
@@ -130,7 +132,6 @@ const Navbar = () => {
             </div>
           </a>
         )}
-        </div>
         {session && (
           <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none">

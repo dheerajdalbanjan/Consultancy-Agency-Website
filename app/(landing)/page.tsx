@@ -48,20 +48,22 @@ export default function Home() {
       <Features />
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
         setPopupshowed(true) ;}}>
-        <DialogContent>
+        <DialogContent className="mx-1 rounded-md w-fit p-8">
           <DialogHeader>
-            <DialogTitle>Sign Up to get Atmost Experience</DialogTitle>
+            <DialogTitle className="whitespace-nowrap">Sign Up to get Atmost Experience</DialogTitle>
             <DialogDescription>
               Or Login if you are existing oursoulss user
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter>
+          <DialogFooter >
+            <div className="flex items-center w-full justify-end space-x-5 ">
             <a href="/signup" ><Button>
               Sign Up
             </Button></a>
             <a href="/login" ><Button variant={'outline'}>
               Login
             </Button></a>
+            </div>
           </DialogFooter>
         </DialogContent>
       </Dialog>
