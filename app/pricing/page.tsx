@@ -83,15 +83,15 @@ const Pricing = () => {
 
 
     return (
-        <div className="max-w-7xl px-2 mx-auto min-h-screen">
-            <h1 className="bg-clip-text bg-gradient-to-br antialiased pl-5 my-3 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-extrabold  tracking-tight lg:text-5xl">Pricing</h1>
+        <div className="max-w-6xl px-2 mt-20 mx-auto min-h-screen">
+            <h1 className="bg-clip-text bg-gradient-to-br antialiased pl-5 my-3 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-bold  tracking-tight lg:text-5xl">Pricing</h1>
 
             <h2 className="text-2xl sm:text-3xl font-bold antialiased mt-6 pl-5 list-disc">Basic Plans</h2>
-            <div className="flex flex-col md:flex-row my-5 items-center justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+            <div className="flex flex-col l  md:flex-row my-5 items-center justify-start p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i) => (
-                        <Card key={i} className="min-w-[250px] w-full pt-6 pb-1 px-1 relative overflow-hidden">
-                            <p className="absolute top-3 -left-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 -rotate-45 text-neutral-900  text-[13px] uppercase">{e.type}</p>
+                        <Card key={i} className="!w-full  md:w-auto  relative overflow-hidden">
+                            <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.type}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>
                                 <CardDescription>{e.Package}</CardDescription>
@@ -108,11 +108,11 @@ const Pricing = () => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl  font-bold antialiased mt-6 pl-5 list-disc">Monthly Plans</h2>
-            <div className="flex flex-col md:flex-row my-5 items-center justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+            <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     monthly.map((e, i) => (
-                        <Card key={i} className="min-w-[250px] w-full pt-6 pb-1 px-1 relative overflow-hidden">
-                            <p className="absolute top-3 -left-8 py-0.5 w-28 text-center bg-gradient-to-r from-indigo-100 via-indigo-300 to-indigo-500 -rotate-45 text-neutral-950  text-[13px] uppercase">monthly</p>
+                        <Card key={i} className="!w-full  md:w-auto  relative overflow-hidden">
+                            <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-indigo-100 via-indigo-300 to-indigo-500 rotate-45 text-neutral-950  text-[13px] uppercase">monthly</p>
                             <CardHeader>
                                 <CardTitle>{e.price}</CardTitle>
                                 <CardDescription>{e.name}</CardDescription>
@@ -135,7 +135,7 @@ const Pricing = () => {
                     <DialogHeader className="text-start justify-start">
                         <DialogTitle>Attention here!</DialogTitle>
                         <DialogDescription>
-                            Due to some technical issues we are able to proceed further payment so please do contact our team for the process of purchase
+                            Due to some technical issues we are not able to proceed further payment so please do contact our team for the process of purchase
                         </DialogDescription>
                     </DialogHeader>
 

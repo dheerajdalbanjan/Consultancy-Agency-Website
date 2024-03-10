@@ -51,7 +51,7 @@ const page = () => {
             Please reach out if you have any questions!</p>
     </div> */}
 
-<div className="max-w-3xl mx-auto p-6 rounded shadow">
+<div className="max-w-3xl mx-auto p-6 rounded mt-20 shadow">
     <h1 className="text-3xl font-semibold mb-6">Terms and Conditions</h1>
 
     <p className="mb-4">Last Updated: February 05, 2024</p>

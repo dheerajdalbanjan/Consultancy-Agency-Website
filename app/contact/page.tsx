@@ -22,13 +22,18 @@ const formSchema = z.object({
   category: z.string().nonempty() ,
   pricing: z.string().optional() ,
   message: z.string().min(5).max(100),
-  phone: z.string().length(10)
+  phone: z.string().length(10), 
+  coupon: z.string().optional()
 })
 
 
 const Page = () => {
   const [success, setSuccess] = useState(false) ;
   const [loading , setLoading] = useState(false) ;
+  
+  const router = useSearchParams()  ; 
+  const pricing = router.get('pricing') ;
+  const offer = router.get('offer') ;
   const { toast } = useToast();
   const { register, handleSubmit,setValue,  formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema), 
@@ -38,11 +43,10 @@ const Page = () => {
       category:"", 
       pricing:"", 
       message:"", 
-      phone: ""
+      phone: "",
+      coupon: offer?offer:""
     }
   })
-  const router = useSearchParams()  ; 
-  const pricing = router.get('pricing') ;
 
   let selectOptions = [
     { label: "15 Minute Session Package", value: 0, price: "₹39" },
@@ -104,6 +108,12 @@ const Page = () => {
         <Input className='bg-opacity-60'  {...register('phone')} type='text' placeholder='eg: 9183481414' />
         {errors.phone && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.phone.message}</span>}
       </div>
+
+      {offer && <div className='flex flex-col gap-y-2  my-4'>
+        <label className={cn(errors.name && 'text-red-500')}>Enter your Coupon code</label>
+        <Input className='bg-opacity-60' {...register('coupon')}  type='text' placeholder='eg: NEWTOOURSOULSS' />
+        {errors.coupon && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.coupon.message}</span>}
+      </div>}
       <div className='flex flex-col gap-y-2   my-4'>
         
       <label className={cn(errors.category && 'text-red-500')}>Enter your Problem </label>
