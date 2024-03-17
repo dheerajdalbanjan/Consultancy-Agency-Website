@@ -15,6 +15,7 @@ import { ReloadIcon } from '@radix-ui/react-icons'
 import { cn } from '@/lib/utils'
 import Formsuccess from '@/components/ui/formsuccess'
 import { useSearchParams } from 'next/navigation'
+import { CardContent, CardFooter } from '@/components/ui/card'
 
 const formSchema = z.object({
   name: z.string().min(5).max(50),
@@ -35,7 +36,7 @@ const Page = () => {
   const pricing = router.get('pricing') ;
   const offer = router.get('offer') ;
   const { toast } = useToast();
-  const { register, handleSubmit,setValue,  formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
+  const { register,getValues, handleSubmit,setValue,  formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema), 
     defaultValues:{
       name:"", 
@@ -92,10 +93,11 @@ const Page = () => {
     reset()
   }
   return (
-    <form method='post' onSubmit={handleSubmit(submitee)} className=' px-1' >
-      <div className='flex flex-col gap-y-2  my-4'>
+    <form method='post' onSubmit={handleSubmit(submitee)} className='  bg-dot-white/[0.08]' >
+      <CardContent className=''>
+      <div className='flex flex-col gap-y-2  mb-4'>
         <label className={cn(errors.name && 'text-red-500')}>Enter your name</label>
-        <Input className='bg-opacity-60' {...register('name')} type='text' placeholder='eg: virat kohli' />
+        <Input className='' {...register('name')} type='text' placeholder='eg: virat kohli' />
         {errors.name && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.name.message}</span>}
       </div>
       <div className='flex flex-col gap-y-2  my-4'>
@@ -111,8 +113,9 @@ const Page = () => {
 
       {offer && <div className='flex flex-col gap-y-2  my-4'>
         <label className={cn(errors.name && 'text-red-500')}>Enter your Coupon code</label>
-        <Input className='bg-opacity-60' {...register('coupon')}  type='text' placeholder='eg: NEWTOOURSOULSS' />
+        <Input className={getValues('coupon') != '' ?'ring-1 ring-offset-2 ring-emerald-600':''} {...register('coupon')}  type='text' placeholder='eg: NEWTOOURSOULSS' />
         {errors.coupon && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.coupon.message}</span>}
+        {getValues('coupon') != '' && <Formsuccess msg="Successfully Added Coupon"></Formsuccess>}
       </div>}
       <div className='flex flex-col gap-y-2   my-4'>
         
@@ -150,15 +153,17 @@ const Page = () => {
         <Textarea className='bg-opacity-60' {...register('message')} placeholder='eg: I want to work with you guys' ></Textarea>
         {errors.message && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.message.message}</span>}
       </div>
+      </CardContent>
+      <CardFooter>
       {success && <div className='py-2'>
         <Formsuccess msg="Successfully sent to the team"></Formsuccess>
       </div>}
-      <div className='w-full flex justify-end gap-x-4'>
-        <Button type='reset' variant={'outline'} onClick={handleClear}>Clear</Button>
-        <Button type='submit' disabled={loading?true:false} >
+      <div className='w-full '>
+        <Button type='submit' className='w-full' disabled={loading?true:false} >
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
             Submit</Button>
       </div>
+      </CardFooter>
 
       
     </form>

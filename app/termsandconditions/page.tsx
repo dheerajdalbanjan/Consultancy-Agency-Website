@@ -51,10 +51,10 @@ const page = () => {
             Please reach out if you have any questions!</p>
     </div> */}
 
-<div className="max-w-3xl mx-auto p-6 rounded mt-20 shadow">
+<div className="max-w-5xl mt-20 mx-auto p-6 rounded shadow">
     <h1 className="text-3xl font-semibold mb-6">Terms and Conditions</h1>
 
-    <p className="mb-4">Last Updated: February 05, 2024</p>
+    <p className="mb-4">Last Updated: March 17, 2024</p>
 
     <p className="mb-4">Welcome to our website. By accessing, browsing, or using our counseling consultation services in any manner, you agree to be legally bound by the following terms and conditions:</p>
 
@@ -74,6 +74,53 @@ const page = () => {
         <li>Our counselors exercise independent professional judgment regarding the personalized guidance, coaching, and suggestions given during consultation sessions. We do not guarantee adherence to any specific counseling approach or style, nor do we warrant or guarantee any particular individual results from the use of our consultation services.</li>
         <li>We reserve the right to deny service to any user and to suspend or terminate any user account or block access to our website at any time for any reason without advance notice or liability, especially in response to alleged or suspected violation of terms, safety issues, or unlawful conduct.</li>
     </ul>
+
+    <h1 className="text-3xl font-semibold mb-6">Limitation of Services</h1>
+
+    <p>Our platform does not provide services or advice in the following sectors due to legal and regulatory considerations:</p>
+
+    <ol className="list-decimal pl-6 mb-4">
+        <li>
+            <h2>Legal Matters:</h2>
+            <p>We do not offer legal advice; users should consult qualified legal professionals for any legal concerns.</p>
+        </li>
+        <li>
+            <h2>Medical and Healthcare:</h2>
+            <p>We do not provide medical diagnoses or treatment plans; users should seek guidance from licensed healthcare professionals.</p>
+        </li>
+        <li>
+            <h2>Financial and Investment:</h2>
+            <p>Specific investment advice is not provided; users should consult certified financial advisors for financial decisions.</p>
+        </li>
+        <li>
+            <h2>Psychiatric or Mental Health:</h2>
+            <p>Our platform does not substitute for professional therapy or counseling services; users should seek help from qualified mental health professionals.</p>
+        </li>
+        <li>
+            <h2>Real Estate Transactions:</h2>
+            <p>Advice on complex real estate transactions is not offered; users should consult real estate professionals for such matters.</p>
+        </li>
+        <li>
+            <h2>Immigration Consultation:</h2>
+            <p>We do not provide immigration advice; users should consult qualified immigration professionals for assistance.</p>
+        </li>
+        <li>
+            <h2>Child Custody and Family Law:</h2>
+            <p>Our platform does not offer advice on sensitive family matters; users should consult family law professionals for guidance.</p>
+        </li>
+        <li>
+            <h2>Employment and Labor Law:</h2>
+            <p>Employment-related advice is not provided; users should consult legal professionals for employment law matters.</p>
+        </li>
+        <li>
+            <h2>Intellectual Property:</h2>
+            <p>Guidance on intellectual property matters is not available; users should seek advice from intellectual property professionals.</p>
+        </li>
+        <li>
+            <h2>Criminal Law:</h2>
+            <p>Advice on criminal matters is not offered; users should consult qualified legal professionals for assistance.</p>
+        </li>
+    </ol>
 
     <p className="mb-4">By voluntarily accessing this website in any manner or purchasing and participating in counseling consultation sessions, you confirm that you have read, fully understand without exception, and take complete responsibility for this agreement. You agree to hold us and our counselors harmless from any liability or damages arising out of or related to your use of website services or information provided. Please carefully review all sections and contact us with any questions before taking actions such as scheduling appointments.</p>
 </div>

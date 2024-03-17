@@ -3,7 +3,7 @@ import React from 'react'
 const refund = () => {
   return (
     <div>
-        <div className="max-w-3xl mx-auto  p-6 mt-20 rounded-md shadow">
+        <div className="max-w-5xl mx-auto  p-6 mt-20 rounded-md shadow">
         <h1 className="text-3xl font-semibold mb-6">Refund Policy</h1>
 
         <p className="mb-4">Last Updated: January 29, 2024</p>

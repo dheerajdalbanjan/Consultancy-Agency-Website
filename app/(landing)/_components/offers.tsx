@@ -74,7 +74,7 @@ const Offers = () => {
                             Avail Offer
                           </button>
                         </DialogTrigger>
-                        <DialogContent className="mx-2 rounded-md w-fit p-8">
+                        <DialogContent className="mx-2 rounded-md min-w-[300px] w-fit p-5">
                           <DialogHeader>
                             <DialogTitle>Coupon Code</DialogTitle>
                             <DialogDescription>
@@ -99,7 +99,7 @@ const Offers = () => {
                             </Button>
                           </div>
                           <DialogFooter className="sm:justify-start w-full">
-                            <div className="w-full flex items-center justify-center space-x-3">
+                            <div className="w-full flex items-center justify-end space-x-3">
                             <DialogClose asChild>
                               <Button type="button" variant="secondary">
                                 Close

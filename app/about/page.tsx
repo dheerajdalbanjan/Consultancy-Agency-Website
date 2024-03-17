@@ -3,8 +3,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='min-h-screen max-w-7xl mx-auto px-7 mt-20' >
-      <h1 className='text-3xl sm:text-4xl md:text-5xl  my-4  antialiased font-bold'>About Us</h1>
+    <div className='min-h-screen max-w-5xl mx-auto px-7 mt-20' >
+      <h1 className='text-2xl sm:text-3xl md:text-4xl  my-4  antialiased font-bold'>About Us</h1>
       <ul className='text-base md:text-lg dark:font-thin list-disc'>
       <li>Get Support When You Need It Most.</li>
 
@@ -26,7 +26,7 @@ const page = () => {
 
 <li>Schedule your first appointment with one of our expert counselors, chatted live with us, call our office, or send us a message - we're always glad to hear from you and answer any of your questions. Your needs and your comfort are our number one priority. There's no need to work through things alone!</li>
 <div className='my-3 float-right'>
-  <p>Developed by <span className='px-2 py-0.5 rounded-full bg-emerald-600/20 '>Dheeraj Dalbanjan</span></p>
+  <p>Developed by <span className='px-2 py-0.5 rounded-full bg-emerald-300/20 '>Dheeraj Dalbanjan</span></p>
 </div>
     </ul>
     </div>

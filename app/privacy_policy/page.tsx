@@ -3,8 +3,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='min-h-screen max-w-7xl mx-auto px-7 mt-20' >
-      <h1 className='text-3xl sm:text-4xl md:text-5xl  my-4  antialiased font-bold'>Privacy Policy</h1>
+    <div className='min-h-screen max-w-5xl mx-auto px-7 mt-20' >
+      <h1 className='text-2xl sm:text-3xl md:text-4xl  my-4  antialiased font-bold'>Privacy Policy</h1>
       <ul className='text-base md:text-lg dark:font-thin list-disc'>
         <p>Last updated: December 20, 2023</p>
 
