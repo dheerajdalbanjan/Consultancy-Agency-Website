@@ -139,8 +139,8 @@ const Navbar = () => {
                 variant={"outline"}
                 className="rounded-full ml-3 p-0 active:scale-95 transition-all duration-300"
               >
-                <Avatar>
-                  <AvatarFallback>
+                <Avatar >
+                  <AvatarFallback >
                     {session.user?.name?.slice(0, 1)}
                   </AvatarFallback>
                 </Avatar>

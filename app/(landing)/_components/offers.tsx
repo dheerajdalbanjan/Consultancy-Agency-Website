@@ -32,6 +32,19 @@ import Image from "next/image";
 const Offers = () => {
   const offers = [
     {
+      title: "Sign Up offer", 
+      description:"Sign Up to Oursoulss and get 30 minutes session free,which can be used anytime after signup.", 
+      image:"https://i.ibb.co/JzmsFwP/the-convo-that-soothes-your-soul-3.jpg", 
+      coupon_code:"NEW_TO_OURSOULSS"
+    }, 
+    {
+      title: "World Downsyndrome Day Offer",
+      description:
+        "It is celebrated on March 21, first 18 minutes free till 1st of April",
+      image: "https://i.ibb.co/S0JWwTV/the-convo-that-soothes-your-soul-1.jpg",
+      coupon_code: "OURSOULSS_WDD",
+    },
+    {
       title: "World Happiness Day Offer",
       description:
         "It is celebrated on March 20, first 11 minutes free till 20th March",
