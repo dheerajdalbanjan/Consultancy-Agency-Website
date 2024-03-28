@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head'
 import { Dialog, DialogHeader } from '@/components/ui/dialog'
 import { DialogContent, DialogTitle } from '@radix-ui/react-dialog'
+import { useTheme } from 'next-themes'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -37,16 +38,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   // dark:from-neutral-900 dark:to-neutral-950
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={"min-h-screen w-full  dark:from-neutral-950 dark:to-neutral-900 bg-gradient-to-r from-neutral-50 to-neutral-100/100    m-0 "}>
+      <body className={"min-h-screen w-full  dark:from-neutral-950 dark:to-neutral-900     m-0 "} >
         
       <ThemeProvider
             attribute="class"
-            defaultTheme="system"
-            enableSystem
+            defaultTheme="system" 
             disableTransitionOnChange
-            storageKey='theme1'
+            enableSystem
+            key={'theme1'}
           >
             <AuthProvider>
           <Head>

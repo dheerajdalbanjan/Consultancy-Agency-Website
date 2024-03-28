@@ -44,7 +44,7 @@ const Navbar = () => {
     <div
       className={`bg-transparent ${
         scrolled
-          ? "filter backdrop-blur-xl border-b border-neutral-600"
+          ? "filter backdrop-blur-xl border-b border-neutral-300 dark:border-neutral-600"
           : "bg-transparent"
       } text-neutral-50 z-50 fixed top-0 h-16 flex items-center justify-between w-full  px-8 md:px-20 `}
     >
@@ -89,7 +89,7 @@ const Navbar = () => {
         
       </div>
       <div className="flex justify-center items-center space-x-4">
-        <div className="hidden md:flex justify-center items-start space-x-4">
+        <div className="hidden md:flex justify-center items-start space-x-4 text-neutral-700 dark:text-neutral-50">
         <a href="/about"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           About
         </div></a>
@@ -140,7 +140,7 @@ const Navbar = () => {
                 className="rounded-full ml-3 p-0 active:scale-95 transition-all duration-300"
               >
                 <Avatar >
-                  <AvatarFallback >
+                  <AvatarFallback className="" >
                     {session.user?.name?.slice(0, 1)}
                   </AvatarFallback>
                 </Avatar>

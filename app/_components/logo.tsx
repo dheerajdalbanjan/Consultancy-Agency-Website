@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Link href={'/'}  className='flex gap-x-1 items-center justify-center'>
       <Image src={'/logo.png'} className='text-center' alt='Logo' width={30} height={30} />
-      <p className='font-semibold text-xl antialiased font-sans'>OurSoulss</p>
+      <p className='font-semibold text-xl antialiased font-sans dark:text-neutral-50 text-neutral-900'>OurSoulss</p>
     </Link>
   )
 }

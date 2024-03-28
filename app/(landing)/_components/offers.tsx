@@ -44,13 +44,6 @@ const Offers = () => {
       image: "https://i.ibb.co/S0JWwTV/the-convo-that-soothes-your-soul-1.jpg",
       coupon_code: "OURSOULSS_WDD",
     },
-    {
-      title: "World Happiness Day Offer",
-      description:
-        "It is celebrated on March 20, first 11 minutes free till 20th March",
-      image: "https://i.ibb.co/m8hR7mm/Designer-3.png",
-      coupon_code: "OURSOULSS_WHD",
-    },
   ];
 
   return (
