@@ -47,7 +47,7 @@ const Offers = () => {
   ];
 
   return (
-    <div className="flex  flex-col md:flex-row gap-y-4 md:gap-y-7 md:justify-evenly items-center justify-center  py-6 px-7 max-w-5xl mx-auto">
+    <div className="flex  flex-col bg-dot-white/[0.09] md:flex-row gap-y-4 md:gap-y-7 md:justify-evenly items-center justify-center  py-6 px-7 max-w-5xl mx-auto">
       <h1 className="bg-clip-text bg-gradient-to-br  text-center my-2 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-bold  tracking-tight lg:text-5xl">
         Offers
       </h1>
@@ -62,7 +62,7 @@ const Offers = () => {
                       <CardTitle>{_.title}</CardTitle>
                       <CardDescription>{_.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="flex group-hover:opacity-70 group-hover:blur-sm transition-all aspect-square p-0 items-center justify-center relative   overflow-hidden">
+                    <CardContent className="flex group-hover:opacity-70 group-hover:blur-sm transition-all duration-300 ease-in-out aspect-square p-0 items-center justify-center relative   overflow-hidden">
                       <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-slate-50/10 z-10"></div>
                       <Image
                         src={_.image}

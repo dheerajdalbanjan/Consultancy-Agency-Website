@@ -49,10 +49,10 @@ const Features = () => {
                   <CardTitle>{e.title}</CardTitle>
                   <CardDescription className='truncate'>{e.description}</CardDescription>
                 </CardHeader>
-                <CardContent className='p-5 float-right'>
-                    <e.icon className='h-16 w-16'/>
+                <CardContent className=' float-right'>
+                    <e.icon className='h-16 w-16 mt-auto '/>
                 </CardContent>
-                <CardFooter className=' origin-bottom bg-background backdrop-blur dark:border-neutral-500 shadow-lg border-t rounded-md p-8 group-hover:bottom-0 absolute -bottom-56 transition-all duration-300'>
+                <CardFooter className=' origin-bottom bg-background backdrop-blur dark:border-neutral-500 shadow-lg h-full ease-in-out rounded-sm p-8 group-hover:bottom-0 absolute -bottom-56 transition-all duration-300'>
                   <p>{e.description}</p>
                 </CardFooter>
               </Card>
