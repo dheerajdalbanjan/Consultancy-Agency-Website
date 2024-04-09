@@ -18,6 +18,7 @@ import {
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
+import Affiliate from "./_components/affiliate";
 
 export default function Home() {
   const { data: session } = useSession();

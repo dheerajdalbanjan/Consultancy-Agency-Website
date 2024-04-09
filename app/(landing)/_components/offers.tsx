@@ -36,14 +36,7 @@ const Offers = () => {
       description:"Sign Up to Oursoulss and get 30 minutes session free,which can be used anytime after signup.", 
       image:"https://i.ibb.co/JzmsFwP/the-convo-that-soothes-your-soul-3.jpg", 
       coupon_code:"NEW_TO_OURSOULSS"
-    }, 
-    {
-      title: "World Downsyndrome Day Offer",
-      description:
-        "It is celebrated on March 21, first 18 minutes free till 1st of April",
-      image: "https://i.ibb.co/S0JWwTV/the-convo-that-soothes-your-soul-1.jpg",
-      coupon_code: "OURSOULSS_WDD",
-    },
+    }
   ];
 
   return (
@@ -63,7 +56,7 @@ const Offers = () => {
                       <CardDescription>{_.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="flex group-hover:opacity-70 group-hover:blur-sm transition-all duration-300 ease-in-out aspect-square p-0 items-center justify-center relative   overflow-hidden">
-                      <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-50 dark:from-neutral-950 to-slate-50/10 z-10"></div>
+                      <div className="h-full absolute top-0  w-full bg-gradient-to-b from-neutral-50  dark:from-neutral-950 to-slate-50/10 z-10"></div>
                       <Image
                         src={_.image}
                         alt="offer_image"

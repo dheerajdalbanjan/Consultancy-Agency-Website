@@ -57,7 +57,7 @@ const Pricing = ()=>{
 
     return (
         <div className="flex max-w-6xl w-full sm:w-auto mx-auto flex-col space-y-3 items-center justify-center">
-            <h2 className="text-3xl w-full sm:text-5xl text-center sm:text-start font-bold  antialiased mt-6 mb-3   list-disc ">Basic Pricing</h2>
+            <h2 className="text-3xl w-full sm:text-4xl text-center sm:text-start font-bold  antialiased mt-6 mb-3   list-disc ">Basic Pricing</h2>
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
