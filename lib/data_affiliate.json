@@ -1,6 +1,11 @@
 {
     "Books": [
       {
+        "title": "Books",
+        "link": "https://amzn.to/4aDgA0L",
+        "image_link": "https://m.media-amazon.com/images/I/51-78lFnmbL.SY445_SX342.jpg"
+      },
+      {
         "title": "Atomic Habits",
         "link": "https://amzn.to/4abea9D",
         "image_link": "https://m.media-amazon.com/images/I/81Ls+SBCLiL._SY466_.jpg"
@@ -98,6 +103,11 @@
     ],
     "Entertainment": [
       {
+        "title": "Entertainment",
+        "link": "https://amzn.to/4adMtwg",
+        "image_link": "https://m.media-amazon.com/images/I/81tSKivJd9L.SL1500.jpg"
+      },
+      {
         "title": "Prime Videos",
         "link": "https://amzn.to/4adMtwg",
         "image_link": "https://m.media-amazon.com/images/G/31/AmazonVideo/2021/X-site/SingleTitle/Tiger3/KisokCard_Tiger-3._CB561788681_.jpg"
@@ -130,6 +140,11 @@
     ],
     "Fashion": [
         {
+          "title": "Fashion",
+          "link": "https://amzn.to/3TUxfWx",
+          "image_link": "https://m.media-amazon.com/images/I/81OX+fVN6qL.SX679.jpg"
+        },
+        {
           "title": "Men's",
           "link": "https://amzn.to/3v4ZWI5",
           "image_link": "https://m.media-amazon.com/images/G/31/img21/MA2023/Winterflip/P0/Halo/Main/shirts._SS300_QL85_FMpng_.png"
@@ -161,6 +176,11 @@
         }
       ],
       "Accessories": [
+        {
+          "title": "Accessories",
+          "link": "https://amzn.to/3UhKemH",
+          "image_link": "https://m.media-amazon.com/images/I/51uEzGBLqmL.SY300_SX300.jpg"
+        },
         {
           "title": "Acupressure Health Care Product",
           "link": "https://amzn.to/4azM2Nd",
@@ -213,6 +233,11 @@
         }
       ],
       "Games": [
+        {
+          "title": "Games",
+          "link": "https://amzn.to/4404HiP",
+          "image_link": "https://m.media-amazon.com/images/I/513bKRn+lDL.SY300_SX300.jpg"
+        },
         {
           "title": "NSK Traders Corridor Board Game",
           "link": "https://amzn.to/4cn9L4T",
