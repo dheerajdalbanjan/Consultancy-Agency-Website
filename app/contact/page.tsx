@@ -149,8 +149,8 @@ const Page = () => {
         </div>
       }
       <div className='flex flex-col gap-y-2  my-4'>
-        <label className={cn(errors.message && 'text-red-500')}>Enter your message</label>
-        <Textarea className='bg-opacity-60' {...register('message')} placeholder='eg: I want to work with you guys' ></Textarea>
+        <label className={cn(errors.message && 'text-red-500')}>Describe your Problem</label>
+        <Textarea className='bg-opacity-60' {...register('message')} placeholder='eg: I want your assitance in the above category' ></Textarea>
         {errors.message && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.message.message}</span>}
       </div>
       </CardContent>

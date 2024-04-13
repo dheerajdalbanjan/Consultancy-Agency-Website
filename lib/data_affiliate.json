@@ -1,0 +1,348 @@
+{
+    "Books": [
+      {
+        "title": "Atomic Habits",
+        "link": "https://amzn.to/4abea9D",
+        "image_link": "https://m.media-amazon.com/images/I/81Ls+SBCLiL._SY466_.jpg"
+      },
+      {
+        "title": "THE 48 LAWS OF POWER",
+        "link": "https://amzn.to/3PqaI2x",
+        "image_link": "https://m.media-amazon.com/images/I/61J3Uu4jOLL._SY466_.jpg"
+      },
+      {
+        "title": "No Excuses!: The Power of Self-Discipline",
+        "link": "https://amzn.to/3PrlFk9",
+        "image_link": "https://m.media-amazon.com/images/I/51c9c61KkAL.jpg"
+      },
+      {
+        "title": "The Science of Self-Discipline",
+        "link": "https://amzn.to/48XlMej",
+        "image_link": "https://m.media-amazon.com/images/I/81A6gJs73QL._SY425_.jpg"
+      },
+      {
+        "title": "The Science of Self-Discipline",
+        "link": "https://amzn.to/4a0yuu3",
+        "image_link": "https://m.media-amazon.com/images/I/61EmJuMLJhL._SY425_.jpg"
+      },
+      {
+        "title": "The Science of Self-Learning",
+        "link": "https://amzn.to/3TjvLEX",
+        "image_link": "https://m.media-amazon.com/images/I/715gPXgw-6L._SY425_.jpg"
+      },
+      {
+        "title": "Pack of 3 Self Help Bookset for Adult - How to Win Friends and Influence People, Stop Worrying and Start Living, Develop Self Confidence and Influence People",
+        "link": "https://amzn.to/3VhIquN",
+        "image_link": "https://m.media-amazon.com/images/I/719hRn48EFL._SY425_.jpg"
+      },
+      {
+        "title": "Believe in Yourself",
+        "link": "https://amzn.to/3Tk2fPw",
+        "image_link": "https://m.media-amazon.com/images/I/51JoXgnIciL._SY466_.jpg"
+      },
+      {
+        "title": "You Can",
+        "link": "https://www.amazon.in/You-Can-George-Matthew-Adams/dp/9389931843",
+        "image_link": "https://m.media-amazon.com/images/I/61aJc8wQX4L._SY425_.jpg"
+      },
+      {
+        "title": "How to Talk to Anybody, Anytime, Anywhere",
+        "link": "https://amzn.to/3PkYM20",
+        "image_link": "https://m.media-amazon.com/images/I/51p8A+9AGlL.jpg"
+      },
+      {
+        "title": "Stop Overthinking",
+        "link": "https://amzn.to/49VCUT0",
+        "image_link": "https://m.media-amazon.com/images/I/81TwewImvVL._SY425_.jpg"
+      },
+      {
+        "title": "The Art of Being Alone",
+        "link": "https://amzn.to/3PqN8Cu",
+        "image_link": "https://m.media-amazon.com/images/I/61Ktyy7KymL._SY425_.jpg"
+      },
+      {
+        "title": "The Mountain Is You",
+        "link": "https://amzn.to/3x0TimD",
+        "image_link": "https://m.media-amazon.com/images/I/61xivWmExiL._SY466_.jpg"
+      },
+      {
+        "title": "Undaunted Hope",
+        "link": "https://amzn.to/3va1JeT",
+        "image_link": "https://m.media-amazon.com/images/I/81N4dALDDfL._SY466_.jpg"
+      },
+      {
+        "title": "The Power of Your Subconscious Mind",
+        "link": "https://amzn.to/3TgVPAB",
+        "image_link": "https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY466_.jpg"
+      },
+      {
+        "title": "Don't Believe Everything You Think",
+        "link": "https://amzn.to/49Xp3vA",
+        "image_link": "https://m.media-amazon.com/images/I/715qi-cIbML._SY466_.jpg"
+      },
+      {
+        "title": "It Didn't Start with You",
+        "link": "https://amzn.to/3ICzZm8",
+        "image_link": "https://m.media-amazon.com/images/I/71mczBxEiOL._SY466_.jpg"
+      },
+      {
+        "title": "The Body Keeps the Score",
+        "link": "https://amzn.to/3v3madv",
+        "image_link": "https://m.media-amazon.com/images/I/71-OnTj8N8L._SY466_.jpg"
+      },
+      {
+        "title": "Maybe You Should Talk to Someone",
+        "link": "https://amzn.to/492w1hf",
+        "image_link": "https://m.media-amazon.com/images/I/71-BB36A0WL._SY466_.jpg"
+      }
+    ],
+    "Entertainment": [
+      {
+        "title": "Prime Videos",
+        "link": "https://amzn.to/4adMtwg",
+        "image_link": "https://m.media-amazon.com/images/G/31/AmazonVideo/2021/X-site/SingleTitle/Tiger3/KisokCard_Tiger-3._CB561788681_.jpg"
+      },
+      {
+        "title": "OTT Platforms",
+        "link": "https://amzn.to/49QEoxM",
+        "image_link": "https://images-na.ssl-images-amazon.com/images/G/31/img18/AmazonDevices/Tank/Desktop_09.jpg"
+      },
+      {
+        "title": "TV Devices",
+        "link": "https://amzn.to/3To1e96",
+        "image_link": "https://m.media-amazon.com/images/I/41PBtmQUwUL.AC_SX250.jpg"
+      },
+      {
+        "title": "Amazon Music",
+        "link": "https://amzn.to/3Pr2neV",
+        "image_link": "https://m.media-amazon.com/images/G/31/digital/music/merch/India/2020/Weekly/gw/MLP/MLP_pc_VR_Aug23-02_01.jpg"
+      },
+      {
+        "title": "Movies & Games",
+        "link": "https://amzn.to/3x5MTX7",
+        "image_link": "https://m.media-amazon.com/images/I/71UXQnQPYkL._SX466_.jpg"
+      },
+      {
+        "title": "All Music",
+        "link": "https://amzn.to/3J0rce9",
+        "image_link": "https://m.media-amazon.com/images/I/71T+cV85cZL._AC_UL320_.jpg"
+      }
+    ],
+    "Fashion": [
+        {
+          "title": "Men's",
+          "link": "https://amzn.to/3v4ZWI5",
+          "image_link": "https://m.media-amazon.com/images/G/31/img21/MA2023/Winterflip/P0/Halo/Main/shirts._SS300_QL85_FMpng_.png"
+        },
+        {
+          "title": "Women's",
+          "link": "https://amzn.to/3TBB7g2",
+          "image_link": "https://m.media-amazon.com/images/I/91P903sshaL._AC_UF226,226_FMjpg_.jpg"
+        },
+        {
+          "title": "Women's Shoes",
+          "link": "https://amzn.to/3TORk1P",
+          "image_link": "https://m.media-amazon.com/images/G/31/img21/shoes/2024/SS24/Women/Halo/Artboard_1_copy._CB561771898_.png"
+        },
+        {
+          "title": "All Women's Fashion",
+          "link": "https://amzn.to/3vf5RKq",
+          "image_link": "https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Halo/main/V1/beauty._SS300_QL85_FMpng_.png"
+        },
+        {
+          "title": "Men's Watches",
+          "link": "https://amzn.to/3PpaSXG",
+          "image_link": "https://m.media-amazon.com/images/G/31/img21/Watches2024/Feb/Categorypage/Hero/PC/7._CB581348226_.jpg"
+        },
+        {
+          "title": "Men's Shoes",
+          "link": "https://amzn.to/3TFkfFe",
+          "image_link": "https://m.media-amazon.com/images/G/31/img21/shoes/2024/SS24/MS/Halo/Artboard_1_copy_2._CB561289076_.png"
+        }
+      ],
+      "Accessories": [
+        {
+          "title": "Acupressure Health Care Product",
+          "link": "https://amzn.to/4azM2Nd",
+          "image_link": "https://m.media-amazon.com/images/I/71BUcHm6FXL._SX679_.jpg"
+        },
+        {
+          "title": "BoldHealth Eye Mask",
+          "link": "https://amzn.to/3IEmC4K",
+          "image_link": "https://m.media-amazon.com/images/I/61x+Ye8UoBL._SX679_.jpg"
+        },
+        {
+          "title": "Health Max Tm Relaxing Gel Eye Mask",
+          "link": "https://amzn.to/3Poo0MK",
+          "image_link": "https://m.media-amazon.com/images/I/41JAGntSb5L._SX679_.jpg"
+        },
+        {
+          "title": "Fitness A",
+          "link": "https://amzn.to/4cjB2Vx",
+          "image_link": "https://m.media-amazon.com/images/I/41LfeK7ogiL._AC_UL320_.jpg"
+        },
+        {
+          "title": "Yoga A",
+          "link": "https://amzn.to/3TDZV7d",
+          "image_link": "https://images-eu.ssl-images-amazon.com/images/G/31/img16/Sports/Yoga-Day/Store/yoga-mats.jpg"
+        },
+        {
+          "title": "Strength Training",
+          "link": "https://amzn.to/3wYjyhp",
+          "image_link": "https://m.media-amazon.com/images/I/41jyglRcuvL._SR480,440_.jpg"
+        },
+        {
+          "title": "Cardio Equipment",
+          "link": "https://amzn.to/3v5BVk5",
+          "image_link": "https://m.media-amazon.com/images/I/31zAh1niosL._SR480,440_.jpg"
+        },
+        {
+          "title": "All Exercise and Fitness",
+          "link": "https://amzn.to/48XenM2",
+          "image_link": "https://images-eu.ssl-images-amazon.com/images/G/31/Sports/EnFRevmap/Topbanner/New/new-banner-GIF-1500x300.gif"
+        },
+        {
+          "title": "All Sport Fitness & Outdoor",
+          "link": "https://amzn.to/3TmHu5v",
+          "image_link": "https://m.media-amazon.com/images/G/31/img23/Sports/March/Sports_Store/Halo/Updated/Cricket._SS400_QL85_.jpg"
+        },
+        {
+          "title": "Musical Instruments & Professional Audio",
+          "link": "https://amzn.to/4cmkfBA",
+          "image_link": "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Musical-Inst/1500x200_mi_Header.jpg"
+        }
+      ],
+      "Games": [
+        {
+          "title": "NSK Traders Corridor Board Game",
+          "link": "https://amzn.to/4cn9L4T",
+          "image_link": "https://m.media-amazon.com/images/I/51KPG1DijiL._SX300_SY300_QL70_FMwebp_.jpg"
+        },
+        {
+          "title": "Cubelelo Drift 3M 3X3 (Magnetic)",
+          "link": "https://amzn.to/3IG0kzL",
+          "image_link": "https://m.media-amazon.com/images/I/61Vmx3hmiwL._SX679_.jpg"
+        },
+        {
+          "title": "Cubelelo QiYi QiDi S 2x2",
+          "link": "https://amzn.to/3Tk2Vo2",
+          "image_link": "https://m.media-amazon.com/images/I/610yCtxYZSL._SX679_.jpg"
+        },
+        {
+          "title": "VGRASSP Plastic High Speed and Stability Pyraminx Stickerless Triangle Cube Puzzle (Multicolour)",
+          "link": "https://amzn.to/3PozVdF",
+          "image_link": "https://m.media-amazon.com/images/I/61x3J95+u7L._SX679_.jpg"
+        },
+        {
+          "title": "Webby Holy City Varanasi Jigsaw Puzzle",
+          "link": "https://amzn.to/3TDNLLs",
+          "image_link": "https://m.media-amazon.com/images/I/9175zxCc2QL._SY879_.jpg"
+        },
+        {
+          "title": "Frank Neuschwanstein Castle Jigsaw Puzzle (1000 Pieces)",
+          "link": "https://amzn.to/3veHPiN",
+          "image_link": "https://m.media-amazon.com/images/I/91zAZmWzCgL._SX679_.jpg"
+        },
+        {
+          "title": "Webby Old Delhi Wooden Jigsaw Puzzle",
+          "link": "https://amzn.to/49X6x6l",
+          "image_link": "https://m.media-amazon.com/images/I/91tEyLGEIrL._SX679_.jpg"
+        },
+        {
+          "title": "Galison Michael Storrings Paris 1000 Piece Puzzle",
+          "link": "https://amzn.to/3x5KiMR",
+          "image_link": "https://m.media-amazon.com/images/I/91O9z0sEo0L._SX679_.jpg"
+        },
+        {
+          "title": "VGRASSP Building Blocks",
+          "link": "https://amzn.to/3wUEiqd",
+          "image_link": "https://m.media-amazon.com/images/I/71M85iqF5pL._SX679_.jpg"
+        },
+        {
+          "title": "SARTHAM Junior Techno",
+          "link": "https://amzn.to/4cmTywj",
+          "image_link": "https://m.media-amazon.com/images/I/71IUdHUdRkL._SX679_.jpg"
+        },
+        {
+          "title": "LEGO Minecraft The Creeper Ambush",
+          "link": "https://amzn.to/3wVWC2h",
+          "image_link": "https://m.media-amazon.com/images/I/81VAZXEkD-L._SX679_.jpg"
+        },
+        {
+          "title": "LEGO Speed Champions 2 Fast 2 Furious Nissan Skyline GT-R (R34)",
+          "link": "https://amzn.to/49X9aVF",
+          "image_link": "https://m.media-amazon.com/images/I/81sLYhG76pL._SX679_.jpg"
+        },
+        {
+          "title": "LEGO Star Wars Boba Fett Mech 75369 Building Toy Set (155 Pieces),Multicolor",
+          "link": "https://amzn.to/49X97Jt",
+          "image_link": "https://m.media-amazon.com/images/I/91S4WEYSibL._SX679_.jpg"
+        },
+        {
+          "title": "LEGO Technic Racing Plane 42117 Building Kit (154 Pcs),Multicolor",
+          "link": "https://amzn.to/3IJ1fzv",
+          "image_link": "https://m.media-amazon.com/images/I/81RYutM0DuL._SX679_.jpg"
+        },
+        {
+          "title": "BCBESTCHESS Wooden Handcrafted Foldable Magnetic Chess Board Set",
+          "link": "https://amzn.to/3TmO0JD",
+          "image_link": "https://m.media-amazon.com/images/I/41tL-YKukHL.jpg"
+        },
+        {
+          "title": "ToyTastic Magnetic Educational Chess Board Set with Folding Chess Board",
+          "link": "https://amzn.to/4cjzOcT",
+          "image_link": "https://m.media-amazon.com/images/I/41Vlp3njadL.jpg"
+        },
+        {
+          "title": "StonKraft 17'' x 17'' Tournament Chess Vinyl Foldable Chess Game",
+          "link": "https://amzn.to/4cmTPzl",
+          "image_link": "https://m.media-amazon.com/images/I/817KScqHWyL._SX679_.jpg"
+        },
+        {
+          "title": "RATNA'S Classic Strategy Game Little Snakes and Ladders with Ludo 2 In 1",
+          "link": "https://amzn.to/3PnRjiB",
+          "image_link": "https://m.media-amazon.com/images/I/61B+X13q-5L._SX679_.jpg"
+        },
+        {
+          "title": "Toy Imagine™ Tumbling Tower Game",
+          "link": "https://amzn.to/3x5KHPn",
+          "image_link": "https://m.media-amazon.com/images/I/61yEvHHViTL._SX679_.jpg"
+        },
+        {
+          "title": "Funskool Games - Strike 4, Classic disc Dropping Game",
+          "link": "https://amzn.to/49VqIBL",
+          "image_link": "https://m.media-amazon.com/images/I/71gx-kLhFfL._SX679_.jpg"
+        }
+      ], 
+      "Electronics": [
+        {
+          "title": "Home Theater, TV, Videos",
+          "link": "https://amzn.to/3II3J0Q",
+          "image_link": "https://m.media-amazon.com/images/I/51KRZeM21GL._SY445_SX342_QL70_FMwebp_.jpg"
+        },
+        {
+          "title": "E-Reader",
+          "link": "https://amzn.to/3TEv9es",
+          "image_link": "https://m.media-amazon.com/images/I/61hDt0NjOQL._SY450_.jpg"
+        },
+        {
+          "title": "All E-Reader",
+          "link": "https://amzn.to/43l4CG9",
+          "image_link": "https://images-eu.ssl-images-amazon.com/images/G/31/img19/AmazonDevices/SLICESPC-Kindle-CategoryPage_01.jpg"
+        },
+        {
+          "title": "All Electronics",
+          "link": "https://amzn.to/43odlrq",
+          "image_link": "https://m.media-amazon.com/images/I/51KRZeM21GL._SY445_SX342_QL70_FMwebp_.jpg"
+        },
+        {
+          "title": "Night Lamps for Bedroom",
+          "link": "https://amzn.to/3Prjmh8",
+          "image_link": "https://m.media-amazon.com/images/I/51KRZeM21GL._SY445_SX342_QL70_FMwebp_.jpg"
+        }
+      ]
+      
+            
+      
+  }
+  

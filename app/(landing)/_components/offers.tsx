@@ -46,7 +46,7 @@ const Offers = () => {
       </h1>
       <div className="preview flex min-h-[350px] w-full justify-center p-5 items-center">
         <Carousel className=" max-w-xs w-full ">
-          <CarouselContent>
+          <CarouselContent >
             {offers.map((_, index) => (
               <CarouselItem key={index}>
                 <div className="p-1 ">

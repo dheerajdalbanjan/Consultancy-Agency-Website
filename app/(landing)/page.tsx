@@ -45,6 +45,7 @@ export default function Home() {
     <main className="h-full bg-dot-white/[0.03]">
       <Hero />
       <Offers />
+      <Affiliate />
       <Pricing />
       <Features />
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 

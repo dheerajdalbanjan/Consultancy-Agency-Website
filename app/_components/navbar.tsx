@@ -42,9 +42,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`bg-transparent ${
+      className={`bg-neutral-800 bg-opacity-70 ${
         scrolled
-          ? "filter backdrop-blur-xl border-b border-neutral-300 dark:border-neutral-600"
+          ? "filter backdrop-blur-xl  border-b border-neutral-300 dark:border-neutral-600"
           : "bg-transparent"
       } text-neutral-50 z-50 fixed top-0 h-16 flex items-center justify-between w-full  px-8 md:px-20 `}
     >
@@ -69,6 +69,7 @@ const Navbar = () => {
                   <a href={"/about"}>About</a>
                   <a href={"/contact"}>Contact</a>
                   <a href="/pricing">Pricing</a>
+                  <a href="/affiliate">Affiliate</a>
                 </div>
                 {!session && (
                   <div className="flex items-center justify-between mt-auto gap-x-4 ml-auto">
@@ -99,6 +100,10 @@ const Navbar = () => {
         <a href="/pricing"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Pricing
         </div></a>
+        <a href="/affiliate"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
+          Affiliate
+        </div></a>
+        
 
         
         </div>
