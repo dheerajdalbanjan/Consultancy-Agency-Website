@@ -18,18 +18,18 @@ const page = () => {
         Our Products
       </h1>
 
-      <div className="overflow-hidden w-full">
-        <Tabs defaultValue={"Books"} className=" pl-8 md:pl-0 mx-auto my-10 ">
-          <TabsList className="overflow-x-auto">
+      <div className=" w-full">
+        <Tabs defaultValue={"Books"} className=" pl-8 md:pl-0 mx-auto my-10 overflow-x-scroll ">
+          <TabsList className="">
             {Object.keys(data).map((e, i) => (
-              <TabsTrigger className="rounded-full px-6" key={i} value={e}>
+              <TabsTrigger className="rounded-full  px-6" key={i} value={e}>
                 {e}
               </TabsTrigger>
             ))}
           </TabsList>
           {Object.keys(data).map((e, i) => (
             <TabsContent value={e} key={i}>
-              <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5 my-5 items-center justify-center space-x-3">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-5 my-5 items-center justify-center md:space-x-3">
                 {data[e].map((p: { [x: string]: string | undefined; }, pi: React.Key | null | undefined) => (
                   <div key={pi} className="flex-none w-80 md:w-72">
                     <Card className="overflow-hidden relative group shadow-lg hover:shadow-2xl rounded-none">
