@@ -61,7 +61,7 @@ const Pricing = ()=>{
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
-                        <Card key={i} className="!w-full  md:w-auto  relative overflow-hidden">
+                        <Card key={i} className="!w-full !bg-[#09090b] md:w-auto  relative overflow-hidden">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.type}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>

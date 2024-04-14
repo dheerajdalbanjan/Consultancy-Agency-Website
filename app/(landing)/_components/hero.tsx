@@ -8,7 +8,7 @@ import React from 'react'
 const Hero = () => {
   const router = useRouter() ; 
   return (
-    <div className='flex flex-col gap-y-4 md:gap-y-7 bg-[#0C0C0C] bg-grid-white/[0.03]   items-center justify-center p-6 pt-20 mx-auto '>
+    <div className='flex flex-col gap-y-4 md:gap-y-7 bg-[#09090b] bg-grid-white/[0.03]   items-center justify-center p-6 pt-20 mx-auto '>
         <h2 className='text-3xl sm:text-4xl md:text-5xl max-w-xl my-4 text-center antialiased font-bold'>Your Feelings Matter, You’re Not Alone</h2>
         <Button variant={'outline'} className='rounded-full px-8 !py-0.5 !bg-transparent'>We here | We Console | We Support</Button>
         <h4 className='md:text-lg  text-base font-light text-center max-w-xl'>OurSoulss provides friendly counseling and emotional support, offering guidance in stress management, relationship advice, and career coaching. Join our community for understanding and comfort during challenging times</h4>
