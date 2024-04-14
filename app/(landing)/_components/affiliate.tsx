@@ -9,7 +9,7 @@ import Image from "next/image";
 import React from "react";
 import data from "../../../lib/data_affiliate.json";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Affiliate = () => {
   const products: any = data;
@@ -67,26 +67,28 @@ const Affiliate = () => {
             </div>
           ))}
         </div>
-        <button
-          className="hidden absolute  top-0 bottom-0 left-0 bg-gray-900 bg-opacity-50 text-white p-2 md:flex items-center justify-center transform -translate-x-full  transition-transform duration-300 focus:outline-none"
+        <Button
+          variant={'outline'}
+          className="hidden absolute rounded-full top-[42%] -left-2 h-8 w-8 bg-gray-900 bg-opacity-50 text-white p-2 md:flex items-center justify-center transform -translate-x-full  transition-transform duration-300 focus:outline-none"
           onClick={() =>
             document
               .getElementById("scrollContainer")
               ?.scrollBy({ left: -300, behavior: "smooth" })
           }
         >
-          {"<"}
-        </button>
-        <button
-          className="hidden absolute top-0 bottom-0 right-0 bg-gray-900 bg-opacity-50 text-white p-2 md:flex items-center justify-center transform translate-x-full  transition-transform duration-300 focus:outline-none"
+          <ArrowLeft size={24} />
+        </Button>
+        <Button
+          variant={'outline'}
+          className="hidden absolute rounded-full top-[42%]  -right-2 h-8 w-8 bg-gray-900 bg-opacity-50 text-white p-2 md:flex items-center justify-center transform translate-x-full  transition-transform duration-300 focus:outline-none"
           onClick={() =>
             document
               .getElementById("scrollContainer")
               ?.scrollBy({ left: 300, behavior: "smooth" })
           }
         >
-          {">"}
-        </button>
+          <ArrowRight size={24}/>
+        </Button>
       </div>
       <a href="/affiliate"><Button size={'lg'} variant={'outline'} className='group rounded-full transition ease py-0.5 my-2 mx-auto max-w-fit duration-500'>
             Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
