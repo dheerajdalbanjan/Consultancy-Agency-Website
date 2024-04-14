@@ -35,17 +35,19 @@ const page = () => {
           <div className="md:hidden">
           <Select >
             <SelectTrigger className="w-[180px] focus:outline-none focus:ring-0">
-              <SelectValue placeholder="Book" />
+              <SelectValue placeholder="Books" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup >
                 <TabsList className="flex flex-col h-full ">
                   {Object.keys(data).map((e, i) => (
-                    <SelectItem value={e} key={i}>
-                      <TabsTrigger className="rounded-full  px-6" value={e}>
+                    
+                    <TabsTrigger key={i} className="rounded-full  px-6" value={e}>
+                    <SelectItem value={e} className="!bg-transparent" >
                         {e}
-                      </TabsTrigger>
                     </SelectItem>
+                    
+                    </TabsTrigger>
                   ))}
                 </TabsList>
               </SelectGroup>
