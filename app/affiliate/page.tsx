@@ -39,7 +39,7 @@ const page = () => {
             </SelectTrigger>
             <SelectContent>
               <SelectGroup >
-                <TabsList className="flex flex-col h-full ">
+                <TabsList className="flex flex-col h-full !bg-transparent">
                   {Object.keys(data).map((e, i) => (
                     
                     <TabsTrigger key={i} className="rounded-full  px-6" value={e}>
