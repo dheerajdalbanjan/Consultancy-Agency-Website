@@ -78,7 +78,7 @@ const page = () => {
                       key={i}
                       className="shadow-xl overflow-visible w-full  md:w-72 p-0 bg-transparent relative"
                     >
-                      <CardHeader className="md:h-64 md:w-64   w-full aspect-square">
+                      <CardHeader className="md:w-72   w-full aspect-square">
                         <Image
                           src={p["image_link"] || ""}
                           alt=""
@@ -91,8 +91,8 @@ const page = () => {
                           }}
                         />
                       </CardHeader>
-                      <CardContent>
-                        <CardTitle className="truncate text-lg">{p["title"]}</CardTitle>
+                      <CardContent className="pt-0">
+                        <CardTitle className="truncate mt-0">{p["title"]}</CardTitle>
                       </CardContent>
                       <CardFooter className="w-full flex items-center justify-between my-0">
                         <Badge variant={"outline"}>{e}</Badge>

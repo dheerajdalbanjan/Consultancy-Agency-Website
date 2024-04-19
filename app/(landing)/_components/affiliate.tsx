@@ -67,15 +67,15 @@ const Affiliate = () => {
             //   </Card>
             // </div>
             <Card key={i} className="shadow-xl overflow-visible w-full  md:w-64 p-0 bg-transparent relative" >
-              <CardHeader className="md:h-60 md:w-64  h-72 overflow-visible">
+              <CardHeader className="md:h-60 md:w-64  w-full aspect-square">
                 <Image
                   src={products[e][0]["image_link"]}
                   alt=""
                   height={300}
                   width={300}
-                  className="object-fill absolute -top-7 left-0 scale-90 rounded-md shadow-xl"
+                  className="object-fill absolute aspect-square w-full -top-7 left-0 scale-90 rounded-md shadow-xl"
                   style={{
-                    aspectRatio: "300/300",
+                    aspectRatio: "",
                     objectFit: "cover",
                   }}
                 />
