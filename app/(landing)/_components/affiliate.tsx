@@ -27,8 +27,8 @@ const Affiliate = () => {
         >
           {Object.keys(products).map((e, i) => (
             <div key={i} className="flex-none w-80">
-              <Card className="overflow-hidden relative group shadow-lg hover:shadow-2xl rounded-none">
-                <CardHeader className="flex justify-between py-5 rounded-b-md z-10 absolute top-0 bg-neutral-900 filter bg-opacity-80 backdrop-blur-lg w-full">
+              <Card className="overflow-hidden relative group shadow-lg hover:shadow-2xl rounded-xl">
+                <CardHeader className="flex justify-between py-5 rounded-b-md rounded-t-none z-10 absolute top-0 bg-neutral-900 filter bg-opacity-80 backdrop-blur-lg w-full">
                   <CardTitle className="w-fit flex text-base">
                     {products[e][0]["title"]}
                   </CardTitle>

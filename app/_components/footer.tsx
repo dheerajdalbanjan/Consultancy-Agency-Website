@@ -14,9 +14,9 @@ const Footer = () => {
           </a>
           . All Rights Reserved
         </span>
-        <p className="w-72 text-justify py-1 px-5 mt-3 text-sm sm:mt-0 bg-neutral-900 rounded">
-          EWS-3, Near Police Station, Navanagar, 2nd Bus Stop,
-          Gamanagatti Road, Hubballi
+        <p className="w-72  py-1 px-5 mt-3 text-sm sm:mt-0 bg-neutral-900 rounded">
+          <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss04@gmail.com" className="underline block">oursoulss04@gmail.com</a> EWS-3, Near Police Station,
+          Navanagar, 2nd Bus Stop, Gamanagatti Road, Hubballi
         </p>
         <div className="flex space-x-5 items-center  justify-around">
           {Object.keys(social).map((e, i) => (
