@@ -5,7 +5,7 @@ import { socialIcons } from "./socialicons";
 const Footer = () => {
   const social = socialIcons;
   return (
-    <div className="flex flex-col justify-between items-center md:px-12 py-6 border-t dark:border-gray-600 static bottom-0 mt-20 ">
+    <div className="flex flex-col justify-between items-center md:px-24 py-6 border-t dark:border-gray-600 static bottom-0 mt-20 ">
       <div className="flex flex-col  sm:flex-row items-center justify-between   w-full">
         <span className="text-base text-neutral-100 antialiased p-5">
         <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss04@gmail.com" className="underline block">oursoulss04@gmail.com</a> EWS-3, Near Police Station,

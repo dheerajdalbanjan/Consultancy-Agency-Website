@@ -68,7 +68,7 @@ const page = () => {
           </TabsList>
           {Object.keys(data).map((e, i) => (
             <TabsContent value={e} key={i}>
-              <div className="grid grid-cols-1 py-5  space-y-5 md:grid-cols-4 w-full gap-5 my-5 items-center justify-center md:space-y-5 ">
+              <div className="grid grid-cols-1 py-5  gap-y-9 md:gap-x-5 md:grid-cols-4 w-full  my-5 items-center justify-center  ">
                 {data[e].map(
                   (
                     p: { [x: string]: string | undefined },
@@ -76,15 +76,17 @@ const page = () => {
                   ) => (
                     <Card
                       key={i}
-                      className="shadow-xl overflow-visible w-full  md:w-72 p-0 bg-transparent relative"
+                      style={{backgroundImage:`url(${p["image_link"]})`, backgroundSize:'cover'}}
+                      className="shadow-xl group overflow-visible w-full rounded-xl  md:w-72 p-0 bg-transparent relative"
                     >
-                      <CardHeader className="md:w-72   w-full aspect-square">
+                      <div className="backdrop-blur-2xl h-full !rounded-lg bg-black bg-opacity-70 ">
+                      <CardHeader className="md:w-72 rounded-lg  w-full aspect-square">
                         <Image
                           src={p["image_link"] || ""}
                           alt=""
                           height={300}
                           width={300}
-                          className="object-fill absolute -top-7 aspect-square w-full left-0 scale-90 rounded-md shadow-xl"
+                          className="object-fill absolute group-hover:-top-2 group-hover:scale-100 transition-all duration-300 ease-in-out -top-7 aspect-square w-full left-0 scale-90 rounded-md shadow-xl"
                           style={{
                             aspectRatio: "",
                             objectFit: "cover",
@@ -94,12 +96,13 @@ const page = () => {
                       <CardContent className="pt-0">
                         <CardTitle className="truncate mt-0">{p["title"]}</CardTitle>
                       </CardContent>
-                      <CardFooter className="w-full flex items-center justify-between my-0">
+                      <CardFooter className="w-full flex items-center justify-between  my-0">
                         <Badge variant={"outline"}>{e}</Badge>
                         <a href={p["link"]}>
                           <Button>Buy now</Button>
                         </a>
                       </CardFooter>
+                      </div>
                     </Card>
                   )
                 )}
