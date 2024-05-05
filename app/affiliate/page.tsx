@@ -86,7 +86,7 @@ const page = () => {
                           alt=""
                           height={300}
                           width={300}
-                          className="object-fill absolute group-hover:-top-2 group-hover:scale-100 transition-all duration-300 ease-in-out -top-7 aspect-square w-full left-0 scale-90 rounded-md shadow-xl"
+                          className="object-fill absolute group-hover:-top-2 group-hover:scale-100 transition-all duration-300 ease-in-out -top-7 aspect-square w-full left-0 scale-90 rounded-xl shadow-xl"
                           style={{
                             aspectRatio: "",
                             objectFit: "cover",

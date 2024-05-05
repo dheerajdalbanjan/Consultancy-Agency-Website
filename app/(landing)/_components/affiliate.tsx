@@ -66,7 +66,7 @@ const Affiliate = () => {
             //     </CardFooter>
             //   </Card>
             // </div>
-            <Card key={i} style={{backgroundImage:`url(${products[e][0]["image_link"]})`, backgroundSize:'cover'}} className="shadow-xl group  overflow-visible w-full  md:w-64 p-0 bg-opacity-80 backdrop-blur-xl rounded-lg relative" >
+            <Card key={i} style={{backgroundImage:`url(${products[e][0]["image_link"]})`, backgroundSize:'cover'}} className="shadow-xl rounded-xl group  overflow-visible w-full  md:w-64 p-0 bg-opacity-80 backdrop-blur-xl  relative" >
               <div className="backdrop-blur-2xl h-full !rounded-lg bg-black bg-opacity-70 ">
               <CardHeader className="md:h-60 md:w-64  w-full aspect-square ">
                 <Image
@@ -74,7 +74,7 @@ const Affiliate = () => {
                   alt=""
                   height={300}
                   width={300}
-                  className="object-fill group-hover:-top-4 group-hover:scale-100 transition-all duration-300 ease-in-out absolute aspect-square w-full -top-7 left-0 scale-90 rounded-md shadow-xl"
+                  className="object-fill group-hover:-top-4 group-hover:scale-100 transition-all duration-300 ease-in-out absolute aspect-square w-full -top-7 left-0 scale-90 rounded-xl shadow-xl"
                   style={{
                     aspectRatio: "",
                     objectFit: "cover",

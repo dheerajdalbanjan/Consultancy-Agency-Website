@@ -45,9 +45,9 @@ export default function Home() {
     <main className="h-full bg-dot-white/[0.03]">
       <Hero />
       <Offers />
-      <Affiliate />
       <Pricing />
       <Features />
+      <Affiliate />
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
         setPopupshowed(true) ;}}>
         <DialogContent className="mx-1 rounded-md w-fit p-8">

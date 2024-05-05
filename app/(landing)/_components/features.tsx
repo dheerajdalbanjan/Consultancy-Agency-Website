@@ -40,9 +40,9 @@ const Features = () => {
     ];
     
   return (
-    <div className='flex flex-col gap-y-4 md:gap-y-7   justify-center p-6 max-w-6xl mx-auto '>
-        <h2 className='text-3xl sm:text-start sm:ml-2 sm:text-4xl md:text-5xl max-w-xl my-4 text-center antialiased font-bold tracking-tight'>Features </h2>
-        <div className='flex items-center justify-center md:gap-x-5 p-2 flex-col md:flex-row gap-y-4 md:gap-y-0' > 
+    <div className='flex flex-col gap-y-4 md:gap-y-7   justify-center py-6 max-w-6xl mx-auto '>
+        <h2 className='text-2xl sm:text-start  sm:text-3xl md:text-4xl max-w-xl my-4 text-center antialiased font-bold tracking-tight'>Features </h2>
+        <div className='flex items-center w-full justify-between md:gap-x-5 flex-col md:flex-row gap-y-4 md:gap-y-0' > 
             {features.map((e, i)=>
                 <Card key={i} className='!bg-transparent w-full h-56 md:w-64 relative group overflow-hidden cursor-pointer '>
                 <CardHeader >

@@ -16,17 +16,16 @@ import { z } from "zod";
 
 const formSchema = z
   .object({
-    name: z.string().min(5).max(50),
+    name: z.string().min(5, {message: "Name field should contain minimum 5 characters"}).max(50),
     email: z.string().email(),
     password: z
       .string()
-      .length(8, { message: "The password must be of length 8" }),
+      .min(8, { message: "The password must contain minimum 8 characters" }),
     confirmPass: z
-      .string()
-      .length(8, { message: "The password must be of length 8" }),
+      .string(),
   })
   .refine((data) => data.confirmPass === data.password, {
-    message: "password and confirm password do not match",
+    message: "Password did not match",
     path: ["confirmPass"],
   });
 
@@ -117,7 +116,7 @@ const Signup = () => {
             <Input
               {...register("password")}
               type="password"
-              placeholder="eg: virat kohli"
+              placeholder="eg: virat@18"
             />
             {errors.password && (
               <span className="text-[0.9rem] text-red-500 antialised">
@@ -132,7 +131,7 @@ const Signup = () => {
             <Input
               {...register("confirmPass")}
               type="password"
-              placeholder="eg: virat kohli"
+              placeholder="eg: virat@18"
             />
             {errors.confirmPass && (
               <span className="text-[0.9rem] text-red-500 antialised">

@@ -17,7 +17,7 @@ import { CardContent, CardFooter } from '@/components/ui/card'
 
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().length(8, { message: "The password must be of length 8" })
+  password: z.string().length(8, { message: "The password must be of minimum 8 characters" })
 })
 
 
@@ -67,7 +67,7 @@ const Login = () => {
         </div>
         <div className='flex flex-col gap-y-2  my-4'>
           <label className={cn(errors.password && 'text-red-500')}>Password</label>
-          <Input  {...register('password')} type='password' placeholder='eg: virat kohli' />
+          <Input  {...register('password')} type='password' placeholder='eg: virat@18' />
           {errors.password && <span className="text-[0.9rem] text-red-500  antialised">{errors.password.message}</span>}
         </div>
         <Link href='signup' className='text-right  text-sm py-5 '>
