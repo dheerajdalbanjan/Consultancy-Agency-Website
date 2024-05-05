@@ -13,7 +13,7 @@ const layout = ({children} : {children: ReactNode})=>{
     //   </div>
     // </div>
     // </div>
-    <Card  className='max-w-[550px] sm:mx-auto p-2 !mt-24 md:p-3 my-12 mx-5 bg-dot-white/[0.03]'>
+    <Card  className='max-w-[550px] sm:mx-auto p-2 !mt-24 md:p-3 my-12 mx-5 !bg-transparent bg-dot-white/[0.03]'>
       <CardHeader>
         <CardTitle className='capitalize'>Contact</CardTitle>
         <CardDescription>Contact Us, our team will reach you as soon as possible</CardDescription>

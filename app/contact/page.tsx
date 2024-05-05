@@ -154,8 +154,8 @@ const Page = () => {
         {errors.message && <span className="text-[0.9rem] ml-1 text-red-500 antialised">{errors.message.message}</span>}
       </div>
       </CardContent>
-      <CardFooter>
-      {success && <div className='py-2'>
+      <CardFooter className='flex flex-col'>
+      {success && <div className='py-2 w-full '>
         <Formsuccess msg="Successfully sent to the team"></Formsuccess>
       </div>}
       <div className='w-full '>
