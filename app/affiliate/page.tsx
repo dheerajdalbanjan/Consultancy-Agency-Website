@@ -31,7 +31,7 @@ const page = () => {
       <div className=" w-full">
         <Tabs
           defaultValue={"Books"}
-          className=" px-5 md:pl-0 mx-auto my-10  "
+          className=" px-5 rounded-full md:pl-0 mx-auto my-10  "
           orientation="horizontal"
         >
           <div className="md:hidden">
@@ -59,7 +59,7 @@ const page = () => {
               </SelectContent>
             </Select>
           </div>
-          <TabsList className="hidden md:block w-fit">
+          <TabsList className="hidden md:block rounded-full w-fit">
             {Object.keys(data).map((e, i) => (
               <TabsTrigger className="rounded-full  px-6" key={i} value={e}>
                 {e}
@@ -68,7 +68,7 @@ const page = () => {
           </TabsList>
           {Object.keys(data).map((e, i) => (
             <TabsContent value={e} key={i}>
-              <div className="grid grid-cols-1 py-5  gap-y-9 md:gap-x-5 md:grid-cols-4 w-full  my-5 items-center justify-center  ">
+              <div className="grid grid-cols-1 py-5  gap-y-11 md:gap-x-5 md:grid-cols-4 w-full  my-5 items-center justify-center  ">
                 {data[e].map(
                   (
                     p: { [x: string]: string | undefined },

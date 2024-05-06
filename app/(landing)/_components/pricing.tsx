@@ -13,36 +13,37 @@ const Pricing = ()=>{
         {
             type: "Starter",
             Package: "15 Minute Session Package",
-            Price: "₹39",
+            Price: "₹99",
             SessionsIncluded: "1 session",
             SessionLength: "15 mins",
-            CounselorMatching: "Assigned based on needs"
+            CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Starter",
+            type: "Starter +",
             Package: "30 Minute Session Package",
-            Price: "₹69",
-            SessionsIncluded: "1 sessions",
+            Price: "₹199",
+            SessionsIncluded: "1 session",
             SessionLength: "30 mins",
-            CounselorMatching: "Assigned based on needs"
+            CounselorMatching: "with non-professional counseling"
         },
         {
             type: "Add On",
             Package: "15 Minute Add-On",
-            Price: "₹24/session",
+            Price: "₹49/session",
             SessionsIncluded: null,
             SessionLength: "15 minutes",
-            CounselorMatching: null
+            CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Add On",
+            type: "Add On +",
             Package: "30 Minute Add-On",
-            Price: "₹45/session",
+            Price: "₹99/session",
             SessionsIncluded: null,
             SessionLength: "30 minutes",
-            CounselorMatching: null
+            CounselorMatching: "with non-professional counseling"
         }
     ];
+    
 
     function handleClick() {
         console.log("taslaskjdf")

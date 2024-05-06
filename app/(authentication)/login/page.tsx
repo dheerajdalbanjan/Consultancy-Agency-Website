@@ -17,15 +17,17 @@ import { CardContent, CardFooter } from '@/components/ui/card'
 
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().length(8, { message: "The password must be of minimum 8 characters" })
+  password: z.string()
 })
 
 
 
 const Login = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<z.infer<typeof formSchema>>({
+  const { register, handleSubmit, formState: { errors }, reset ,watch } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
   })
+
+  console.log(watch().email)
 
   const [loading , setLoading] = useState(false) ;
   const [success, setSuccess] = useState(false) ;
@@ -73,6 +75,7 @@ const Login = () => {
         <Link href='signup' className='text-right  text-sm py-5 '>
           New to OurSoulss <span className='underline'>SignUp</span>
         </Link>
+        <a href={`forgotpassword${watch().email ? '?email=' + watch().email : ''}`} className='text-blue-500 antialiased float-right text-sm underline'>forgot password</a>
 
         {
           error && <Formerror error={error}></Formerror>
@@ -82,6 +85,7 @@ const Login = () => {
       </div>}
       </CardContent>
       <CardFooter>
+        
       <Button type='submit' className='w-full' disabled={loading?true:false} >
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
             Login</Button>

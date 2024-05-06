@@ -7,15 +7,18 @@ const Footer = () => {
   return (
     <div className="flex flex-col justify-between items-center md:px-24 py-6 border-t dark:border-gray-600 static bottom-0 mt-20 ">
       <div className="flex flex-col  sm:flex-row items-center justify-between   w-full">
-        <span className="text-base text-neutral-100 antialiased p-5">
+        <div className="w-full p-5 ">
+          <h3 className="text-2xl antialiased my-2 font-semibold">Contact Information</h3>
+        <span className="text-base text-neutral-100 antialiased ">
         <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss04@gmail.com" className="underline block">oursoulss04@gmail.com</a> EWS-3, Near Police Station,
           Navanagar, 2nd Bus Stop, Gamanagatti Road, Hubballi
-          <p className="text-neutral-200">Copyright ©{" "}
+          <p className="text-neutral-400 text-sm my-1">Copyright ©{" "}
           <a className="underline" href="/">
             oursoulss.com
           </a>
           . All Rights Reserved</p>
         </span>
+        </div>
         
         <div className="flex space-x-5 items-center  justify-around">
           {Object.keys(social).map((e, i) => (

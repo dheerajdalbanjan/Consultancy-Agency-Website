@@ -12,63 +12,66 @@ const Pricing = () => {
         {
             type: "Starter",
             Package: "15 Minute Session Package",
-            Price: "₹39",
+            Price: "₹99",
             SessionsIncluded: "1 session",
             SessionLength: "15 mins",
-            CounselorMatching: "Assigned based on needs"
+            CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Starter",
+            type: "Starter +",
             Package: "30 Minute Session Package",
-            Price: "₹69",
-            SessionsIncluded: "1 sessions",
+            Price: "₹199",
+            SessionsIncluded: "1 session",
             SessionLength: "30 mins",
-            CounselorMatching: "Assigned based on needs"
+            CounselorMatching: "with non-professional counseling"
         },
         {
             type: "Add On",
             Package: "15 Minute Add-On",
-            Price: "₹24/session",
+            Price: "₹49/session",
             SessionsIncluded: null,
             SessionLength: "15 minutes",
-            CounselorMatching: null
+            CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Add On",
+            type: "Add On +",
             Package: "30 Minute Add-On",
-            Price: "₹45/session",
+            Price: "₹99/session",
             SessionsIncluded: null,
             SessionLength: "30 minutes",
-            CounselorMatching: null
+            CounselorMatching: "with non-professional counseling"
         }
     ];
     let monthly = [
         {
-            name: "1 Month Subscription",
-            price: "Rs. 199/-",
-            sessions_included: "14 phone sessions",
+            name: "MONTHLY Plus",
+            price: "Rs. 349/-",
+            sessions_included: "1 Month Subscription",
             session_length: "50 minutes each",
-            counselor_matching: "Assigned based on your needs and preferences",
+            no_of_sessions: "14 phone sessions",
+            counselor_matching: "with professional counseling",
             access_term: "1 month from purchase date"
         },
         {
-            name: "3 Month Subscription",
-            price: "Rs. 349/- (Save Rs. 50)",
-            sessions_included: "29 phone sessions",
+            name: "MONTHLY Pro",
+            price: "Rs. 499/- (Save Rs. 150)",
+            sessions_included: "3 Month Subscription",
             session_length: "50 minutes each",
-            counselor_matching: "Assigned based on your needs and preferences",
+            no_of_sessions: "29 phone sessions",
+            counselor_matching: "with professional counseling",
             access_term: "3 months from purchase date"
         },
         {
-            name: "6 Month Subscription",
-            price: "Rs. 599/- (Save Rs. 100)",
-            sessions_included: "49 phone sessions",
+            name: "MONTHLY Premium",
+            price: "Rs. 799/- (Save Rs. 300)",
+            sessions_included: "6 Month Subscription",
             session_length: "50 minutes each",
-            counselor_matching: "Assigned based on your needs and preferences",
+            no_of_sessions: "49 phone sessions",
+            counselor_matching: "with professional counseling",
             access_term: "6 months from purchase date"
         }
     ];
-
+    
     function handleClick() {
         console.log("taslaskjdf")
         // toast({
