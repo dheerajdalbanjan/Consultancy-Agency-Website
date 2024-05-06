@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { CardContent, CardFooter } from "@/components/ui/card";
+import Formerror from "@/components/ui/formerror";
 import Formsuccess from "@/components/ui/formsuccess";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -33,6 +34,7 @@ const Page = () => {
     const [verify, setVerify] = useState(false) ;
     const [actualPin, setActualPin] = useState('') ;
     const router = useRouter() ;
+    const [error, setError] = useState(false) ;
   const {
     register,
     handleSubmit,
@@ -42,12 +44,12 @@ const Page = () => {
     setValue
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues:{email: email?email:'', pin: '123456', password:'12345678', confirmPass:'12345678'}
+    defaultValues:{email: email?email:'', pin: '000000', password:'12345678', confirmPass:'12345678'}
   });
 
   const submi = async (value: z.infer<typeof formSchema>)=>{
     const {email, pin, password} = value ; 
-    if(pin == '123456')
+    if(pin == '000000')
     {setValue('pin', '') 
     setLoading(true) ;
     try {
@@ -74,7 +76,7 @@ const Page = () => {
 
         }
 
-        else {
+        else if(verify){
             setLoading(true) ;
             const res = await fetch('/api/changepassword', {
                 method: "POST",
@@ -86,8 +88,13 @@ const Page = () => {
             const data = await res.json() ;
             console.log(data) ; 
             setSuccess(true)
+            setError(false)
             setLoading(false)
             router.push('/login') ;
+        }
+
+        if(pin != actualPin){
+            setError(true)
         }
     }
   }
@@ -108,7 +115,7 @@ const Page = () => {
             />
             {errors.email && (
               <span className="text-[0.9rem] text-red-500  antialised">
-                {errors.email.message}
+                {errors.email?.message}
               </span>
             )}
           </div>}
@@ -158,7 +165,8 @@ const Page = () => {
           </div></>}
           
         {success && <Formsuccess  msg="Successfully updated password"/>}
-        {click && !verify && <Formsuccess msg="Checkout your email for pin"/> }
+        {click && !verify && !error && <Formsuccess msg="Checkout your email for pin"/> }
+        {error && <Formerror error="Incorrect Pin" />}
         </CardContent>
 
 
