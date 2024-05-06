@@ -47,7 +47,6 @@ const Page = () => {
 
   const submi = async (value: z.infer<typeof formSchema>)=>{
     const {email, pin, password} = value ; 
-    console.log(email) ; 
     if(pin == '123456')
     {setValue('pin', '') 
     setLoading(true) ;
@@ -60,7 +59,6 @@ const Page = () => {
             body: JSON.stringify({ email: email}),
           });
         const data = await res.json() ;
-        console.log(data.pin)
         setActualPin(data.pin) ;
     } catch (error) {
         console.log(error)
@@ -160,6 +158,7 @@ const Page = () => {
           </div></>}
           
         {success && <Formsuccess  msg="Successfully updated password"/>}
+        {click && !verify && <Formsuccess msg="Checkout your email for pin"/> }
         </CardContent>
 
 

@@ -44,33 +44,37 @@ const Pricing = () => {
     ];
     let monthly = [
         {
-            name: "MONTHLY Plus",
-            price: "Rs. 349/-",
+            name: "MONTHLY Silver",
+            price: "Rs. 799/-",
+            discounted_price: "Rs. 599/-",
             sessions_included: "1 Month Subscription",
-            session_length: "50 minutes each",
-            no_of_sessions: "14 phone sessions",
+            session_length: "40 minutes each",
+            no_of_sessions: "4 phone sessions",
             counselor_matching: "with professional counseling",
             access_term: "1 month from purchase date"
         },
         {
-            name: "MONTHLY Pro",
-            price: "Rs. 499/- (Save Rs. 150)",
+            name: "MONTHLY Gold",
+            price: "Rs. 1399/-",
+            discounted_price: "Rs. 1199/-",
             sessions_included: "3 Month Subscription",
-            session_length: "50 minutes each",
-            no_of_sessions: "29 phone sessions",
+            session_length: "40 minutes each",
+            no_of_sessions: "13 phone sessions",
             counselor_matching: "with professional counseling",
             access_term: "3 months from purchase date"
         },
         {
-            name: "MONTHLY Premium",
-            price: "Rs. 799/- (Save Rs. 300)",
+            name: "MONTHLY Platinum",
+            price: "Rs. 1799/-",
+            discounted_price: "Rs. 1599/-",
             sessions_included: "6 Month Subscription",
-            session_length: "50 minutes each",
-            no_of_sessions: "49 phone sessions",
+            session_length: "40 minutes each",
+            no_of_sessions: "25 phone sessions",
             counselor_matching: "with professional counseling",
             access_term: "6 months from purchase date"
         }
     ];
+    
     
     function handleClick() {
         console.log("taslaskjdf")

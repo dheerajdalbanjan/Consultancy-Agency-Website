@@ -10,12 +10,10 @@ const Footer = () => {
         <div className="w-full p-5 ">
           <h3 className="text-2xl antialiased my-2 font-semibold">Contact Information</h3>
         <span className="text-base text-neutral-100 antialiased ">
-        <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss04@gmail.com" className="underline block">oursoulss04@gmail.com</a> EWS-3, Near Police Station,
-          Navanagar, 2nd Bus Stop, Gamanagatti Road, Hubballi
+        <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss04@gmail.com" className="underline block">oursoulss04@gmail.com</a> PLOT NO - 88, C.I.T.B Gamanagatti , Navanagar Hubballi - 580025
           <p className="text-neutral-400 text-sm my-1">Copyright ©{" "}
-          <a className="underline" href="/">
-            oursoulss.com
-          </a>
+          
+            Oursoulss.com
           . All Rights Reserved</p>
         </span>
         </div>
