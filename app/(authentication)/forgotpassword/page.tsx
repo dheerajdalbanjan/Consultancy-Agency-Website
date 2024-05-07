@@ -70,6 +70,8 @@ const Page = () => {
     else {
         if(!verify && pin == actualPin){
             console.log('success')
+            setValue('password', '');
+            setValue('confirmPass', '')
             setLoading(true) ; 
             setVerify(true)
             setLoading(false) ;

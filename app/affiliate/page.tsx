@@ -91,6 +91,7 @@ const page = () => {
                             aspectRatio: "",
                             objectFit: "cover",
                           }}
+                          loading="lazy"
                         />
                       </CardHeader>
                       <CardContent className="pt-0">

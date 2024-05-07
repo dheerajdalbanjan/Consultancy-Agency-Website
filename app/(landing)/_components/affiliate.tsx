@@ -79,6 +79,7 @@ const Affiliate = () => {
                     aspectRatio: "",
                     objectFit: "cover",
                   }}
+                  loading="lazy"
                 />
                 
               </CardHeader>

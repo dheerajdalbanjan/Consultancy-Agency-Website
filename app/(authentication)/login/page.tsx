@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { ReloadIcon } from "@radix-ui/react-icons"
@@ -27,18 +27,18 @@ const Login = () => {
     resolver: zodResolver(formSchema)
   })
 
-  console.log(watch().email)
 
   const [loading , setLoading] = useState(false) ;
   const [success, setSuccess] = useState(false) ;
   const router = useRouter()
 
-  const [error, setError] = useState('')
+  const [error, setError] = useState('') ;
+  const route = useSearchParams() ;
+  const callback_url = route.get('callbackUrl')
 
   const submitt = async (value: z.infer<typeof formSchema>) => {
     const { email, password } = value;
     try {
-      console.log('tryingto lognin')
       setLoading(true)
       const res = await signIn("credentials", {email, password,redirect:false})
       console.log(res?.status)
@@ -48,11 +48,12 @@ const Login = () => {
         setLoading(false)
         return
       }
+
       setSuccess(true)
       setLoading(false)
       
 
-      router.replace('/')
+      router.replace(callback_url || '/')
       console.log('success')
     } catch (error) {
       console.log('error')
