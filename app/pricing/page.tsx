@@ -10,7 +10,8 @@ const Pricing = () => {
     const [open, setOpen] = useState(false);
     var pricing = [
         {
-            type: "Starter",
+            type: "Starter Plus",
+            mode: "starter",
             Package: "15 Minute Session Package",
             Price: "₹99",
             SessionsIncluded: "1 session",
@@ -18,7 +19,8 @@ const Pricing = () => {
             CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Starter +",
+            type: "Starter Pro",
+            mode: "starter",
             Package: "30 Minute Session Package",
             Price: "₹199",
             SessionsIncluded: "1 session",
@@ -26,7 +28,8 @@ const Pricing = () => {
             CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Add On",
+            type: "Add On Plus",
+            mode: "add on",
             Package: "15 Minute Add-On",
             Price: "₹49/session",
             SessionsIncluded: null,
@@ -34,7 +37,8 @@ const Pricing = () => {
             CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Add On +",
+            type: "Add On Pro",
+            mode: "add on",
             Package: "30 Minute Add-On",
             Price: "₹99/session",
             SessionsIncluded: null,
@@ -45,6 +49,7 @@ const Pricing = () => {
     let monthly = [
         {
             name: "MONTHLY Silver",
+            aprice: "Rs. 599",
             price: "Rs. 799/-",
             discounted_price: "Rs. 599/-",
             sessions_included: "1 Month Subscription",
@@ -55,6 +60,7 @@ const Pricing = () => {
         },
         {
             name: "MONTHLY Gold",
+            aprice: "Rs. 1199",
             price: "Rs. 1399/-",
             discounted_price: "Rs. 1199/-",
             sessions_included: "3 Month Subscription",
@@ -65,7 +71,8 @@ const Pricing = () => {
         },
         {
             name: "MONTHLY Platinum",
-            price: "Rs. 1799/-",
+            aprice: "Rs. 599",
+            price: "Rs. 1599/-",
             discounted_price: "Rs. 1599/-",
             sessions_included: "6 Month Subscription",
             session_length: "40 minutes each",
@@ -97,19 +104,23 @@ const Pricing = () => {
             <div className="flex flex-col l  md:flex-row my-5 items-center justify-start p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i) => (
-                        <Card key={i} className="!w-full !bg-transparent  md:w-auto  relative overflow-hidden">
-                            <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.type}</p>
-                            <CardHeader>
-                                <CardTitle>{e.Price}</CardTitle>
-                                <CardDescription>{e.Package}</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p>Session Length: <span className="px-2 text-center py-0.5 text-base rounded-xl bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</span></p>
-                            </CardContent>
-                            <CardFooter >
-                                <Button className="w-full " onClick={handleClick}>Buy now</Button>
-                            </CardFooter>
-                        </Card>
+                        <Card key={i} className="!w-full !bg-[#09090b] md:w-auto shadow-lg shadow-emerald-950/60 relative overflow-hidden">
+                        <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
+                        <CardHeader>
+                            <CardTitle>{e.Price}</CardTitle>
+                            <CardDescription>
+                                <p className="text-lg text-neutral-100">{e.type}</p>
+                                <p>{e.Package}</p>
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="">
+                            <p>Session Length: <p className="px-2 text-sm inline-flex text-center py-0.5  rounded-full bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</p></p>
+                            <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
+                        </CardContent>
+                        <CardFooter >
+                            <Button className="w-full " onClick={handleClick}>Buy now</Button>
+                        </CardFooter>
+                    </Card>
                     ))
                 }
             </div>
@@ -118,15 +129,20 @@ const Pricing = () => {
             <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     monthly.map((e, i) => (
-                        <Card key={i} className="!w-full !bg-transparent md:w-auto  relative overflow-hidden">
+                        <Card key={i} className="!w-full !bg-transparent md:w-auto  relative overflow-hidden shadow-lg shadow-indigo-950/50">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-indigo-100 via-indigo-300 to-indigo-500 rotate-45 text-neutral-950  text-[13px] uppercase">monthly</p>
                             <CardHeader>
-                                <CardTitle>{e.price}</CardTitle>
+                                <CardTitle className="flex ">
+                                    <h2>{e.price}</h2>
+                                    <h4 className="text-rose-700 ml-2 line-through text-lg font-semibold">{e.aprice}</h4>
+                                </CardTitle>
                                 <CardDescription>{e.name}</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>Session Length: <span className="px-2 text-center py-0.5 text-base rounded-xl  bg-neutral-100 dark:bg-neutral-700">{e.session_length}</span></p>
-                                <p>No. Of Sessions: <span className="px-2 text-center py-0.5 text-base rounded-xl font-thin">{e.sessions_included}</span></p>
+                                <p>Session Length: <span className="px-2 text-center text-sm py-0.5  rounded-xl  bg-neutral-100 inline-flex  dark:bg-neutral-700">{e.session_length}</span></p>
+                                <p>Sessions Included: <span className="px-2 text-center py-0.5 text-sm rounded-xl font-thin">{e.sessions_included}</span></p>
+                                <p>No. Of Sessions: <span className="px-2 text-center py-0.5 text-sm rounded-xl font-thin">{e.no_of_sessions}</span></p>
+                                <p>Access term: <span className="px-2 text-center py-0.5 text-sm rounded-xl font-thin">{e.access_term}</span></p>
 
                             </CardContent>
                             <CardFooter >

@@ -11,7 +11,8 @@ const Pricing = ()=>{
     const [open, setOpen] = useState(false);
     var pricing = [
         {
-            type: "Starter",
+            type: "Starter Plus",
+            mode: "starter",
             Package: "15 Minute Session Package",
             Price: "₹99",
             SessionsIncluded: "1 session",
@@ -19,7 +20,8 @@ const Pricing = ()=>{
             CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Starter +",
+            type: "Starter Pro",
+            mode: "starter",
             Package: "30 Minute Session Package",
             Price: "₹199",
             SessionsIncluded: "1 session",
@@ -27,7 +29,8 @@ const Pricing = ()=>{
             CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Add On",
+            type: "Add On Plus",
+            mode: "add on",
             Package: "15 Minute Add-On",
             Price: "₹49/session",
             SessionsIncluded: null,
@@ -35,7 +38,8 @@ const Pricing = ()=>{
             CounselorMatching: "with non-professional counseling"
         },
         {
-            type: "Add On +",
+            type: "Add On Pro",
+            mode: "add on",
             Package: "30 Minute Add-On",
             Price: "₹99/session",
             SessionsIncluded: null,
@@ -62,14 +66,18 @@ const Pricing = ()=>{
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
-                        <Card key={i} className="!w-full !bg-[#09090b] md:w-auto  relative overflow-hidden">
-                            <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.type}</p>
+                        <Card key={i} className="!w-full !bg-[#09090b] md:w-auto shadow-lg shadow-emerald-950/60 relative overflow-hidden">
+                            <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>
-                                <CardDescription>{e.Package}</CardDescription>
+                                <CardDescription>
+                                    <p className="text-lg text-neutral-100">{e.type}</p>
+                                    <p>{e.Package}</p>
+                                </CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                <p>Session Length: <span className="px-2 text-center py-0.5 text-base rounded-xl bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</span></p>
+                            <CardContent className="">
+                                <p>Session Length: <p className="px-2 text-sm inline-flex text-center py-0.5  rounded-full bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</p></p>
+                                <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
                             </CardContent>
                             <CardFooter >
                                 <Button className="w-full " onClick={handleClick}>Buy now</Button>

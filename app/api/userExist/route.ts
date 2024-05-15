@@ -8,7 +8,10 @@ export async function POST(req: Request){
         console.log(email)
         await connectMongo(); 
         const use = await User.findOne({email}).select("_id") ;
-        console.log(use)
+
+
+        // const rand = await User.find().select("email") ;
+        // console.log(rand)
         return NextResponse.json({user:use}) ;
         
     } catch (error) {
