@@ -49,8 +49,8 @@ const Pricing = () => {
     let monthly = [
         {
             name: "MONTHLY Silver",
-            aprice: "Rs. 599",
-            price: "Rs. 799/-",
+            aprice: "Rs. 599/-",
+            price: "Rs. 799",
             discounted_price: "Rs. 599/-",
             sessions_included: "1 Month Subscription",
             session_length: "40 minutes each",
@@ -60,8 +60,8 @@ const Pricing = () => {
         },
         {
             name: "MONTHLY Gold",
-            aprice: "Rs. 1199",
-            price: "Rs. 1399/-",
+            aprice: "Rs. 1199/-",
+            price: "Rs. 1399",
             discounted_price: "Rs. 1199/-",
             sessions_included: "3 Month Subscription",
             session_length: "40 minutes each",
@@ -71,8 +71,8 @@ const Pricing = () => {
         },
         {
             name: "MONTHLY Platinum",
-            aprice: "Rs. 599",
-            price: "Rs. 1599/-",
+            aprice: "Rs. 1599/-",
+            price: "Rs. 1799",
             discounted_price: "Rs. 1599/-",
             sessions_included: "6 Month Subscription",
             session_length: "40 minutes each",
