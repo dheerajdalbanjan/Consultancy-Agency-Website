@@ -133,8 +133,8 @@ const Pricing = () => {
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-indigo-100 via-indigo-300 to-indigo-500 rotate-45 text-neutral-950  text-[13px] uppercase">monthly</p>
                             <CardHeader>
                                 <CardTitle className="flex ">
-                                    <h2>{e.price}</h2>
-                                    <h4 className="text-rose-700 ml-2 line-through text-lg font-semibold">{e.aprice}</h4>
+                                    <h2>{e.aprice}</h2>
+                                    <h4 className="text-rose-700 ml-2 line-through text-lg font-semibold">{e.price}</h4>
                                 </CardTitle>
                                 <CardDescription>{e.name}</CardDescription>
                             </CardHeader>
