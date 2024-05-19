@@ -101,80 +101,50 @@
         "image_link": "https://m.media-amazon.com/images/I/71-BB36A0WL._SY466_.jpg"
       }
     ],
-    "Entertainment": [
+    "Fitness": [
+      
       {
-        "title": "Entertainment",
-        "link": "https://amzn.to/4adMtwg",
-        "image_link": "https://m.media-amazon.com/images/I/81tSKivJd9L.SL1500.jpg"
+        "title": "MuscleBlaze Biozyme Daily Multivitamin",
+        "link": "https://amzn.to/3xZ64CD",
+        "image_link": "https://m.media-amazon.com/images/I/617mgmqdClL._SX679_.jpg"
       },
       {
-        "title": "Prime Videos",
-        "link": "https://amzn.to/4adMtwg",
-        "image_link": "https://m.media-amazon.com/images/G/31/AmazonVideo/2021/X-site/SingleTitle/Tiger3/KisokCard_Tiger-3._CB561788681_.jpg"
+        "title": "Bigmuscles Nutrition Creatine Powder",
+        "link": "https://amzn.to/3WFjBcU",
+        "image_link": "https://m.media-amazon.com/images/I/71C81WqZJeL._SX679_.jpg"
       },
       {
-        "title": "OTT Platforms",
-        "link": "https://amzn.to/49QEoxM",
-        "image_link": "https://images-na.ssl-images-amazon.com/images/G/31/img18/AmazonDevices/Tank/Desktop_09.jpg"
+        "title": "MuscleBlaze Omega 3 Fish Oil",
+        "link": "https://amzn.to/3UlPq7O",
+        "image_link": "https://m.media-amazon.com/images/I/61UllcK4EGL._SX679_.jpg"
       },
       {
-        "title": "TV Devices",
-        "link": "https://amzn.to/3To1e96",
-        "image_link": "https://m.media-amazon.com/images/I/41PBtmQUwUL.AC_SX250.jpg"
+        "title": "MuscleBlaze Biozyme Performance Whey Protein",
+        "link": "https://amzn.to/3wdJw0o",
+        "image_link": "https://m.media-amazon.com/images/I/61X8v7-HscL._SX679_.jpg"
       },
       {
-        "title": "Amazon Music",
-        "link": "https://amzn.to/3Pr2neV",
-        "image_link": "https://m.media-amazon.com/images/G/31/digital/music/merch/India/2020/Weekly/gw/MLP/MLP_pc_VR_Aug23-02_01.jpg"
+        "title": "MuscleBlaze Creatine Monohydrate",
+        "link": "https://amzn.to/49Zb0or",
+        "image_link": "https://m.media-amazon.com/images/I/61d46iSqUHL._SX679_.jpg"
       },
       {
-        "title": "Movies & Games",
-        "link": "https://amzn.to/3x5MTX7",
-        "image_link": "https://m.media-amazon.com/images/I/71UXQnQPYkL._SX466_.jpg"
+        "title": "MuscleBlaze Pre Workout 200 Xtreme, 200mg",
+        "link": "https://amzn.to/4b5xdSG",
+        "image_link": "https://m.media-amazon.com/images/I/71NCeC1rD8L._SX679_.jpg"
       },
       {
-        "title": "All Music",
-        "link": "https://amzn.to/3J0rce9",
-        "image_link": "https://m.media-amazon.com/images/I/71T+cV85cZL._AC_UL320_.jpg"
+        "title": "Koshaveda by MuscleBlaze Summer Shilajit Resin",
+        "link": "https://amzn.to/4aTVk7a",
+        "image_link": "https://m.media-amazon.com/images/I/61N66Ui3i9L._SX679_.jpg"
+      },
+      {
+        "title": "MuscleBlaze BCAA Gold 8:1:1",
+        "link": "https://amzn.to/4aZ2B5B",
+        "image_link": "https://m.media-amazon.com/images/I/61yZvWDOoaL._SX679_.jpg"
       }
     ],
-    "Fashion": [
-        {
-          "title": "Fashion",
-          "link": "https://amzn.to/3TUxfWx",
-          "image_link": "https://m.media-amazon.com/images/I/81OX+fVN6qL.SX679.jpg"
-        },
-        {
-          "title": "Men's",
-          "link": "https://amzn.to/3v4ZWI5",
-          "image_link": "https://m.media-amazon.com/images/G/31/img21/MA2023/Winterflip/P0/Halo/Main/shirts._SS300_QL85_FMpng_.png"
-        },
-        {
-          "title": "Women's",
-          "link": "https://amzn.to/3TBB7g2",
-          "image_link": "https://m.media-amazon.com/images/I/91P903sshaL._AC_UF226,226_FMjpg_.jpg"
-        },
-        {
-          "title": "Women's Shoes",
-          "link": "https://amzn.to/3TORk1P",
-          "image_link": "https://m.media-amazon.com/images/G/31/img21/shoes/2024/SS24/Women/Halo/Artboard_1_copy._CB561771898_.png"
-        },
-        {
-          "title": "All Women's Fashion",
-          "link": "https://amzn.to/3vf5RKq",
-          "image_link": "https://m.media-amazon.com/images/G/31/img24/Fashion/AF/Flip/Springsummerflip/Halo/main/V1/beauty._SS300_QL85_FMpng_.png"
-        },
-        {
-          "title": "Men's Watches",
-          "link": "https://amzn.to/3PpaSXG",
-          "image_link": "https://m.media-amazon.com/images/G/31/img21/Watches2024/Feb/Categorypage/Hero/PC/7._CB581348226_.jpg"
-        },
-        {
-          "title": "Men's Shoes",
-          "link": "https://amzn.to/3TFkfFe",
-          "image_link": "https://m.media-amazon.com/images/G/31/img21/shoes/2024/SS24/MS/Halo/Artboard_1_copy_2._CB561289076_.png"
-        }
-      ],
+
       "Accessories": [
         {
           "title": "Accessories",

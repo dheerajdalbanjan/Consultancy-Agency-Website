@@ -74,7 +74,7 @@ const Affiliate = () => {
                   alt=""
                   height={300}
                   width={300}
-                  className="object-fill group-hover:-top-4 group-hover:scale-100 transition-all duration-300 ease-in-out absolute aspect-square w-full -top-7 left-0 scale-90 rounded-xl shadow-xl"
+                  className="object-fill   absolute aspect-square w-full -top-7 left-0 scale-90 rounded-xl shadow-xl"
                   style={{
                     aspectRatio: "",
                     objectFit: "cover",
@@ -84,9 +84,9 @@ const Affiliate = () => {
                 
               </CardHeader>
               <CardContent>
-              <CardTitle>{products[e][0]["title"]}</CardTitle>
+              <CardTitle className="truncate">{products[e][0]["title"]}</CardTitle>
               </CardContent>
-              <CardFooter className="w-full flex items-center pb-3 justify-between my-0">
+              <CardFooter className="w-full flex items-center pb-5 justify-between my-0">
                 <Badge variant={"outline"}>{e}</Badge>
                 <a href={products[e][0]['link']}><Button>Buy now</Button></a>
               </CardFooter>
