@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -41,9 +41,13 @@ const Page = () => {
   const pricing = router.get("pricing");
   const offer = router.get("offer");
 
-  if (offer!?.length > 0) {
-    setCoupon(true);
-  }
+  useEffect(() => {
+    if (offer && offer.length > 0) {
+      setCoupon(true);
+    }
+  }, [offer]);
+
+
   const { toast } = useToast();
   const {
     register,
