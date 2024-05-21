@@ -84,7 +84,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen py-20 px-8 max-w-6xl mx-auto md:px-24 ">
+    <div className="min-h-screen pt-20 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
       {loading && <div className='fixed inset-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-lg flex items-center justify-center '>
 
 <LoaderIcon className='animate-spin' />
