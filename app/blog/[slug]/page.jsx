@@ -5,13 +5,13 @@ import { Badge } from '@/components/ui/badge';
 import { LoaderIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import Markdown from 'react-markdown';
-var ColorThief = require('colorthief');
+import ColorThief from 'colorthief'
 
 
-const Page = ({ params }: { params: { slug: string } }) => {
+const Page = ({ params }) => {
     const [loading, setLoading] = useState(true)
 
-    const [data, setData]: any = useState() ;
+    const [data, setData]= useState() ;
 
 
     useEffect(()=>{
@@ -33,10 +33,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
         // Handle error
       });
 
-      handleLoading();
     }, [])
 
-    const delay = (ms: any) => new Promise(resolve => setTimeout(resolve, ms));
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
     const handleLoading = async () => {
@@ -45,7 +44,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
       };
 
 
-    const imageLoad = (e: any)=>{
+    const imageLoad = (e)=>{
         const element = e.target.parentNode.nextElementSibling ;
         const imgnext = e.target.nextElementSibling ;
         const colorThief = new ColorThief();
@@ -55,6 +54,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
         element.style.background = gradien; 
         console.log(imgnext)
         imgnext.style.background = gradien1 ;
+
+
+        setLoading(false)
 
     }
 
@@ -66,15 +68,15 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </div>}
         <div className='max-w-4xl mx-auto px-8 md:px-0'>
             <h1 className='text-3xl md:text-4xl font-bold my-5 antialiased text-neutral-200'>{data?.title}</h1>
-            <div className='  w-full relative  overflow-hidden'>
-                <img src={data?.image} crossOrigin='anonymous' onLoad={imageLoad} className='w-full object-fill rounded-lg shadow-lg'/>
+            <div className='  w-full relative  '>
+                <img src={data?.image} crossOrigin='anonymous' onLoad={imageLoad} className='w-full object-fill rounded-lg '/>
                 <div className='absolute bottom-0 w-full h-1/2 '></div>
                 
             </div>
             <div className='flex flex-col px-4 md:px-8 md:py-8 rounded-b-lg  md:flex-row space-y-4 md:space-y-0 md:items-center justify-between py-5'>
                     <Badge className='text-base w-fit border-none'>{data?.author}</Badge>
                     <div className='flex space-x-1'>
-                        {data?.tags.map((e: any, i: number)=><Badge className='dark:!border-neutral-400' variant={'outline'} key={i}>#{e}</Badge>)}
+                        {data?.tags.slice(0,3).map((e, i)=><Badge className='dark:!border-neutral-400 min-w-fit' variant={'outline'} key={i}>#{e}</Badge>)}
                     </div>
             </div>
             <Markdown className={'prose prose-base prose-neutral prose-headings:text-neutral-200 max-w-full py-5 text-neutral-100 !w-full'}>

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-var ColorThief = require('colorthief');
+import ColorThief from 'colorthief'
 
 import Markdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
@@ -39,10 +39,9 @@ const Page = () => {
         console.error(error);
         // Handle error
       });
-      handleLoading();
   }, []);
 
-  const delay = (ms: any) => new Promise(resolve => setTimeout(resolve, ms));
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
     const handleLoading = async () => {
@@ -51,18 +50,18 @@ const Page = () => {
       };
 
 
-  function componentToHex(c: any) {
+  function componentToHex(c) {
     const hex = c.toString(16);
     return hex.length === 1 ? "0" + hex : hex;
   }
 
-  function rgbToHex(r: any, g: any, b: any) {
+  function rgbToHex(r, g, b) {
     return componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
 
-  const imgLoad = (e: any) => {
+  const imgLoad = (e) => {
     const parent = e.target.parentNode.nextElementSibling;
-    const colorThief = new ColorThief();
+    const colorThief = new ColorThief() ;
     const dominantColor = colorThief.getColor(e.target);
     const rgbColor = rgbToHex(
       dominantColor[0],
@@ -81,6 +80,7 @@ const Page = () => {
       parent.style.background = gradien;
     e.target.nextElementSibling.style.background = gradien1;
     }
+    setLoading(false) ;
   };
 
   return (
@@ -93,10 +93,11 @@ const Page = () => {
         All Blogs
       </h1>
       <div className="flex flex-col space-y-7 my-3 py-5">
-        {blogs.map((e: any, i) => (
+        {blogs.map((e, i) => (
           <a 
           key={i} href={`/blog/${e.slug}`}>
           <Card
+            
             className="relative flex flex-col md:flex-row p-0 md:h-60 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300 ease-in-out group"
           >
             <CardContent id={i.toString()} className="md:w-1/2 w-full p-0 relative overflow-hidden">
@@ -121,7 +122,7 @@ const Page = () => {
               <div className="flex flex-col  h-full justify-end space-y-2">
               <Badge className="w-fit my-2 !border-none">{e.author}</Badge>
               <div className="flex space-x-1 my-3 overflow-hidden">
-                {e.tags.map((e: any, i: any) => (
+                {e.tags.slice(0, 3).map((e, i) => (
                   <Badge variant={"outline"} className="dark:!border-neutral-300" key={i}>
                     #{e}
                   </Badge>

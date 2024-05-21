@@ -3,42 +3,31 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='min-h-screen max-w-5xl mx-auto px-7 mt-20' >
-      <h1 className='text-2xl sm:text-3xl md:text-4xl  my-4  antialiased font-bold'>Privacy Policy</h1>
-      <ul className='text-base md:text-lg dark:font-thin list-disc'>
-        <p>Last updated: December 20, 2023</p>
+    <div className="max-w-3xl mt-24 mx-auto p-6 rounded shadow">
+   <h1 className="text-3xl font-semibold mb-6">Privacy Policy</h1>
 
-        <li>Welcome to OurSoulss! By using our website and services, you agree to bound by these terms and conditions outlined below.</li>
+   <p className="mb-4">Last reviewed: May 23, 2024</p>
 
-        <h3 className="text-xl font-bold my-4 text-neutral-800 dark:text-neutral-100 antialiased ">Service Overview</h3>
-        <li>We provide compassionate telephonic or video counseling and consultation services covering areas including mental health, relationships, career development, life transitions and more. Our licensed counselors aim to offer guidance and support to assist clients in meeting life's challenges.</li>
+   <p className="mb-4">Thank you for choosing OurSoulss! You agree to the terms and conditions of this policy by using our website and the services we offer.</p>
 
-        <h3 className="text-xl font-bold my-4 text-neutral-800 dark:text-neutral-100 antialiased ">Using Our Services </h3>
+   <h2 className="text-2xl font-semibold mb-4">Service Description</h2>
+   <p className="mb-4">Our services include counseling and consultation through the telephone and video. Our services cover a wide range of areas that include but are not limited to mental health, relationships, career development, and life changes. Our licensed counselors offer guidance and support to help you navigate the challenges life throws at you.</p>
 
-        <li>You must be 13 years or older to independently schedule and participate in consultation sessions. Minors may utilize our services with the consent of a parent or legal guardian.</li>
-        <li>Counseling services are meant for non-emergency support - please contact emergency services if dealing with a crisis situation requiring immediate assistance.</li>
-        <li>Clients are expected to participate respectfully in sessions. Threatening conduct or language will not be tolerated.</li>
+   <h2 className="text-2xl font-semibold mb-4">Who is Eligible for Our Services?</h2>
+   <p className="mb-4">Accessing scheduled consultative calls is allowed for persons aged above 13. However, minors require parental or guardian consent. We advise people in crisis to contact or rely on emergency services upon the definition to intervene appropriately.</p>
 
-        <h3 className="text-xl font-bold my-4 text-neutral-800 dark:text-neutral-100 antialiased ">Confidentiality</h3>
+   <h2 className="text-2xl font-semibold mb-4">Note on Confidentiality</h2>
+   <p className="mb-4">Your sessions are subject to ethical and legal obligations that maintain the confidentiality of the interactions. However, there are specific instances where mandatory reporting requirements may require us to report certain conduct. In addition, a recording of the session will depend on the consent of all parties; however, we cannot always guarantee the security and protection of such recordings or content transmitted online.</p>
 
-        <li>Subject to ethical and legal obligations, the content of your sessions will remain confidential. Mandatory reporting requirements may require us to report certain conduct.</li>
-        <li>Session recordings require consent of all parties. We cannot guarantee security of recordings or content transmitted through online channels.</li>
+   <h2 className="text-2xl font-semibold mb-4">Note on Billing and Payments</h2>
+   <p className="mb-4">You will schedule a paid consultation if you agree to pay the session fees, which are non-refundable. You will not be able to transfer the package of multiple sessions to another client. The billing policy will have more information on the acceptable payment methods, scheduling/cancellation, among others.</p>
 
-        <h3 className="text-xl font-bold my-4 text-neutral-800 dark:text-neutral-100 antialiased ">Billing & Payments</h3>
+   <h2 className="text-2xl font-semibold mb-4">Website Terms</h2>
+   <p className="mb-4">This website and the included content are not a substitute for a professional mental health diagnosis or completed treatment plan. We can have these terms revised at any time, your continuous use of our website means that you acknowledge any changes.</p>
 
-        <li>By scheduling a paid consultation, you agree to pay session fees which are non-refundable.</li>
-        <li>Multi-session package purchases cannot be transferred to other clients.</li>
-        <li>See our billing policy for additional details on payment methods, scheduling/cancellation policies.</li>
-
-        <h3 className="text-xl font-bold my-4 text-neutral-800 dark:text-neutral-100 antialiased ">Website Terms </h3>
-
-        <li>This website and related content is provided for informational purposes only and should not substitute professional mental health diagnosis or treatment plans.</li>
-        <li>We may modify these terms at any time - continued use of our website indicates agreement with any amendments.</li>
-
-        <h3 className="text-xl font-bold my-4 text-neutral-800 dark:text-neutral-100 antialiased ">Contact Us</h3>
-        <li>Please get in touch with any questions or concerns regarding these terms. We welcome your feedback to help us provide the best service possible.</li>
-      </ul>
-    </div>
+   <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+   <p className="mb-4">For additional questions or concerns about these terms, please contact us. Your feedback is highly appreciated, as it helps us create the best possible service.</p>
+</div>
   )
 }
 
