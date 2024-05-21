@@ -36,7 +36,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
       handleLoading();
     }, [])
 
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const delay = (ms: any) => new Promise(resolve => setTimeout(resolve, ms));
 
 
     const handleLoading = async () => {

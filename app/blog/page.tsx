@@ -51,16 +51,16 @@ const Page = () => {
       };
 
 
-  function componentToHex(c) {
+  function componentToHex(c: any) {
     const hex = c.toString(16);
     return hex.length === 1 ? "0" + hex : hex;
   }
 
-  function rgbToHex(r, g, b) {
+  function rgbToHex(r: any, g: any, b: any) {
     return componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
 
-  const imgLoad = (e) => {
+  const imgLoad = (e: any) => {
     const parent = e.target.parentNode.nextElementSibling;
     const colorThief = new ColorThief();
     const dominantColor = colorThief.getColor(e.target);
@@ -121,7 +121,7 @@ const Page = () => {
               <div className="flex flex-col  h-full justify-end space-y-2">
               <Badge className="w-fit my-2 !border-none">{e.author}</Badge>
               <div className="flex space-x-1 my-3 overflow-hidden">
-                {e.tags.map((e, i) => (
+                {e.tags.map((e: any, i: any) => (
                   <Badge variant={"outline"} className="dark:!border-neutral-300" key={i}>
                     #{e}
                   </Badge>
