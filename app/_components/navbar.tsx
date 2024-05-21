@@ -70,6 +70,7 @@ const Navbar = () => {
                   <a href={"/contact"}>Contact</a>
                   <a href="/pricing">Pricing</a>
                   <a href="/affiliate">Affiliate</a>
+                  <a href="/blog">Blog</a>
                 </div>
                 {!session && (
                   <div className="flex items-center justify-between mt-auto gap-x-4 ml-auto">
@@ -102,6 +103,9 @@ const Navbar = () => {
         </div></a>
         <a href="/affiliate"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Affiliate
+        </div></a>
+        <a href="/blog"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
+          Blog
         </div></a>
         
 

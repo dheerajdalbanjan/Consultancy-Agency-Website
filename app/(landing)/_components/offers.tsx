@@ -36,6 +36,11 @@ const Offers = () => {
       description:"Sign Up to Oursoulss and get 30 minutes session free,which can be used anytime after signup.", 
       image:"https://i.ibb.co/JzmsFwP/the-convo-that-soothes-your-soul-3.jpg", 
       coupon_code:"NEW_TO_OURSOULSS"
+    },{
+      title:"Healing Starts Here",
+      description:"25% Off Counseling Services with Code \'OURSERVICES\'. Start Your Journey with OurSoulss!",
+      image:"https://i.ibb.co/CQqSYc5/www-oursoulss-com-1.jpg", 
+      coupon_code:"OURSERVICES"
     }
   ];
 

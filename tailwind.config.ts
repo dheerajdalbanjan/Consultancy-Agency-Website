@@ -15,6 +15,11 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  safelist:[
+    {
+      pattern: /from-\[\#[a-f0-9]{6}\]/,
+    },
+  ],
   prefix: "",
   theme: {
     container: {
@@ -43,6 +48,7 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require('@tailwindcss/typography'),
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {

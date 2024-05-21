@@ -15,6 +15,11 @@ module.exports = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
+  safelist:[
+    {
+      pattern: /from-\[#]?[a-fA-F0-9]{6}\]/,
+    },
+  ],
   prefix: "",
   theme: {
     container: {
@@ -51,6 +56,7 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate"),
+  require('@tailwindcss/typography'),
   addVariablesForColors,
   function ({ matchUtilities, theme }) {
     matchUtilities(
