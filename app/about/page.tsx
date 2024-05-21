@@ -2,33 +2,26 @@
 import React from 'react'
 
 const page = () => {
+
   return (
-    <div className='min-h-screen max-w-5xl mx-auto px-7 mt-20' >
-      <h1 className='text-2xl sm:text-3xl md:text-4xl  my-4  antialiased font-bold'>About Us</h1>
-      <ul className='text-base md:text-lg dark:font-thin list-disc'>
-      <li>Get Support When You Need It Most.</li>
+    <div className="max-w-3xl mx-auto p-6 rounded shadow mt-16">
+   <h1 className="text-3xl font-semibold mb-6">About Us</h1>
 
-<li>Help is Just One Call or Click Away.</li>
+   <p className="mb-4">Get Support When You Need It Most. Help is Just One Call or Click Away.</p>
 
-<li>Our counselors are here to listen without judgment and offer sound guidance to help you navigate life's challenges and milestones. Connect with understanding and experience to achieve new personal insights.</li>
+   <p className="mb-4">Our counselors are here to listen without judgment and offer sound guidance to help you navigate life's challenges and milestones. Connect with understanding and experience to achieve new personal insights.</p>
 
-<li>Caring Support for all of Life's Transitions and Challenges</li>
+   <h2 className="text-2xl font-semibold mb-4">Caring Support for All of Life's Transitions and Challenges</h2>
+   <p className="mb-4">Relationship Troubles? We'll provide an outside perspective on how to communicate more effectively, or help you find the courage to say goodbye with grace.</p>
+   <p className="mb-4">Career Setbacks? If you have been recently fired or are dealing with job instability, we can show you how to pick up the pieces, keep moving, and stand tall on your feet.</p>
+   <p className="mb-4">Mental and Emotional Health Struggles? We will also explain what’s happening to you and how you can gain the strength to lead a happy and healthy life.</p>
+   <p className="mb-4">Life Decisions? Unsure of what to do next? With difficult questions, we can help you determine your interests and goals.</p>
+   <p className="mb-4">Do not know what to do in your life next? We can and will ask these brutal questions that will assist you in unpacking your passions and priorities. This could include Social distancing between meetings with your family and friends, never leaving the house: Take the First Step Today.</p>
+   
+   <p className="mb-4">Book an appointment immediately- chat with one of our expert counselors, call our office, or shoot us a call- we will be happy to hear from you. And comfortable in handling your questions. You don’t have to go through things alone!</p>
 
-<li>Relationship troubles? We'll provide an outside perspective on how to communicate more effectively, or have the courage to say goodbye with grace.</li>
-
-<li>Just got fired? We can guide you through the process of picking yourself back up, pressing on, and landing confidently on your feet.</li>
-
-<li>Struggles with your mental and emotional health? We'll help you better understand what you're going through and how to safely build resilience to have a fulfilling and whole life.</li>
-
-<li>Not sure what your next step in life should be? We can ask the tough questions to help unpack your passions and priorities.</li>
-
-<li>Take the First Step Today.</li>
-
-<li>Schedule your first appointment with one of our expert counselors, chatted live with us, call our office, or send us a message - we're always glad to hear from you and answer any of your questions. Your needs and your comfort are our number one priority. There's no need to work through things alone!</li>
-<div className='my-3 float-right'>
   <p>Developed by <span className='px-2 py-0.5 rounded-full bg-emerald-300/20 '>Dheeraj Dalbanjan</span></p>
-</div>
-    </ul>
+
     </div>
   )
 }
