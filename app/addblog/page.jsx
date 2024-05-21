@@ -65,6 +65,7 @@ const AddBlog = () => {
       content: "",
       slug: "",
       author: "",
+      image:"",
       tags: [],
     },
   });
@@ -82,7 +83,7 @@ const AddBlog = () => {
   const [error, setError] = useState('') ; 
   const [loading, setLoading] = useState(false) ;
 
-  const onSubmitt = async (data: any) => {
+  const onSubmitt = async (data) => {
     const dat = {...data , slug: sluggify(data.title).toLowerCase()}
     setLoading(true)
     const response = await fetch("/api/blog", {
@@ -105,18 +106,17 @@ const AddBlog = () => {
     
   };
 
-  const handleTagKey = (e: any)=>{
-    const inputValue: string = e.target.value;
-      if (e.key === 'Enter' || e.key === ',') {
-        e.preventDefault();
-        if (inputValue.trim()) {
-          
-          setValue('tags', [...getValues().tags, inputValue])
-          setTag('')
-        }
+  const handleTagKey = (e) => {
+    const inputValue= e.currentTarget.value;
+    const tags= getValues()?.tags || [] ;
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      if (inputValue.trim()){
+        setValue('tags', [...tags, inputValue.trim()]);
+        setTag('');
       }
-
-  }
+    }
+  };
 
   return (
     <Form {...methods}>
