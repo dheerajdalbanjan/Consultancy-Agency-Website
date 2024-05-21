@@ -9,12 +9,13 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import ColorThief from 'colorthief'
+import Vibrant from 'node-vibrant';
 
 import Markdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LoaderIcon } from "lucide-react";
+import {FastAverageColor} from 'fast-average-color';
 
 const Page = () => {
   const [blogs, setBlogs] = useState([]);
@@ -41,37 +42,17 @@ const Page = () => {
       });
   }, []);
 
-  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
-    const handleLoading = async () => {
-        await delay(3000);
-        setLoading(false);
-      };
-
-
-  function componentToHex(c) {
-    const hex = c.toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
-  }
-
-  function rgbToHex(r, g, b) {
-    return componentToHex(r) + componentToHex(g) + componentToHex(b);
-  }
-
-  const imgLoad = (e) => {
+ 
+  const imgLoad =  (e: any) => {
     const parent = e.target.parentNode.nextElementSibling;
-    const colorThief = new ColorThief() ;
-    const dominantColor = colorThief.getColor(e.target);
-    const rgbColor = rgbToHex(
-      dominantColor[0],
-      dominantColor[1],
-      dominantColor[2]
-    );
-    const gradient = `linear-gradient(to right, rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]}), transparent)`;
-    const gradient1 = `linear-gradient(to left, rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]}), transparent, transparent)`;
-    const gradien = `linear-gradient(to bottom, rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]}), transparent)`;
-    const gradien1 = `linear-gradient(to top, rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]}), transparent, transparent)`;
+    const fac = new FastAverageColor() ;
+      const dominantColor = fac.getColor(e.currentTarget).rgb;
+    const gradient = `linear-gradient(to right,${dominantColor}, transparent)`;
+    const gradient1 = `linear-gradient(to left,${dominantColor}, transparent, transparent)`;
+    const gradien = `linear-gradient(to bottom,${dominantColor}, transparent)`;
+    const gradien1 = `linear-gradient(to top, ${dominantColor}, transparent, transparent)`;
     const viewport = window.innerWidth ;
     if(viewport > 425){
     parent.style.background = gradient;
@@ -93,9 +74,9 @@ const Page = () => {
         All Blogs
       </h1>
       <div className="flex flex-col space-y-7 my-3 py-5">
-        {blogs.map((e, i) => (
+        {blogs.map((e: any, i) => (
           <a 
-          key={i} href={`/blog/${e.slug}`}>
+          key={i} href={`/blog/${e?.slug}`}>
           <Card
             
             className="relative flex flex-col md:flex-row p-0 md:h-60 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300 ease-in-out group"
@@ -122,7 +103,7 @@ const Page = () => {
               <div className="flex flex-col  h-full justify-end space-y-2">
               <Badge className="w-fit my-2 !border-none">{e.author}</Badge>
               <div className="flex space-x-1 my-3 overflow-hidden">
-                {e.tags.slice(0, 3).map((e, i) => (
+                {e.tags.slice(0, 3).map((e: any, i: number) => (
                   <Badge variant={"outline"} className="dark:!border-neutral-300" key={i}>
                     #{e}
                   </Badge>

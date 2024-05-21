@@ -6,7 +6,7 @@ const page = () => {
     <div className="max-w-3xl mt-24 mx-auto p-6 rounded shadow">
    <h1 className="text-3xl font-semibold mb-6">Privacy Policy</h1>
 
-   <p className="mb-4">Last reviewed: May 23, 2024</p>
+   <p className="mb-4">Last Updated: May 22, 2024</p>
 
    <p className="mb-4">Thank you for choosing OurSoulss! You agree to the terms and conditions of this policy by using our website and the services we offer.</p>
 

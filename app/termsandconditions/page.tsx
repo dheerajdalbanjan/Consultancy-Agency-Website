@@ -53,6 +53,7 @@ const page = () => {
 
 <div className="max-w-3xl mx-auto p-6 rounded shadow">
    <h1 className="text-3xl font-semibold mb-6">Terms and Conditions</h1>
+   <p className="mb-4">Last Updated: May 22, 2024</p>
 
    <p className="mb-4">Welcome to our website. If you visit, browse or use the services offered by our counseling consultation in any way, you are agreeing to comply with our terms and conditions. The terms and conditions include your legal obligations:</p>
 
