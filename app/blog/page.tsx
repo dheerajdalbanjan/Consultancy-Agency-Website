@@ -9,7 +9,8 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import ColorThief from "colorthief"; // Corrected import statement
+var ColorThief = require('color-thief');
+
 import Markdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

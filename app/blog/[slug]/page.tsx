@@ -5,7 +5,8 @@ import { Badge } from '@/components/ui/badge';
 import { LoaderIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import Markdown from 'react-markdown';
-import ColorThief from 'colorthief'
+var ColorThief = require('color-thief');
+
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const [loading, setLoading] = useState(true)
