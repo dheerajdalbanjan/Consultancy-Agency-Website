@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-var ColorThief = require('color-thief');
+var ColorThief = require('colorthief');
 
 import Markdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
