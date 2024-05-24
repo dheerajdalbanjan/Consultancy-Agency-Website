@@ -54,7 +54,7 @@ const blogPostSchema = z.object({
     .max(50, {
       message: "Author name should contain a maximum of 50 characters",
     }),
-  tags: z.array(z.string()).optional(),
+  tags: z.array(z.string()),
   slug: z.string().optional(),
 });
 
@@ -135,15 +135,19 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
     }
   };
 
-  const handleTagKey = (e) => {
-    const inputValue= e.currentTarget.value;
-    const tags= getValues()?.tags || [] ;
+  const handleTagKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const inputValue = e.currentTarget.value;
+    const currentTags = getValues().tags;
+
+    // Ensure currentTags is an array of strings
+    const tags = Array.isArray(currentTags) ? currentTags : [];
+
     if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault();
-      if (inputValue.trim()){
-        setValue('tags', [...tags, inputValue.trim()]);
-        setTag('');
-      }
+        e.preventDefault();
+        if (inputValue.trim()) {
+            setValue('tags', (tags as any).concat(inputValue.trim()));
+            setTag('');
+        }
     }
   };
 

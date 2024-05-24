@@ -51,7 +51,7 @@ const blogPostSchema = z.object({
     .max(50, {
       message: "Author name should contain a maximum of 50 characters",
     }),
-  tags: z.array(z.string()).optional(),
+  tags: z.array(z.string()),
   slug: z
     .string()
     .optional(),
