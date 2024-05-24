@@ -22,7 +22,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/addblog/page.jsx", "app/blog/page.tsx", "app/blog/[slug]/page.tsx",    "declaration.d.ts" // Add this line if the file is in the root directory
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/addblog/page.tsx", "app/blog/page.tsx", "app/blog/[slug]/page.tsx",    "declaration.d.ts" // Add this line if the file is in the root directory
 ],
   "exclude": ["node_modules"]
 }

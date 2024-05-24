@@ -22,7 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 import * as z from "zod";
 import {
@@ -35,6 +35,7 @@ import { Badge } from "@/components/ui/badge";
 import Formsuccess from "@/components/ui/formsuccess";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import Formerror from "@/components/ui/formerror";
+import { XIcon } from "lucide-react";
 
 const blogPostSchema = z.object({
   title: z
@@ -82,8 +83,9 @@ const AddBlog = () => {
   const [success, setSuccess] = useState(false) ;
   const [error, setError] = useState('') ; 
   const [loading, setLoading] = useState(false) ;
+  const [tags, setTags] = useState(getValues().tags || [])
 
-  const onSubmitt = async (data) => {
+  const onSubmitt = async (data: any) => {
     const dat = {...data , slug: sluggify(data.title).toLowerCase()}
     setLoading(true)
     const response = await fetch("/api/blog", {
@@ -106,17 +108,34 @@ const AddBlog = () => {
     
   };
 
-  const handleTagKey = (e) => {
-    const inputValue= e.currentTarget.value;
-    const tags= getValues()?.tags || [] ;
+  const handleTagKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const inputValue = e.currentTarget.value;
+    const currentTags = getValues().tags;
+    const tags = Array.isArray(currentTags) ? currentTags : [];
+
     if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault();
-      if (inputValue.trim()){
-        setValue('tags', [...tags, inputValue.trim()]);
-        setTag('');
-      }
+        e.preventDefault();
+        if (inputValue.trim()) {
+            setValue('tags', (tags as any).concat(inputValue.trim()));
+            setTag('');
+        }
     }
   };
+
+
+  const handleTagClick = (value : string) => {
+    const currentTags = getValues().tags; 
+
+    const newTags = currentTags.filter(e => {return e !== value}) ; 
+    setTags(newTags)
+    setValue('tags' , newTags) ;
+  }
+
+
+  useEffect(() => {
+    // Set initial tags when component mounts
+    setTags(getValues().tags || []);
+  }, [getValues().tags]);
 
   return (
     <Form {...methods}>
@@ -250,9 +269,13 @@ const AddBlog = () => {
             </FormItem>
           )}
         />
-        <div className="flex space-x-2 py-2">
-          {getValues().tags.map((e, i)=><Badge variant={'outline'} key={i}>{e}</Badge>)}
-        </div>
+        <div className="flex flex-wrap gap-2 py-2">
+              {tags.map((e, i) => (
+                <Badge onClick={(event)=>handleTagClick(event.currentTarget.innerText)} className="cursor-pointer hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out" variant={"outline"} key={i}>
+                  {e} <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100"/>
+                </Badge>
+              ))}
+            </div>
           </CardContent>
 
           <CardFooter className="flex flex-col">

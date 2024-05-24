@@ -36,12 +36,15 @@ const Page = () => {
         console.log(data.data);
         setBlogs(data.data);
       })
+      .finally(()=>{
+        
+      setLoading(false)
+      })
       .catch((error) => {
         console.error(error);
         // Handle error
       });
 
-      setLoading(false)
   }, []);
   return (
     <div className="min-h-screen pt-20 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
@@ -50,14 +53,14 @@ const Page = () => {
           <LoaderIcon className="animate-spin" />
         </div>
       )}
-      <h1 className="text-3xl text-neutral-100 font-bold antialiased my-3">
-        All Blogs
+      <h1 className="text-2xl md:text-3xl text-neutral-100 font-bold antialiased my-5">
+        Admin Panel
       </h1>
       {
         blogs.map((e: any, i: any)=>(
-          <Card key={i} className="mb-3 ">
+          <Card key={i} className="mb-5 ">
             <CardHeader>
-              <CardTitle>{e?.title}</CardTitle>
+              <CardTitle className="md:text-xl text-lg">{e?.title}</CardTitle>
             </CardHeader>
             <CardFooter>
               <div className="flex space-x-2 self-end ml-auto">
@@ -70,7 +73,7 @@ const Page = () => {
         ))
       }
 
-      <Button className="float-right my-3" onClick={()=>router.push('/addblog')}>Add blog</Button>
+      <Button className="float-right my-3" variant={'secondary'} onClick={()=>router.push('/addblog')}>Add blog</Button>
     </div>
   );
 };

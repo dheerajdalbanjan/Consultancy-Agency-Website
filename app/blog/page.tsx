@@ -20,6 +20,8 @@ import {FastAverageColor} from 'fast-average-color';
 const Page = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true)
+  const [length, setLen] = useState(0)
+
 
   useEffect(() => {
     // Fetch blogs from the API endpoint
@@ -31,11 +33,13 @@ const Page = () => {
         }
         return response.json();
       })
-      .then((data) => {
+      .then((data: any) => {
         // Set the fetched blogs to the state
         console.log(data.data);
         setBlogs(data.data);
+        setLen(data.data.length)
       })
+      
       .catch((error) => {
         console.error(error);
         // Handle error
@@ -47,6 +51,7 @@ const Page = () => {
  
   const imgLoad =  (e: any) => {
     const parent = e.target.parentNode.nextElementSibling;
+    const id = e.target.parentNode.id ;
     const fac = new FastAverageColor() ;
       const dominantColor = fac.getColor(e.currentTarget).rgb;
     const gradient = `linear-gradient(to right,${dominantColor}, transparent)`;
@@ -61,7 +66,10 @@ const Page = () => {
       parent.style.background = gradien;
     e.target.nextElementSibling.style.background = gradien1;
     }
-    setLoading(false) ;
+    console.log(id + 1, length)
+    if(length === Number(id) + 1){
+      setLoading(false)
+    }
   };
 
   return (
@@ -102,7 +110,7 @@ const Page = () => {
               </CardDescription>
               <div className="flex flex-col  h-full justify-end space-y-2">
               <Badge className="w-fit my-2 !border-none">{e.author}</Badge>
-              <div className="flex space-x-1 my-3 overflow-hidden">
+              <div className="flex flex-wrap gap-2 my-3 ">
                 {e.tags.slice(0, 3).map((e: any, i: number) => (
                   <Badge variant={"outline"} className="dark:!border-neutral-300" key={i}>
                     #{e}

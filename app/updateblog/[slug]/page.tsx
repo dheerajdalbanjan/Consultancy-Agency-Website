@@ -35,7 +35,7 @@ import { Badge } from "@/components/ui/badge";
 import Formsuccess from "@/components/ui/formsuccess";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import Formerror from "@/components/ui/formerror";
-import { LoaderIcon } from "lucide-react";
+import { Cross, LoaderIcon, XIcon } from "lucide-react";
 
 const blogPostSchema = z.object({
   title: z
@@ -108,7 +108,7 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
       fetchData();
   }, [params.slug, setValue]);
 
-  
+  const [tags, setTags] = useState<string[]>(getValues().tags || []);
 
   const [tag, setTag] = useState("");
   const [success, setSuccess] = useState(false);
@@ -151,6 +151,20 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
     }
   };
 
+  const handleTagClick = (value : string) => {
+    const currentTags = getValues().tags; 
+
+    const newTags = currentTags.filter(e => {return e !== value}) ; 
+    setTags(newTags)
+    setValue('tags' , newTags) ;
+  }
+
+
+  useEffect(() => {
+    // Set initial tags when component mounts
+    setTags(getValues().tags || []);
+  }, [getValues().tags]);
+
   return (
     <Form {...methods}>
       {loading && (
@@ -161,7 +175,7 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
       {!loading && <form onSubmit={handleSubmit(onSubmitt)} className=" mt-20 px-5">
         <Card className="max-w-5xl mx-auto md:p-5 ">
           <CardHeader>
-            <CardTitle>Add blog</CardTitle>
+            <CardTitle>Update blog</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <FormField
@@ -297,10 +311,10 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
                 </FormItem>
               )}
             />
-            <div className="flex space-x-2 py-2">
-              {getValues().tags?.map((e, i) => (
-                <Badge variant={"outline"} key={i}>
-                  {e}
+            <div className="flex flex-wrap gap-2 py-2">
+              {tags.map((e, i) => (
+                <Badge onClick={(event)=>handleTagClick(event.currentTarget.innerText)} className="cursor-pointer hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out" variant={"outline"} key={i}>
+                  {e} <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100"/>
                 </Badge>
               ))}
             </div>
