@@ -66,7 +66,7 @@ const Page = ({ params }: {params:{slug: string}}) => {
                 
             </div>
             <div className='flex flex-col px-4 md:px-8 md:py-8 rounded-b-lg  md:flex-row space-y-4 md:space-y-0 md:items-center justify-between py-5'>
-                    <Badge className='text-base w-fit border-none'>{data?.author}</Badge>
+                    <Badge className='md:text-base w-fit border-none'>{data?.author}</Badge>
                     <div className='flex space-x-1'>
                         {data?.tags.slice(0,3).map((e: any, i: number)=><Badge className='dark:!border-neutral-400 min-w-fit' variant={'outline'} key={i}>#{e}</Badge>)}
                     </div>
