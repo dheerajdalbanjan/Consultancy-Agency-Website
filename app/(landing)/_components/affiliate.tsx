@@ -66,8 +66,8 @@ const Affiliate = () => {
             //     </CardFooter>
             //   </Card>
             // </div>
-            <Card key={i} style={{backgroundImage:`url(${products[e][0]["image_link"]})`, backgroundSize:'cover'}} className="shadow-xl group rounded-xl   overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0 bg-opacity-80 backdrop-blur-xl  relative" >
-              <div className="backdrop-blur-2xl h-full !rounded-lg bg-black bg-opacity-70 ">
+            <Card key={i}  className="shadow-xl group rounded-xl bg-transparent  overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0 bg-opacity-80 backdrop-blur-xl  relative" >
+              <div className=" h-full !rounded-lg">
               <CardHeader className="md:h-60 md:w-64  w-full aspect-square ">
                 <Image
                   src={products[e][0]["image_link"]}
