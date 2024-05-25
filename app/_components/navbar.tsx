@@ -52,7 +52,7 @@ const Navbar = () => {
       
       <div className="flex gap-x-3 items-center justify-between ">
       
-        <Sheet open={open} onOpenChange={e=>setOpen(e)}>
+        <Sheet open={open} onOpenChange={e=>setOpen(e)} >
           <SheetTrigger className="md:hidden">
             {/* <Button
               variant={"outline"}
@@ -65,7 +65,7 @@ const Navbar = () => {
               <div className={`w-6 h-[1px] bg-neutral-50 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
             </div>
           </SheetTrigger>
-          <SheetContent side={"left"} className="h-full w-full">
+          <SheetContent side={"left"} className="!bg-opacity-20 border-neutral-800 backdrop-blur-md">
             <SheetHeader className="h-full">
               <SheetTitle>OurSoulss</SheetTitle>
               <SheetDescription className="flex h-full w-full flex-col gap-y-8 items-start justify-between">

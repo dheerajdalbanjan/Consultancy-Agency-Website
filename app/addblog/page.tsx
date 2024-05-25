@@ -213,6 +213,7 @@ const AddBlog = () => {
                     <Textarea
                       placeholder="Enter content"
                       {...field}
+                      rows={25}
                       className="input"
                     ></Textarea>
                   </FormControl>
