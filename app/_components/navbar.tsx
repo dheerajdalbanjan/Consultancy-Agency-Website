@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./logo";
 import { Button } from "@/components/ui/button";
 import { UseScrollHook } from "@/hooks/UseScrollTop";
@@ -35,6 +35,7 @@ import { useTheme } from "next-themes";
 const Navbar = () => {
   const { setTheme } = useTheme();
   const scrolled = UseScrollHook();
+  const [open, setOpen] = useState(false)
   const { data: session } = useSession();
   useEffect(() => {
     console.log(session);
@@ -51,16 +52,20 @@ const Navbar = () => {
       
       <div className="flex gap-x-3 items-center justify-between ">
       
-        <Sheet>
+        <Sheet open={open} onOpenChange={e=>setOpen(e)}>
           <SheetTrigger className="md:hidden">
-            <Button
+            {/* <Button
               variant={"outline"}
               className="!bg-transparent px-2  active:scale-95 transition-all duration-300"
             >
               <ChevronRight width={20}/>
-            </Button>
+            </Button> */}
+            <div className={`flex flex-col ${open?'space-y-0':'space-y-[10px]'} justify-center items-center`}>
+              <div className={`w-6 h-[1px] bg-neutral-50 ${open?'rotate-45':''} transition-all duration-300 ease-in-out`}></div>
+              <div className={`w-6 h-[1px] bg-neutral-50 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
+            </div>
           </SheetTrigger>
-          <SheetContent side={"left"} className="h-full w-full ">
+          <SheetContent side={"left"} className="h-full w-full">
             <SheetHeader className="h-full">
               <SheetTitle>OurSoulss</SheetTitle>
               <SheetDescription className="flex h-full w-full flex-col gap-y-8 items-start justify-between">
@@ -148,7 +153,7 @@ const Navbar = () => {
                 variant={"outline"}
                 className="rounded-full ml-3 p-0 active:scale-95 transition-all duration-300"
               >
-                <Avatar >
+                <Avatar  >
                   <AvatarFallback className="" >
                     {session.user?.name?.slice(0, 1)}
                   </AvatarFallback>

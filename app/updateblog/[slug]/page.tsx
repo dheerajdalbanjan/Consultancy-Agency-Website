@@ -109,7 +109,7 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
   }, [params.slug, setValue]);
 
   const [tags, setTags] = useState<string[]>(getValues().tags || []);
-
+  const [content, setContent] = useState(getValues().content || "")
   const [tag, setTag] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -163,7 +163,15 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
   useEffect(() => {
     // Set initial tags when component mounts
     setTags(getValues().tags || []);
-  }, [getValues().tags]);
+  }, [ getValues().tags]);
+
+  useEffect(() => {
+    // Set initial tags when component mounts
+    setContent(getValues().content );
+  }, [ getValues().content]);
+
+
+
 
   return (
     <Form {...methods}>
@@ -247,6 +255,8 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
                       placeholder="Enter content"
                       {...field}
                       className="input"
+                      rows={25}
+                      onChange={(e)=>{setValue('content', e.target.value); setContent(e.target.value)}}
                     ></Textarea>
                   </FormControl>
                   {errors.content && (
@@ -263,9 +273,9 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
                 </AccordionTrigger>
                 <AccordionContent>
                   <Markdown
-                    className={"prose prose-headings:text-neutral-50  "}
+                    className={"prose prose-invert"}
                   >
-                    {methods.getValues().content}
+                    {content}
                   </Markdown>
                 </AccordionContent>
               </AccordionItem>

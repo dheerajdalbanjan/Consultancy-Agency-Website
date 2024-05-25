@@ -71,7 +71,7 @@ const Page = ({ params }: {params:{slug: string}}) => {
                         {data?.tags.slice(0,3).map((e: any, i: number)=><Badge className='dark:!border-neutral-400 min-w-fit' variant={'outline'} key={i}>#{e}</Badge>)}
                     </div>
             </div>
-            <Markdown className={'prose prose-base prose-neutral prose-headings:text-neutral-200 max-w-full py-5 text-neutral-100 !w-full'}>
+            <Markdown className={'prose prose-base prose-neutral prose-invert max-w-full py-5 !w-full'}>
                 {data?.content}
             </Markdown>
             <div className='py-5 flex md:flex-row flex-col space-y-3 md:space-y-0 md:items-center justify-between'>
