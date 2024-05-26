@@ -45,9 +45,9 @@ const Navbar = () => {
     <div
       className={` bg-opacity-70 ${
         scrolled
-          ? "filter backdrop-blur-xl bg-[#09090b] border-b border-neutral-300 dark:border-neutral-600"
+          ? "filter backdrop-blur-2xl bg-[#09090b] border-b border-neutral-300 dark:border-neutral-600"
           : "bg-transparent"
-      } text-neutral-50 z-50 fixed top-0 h-16 flex items-center justify-between w-full  px-8 md:px-20 `}
+      } text-neutral-50 z-50 fixed top-0 h-16 flex items-center shadow-lg justify-between w-full  px-8 md:px-20 `}
     >
       
       <div className="flex gap-x-3 items-center justify-between ">

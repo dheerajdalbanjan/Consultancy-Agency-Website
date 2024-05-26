@@ -41,7 +41,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={"min-h-screen w-full bg-[#09090b]     m-0 "} >
+      <body className={"min-h-screen w-full bg-[#09090b]   montserrat-400  m-0 "} >
         
       <ThemeProvider
             attribute="class"
