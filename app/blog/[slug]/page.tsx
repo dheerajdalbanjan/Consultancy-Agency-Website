@@ -6,6 +6,11 @@ import { LoaderIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import Markdown from 'react-markdown';
 import { FastAverageColor } from 'fast-average-color';
+import { Metadata, ResolvingMetadata } from 'next';
+
+
+
+
 
 
 const Page = ({ params }: {params:{slug: string}}) => {
@@ -75,8 +80,8 @@ const Page = ({ params }: {params:{slug: string}}) => {
                 {data?.content}
             </Markdown>
             <div className='py-5 flex md:flex-row flex-col space-y-3 md:space-y-0 md:items-center justify-between'>
-                <Badge className='w-fit' variant={'secondary'}>Created at: {data?.createdAt}</Badge>
-                <Badge className='w-fit' variant={'outline'}>Updated at: {data?.updatedAt}</Badge>
+                <Badge className='w-fit' variant={'secondary'}>Created at: {data?.createdAt.toString().split('T')[0]}</Badge>
+                <Badge className='w-fit' variant={'outline'}>Updated at: {data?.updatedAt.toString().split('T')[0]}</Badge>
             </div>
         </div>
     </div>

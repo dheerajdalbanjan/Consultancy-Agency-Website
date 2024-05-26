@@ -151,14 +151,18 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
     }
   };
 
-  const handleTagClick = (value : string) => {
+  const handleTagClick = (val : any) => {
+    const value = val.innerText ;
+    
     const currentTags = getValues().tags; 
+    val.classList.add('scale-0')
 
     const newTags = currentTags.filter(e => {return e !== value}) ; 
-    setTags(newTags)
+    setTimeout(() => {
+      setTags(newTags)
     setValue('tags' , newTags) ;
+    }, 500);
   }
-
 
   useEffect(() => {
     // Set initial tags when component mounts
@@ -323,7 +327,7 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
             />
             <div className="flex flex-wrap gap-2 py-2">
               {tags.map((e, i) => (
-                <Badge onClick={(event)=>handleTagClick(event.currentTarget.innerText)} className="cursor-pointer hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out" variant={"outline"} key={i}>
+                <Badge onClick={(event)=>handleTagClick(event.currentTarget)} className="cursor-pointer active:scale-90 hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out" variant={"outline"} key={i}>
                   {e} <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100"/>
                 </Badge>
               ))}

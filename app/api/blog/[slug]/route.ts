@@ -37,7 +37,7 @@ export async function PUT(req: NextRequest,{ params }: { params: { slug: string 
   const id = params.slug ;
   try {
     const body = await req.json()
-    await Blog.findByIdAndUpdate(id, body)
+    await Blog.findByIdAndUpdate(id, {updatedAt: new Date(), ...body})
     return NextResponse.json({success: true }, { status: 200 });
   } catch (err) {
     console.error(err);
