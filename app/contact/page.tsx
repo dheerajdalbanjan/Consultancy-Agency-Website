@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -21,16 +21,35 @@ import { cn } from "@/lib/utils";
 import Formsuccess from "@/components/ui/formsuccess";
 import { useSearchParams } from "next/navigation";
 import { CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const formSchema = z.object({
-  name: z.string().min(5).max(50),
-  email: z.string().email(),
-  category: z.string().nonempty(),
-  pricing: z.string().optional(),
-  message: z.string().min(5).max(100),
-  phone: z.string().length(10),
-  coupon: z.string().optional(),
+  name: z.string()
+    .min(5, { message: "Name must be at least 5 characters long." })
+    .max(50, { message: "Name must be at most 50 characters long." }),
+  email: z.string()
+    .email({ message: "Please provide a valid email address." }),
+  category: z.string()
+    .nonempty({ message: "Category cannot be empty. Please select or enter a category." }),
+  pricing: z.string()
+    .optional(),
+  message: z.string()
+    .min(5, { message: "Message must be at least 5 characters long." })
+    .max(100, { message: "Message must be at most 100 characters long." }),
+  phone: z.string()
+    .length(10, { message: "Phone number must be exactly 10 digits long." }),
+  coupon: z.string()
+    .optional(),
 });
+
 
 const Page = () => {
   const [success, setSuccess] = useState(false);
@@ -47,16 +66,8 @@ const Page = () => {
     }
   }, [offer]);
 
-
   const { toast } = useToast();
-  const {
-    register,
-    getValues,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-    reset,
-  } = useForm<z.infer<typeof formSchema>>({
+  const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -68,6 +79,14 @@ const Page = () => {
       coupon: offer ? offer : "",
     },
   });
+
+  const {
+    handleSubmit,
+    control,
+    getValues,
+    setValue,
+    formState: { errors },
+  } = methods;
 
   let selectOptions = [
     { label: "15 Minute Session Package", value: 0, price: "₹99" },
@@ -119,180 +138,201 @@ const Page = () => {
     }
   };
 
-  function handleClear() {
-    reset();
-  }
   return (
-    <form
-      method="post"
-      onSubmit={handleSubmit(submitee)}
-      className="  bg-dot-white/[0.08]"
-    >
-      <CardContent className="">
-        <div className="flex flex-col gap-y-2  mb-4">
-          <label className={cn(errors.name && "text-red-500")}>
-            Enter your name
-          </label>
-          <Input
-            className=""
-            {...register("name")}
-            type="text"
-            placeholder="eg: virat kohli"
+    <Form {...methods}>
+      <form
+        method="post"
+        onSubmit={handleSubmit(submitee)}
+        className="  bg-dot-white/[0.08]"
+      >
+        <CardContent className="gap-y-3  flex flex-col">
+          <FormField
+            control={control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="enter you name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {errors.name && (
-            <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-              {errors.name.message}
-            </span>
-          )}
-        </div>
-        <div className="flex flex-col gap-y-2  my-4">
-          <label className={cn(errors.email && "text-red-500")}>
-            Enter your email
-          </label>
-          <Input
-            className="bg-opacity-60"
-            {...register("email")}
-            type="text"
-            placeholder="eg: viratkohli@gmail.com"
+          <FormField
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="enter you email"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {errors.email && (
-            <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-              {errors.email.message}
-            </span>
-          )}
-        </div>
-        <div className="flex flex-col gap-y-2  my-4">
-          <label className={cn(errors.phone && "text-red-500")}>
-            Enter your Phone No.
-          </label>
-          <Input
-            className="bg-opacity-60"
-            {...register("phone")}
-            type="text"
-            placeholder="eg: 9183481414"
+          <FormField
+            control={control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Phone No.</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    placeholder="enter your phone number"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {errors.phone && (
-            <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-              {errors.phone.message}
-            </span>
-          )}
-        </div>
-
-        {coupon && (
-          <div className="flex flex-col gap-y-2  my-4">
-            <label className={cn(errors.coupon && "text-red-500")}>
-              Enter your Coupon code
-            </label>
-            <Input
-              className={
-                getValues("coupon") != ""
-                  ? "ring-1 ring-offset-2 ring-emerald-600"
-                  : ""
-              }
-              {...register("coupon")}
-              type="text"
-              placeholder="eg: NEWTOOURSOULSS"
+          <FormField
+            control={control}
+            name="category"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Category</FormLabel>
+                <FormControl>
+                  <Select
+                    onValueChange={(value) => setValue("category", value)}
+                    {...field}
+                  >
+                    <SelectTrigger className="bg-opacity-60">
+                      <SelectValue placeholder="Select you category of concern" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Academic">Academic</SelectItem>
+                      <SelectItem value="Professional">Professional</SelectItem>
+                      <SelectItem value="Social">Social</SelectItem>
+                      <SelectItem value="Personal">Personal</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {pricing && (
+            <FormField
+              control={control}
+              name="pricing"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Pricing</FormLabel>
+                  <FormControl>
+                    <Select
+                      onValueChange={(value) => setValue("pricing", value)}
+                      {...field}
+                    >
+                      <SelectTrigger className="bg-opacity-60">
+                        <SelectValue placeholder="Select your Pack" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {selectOptions.map((e, i) => (
+                          <SelectItem key={i} value={e.label}>
+                            {e.label}{" "}
+                            <span className="text-neutral-500 ml-2">
+                              {e.price}
+                            </span>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            {errors.coupon && (
-              <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-                {errors.coupon.message}
-              </span>
-            )}
-            {getValues("coupon") != "" && (
-              <Formsuccess msg="Successfully Added Coupon"></Formsuccess>
-            )}
-          </div>
-        )}
-        <div className="flex flex-col gap-y-2   my-4">
-          <label className={cn(errors.category && "text-red-500")}>
-            Enter your Problem{" "}
-          </label>
-          <Select
-            onValueChange={(value) => setValue("category", value)}
-            {...register("category")}
-          >
-            <SelectTrigger className="bg-opacity-60">
-              <SelectValue placeholder="Select you category of concern" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Academic">Academic</SelectItem>
-              <SelectItem value="Professional">Professional</SelectItem>
-              <SelectItem value="Social">Social</SelectItem>
-              <SelectItem value="Personal">Personal</SelectItem>
-            </SelectContent>
-          </Select>
-          {errors.category && (
-            <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-              {errors.category.message}
-            </span>
           )}
-        </div>
-        {pricing && (
-          <div className="flex flex-col gap-y-2   my-4">
-            <label className={cn(errors.category && "text-red-500")}>
-              Choose the pricing{" "}
-            </label>
-            <Select
-              onValueChange={(value) => setValue("pricing", value)}
-              {...register("pricing")}
-            >
-              <SelectTrigger className="bg-opacity-60">
-                <SelectValue placeholder="Select your Pack" />
-              </SelectTrigger>
-              <SelectContent>
-                {selectOptions.map((e, i) => (
-                  <SelectItem key={i} value={e.label}>
-                    {e.label}{" "}
-                    <span className="text-neutral-500 ml-2">{e.price}</span>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {errors.category && (
-              <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-                {errors.category.message}
-              </span>
-            )}
-          </div>
-        )}
-        <div className="flex flex-col gap-y-2  my-4">
-          <label className={cn(errors.message && "text-red-500")}>
-            Describe your Problem
-          </label>
-          <Textarea
-            className="bg-opacity-60"
-            {...register("message")}
-            placeholder="eg: I want your assitance in the above category"
-          ></Textarea>
-          {errors.message && (
-            <span className="text-[0.9rem] ml-1 text-red-500 antialised">
-              {errors.message.message}
-            </span>
-          )}
-        </div>
-      </CardContent>
-      <CardFooter className="flex flex-col">
-        {success && (
-          <div className="py-2 w-full ">
-            <Formsuccess msg="Successfully sent to the team"></Formsuccess>
-          </div>
-        )}
 
-        <div className="w-full flex flex-row items-center justify-between ">
-          <Button variant={"link"} onClick={(e)=>{e.preventDefault();setCoupon(true)}} className="my-3">
-            Have a coupon code ?
-          </Button>
-          <Button
-            type="submit"
-            className="w-44"
-            disabled={loading ? true : false}
-          >
-            {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
-            Submit
-          </Button>
-        </div>
-      </CardFooter>
-    </form>
+          <FormField
+            control={control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Describe you problem</FormLabel>
+                <FormControl>
+                  <Textarea
+                    className="bg-opacity-60"
+                    {...field}
+                    placeholder="eg: I want your assitance in the above category"
+                  ></Textarea>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        {coupon && <FormField
+          control={control}
+          name="coupon"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Coupon</FormLabel>
+              <FormControl>
+              <Select
+                      onValueChange={(value) => setValue("coupon", value)}
+                      {...field}
+                    >
+                      <SelectTrigger className="bg-opacity-60">
+                        <SelectValue placeholder="Select your coupon" />
+                      </SelectTrigger>
+                      <SelectContent>
+                          <SelectItem  value="NEW_TO_OURSOULSS">
+                            NEW_TO_OURSOULSS
+                          </SelectItem>
+                          <SelectItem  value="OURSERVICES">
+                            OURSERVICES
+                          </SelectItem>
+                      </SelectContent>
+                    </Select>
+              </FormControl>
+              <FormMessage />
+              {getValues("coupon") != "" && (
+                <Formsuccess msg="Successfully Added Coupon"></Formsuccess>
+              )}
+            </FormItem>
+          )}
+        />}
+
+  
+        </CardContent>
+        <CardFooter className="flex flex-col">
+          {success && (
+            <div className="py-2 w-full ">
+              <Formsuccess msg="Successfully sent to the team"></Formsuccess>
+            </div>
+          )}
+
+          <div className="w-full flex flex-row items-center justify-between ">
+            <Button
+              variant={"link"}
+              onClick={(e) => {
+                e.preventDefault();
+                setCoupon(!coupon);
+              }}
+              className="my-3"
+            >
+              Have a coupon code ?
+            </Button>
+            <Button
+              type="submit"
+              className="w-44"
+              disabled={loading ? true : false}
+            >
+              {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+              Submit
+            </Button>
+          </div>
+        </CardFooter>
+      </form>
+    </Form>
   );
 };
 
