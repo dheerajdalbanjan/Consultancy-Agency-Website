@@ -38,10 +38,6 @@ import Formerror from "@/components/ui/formerror";
 import { XIcon } from "lucide-react";
 import { Metadata } from "next";
 
-
-
-
-
 const blogPostSchema = z.object({
   title: z
     .string()
@@ -50,7 +46,9 @@ const blogPostSchema = z.object({
   content: z
     .string()
     .min(20, { message: "Content should contain a minimum of 20 characters" }),
-  image: z.string().min(5, {message: "Image link should be minimum 5 charecters."}),
+  image: z
+    .string()
+    .min(5, { message: "Image link should be minimum 5 charecters." }),
   author: z
     .string()
     .min(3, { message: "Author name should contain a minimum of 3 characters" })
@@ -58,9 +56,7 @@ const blogPostSchema = z.object({
       message: "Author name should contain a maximum of 50 characters",
     }),
   tags: z.array(z.string()),
-  slug: z
-    .string()
-    .optional(),
+  slug: z.string().optional(),
 });
 
 const AddBlog = () => {
@@ -71,7 +67,7 @@ const AddBlog = () => {
       content: "",
       slug: "",
       author: "",
-      image:"",
+      image: "",
       tags: [],
     },
   });
@@ -84,15 +80,15 @@ const AddBlog = () => {
     formState: { errors },
   } = methods;
 
-  const [tag, setTag] = useState('') ;
-  const [success, setSuccess] = useState(false) ;
-  const [error, setError] = useState('') ; 
-  const [loading, setLoading] = useState(false) ;
-  const [tags, setTags] = useState(getValues().tags || [])
+  const [tag, setTag] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [tags, setTags] = useState(getValues().tags || []);
 
   const onSubmitt = async (data: any) => {
-    const dat = {...data , slug: sluggify(data.title).toLowerCase()}
-    setLoading(true)
+    const dat = { ...data, slug: sluggify(data.title).toLowerCase() };
+    setLoading(true);
     const response = await fetch("/api/blog", {
       method: "POST",
       headers: {
@@ -101,16 +97,13 @@ const AddBlog = () => {
       body: JSON.stringify(dat),
     });
 
-
-    const da = await response.json() ; 
-    setLoading(false) ;
-    if(da.success){
-      setSuccess(true) ;
+    const da = await response.json();
+    setLoading(false);
+    if (da.success) {
+      setSuccess(true);
+    } else {
+      setError(da.error);
     }
-    else {
-      setError(da.error)
-    }
-    
   };
 
   const handleTagKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -118,29 +111,41 @@ const AddBlog = () => {
     const currentTags = getValues().tags;
     const tags = Array.isArray(currentTags) ? currentTags : [];
 
-    if (e.key === 'Enter' || e.key === ',') {
-        e.preventDefault();
-        if (inputValue.trim()) {
-            setValue('tags', (tags as any).concat(inputValue.trim()));
-            setTag('');
-        }
+    if (e.key === "Enter" || e.key === ",") {
+      e.preventDefault();
+      if (inputValue.trim()) {
+        setValue("tags", (tags as any).concat(inputValue.trim()));
+        setTag("");
+      }
     }
   };
 
+  const [removingTag, setRemovingTag] = useState("");
+  const handleTagClick = (value: string) => {
+    // Get the current tags from the state
+    const currentTags = getValues().tags;
 
-  const handleTagClick = (val : any) => {
-    const value = val.innerText ;
-    
-    const currentTags = getValues().tags; 
-    val.classList.add('scale-0')
+    // Add the tag to removingTags to trigger the animation
+    setRemovingTag(value);
 
-    const newTags = currentTags.filter(e => {return e !== value}) ; 
+    // Set a timeout to remove the tag after the animation
     setTimeout(() => {
-      setTags(newTags)
-    setValue('tags' , newTags) ;
-    }, 500);
-  }
+      // Filter out the clicked tag from current tags
+      const newTags = currentTags.filter((tag) => tag !== value);
 
+      // Updating the tags state
+      setTags(newTags);
+
+      // Updating the form values
+      setValue("tags", newTags);
+
+      // Remove the tag from removingTags
+      setRemovingTag("");
+
+      // Logging the updated tags
+      console.log(newTags);
+    }, 500); // Duration should match the CSS animation duration
+  };
 
   useEffect(() => {
     // Set initial tags when component mounts
@@ -265,41 +270,58 @@ const AddBlog = () => {
               )}
             />
 
-         <FormField
-          control={control}
-          name="tags"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Tags</FormLabel>
-              <FormControl>
-                <Input value={tag} placeholder="Enter tag" onChange={(newTags) => setTag(newTags.target.value)} onKeyDown={handleTagKey} />
-              </FormControl>
-              
-              <FormDescription>Press Enter or , key to add the tag</FormDescription>
-              {errors.tags && <FormMessage>{errors.tags.message}</FormMessage>}
-            </FormItem>
-          )}
-        />
-        <div className="flex flex-wrap gap-2 py-2">
+            <FormField
+              control={control}
+              name="tags"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tags</FormLabel>
+                  <FormControl>
+                    <Input
+                      value={tag}
+                      placeholder="Enter tag"
+                      onChange={(newTags) => setTag(newTags.target.value)}
+                      onKeyDown={handleTagKey}
+                    />
+                  </FormControl>
+
+                  <FormDescription>
+                    Press Enter or , key to add the tag
+                  </FormDescription>
+                  {errors.tags && (
+                    <FormMessage>{errors.tags.message}</FormMessage>
+                  )}
+                </FormItem>
+              )}
+            />
+            <div className="flex flex-wrap gap-2 py-2">
               {tags.map((e, i) => (
-                <Badge onClick={(event)=>handleTagClick(event.currentTarget)} className="cursor-pointer active:scale-90 hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out" variant={"outline"} key={i}>
-                  {e} <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100"/>
+                <Badge
+                  onClick={() => handleTagClick(e)}
+                  className={`cursor-pointer active:scale-90 hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out ${
+                    removingTag === e ? "scale-0" : ""
+                  }`}
+                  variant={"outline"}
+                  key={i}
+                >
+                  {e}
+                  <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2 scale-0 group-hover:scale-100 transition-all duration-300 hover:scale-100" />
                 </Badge>
               ))}
             </div>
           </CardContent>
 
           <CardFooter className="flex flex-col">
-            {success && <Formsuccess msg="Blog added successfully."/>}
-            {error.length > 0 && <Formerror error={error}/>}
+            {success && <Formsuccess msg="Blog added successfully." />}
+            {error.length > 0 && <Formerror error={error} />}
             <Button
-            type="submit"
-            className="w-full"
-            disabled={loading ? true : false}
-          >
-            {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
-            Add blog
-          </Button>
+              type="submit"
+              className="w-full"
+              disabled={loading ? true : false}
+            >
+              {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+              Add blog
+            </Button>
           </CardFooter>
         </Card>
       </form>

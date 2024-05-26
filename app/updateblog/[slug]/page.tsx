@@ -151,19 +151,37 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
     }
   };
 
-  const handleTagClick = (val : any) => {
-    const value = val.innerText ;
-    
-    const currentTags = getValues().tags; 
-    val.classList.add('scale-0')
+  const [removingTag, setRemovingTag] = useState("");
+  const handleTagClick = (value: string) => {
+    // Get the current tags from the state
+    const currentTags = getValues().tags;
 
-    const newTags = currentTags.filter(e => {return e !== value}) ; 
+    // Add the tag to removingTags to trigger the animation
+    setRemovingTag(value);
+
+    // Set a timeout to remove the tag after the animation
     setTimeout(() => {
-      setTags(newTags)
-    setValue('tags' , newTags) ;
-    }, 500);
-  }
+      // Filter out the clicked tag from current tags
+      const newTags = currentTags.filter((tag) => tag !== value);
 
+      // Updating the tags state
+      setTags(newTags);
+
+      // Updating the form values
+      setValue("tags", newTags);
+
+      // Remove the tag from removingTags
+      setRemovingTag("");
+
+      // Logging the updated tags
+      console.log(newTags);
+    }, 500); // Duration should match the CSS animation duration
+  };
+
+  useEffect(() => {
+    // Set initial tags when component mounts
+    setTags(getValues().tags || []);
+  }, [getValues().tags]);
   useEffect(() => {
     // Set initial tags when component mounts
     setTags(getValues().tags || []);
@@ -326,9 +344,17 @@ const AddBlog = ({ params }: { params: { slug: string } }) => {
               )}
             />
             <div className="flex flex-wrap gap-2 py-2">
-              {tags.map((e, i) => (
-                <Badge onClick={(event)=>handleTagClick(event.currentTarget)} className="cursor-pointer active:scale-90 hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out" variant={"outline"} key={i}>
-                  {e} <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100"/>
+            {tags.map((e, i) => (
+                <Badge
+                  onClick={() => handleTagClick(e)}
+                  className={`cursor-pointer active:scale-90 hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out ${
+                    removingTag === e ? "scale-0" : ""
+                  }`}
+                  variant={"outline"}
+                  key={i}
+                >
+                  {e}
+                  <XIcon className="w-3 h-3 -ml-4 group-hover:ml-2 scale-0 group-hover:scale-100 transition-all duration-300 hover:scale-100" />
                 </Badge>
               ))}
             </div>
