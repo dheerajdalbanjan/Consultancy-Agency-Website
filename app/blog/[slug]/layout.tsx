@@ -11,7 +11,7 @@ export async function generateMetadata(
    
     // fetch data
     try {
-        const product = await fetch(`http://localhost:3000/api/blog/${slug}`) ;
+        const product = await fetch(`http://oursoulss.com/api/blog/${slug}`) ;
         data = await product.json() ; 
         data = data.data ;
     } catch (error) {
