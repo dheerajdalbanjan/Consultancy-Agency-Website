@@ -6,6 +6,9 @@ import { Toast } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 
+
+
+
 const Pricing = () => {
     const [open, setOpen] = useState(false);
     var pricing = [

@@ -9,7 +9,7 @@ type SocialMedia = {
 
 export const socialIcons: {[key: string]: SocialMedia} = {
     facebook: {
-        icon: <Facebook />, 
+        icon: <Facebook className=""/>, 
         link: 'https://www.facebook.com/OurSoulss04/'
     },
     instagram: {
@@ -26,7 +26,7 @@ export const socialIcons: {[key: string]: SocialMedia} = {
         link: 'https://www.youtube.com/channel/UCBi9NQUp5n-RLp-pk_PBF1w'
     },
     discord: {
-        icon: <DiscordLogoIcon />, 
+        icon: <DiscordLogoIcon className="w-6 h-6"/>, 
         link: 'https://discord.gg/UYnaB2j3'
     } ,
     whatsapp:{

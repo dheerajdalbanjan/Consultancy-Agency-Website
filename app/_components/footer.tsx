@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { socialIcons } from "./socialicons";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const social = socialIcons;
@@ -18,14 +19,16 @@ const Footer = () => {
         </span>
         </div>
         
-        <div className="flex space-x-5 items-center  justify-around">
+        <div className="flex space-x-3 py-5 items-center  justify-around">
           {Object.keys(social).map((e, i) => (
             <a
               href={social[e].link}
               key={i}
               className="hover:drop-shadow-xl hover:grayscale hover:scale-110 h-fit w-fit transition-all duration-300 drop-shadow-lg"
             >
+              <Button className="rounded-full px-2 scale-90 py-1" variant={'outline'}>
               {social[e]?.icon}
+              </Button>
             </a>
           ))}
         </div>
