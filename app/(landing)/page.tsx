@@ -50,19 +50,19 @@ export default function Home() {
       <Affiliate />
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
         setPopupshowed(true) ;}}>
-        <DialogContent className="mx-1 rounded-md w-fit p-8">
+        <DialogContent className="mx-1 rounded-md w-fit p-8 bg-opacity-50 backdrop-blur-sm">
           <DialogHeader>
             <DialogTitle className="whitespace-nowrap">Sign Up to get Atmost Experience</DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-zinc-900">
               Or Login if you are existing oursoulss user
             </DialogDescription>
           </DialogHeader>
           <DialogFooter >
             <div className="flex items-center w-full justify-end space-x-5 ">
-            <a href="/signup" ><Button>
+            <a href="/signup" ><Button className="bg-blue-950">
               Sign Up
             </Button></a>
-            <a href="/login" ><Button variant={'outline'}>
+            <a href="/login" ><Button variant={'outline'} className="bg-opacity-50">
               Login
             </Button></a>
             </div>

@@ -66,7 +66,7 @@ const Affiliate = () => {
             //     </CardFooter>
             //   </Card>
             // </div>
-            <Card key={i}  className="shadow-xl group rounded-xl bg-transparent  overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0 bg-opacity-80 backdrop-blur-xl  relative" >
+            <Card key={i}  className=" border-blue-700/10 shadow-blue-400/50 shadow-lg bg-opacity-30 backdrop-blur-sm group rounded-xl   overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0  relative" >
               <div className=" h-full !rounded-lg">
               <CardHeader className="md:h-60 md:w-64  w-full aspect-square ">
                 <Image
@@ -121,7 +121,7 @@ const Affiliate = () => {
         <Button
           size={"lg"}
           variant={"outline"}
-          className="group rounded-full transition ease py-0.5 my-2 mx-auto max-w-fit duration-500"
+          className="group rounded-full bg-opacity-50 backdrop-blur-sm transition ease py-0.5 my-2 mx-auto max-w-fit duration-500"
         >
           Explore more{" "}
           <ArrowRight className="w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100" />

@@ -66,12 +66,12 @@ const Pricing = ()=>{
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
-                        <Card key={i} className="!w-full !bg-[#09090b] md:w-auto shadow-lg shadow-emerald-950/60 relative overflow-hidden">
+                        <Card key={i} className="!w-full rounded-xl shadow-blue-400/50 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-lg  relative overflow-hidden">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>
                                 <CardDescription>
-                                    <p className="text-lg text-neutral-100">{e.type}</p>
+                                    <p className="text-lg ">{e.type}</p>
                                     <p>{e.Package}</p>
                                 </CardDescription>
                             </CardHeader>
@@ -80,28 +80,28 @@ const Pricing = ()=>{
                                 <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full " onClick={handleClick}>Buy now</Button>
+                                <Button className="w-full bg-blue-950 transition-colors duration-300 hover:bg-blue-900 rounded-full" onClick={handleClick}>Buy now</Button>
                             </CardFooter>
                         </Card>
                     ))
                 }
             </div>
-            <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full transition ease py-1 mx-auto max-w-fit duration-500'>
+            <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full bg-opacity-30 backdrop-blur-sm transition ease py-1 mx-auto max-w-fit duration-500'>
             Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
         </Button></a>
             <Dialog open={open} onOpenChange={setOpen} >
-                <DialogContent className="w-80 text-start rounded-xl">
+                <DialogContent className="w-80 text-start bg-opacity-50 backdrop-blur-sm text-zinc-800 rounded-xl">
                     <DialogHeader className="text-start justify-start">
                         <DialogTitle>Attention here!</DialogTitle>
-                        <DialogDescription>
+                        <DialogDescription className="text-zinc-800">
                             Due to some technical issues we are not able to proceed further payment so please do contact our team for the process of purchase
                         </DialogDescription>
                     </DialogHeader>
 
                     <DialogFooter className="sm:justify-end items-end">
-                        <DialogClose asChild>
+                        <DialogClose asChild className="">
                             <a href="/contact?pricing=true" className="w-fit float-right">
-                            <Button  type="button" className="float-right" variant="secondary">
+                            <Button  type="button" className="float-right bg-blue-950 rounded-full px-4" >
                                 Contact 
                             </Button>
                             </a>

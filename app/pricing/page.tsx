@@ -107,12 +107,12 @@ const Pricing = () => {
             <div className="flex flex-col l  md:flex-row my-5 items-center justify-start p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i) => (
-                        <Card key={i} className="!w-full !bg-[#09090b] md:w-auto shadow-lg shadow-emerald-950/60 relative overflow-hidden">
+                        <Card key={i} className="!w-full bg-opacity-50 rounded-xl backdrop-blur-sm shadow-blue-950/10 md:w-auto shadow-lg  relative overflow-hidden">
                         <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
                         <CardHeader>
                             <CardTitle>{e.Price}</CardTitle>
                             <CardDescription>
-                                <p className="text-lg text-neutral-100">{e.type}</p>
+                                <p className="text-lg ">{e.type}</p>
                                 <p>{e.Package}</p>
                             </CardDescription>
                         </CardHeader>
@@ -121,7 +121,7 @@ const Pricing = () => {
                             <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
                         </CardContent>
                         <CardFooter >
-                            <Button className="w-full " onClick={handleClick}>Buy now</Button>
+                            <Button className="w-full bg-blue-950 hover:bg-blue-900 transition-colors duration-300 rounded-full " onClick={handleClick}>Buy now</Button>
                         </CardFooter>
                     </Card>
                     ))
@@ -132,7 +132,7 @@ const Pricing = () => {
             <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     monthly.map((e, i) => (
-                        <Card key={i} className="!w-full !bg-transparent md:w-auto  relative overflow-hidden shadow-lg shadow-indigo-950/50">
+                        <Card key={i} className="!w-full rounded-xl bg-opacity-50 backdrop-blur-sm  md:w-auto  relative overflow-hidden shadow-lg shadow-blue-950/10">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-indigo-100 via-indigo-300 to-indigo-500 rotate-45 text-neutral-950  text-[13px] uppercase">monthly</p>
                             <CardHeader>
                                 <CardTitle className="flex ">
@@ -149,7 +149,7 @@ const Pricing = () => {
 
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full " onClick={handleClick}>Buy now</Button>
+                                <Button className="w-full bg-blue-950 hover:bg-blue-900 transition-colors duration-300 rounded-full " onClick={handleClick}>Buy now</Button>
                             </CardFooter>
                         </Card>
                     ))

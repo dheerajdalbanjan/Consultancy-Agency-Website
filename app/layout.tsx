@@ -43,11 +43,11 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning >
-      <body className={"min-h-screen w-full bg-[#09090b]    m-0 "}  >
+      <body className={"min-h-screen w-full bg-gradient-to-r from-[#F7EEDD] to-[#41C9E2]    m-0 "}  >
         
       <ThemeProvider
             attribute="class"
-            defaultTheme="dark" 
+            defaultTheme="light" 
             disableTransitionOnChange
             enableSystem
             key={'theme1'}

@@ -163,7 +163,7 @@ const Signup = () => {
         <CardFooter>
           <Button
             type="submit"
-            className="w-full"
+            className="w-full bg-blue-950 hover:bg-blue-900 transition-colors duration-300 rounded-full"
             disabled={loading ? true : false}
           >
             {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}

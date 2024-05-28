@@ -43,17 +43,17 @@ const Navbar = () => {
 
   return (
     <div
-      className={` bg-opacity-70 ${
+      className={` bg-opacity-50 transition-all duration-500 ease-in-out  text-[#3D5280]  border-blue-200 ${
         scrolled
-          ? "filter backdrop-blur-2xl bg-[#09090b] border-b border-neutral-300 dark:border-neutral-600"
+          ? "filter backdrop-blur-2xl !h-16 border-b bg-blue-200 "
           : "bg-transparent"
-      } text-neutral-50 z-50 fixed top-0 h-16 flex items-center shadow-lg justify-between w-full  px-8 md:px-20 `}
+      }  z-50 fixed top-0 h-20 flex items-center  justify-between w-full  px-8 md:px-24 `}
     >
       
       <div className="flex gap-x-3 items-center justify-between ">
       
         <Sheet open={open} onOpenChange={e=>setOpen(e)} >
-          <SheetTrigger className="md:hidden">
+          <SheetTrigger className="md:hidden ">
             {/* <Button
               variant={"outline"}
               className="!bg-transparent px-2  active:scale-95 transition-all duration-300"
@@ -61,15 +61,15 @@ const Navbar = () => {
               <ChevronRight width={20}/>
             </Button> */}
             <div className={`flex flex-col ${open?'space-y-0':'space-y-[10px]'} justify-center items-center`}>
-              <div className={`w-6 h-[1px] bg-neutral-50 ${open?'rotate-45':''} transition-all duration-300 ease-in-out`}></div>
-              <div className={`w-6 h-[1px] bg-neutral-50 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
+              <div className={`w-6 h-[1px] bg-neutral-800 ${open?'rotate-45':''} transition-all duration-300 ease-in-out`}></div>
+              <div className={`w-6 h-[1px] bg-neutral-800 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
             </div>
           </SheetTrigger>
-          <SheetContent side={"left"} className="!bg-opacity-20 border-neutral-800 backdrop-blur-md">
+          <SheetContent side={"left"} className="!bg-opacity-20 bg-blue-100 border-blue-700/10 backdrop-blur-md">
             <SheetHeader className="h-full">
-              <SheetTitle>OurSoulss</SheetTitle>
+              <SheetTitle className="text-neutral-200">OurSoulss</SheetTitle>
               <SheetDescription className="flex h-full w-full flex-col gap-y-8 items-start justify-between">
-                <div className="flex flex-col gap-y-4 justify-start mt-3 items-start text-[1.05rem]">
+                <div className="flex flex-col gap-y-4 justify-start mt-3 items-start text-neutral-100 text-[1.05rem]">
                   <a href={"/"}>Home</a>
                   <a href={"/about"}>About</a>
                   <a href={"/contact"}>Contact</a>
@@ -80,10 +80,10 @@ const Navbar = () => {
                 {!session && (
                   <div className="flex items-center justify-between mt-auto gap-x-4 ml-auto">
                     <a href="/login">
-                      <Button variant="outline">Login</Button>
+                      <Button variant="outline" className="text-neutral-800">Login</Button>
                     </a>
                     <a href="/signup">
-                      <Button>SignUp</Button>
+                      <Button className="">SignUp</Button>
                     </a>
                   </div>
                 )}
@@ -96,8 +96,8 @@ const Navbar = () => {
         
       </div>
       <div className="flex justify-center items-center space-x-4">
-        <div className="hidden md:flex justify-center items-start space-x-4 text-neutral-700 dark:text-neutral-50">
-        <a href="/about"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
+        <div className="hidden md:flex justify-center items-start space-x-4 text-zinc-950/80 font-medium">
+        <a href="/about"><div className="hover:opacity-50  cursor-pointer transition-all ease-in duration-300">
           About
         </div></a>
         <a href="/contact"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
@@ -123,7 +123,7 @@ const Navbar = () => {
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 </span>
-                <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
+                <div className="relative flex space-x-2 items-center z-10 rounded-full bg-blue-950 py-0.5 px-4 ring-1 ring-white/10 ">
                   <span>{`Sign Up`}</span>
                   <svg
                     width="16"
@@ -151,19 +151,18 @@ const Navbar = () => {
             <DropdownMenuTrigger className="focus:outline-none">
               <Button
                 variant={"outline"}
-                className="rounded-full ml-3 p-0 active:scale-95 transition-all duration-300"
+                className="rounded-full ml-3 p-0 active:scale-95 scale-90 bg-opacity-50 border-zinc-300 hover:bg-opacity-60 transition-all duration-300"
               >
-                <Avatar  >
-                  <AvatarFallback className="scale-90" >
+                <Avatar   >
+                  <AvatarFallback className=" text-zinc-950  font-medium !bg-transparent" >
                     {session.user?.name?.slice(0, 1)}
                   </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="bg-opacity-50 backdrop-blur-sm">
               <DropdownMenuLabel>Profile</DropdownMenuLabel>
 
-              <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem>{session.user?.name}</DropdownMenuItem>
                 <DropdownMenuItem>{session.user?.email}</DropdownMenuItem>
@@ -183,7 +182,6 @@ const Navbar = () => {
                     </DropdownMenuSubContent>
                   </DropdownMenuPortal>
                 </DropdownMenuSub> */}
-                <DropdownMenuSeparator />
                 <DropdownMenuItem
                   className="!hover:bg-red-600/50 cursor-pointer hover:text-red-600"
                   onClick={() => signOut()}

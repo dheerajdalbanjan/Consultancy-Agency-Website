@@ -74,11 +74,11 @@ const Page = () => {
 
   return (
     <div className="min-h-screen pt-20 z-50 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
-      {loading && <div className='fixed inset-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-lg flex items-center justify-center '>
+      {loading && <div className='fixed inset-0 w-full h-full  bg-opacity-50 backdrop-blur-xl z-50 flex items-center justify-center '>
 
 <LoaderIcon className='animate-spin' />
 </div>}
-      <h1 className="text-3xl text-neutral-100 font-bold antialiased my-3">
+      <h1 className="text-3xl  font-bold antialiased my-3">
         All Blogs
       </h1>
       <div className="flex flex-col space-y-7 my-3 py-5">
@@ -87,7 +87,7 @@ const Page = () => {
           key={i} href={`/blog/${e?.slug}`}>
           <Card
             
-            className="relative flex flex-col md:flex-row p-0 md:h-60 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300 ease-in-out group"
+            className="relative shadow-blue-950/10 border-none flex flex-col md:flex-row p-0 md:h-60 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300 ease-in-out group"
           >
             <CardContent id={i.toString()} className="md:w-1/2 w-full p-0 relative overflow-hidden">
               <img
@@ -106,13 +106,13 @@ const Page = () => {
             <CardHeader className="w-full ">
               <CardTitle>{e.title}</CardTitle>
               <CardDescription>
-                <Markdown className={"text-neutral-300"}>{e.content.slice(0, 100)}</Markdown>...
+                <Markdown className={"text-neutral-800"}>{e.content.split("\n\n")[1].slice(0, 150)}</Markdown>...
               </CardDescription>
               <div className="flex flex-col  h-full justify-end space-y-2">
               <Badge className="w-fit my-2 !border-none">{e.author}</Badge>
               <div className="flex flex-wrap gap-2 my-3 ">
                 {e.tags.slice(0, 3).map((e: any, i: number) => (
-                  <Badge variant={"outline"} className="dark:!border-neutral-300" key={i}>
+                  <Badge variant={"outline"} className="border-neutral-600" key={i}>
                     #{e}
                   </Badge>
                 ))}

@@ -153,7 +153,7 @@ const Page = () => {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="enter you name" {...field} />
+                  <Input placeholder="enter you name" className="bg-opacity-70" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -167,7 +167,7 @@ const Page = () => {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input
-                    type="email"
+                    type="email"  className="bg-opacity-70"
                     placeholder="enter you email"
                     {...field}
                   />
@@ -184,7 +184,7 @@ const Page = () => {
                 <FormLabel>Phone No.</FormLabel>
                 <FormControl>
                   <Input
-                    type="number"
+                    type="number"  className="bg-opacity-70"
                     placeholder="enter your phone number"
                     {...field}
                   />
@@ -201,13 +201,13 @@ const Page = () => {
                 <FormLabel>Category</FormLabel>
                 <FormControl>
                   <Select
-                    onValueChange={(value) => setValue("category", value)}
+                    onValueChange={(value) => setValue("category", value)}  
                     {...field}
                   >
                     <SelectTrigger className="bg-opacity-60">
                       <SelectValue placeholder="Select you category of concern" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-opacity-70">
                       <SelectItem value="Academic">Academic</SelectItem>
                       <SelectItem value="Professional">Professional</SelectItem>
                       <SelectItem value="Social">Social</SelectItem>
@@ -229,12 +229,12 @@ const Page = () => {
                   <FormControl>
                     <Select
                       onValueChange={(value) => setValue("pricing", value)}
-                      {...field}
+                      {...field}  
                     >
                       <SelectTrigger className="bg-opacity-60">
                         <SelectValue placeholder="Select your Pack" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-opacity-70">
                         {selectOptions.map((e, i) => (
                           <SelectItem key={i} value={e.label}>
                             {e.label}{" "}
@@ -277,13 +277,13 @@ const Page = () => {
               <FormLabel>Coupon</FormLabel>
               <FormControl>
               <Select
-                      onValueChange={(value) => setValue("coupon", value)}
+                      onValueChange={(value) => setValue("coupon", value)}  
                       {...field}
                     >
                       <SelectTrigger className="bg-opacity-60">
                         <SelectValue placeholder="Select your coupon" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className={"bg-opacity-70"}>
                           <SelectItem  value="NEW_TO_OURSOULSS">
                             NEW_TO_OURSOULSS
                           </SelectItem>
@@ -323,7 +323,7 @@ const Page = () => {
             </Button>
             <Button
               type="submit"
-              className="w-44"
+              className="w-44 rounded-full bg-blue-950 hover:bg-blue-900 transition-colors"
               disabled={loading ? true : false}
             >
               {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}

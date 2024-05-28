@@ -43,7 +43,7 @@ const Page = () => {
 
       <div className=" w-full">
         {loading && (
-          <div className="fixed z-50 inset-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-lg flex items-center justify-center ">
+          <div className="fixed z-50 inset-0 w-full h-full  bg-opacity-50 backdrop-blur-xl flex items-center justify-center ">
             <Loader2Icon className="animate-spin" />
           </div>
         )}
@@ -101,7 +101,7 @@ const Page = () => {
                       }}
                       className="shadow-xl group overflow-visible w-full rounded-xl  md:w-72 p-0 bg-transparent relative"
                     >
-                      <div className="backdrop-blur-2xl h-full !rounded-lg bg-black bg-opacity-70 ">
+                      <div className="backdrop-blur-2xl h-full !rounded-lg  bg-opacity-70 ">
                         <CardHeader className="md:w-72 rounded-lg  w-full aspect-square">
                           <Image
                             src={p["image_link"] || ""}
@@ -122,9 +122,9 @@ const Page = () => {
                           </CardTitle>
                         </CardContent>
                         <CardFooter className="w-full flex items-center justify-between  my-0">
-                          <Badge variant={"outline"}>{e}</Badge>
+                          <Badge variant={"outline"} className="border-neutral-700">{e}</Badge>
                           <a href={p["link"]}>
-                            <Button>Buy now</Button>
+                            <Button className="px-5 rounded-full bg-blue-950 hover:bg-blue-900 transition-colors duration-300">Buy now</Button>
                           </a>
                         </CardFooter>
                       </div>
