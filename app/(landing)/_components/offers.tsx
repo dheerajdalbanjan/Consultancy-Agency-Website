@@ -81,10 +81,10 @@ const Offers = () => {
                             Avail Offer
                           </button>
                         </DialogTrigger>
-                        <DialogContent className="mx-2 rounded-md min-w-[300px] w-fit p-5">
+                        <DialogContent className="mx-2 border-none min-w-[300px] w-fit p-5 bg-opacity-50 backdrop-blur-sm rounded-xl">
                           <DialogHeader>
                             <DialogTitle>Coupon Code</DialogTitle>
-                            <DialogDescription>
+                            <DialogDescription className="text-zinc-800">
                               Copy the coupon code from below and paste in the
                               contact form to avail the offer.
                             </DialogDescription>
@@ -131,6 +131,15 @@ const Offers = () => {
         </Carousel>
       </div>
 
+      <Card className="w-full mx-auto bg-opacity-50 backdrop-blur-sm rounded-xl  my-3">
+        <CardHeader>
+          <CardTitle>Unlock your journey to wellness</CardTitle>
+          <CardDescription>Try OurSoulss for FREE!</CardDescription>
+        </CardHeader>
+        <CardFooter>
+          <a href="/signup"><Button className="rounded-full bg-yellow-800 text-neutral-50 w-full">Request a free trial</Button></a>
+        </CardFooter>
+      </Card>
       
       <div className="absolute top-0 h-[20%] w-full bg-gradient-to-b from-[#F7EEDD]">
 

@@ -90,7 +90,7 @@ const Pricing = ()=>{
             Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
         </Button></a>
             <Dialog open={open} onOpenChange={setOpen} >
-                <DialogContent className="w-80 text-start bg-opacity-50 backdrop-blur-sm text-zinc-800 rounded-xl">
+                <DialogContent className="w-80 text-start bg-opacity-50 border-none backdrop-blur-sm text-zinc-800 rounded-xl">
                     <DialogHeader className="text-start justify-start">
                         <DialogTitle>Attention here!</DialogTitle>
                         <DialogDescription className="text-zinc-800">

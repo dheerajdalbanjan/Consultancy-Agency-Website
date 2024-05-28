@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import Affiliate from "./_components/affiliate";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -45,12 +46,13 @@ export default function Home() {
     <main className="h-full bg-dot-white/[0.03]">
       <Hero />
       <Offers />
+      
       <Pricing />
       <Features />
       <Affiliate />
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
         setPopupshowed(true) ;}}>
-        <DialogContent className="mx-1 rounded-md w-fit p-8 bg-opacity-50 backdrop-blur-sm">
+        <DialogContent className="mx-1 rounded-md w-fit p-8 bg-opacity-50 border-none backdrop-blur-sm">
           <DialogHeader>
             <DialogTitle className="whitespace-nowrap">Sign Up to get Atmost Experience</DialogTitle>
             <DialogDescription className="text-zinc-900">

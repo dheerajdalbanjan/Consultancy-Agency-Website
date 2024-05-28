@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={` bg-opacity-50 transition-all duration-500 ease-in-out  text-[#3D5280]  border-blue-200 ${
+      className={` bg-opacity-50 transition-all duration-500 ease-in-out  text-[#3D5280]  border-blue-700/10 ${
         scrolled
           ? "filter backdrop-blur-2xl !h-16 border-b bg-blue-200 "
           : "bg-transparent"
@@ -52,7 +52,7 @@ const Navbar = () => {
       
       <div className="flex gap-x-3 items-center justify-between ">
       
-        <Sheet open={open} onOpenChange={e=>setOpen(e)} >
+        <Sheet open={open} onOpenChange={e=>setOpen(e)}  >
           <SheetTrigger className="md:hidden ">
             {/* <Button
               variant={"outline"}
@@ -65,11 +65,11 @@ const Navbar = () => {
               <div className={`w-6 h-[1px] bg-neutral-800 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
             </div>
           </SheetTrigger>
-          <SheetContent side={"left"} className="!bg-opacity-20 bg-blue-100 border-blue-700/10 backdrop-blur-md">
+          <SheetContent side={"left"} className="!bg-opacity-50  border-blue-700/10 backdrop-blur-2xl">
             <SheetHeader className="h-full">
-              <SheetTitle className="text-neutral-200">OurSoulss</SheetTitle>
+              <SheetTitle className="text-zinc-900">OurSoulss</SheetTitle>
               <SheetDescription className="flex h-full w-full flex-col gap-y-8 items-start justify-between">
-                <div className="flex flex-col gap-y-4 justify-start mt-3 items-start text-neutral-100 text-[1.05rem]">
+                <div className="flex flex-col gap-y-4 justify-start mt-3 items-start text-zinc-800 text-[1.05rem]">
                   <a href={"/"}>Home</a>
                   <a href={"/about"}>About</a>
                   <a href={"/contact"}>Contact</a>

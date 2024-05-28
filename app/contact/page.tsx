@@ -207,7 +207,7 @@ const Page = () => {
                     <SelectTrigger className="bg-opacity-60">
                       <SelectValue placeholder="Select you category of concern" />
                     </SelectTrigger>
-                    <SelectContent className="bg-opacity-70">
+                    <SelectContent className="bg-opacity-30 backdrop-blur-md">
                       <SelectItem value="Academic">Academic</SelectItem>
                       <SelectItem value="Professional">Professional</SelectItem>
                       <SelectItem value="Social">Social</SelectItem>
@@ -234,7 +234,7 @@ const Page = () => {
                       <SelectTrigger className="bg-opacity-60">
                         <SelectValue placeholder="Select your Pack" />
                       </SelectTrigger>
-                      <SelectContent className="bg-opacity-70">
+                      <SelectContent className="bg-opacity-30 backdrop-blur-md">
                         {selectOptions.map((e, i) => (
                           <SelectItem key={i} value={e.label}>
                             {e.label}{" "}
@@ -283,7 +283,7 @@ const Page = () => {
                       <SelectTrigger className="bg-opacity-60">
                         <SelectValue placeholder="Select your coupon" />
                       </SelectTrigger>
-                      <SelectContent className={"bg-opacity-70"}>
+                      <SelectContent className={"bg-opacity-30 backdrop-blur-md"}>
                           <SelectItem  value="NEW_TO_OURSOULSS">
                             NEW_TO_OURSOULSS
                           </SelectItem>

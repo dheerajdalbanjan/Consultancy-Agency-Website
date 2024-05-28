@@ -157,10 +157,10 @@ const Pricing = () => {
             </div>
 
             <Dialog open={open} onOpenChange={setOpen} >
-                <DialogContent className="w-80 text-start rounded-xl">
+                <DialogContent className="w-80 text-start bg-opacity-50 border-none backdrop-blur-sm text-zinc-800 rounded-xl">
                     <DialogHeader className="text-start justify-start">
                         <DialogTitle>Attention here!</DialogTitle>
-                        <DialogDescription>
+                        <DialogDescription className="text-zinc-800">
                             Due to some technical issues we are not able to proceed further payment so please do contact our team for the process of purchase
                         </DialogDescription>
                     </DialogHeader>
@@ -168,7 +168,7 @@ const Pricing = () => {
                     <DialogFooter className="justify-end items-end">
                         <DialogClose asChild>
                             <a href="/contact?pricing=true" className="w-fit float-right">
-                            <Button  type="button" className=" " variant="secondary">
+                            <Button  type="button" className="bg-blue-950 rounded-full">
                                 Contact 
                             </Button>
                             </a>

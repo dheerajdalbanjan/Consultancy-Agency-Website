@@ -87,8 +87,8 @@ const Affiliate = () => {
               <CardTitle className="truncate">{products[e][0]["title"]}</CardTitle>
               </CardContent>
               <CardFooter className="w-full flex items-center pb-5 justify-between my-0">
-                <Badge variant={"outline"}>{e}</Badge>
-                <a href={products[e][0]['link']}><Button>Buy now</Button></a>
+                <Badge variant={"outline"} className="border-neutral-700">{e}</Badge>
+                <a href={products[e][0]['link']}><Button className="px-6 rounded-full !py-0.5 bg-blue-950 hover:bg-blue-900 transition-colors duration-300">Buy now</Button></a>
               </CardFooter>
               </div>
             </Card>

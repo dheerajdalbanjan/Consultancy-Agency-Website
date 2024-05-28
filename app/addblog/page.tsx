@@ -155,7 +155,7 @@ const AddBlog = () => {
   return (
     <Form {...methods}>
       <form onSubmit={handleSubmit(onSubmitt)} className=" mt-20 px-5">
-        <Card className="max-w-5xl mx-auto md:p-5 ">
+        <Card className="max-w-5xl mx-auto md:p-5 bg-opacity-50 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Add blog</CardTitle>
           </CardHeader>
@@ -298,7 +298,7 @@ const AddBlog = () => {
               {tags.map((e, i) => (
                 <Badge
                   onClick={() => handleTagClick(e)}
-                  className={`cursor-pointer active:scale-90 hover:bg-red-800 hover:border-none group transition-all duration-300 ease-in-out ${
+                  className={`cursor-pointer active:scale-90 hover:bg-red-800 hover:text-neutral-50 hover:border-none group transition-all duration-300 ease-in-out ${
                     removingTag === e ? "scale-0" : ""
                   }`}
                   variant={"outline"}
@@ -316,7 +316,7 @@ const AddBlog = () => {
             {error.length > 0 && <Formerror error={error} />}
             <Button
               type="submit"
-              className="w-full"
+              className="w-full rounded-full bg-blue-950 hover:bg-blue-900 transition-colors duration-300"
               disabled={loading ? true : false}
             >
               {loading && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}

@@ -62,10 +62,10 @@ const Page = () => {
                 handleLoading() ;
               }}
             >
-              <SelectTrigger className="w-[180px] !outline-none !ring-0 ">
+              <SelectTrigger className="w-[180px] !outline-none  !ring-0 bg-opacity-50 backdrop-blur-md">
                 <SelectValue placeholder="Books" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-opacity-50 backdrop-blur-md border-none">
                 {Object.keys(data).map((e, i) => (
                   <SelectItem
                     value={e}
@@ -80,14 +80,14 @@ const Page = () => {
           </div>
           <TabsList className="hidden md:block rounded-full w-fit">
             {Object.keys(data).map((e, i) => (
-              <TabsTrigger className="rounded-full  px-6" key={i} value={e}>
+              <TabsTrigger className={`rounded-full  px-6 ${value === e ? '!bg-blue-950 !text-neutral-100': ''}`} key={i} value={e}>
                 {e}
               </TabsTrigger>
             ))}
           </TabsList>
           {Object.keys(data).map((e, i) => (
             <TabsContent value={e} key={i}>
-              <div className="grid grid-cols-1 py-5  gap-y-11 md:gap-x-5 md:grid-cols-4 w-full  my-5 items-center justify-center  ">
+              <div className="grid grid-cols-1 py-5  gap-y-12 md:gap-x-5 md:grid-cols-4 w-full  my-5 items-center justify-center  ">
                 {data[e].map(
                   (
                     p: { [x: string]: string | undefined },
@@ -95,14 +95,11 @@ const Page = () => {
                   ) => (
                     <Card
                       key={i}
-                      style={{
-                        backgroundImage: `url(${p["image_link"]})`,
-                        backgroundSize: "cover",
-                      }}
-                      className="shadow-xl group overflow-visible w-full rounded-xl  md:w-72 p-0 bg-transparent relative"
+                      
+                      className="shadow-xl bg-opacity-30 group overflow-visible w-full rounded-xl  md:w-64 p-0 relative"
                     >
-                      <div className="backdrop-blur-2xl h-full !rounded-lg  bg-opacity-70 ">
-                        <CardHeader className="md:w-72 rounded-lg  w-full aspect-square">
+                      <div className="backdrop-blur-xl h-full !rounded-lg  bg-opacity-50 ">
+                        <CardHeader className="md:w-64 rounded-lg  w-full aspect-square">
                           <Image
                             src={p["image_link"] || ""}
                             alt=""
