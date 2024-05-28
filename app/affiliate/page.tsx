@@ -96,7 +96,7 @@ const Page = () => {
                     <Card
                       key={i}
                       
-                      className="shadow-xl bg-opacity-30 group overflow-visible w-full rounded-xl  md:w-64 p-0 relative"
+                      className="shadow-xl bg-opacity-50 group overflow-visible w-full rounded-xl  md:w-64 p-0 relative"
                     >
                       <div className="backdrop-blur-xl h-full !rounded-lg  bg-opacity-50 ">
                         <CardHeader className="md:w-64 rounded-lg  w-full aspect-square">

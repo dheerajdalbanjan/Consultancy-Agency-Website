@@ -66,7 +66,7 @@ const Affiliate = () => {
             //     </CardFooter>
             //   </Card>
             // </div>
-            <Card key={i}  className=" border-blue-700/10 shadow-blue-400/50 shadow-lg bg-opacity-30 backdrop-blur-sm group rounded-xl   overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0  relative" >
+            <Card key={i}  className=" border-blue-700/10 shadow-blue-400/50 shadow-lg bg-opacity-50 backdrop-blur-sm group rounded-xl   overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0  relative" >
               <div className=" h-full !rounded-lg">
               <CardHeader className="md:h-60 md:w-64  w-full aspect-square ">
                 <Image

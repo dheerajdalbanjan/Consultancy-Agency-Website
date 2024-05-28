@@ -52,7 +52,7 @@ const Offers = () => {
         Offers
       </h1>
 
-      <div className="preview flex min-h-[350px] w-full justify-center p-5 items-center">
+      <div className="preview flex min-h-[350px] w-full justify-center  items-center">
         <Carousel className=" max-w-xs w-full ">
           <CarouselContent >
             {offers.map((_, index) => (
@@ -137,7 +137,7 @@ const Offers = () => {
           <CardDescription>Try OurSoulss for FREE!</CardDescription>
         </CardHeader>
         <CardFooter>
-          <a href="/signup"><Button className="rounded-full bg-yellow-800 text-neutral-50 w-full">Request a free trial</Button></a>
+          <a href="/signup"><Button className="rounded-full bg-yellow-800 text-neutral-50 !w-full">Request a free trial</Button></a>
         </CardFooter>
       </Card>
       
