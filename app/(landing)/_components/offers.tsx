@@ -53,12 +53,12 @@ const Offers = () => {
       </h1>
 
       <div className="preview flex min-h-[350px] w-full justify-center  items-center">
-        <Carousel className=" max-w-xs w-full ">
+        <Carousel className=" max-w-xs w-max ">
           <CarouselContent >
             {offers.map((_, index) => (
               <CarouselItem key={index}>
                 <div className="p-1 ">
-                  <Card className="overflow-hidden group relative">
+                  <Card className="overflow-hidden group  relative">
                     <CardHeader className="z-10 bg-blue-100">
                       <CardTitle>{_.title}</CardTitle>
                       <CardDescription>{_.description}</CardDescription>

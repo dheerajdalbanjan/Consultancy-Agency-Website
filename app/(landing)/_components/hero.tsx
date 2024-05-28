@@ -16,7 +16,7 @@ const Hero = () => {
       <Badge  variant={'outline'} className='rounded-full text-base mt-4 border-black/50 bg-opacity-20 backdrop-blur-sm'>We here | We Support | We Console</Badge>
         <h2 className='text-3xl sm:text-4xl md:text-5xl max-w-xl my-4 text-center text-neutral-800 antialiased font-bold'>Your Feelings Matter, You’re Not Alone</h2>
         
-        <h4 className=' text-base font-normal  text-center max-w-lg'>Welcome to oursoulss, a wellness and mental health related platform where you can talk with professionals ( psychiatrist and other dedicated person ) as well as non-professional ( understands you ) . 24/7 support to help you handle difficult times in life. Oursoulss is always on your side.</h4>
+        <h4 className=' text-base font-normal  text-center max-w-lg'>Welcome to OurSoulss, your go-to platform for wellness and mental health. Connect with professionals like Psychiatrist, Psychologist, and Therapist, or talk to empathetic peers. We offer 24/7 support to help you through tough times. OurSoulss ia always by your side!</h4>
         <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group  bg-opacity-50 backdrop-blur-md hover:bg-blue-200 rounded-full transition ease  mx-auto max-w-fit duration-500'>
             Try now <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/></Button></a>
         {/* <div className='relative w-full h-[14rem] sm:h-[18rem] md:h-[24rem]  my-4'>

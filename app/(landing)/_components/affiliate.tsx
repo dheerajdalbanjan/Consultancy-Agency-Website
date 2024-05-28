@@ -24,7 +24,7 @@ const Affiliate = () => {
       <div className="relative">
         <div
           id="scrollContainer"
-          className="flex md:flex-row flex-col space-y-3 md:space-y-0 py-8 gap-8 overflow-x-hidden max-w-6xl "
+          className="flex md:flex-row  flex-col space-y-3 md:space-y-0 py-8 gap-8 overflow-x-hidden max-w-6xl "
         >
           {Object.keys(products).map((e, i) => (
             // <div key={i} className="flex-none w-80">
