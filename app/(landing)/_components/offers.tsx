@@ -59,12 +59,12 @@ const Offers = () => {
               <CarouselItem key={index}>
                 <div className="p-1 ">
                   <Card className="overflow-hidden group  relative">
-                    <CardHeader className="z-10 bg-blue-100">
+                    <CardHeader className="z-10 bg-[#F7ECE1]">
                       <CardTitle>{_.title}</CardTitle>
                       <CardDescription>{_.description}</CardDescription>
                     </CardHeader>
                     <CardContent className="flex group-hover:opacity-70 group-hover:blur-sm transition-all duration-300 ease-in-out aspect-square p-0 items-center justify-center relative   overflow-hidden">
-                      <div className="h-full absolute top-0  w-full bg-gradient-to-b from-blue-100  dark:from-neutral-950 to-slate-50/10 z-10"></div>
+                      <div className="h-full absolute top-0  w-full bg-gradient-to-b from-[#F7ECE1]  dark:from-neutral-950 to-slate-50/5 z-10"></div>
                       <Image
                         src={_.image}
                         alt="offer_image"
@@ -141,9 +141,7 @@ const Offers = () => {
         </CardFooter>
       </Card>
       
-      <div className="absolute top-0 h-[20%] w-full bg-gradient-to-b from-[#F7EEDD]">
-
-      </div>
+    
 
       </div>
     </div>

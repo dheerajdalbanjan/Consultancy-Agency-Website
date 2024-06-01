@@ -37,7 +37,7 @@ const Page = () => {
 
   return (
     <div className="max-w-7xl px-2 mt-20 mx-auto min-h-screen">
-      <h1 className="bg-clip-text pl-5 md:pl-0 bg-gradient-to-br antialiased  my-3 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-bold  tracking-tight lg:text-5xl">
+      <h1 className="bg-clip-text pl-5 md:pl-0 bg-gradient-to-br antialiased  my-3 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-semibold  tracking-tight lg:text-4xl">
         Our Products
       </h1>
 
@@ -80,7 +80,7 @@ const Page = () => {
           </div>
           <TabsList className="hidden md:block rounded-full w-fit">
             {Object.keys(data).map((e, i) => (
-              <TabsTrigger className={`rounded-full  px-6 ${value === e ? '!bg-blue-950 !text-neutral-100': ''}`} key={i} value={e}>
+              <TabsTrigger className={`rounded-full  px-6 ${value === e ? '!bg-[#242038] !text-neutral-100': ''}`} key={i} value={e}>
                 {e}
               </TabsTrigger>
             ))}
@@ -121,7 +121,7 @@ const Page = () => {
                         <CardFooter className="w-full flex items-center justify-between  my-0">
                           <Badge variant={"outline"} className="border-neutral-700">{e}</Badge>
                           <a href={p["link"]}>
-                            <Button className="px-5 rounded-full bg-blue-950 hover:bg-blue-900 transition-colors duration-300">Buy now</Button>
+                            <Button className="px-5 rounded-full bg-[#242038] hover:opacity-95 transition-colors duration-300">Buy now</Button>
                           </a>
                         </CardFooter>
                       </div>

@@ -44,7 +44,7 @@ const Features = () => {
         <h2 className='text-2xl sm:text-start  sm:text-3xl md:text-4xl max-w-xl my-4 text-center antialiased font-bold tracking-tight'>Features </h2>
         <div className='flex items-center px-6 md:px-0 w-full justify-between md:gap-x-5 flex-col md:flex-row gap-y-4 md:gap-y-0' > 
             {features.map((e, i)=>
-                <Card key={i} className='rounded-xl shadow-lg shadow-blue-700/5 border-blue-700/10  bg-opacity-50 backdrop-blur-md w-full h-56 md:w-64 relative group overflow-hidden cursor-pointer '>
+                <Card key={i} className='rounded-xl shadow-md shadow-[#9067C6]/30 border-blue-700/10  bg-opacity-50 backdrop-blur-md w-full h-56 md:w-64 relative group overflow-hidden cursor-pointer '>
                 <CardHeader >
                   <CardTitle>{e.title}</CardTitle>
                   <CardDescription className='truncate'>{e.description}</CardDescription>
@@ -52,7 +52,7 @@ const Features = () => {
                 <CardContent className=' float-right'>
                     <e.icon className='h-16 w-16 mt-auto '/>
                 </CardContent>
-                <CardFooter className=' origin-bottom bg-blue-900/70 text-neutral-50 backdrop-blur-2xl dark:border-neutral-500 shadow-lg h-full ease-in-out rounded-sm p-8 group-hover:bottom-0 absolute -bottom-56 transition-all duration-300'>
+                <CardFooter className=' origin-bottom bg-[#9067C6] text-neutral-50 backdrop-blur-2xl dark:border-neutral-500 shadow-lg h-full ease-in-out rounded-sm p-8 group-hover:bottom-0 absolute -bottom-56 transition-all duration-300'>
                   <p>{e.description}</p>
                 </CardFooter>
               </Card>

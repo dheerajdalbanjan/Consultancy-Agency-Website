@@ -66,7 +66,7 @@ const Pricing = ()=>{
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
-                        <Card key={i} className="!w-full rounded-xl shadow-blue-400/50 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-lg  relative overflow-hidden">
+                        <Card key={i} className="!w-full rounded-xl shadow-[#9067C6]/30 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-md  relative overflow-hidden">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>
@@ -80,7 +80,7 @@ const Pricing = ()=>{
                                 <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full bg-blue-950 transition-colors duration-300 hover:bg-blue-900 rounded-full" onClick={handleClick}>Buy now</Button>
+                                <Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full" onClick={handleClick}>Buy now</Button>
                             </CardFooter>
                         </Card>
                     ))

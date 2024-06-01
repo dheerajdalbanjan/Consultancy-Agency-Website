@@ -66,7 +66,7 @@ const Affiliate = () => {
             //     </CardFooter>
             //   </Card>
             // </div>
-            <Card key={i}  className=" border-blue-700/10 shadow-blue-400/50 shadow-lg bg-opacity-50 backdrop-blur-sm group rounded-xl   overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0  relative" >
+            <Card key={i}  className=" border-blue-700/10 shadow-[#9067C6]/30 shadow-lg bg-opacity-50 backdrop-blur-sm group rounded-xl   overflow-visible w-80 mx-auto px-7 md:px-0  md:w-64 p-0  relative" >
               <div className=" h-full !rounded-lg">
               <CardHeader className="md:h-60 md:w-64  w-full aspect-square ">
                 <Image
@@ -88,7 +88,7 @@ const Affiliate = () => {
               </CardContent>
               <CardFooter className="w-full flex items-center pb-5 justify-between my-0">
                 <Badge variant={"outline"} className="border-neutral-700">{e}</Badge>
-                <a href={products[e][0]['link']}><Button className="px-6 rounded-full !py-0.5 bg-blue-950 hover:bg-blue-900 transition-colors duration-300">Buy now</Button></a>
+                <a href={products[e][0]['link']}><Button className="px-6 rounded-full !py-0.5 bg-[#242038] hover:opacity-95 transition-colors duration-300">Buy now</Button></a>
               </CardFooter>
               </div>
             </Card>

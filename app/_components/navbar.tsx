@@ -43,9 +43,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={` bg-opacity-50 transition-all duration-500 ease-in-out  text-[#3D5280]  border-blue-700/10 ${
+      className={` transition-all duration-300 ease-in-out  text-[#3D5280]  border-blue-700/10 ${
         scrolled
-          ? "filter backdrop-blur-2xl !h-16 border-b bg-blue-200 "
+          ? " !h-16 border-b bg-[#F7ECE1] "
           : "bg-transparent"
       }  z-50 fixed top-0 h-20 flex items-center  justify-between w-full  px-8 md:px-24 `}
     >
@@ -65,7 +65,7 @@ const Navbar = () => {
               <div className={`w-6 h-[1px] bg-neutral-800 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
             </div>
           </SheetTrigger>
-          <SheetContent side={"left"} className="!bg-opacity-50  border-blue-700/10 backdrop-blur-2xl">
+          <SheetContent side={"left"} className="  border-blue-700/10 !bg-[#F7ECE1]">
             <SheetHeader className="h-full">
               <SheetTitle className="text-zinc-900">OurSoulss</SheetTitle>
               <SheetDescription className="flex h-full w-full flex-col gap-y-8 items-start justify-between">
@@ -160,7 +160,7 @@ const Navbar = () => {
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-opacity-50 backdrop-blur-sm">
+            <DropdownMenuContent className="bg-opacity-70 backdrop-blur-sm">
               <DropdownMenuLabel>Profile</DropdownMenuLabel>
 
               <DropdownMenuGroup>
