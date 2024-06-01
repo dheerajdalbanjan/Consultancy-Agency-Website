@@ -45,7 +45,7 @@ const Offers = () => {
   ];
 
   return (
-    <div className="bg-dot-white/[0.09] flex items-center justify-center relative  self-center py-6 px-7 w-full md:px-24 mx-auto">
+    <div className="bg-dot-white/[0.09] flex items-center justify-center relative  self-center md:py-6 px-7 w-full md:px-24 mx-auto">
       <div className="flex  flex-col md:flex-row gap-y-4 md:gap-y-7 md:gap-x-16 md:justify-evenly items-center justify-center">
       
       <h1 className="bg-clip-text bg-gradient-to-br  text-center my-2 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-bold  tracking-tight lg:text-5xl">
@@ -114,7 +114,7 @@ const Offers = () => {
                             </DialogClose>
 
                             <a href={`/contact?offer=${_.coupon_code}`}>
-                              <Button>Avail Offer</Button>
+                              <Button className="bg-dark_purple">Avail Offer</Button>
                             </a>
                             </div>
                           </DialogFooter>

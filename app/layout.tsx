@@ -43,7 +43,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning >
-      <body className={"min-h-screen w-full bg-gradient-to-r to-[#CAC4CE] from-[#F7ECE1]  m-0 " }  style={inter.style} >
+      <body className={"min-h-screen w-full  bg-gradient-to-r to-[#CAC4CE] from-[#F7ECE1]  m-0 " }  style={inter.style} >
         
       <ThemeProvider
             attribute="class"

@@ -61,7 +61,7 @@ export default function Home() {
           </DialogHeader>
           <DialogFooter >
             <div className="flex items-center w-full justify-end space-x-5 ">
-            <a href="/signup" ><Button className="bg-blue-950">
+            <a href="/signup" ><Button className="bg-dark_purple">
               Sign Up
             </Button></a>
             <a href="/login" ><Button variant={'outline'} className="bg-opacity-50">

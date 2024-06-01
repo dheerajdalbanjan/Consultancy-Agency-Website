@@ -19,7 +19,7 @@ const Hero = () => {
         <h2 className='text-3xl sm:text-4xl md:text-5xl  my-4  text-neutral-800 antialiased font-semibold'>Your Feelings Matter, You’re Not Alone</h2>
         
         <h4 className=' text-base font-normal  text-start max-w-4xl '>Welcome to OurSoulss, your go-to platform for wellness and mental health. Connect with professionals like Psychiatrist, Psychologist, and Therapist, or talk to empathetic peers. We offer 24/7 support to help you through tough times. OurSoulss ia always by your side!</h4>
-        <a href="/pricing"><Button size={'lg'} className='group mt-6 bg-[#242038]    hover:opacity-90 rounded-full transition ease  mx-auto max-w-fit duration-500'>
+        <a href="/pricing"><Button size={'lg'} className='group mt-6 bg-[#242038]  uppercase px-8   hover:opacity-90 rounded-full transition ease  mx-auto max-w-fit duration-500'>
             Try now <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/></Button></a>
         {/* <div className='relative w-full h-[14rem] sm:h-[18rem] md:h-[24rem]  my-4'>
         <Image src={"/dark-hero.jpg"} alt="hero Image" fill={true} className='object-cover sm:object-contain hidden dark:block  filter grayscale bg-background mix-blend-lighten'/>
