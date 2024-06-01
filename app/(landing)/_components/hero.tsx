@@ -14,8 +14,8 @@ const Hero = () => {
   const router = useRouter() ; 
   return (
     <div className=' relative    items-center  justify-center  pb-8 md:py-8 '  >
-      <div className='flex h-full pt-24 px-6 items-start justify-center max-w-6xl mx-auto   pb-20 w-full flex-col gap-y-2 md:gap-y-3  '>
-      <Badge  variant={'outline'} className='rounded-full  mt-4 border-black/50 text-base'>We here | We Support | We Console</Badge>
+      <div className='flex h-full pt-24 px-8 items-start justify-center max-w-6xl mx-auto   pb-20 w-full flex-col gap-y-2 md:gap-y-3  '>
+      <Badge  variant={'outline'} className='rounded-full  mt-4 border-black/50 md:text-base'>We here | We Support | We Console</Badge>
         <h2 className='text-3xl sm:text-4xl md:text-5xl  my-4  text-neutral-800 antialiased font-semibold'>Your Feelings Matter, You’re Not Alone</h2>
         
         <h4 className=' text-base font-normal  text-start max-w-4xl '>Welcome to OurSoulss, your go-to platform for wellness and mental health. Connect with professionals like Psychiatrist, Psychologist, and Therapist, or talk to empathetic peers. We offer 24/7 support to help you through tough times. OurSoulss ia always by your side!</h4>
