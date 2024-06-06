@@ -49,7 +49,7 @@ export default function Home() {
       
       <Pricing />
       <Features />
-      <Affiliate />
+      {/* <Affiliate /> */}
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
         setPopupshowed(true) ;}}>
         <DialogContent className="mx-1 rounded-md w-fit p-8 bg-opacity-50 border-none backdrop-blur-sm">
