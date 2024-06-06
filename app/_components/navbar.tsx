@@ -47,7 +47,7 @@ const Navbar = () => {
         scrolled
           ? " !h-16 border-b bg-[#F7ECE1] "
           : "bg-transparent"
-      }  z-50 fixed top-0 h-20 flex items-center  justify-between w-full  px-8 md:px-24 `}
+      }  z-50 fixed top-0 h-20 flex items-center  justify-between w-full  px-8 md:px-48 `}
     >
       
       <div className="flex gap-x-3 items-center justify-between ">
@@ -74,7 +74,7 @@ const Navbar = () => {
                   <a href={"/about"}>About</a>
                   <a href={"/contact"}>Contact</a>
                   <a href="/pricing">Pricing</a>
-                  <a href="/affiliate">Affiliate</a>
+                  {/* <a href="/affiliate">Affiliate</a> */}
                   <a href="/blog">Blog</a>
                 </div>
                 {!session && (
@@ -106,9 +106,9 @@ const Navbar = () => {
         <a href="/pricing"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Pricing
         </div></a>
-        <a href="/affiliate"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
+        {/* <a href="/affiliate"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Affiliate
-        </div></a>
+        </div></a> */}
         <a href="/blog"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Blog
         </div></a>

@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next'
-import { Inter, Merriweather_Sans, Montserrat, Poppins } from 'next/font/google'
+import { Bai_Jamjuree, Inter, Merriweather_Sans, Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
 import dynamic  from 'next/dynamic'
 import { ThemeProvider } from '@/components/provider/theme-provider'
@@ -17,7 +17,7 @@ const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
 })
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Bai_Jamjuree({subsets: ['latin'], weight: '400'})
 const montserrat = Montserrat({subsets: ['latin']})
 const merriweather = Merriweather_Sans({subsets: ['latin']})
 const poppins = Poppins({subsets:['latin'], weight: '200'})
@@ -43,7 +43,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning >
-      <body className={"min-h-screen w-full  bg-gradient-to-r to-[#CAC4CE] from-[#F7ECE1]  m-0 " }  style={inter.style} >
+      <body className={"min-h-screen w-full  bg-tropical_indigo-800  m-0 bg-dot-dark_purple/10 " }  style={inter.style} >
         
       <ThemeProvider
             attribute="class"

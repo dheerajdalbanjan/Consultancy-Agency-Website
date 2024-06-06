@@ -4,7 +4,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Toast } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
+const Razorpay = require('razorpay')
+
 
 
 
@@ -84,17 +88,58 @@ const Pricing = () => {
             access_term: "6 months from purchase date"
         }
     ];
+
+
+    useEffect(()=>{
+        try {
+            const script = document.createElement('script') ;
+            script.src = 'https://checkout.razorpay.com/v1/checkout.js' ;
+            document.body.appendChild(script)
+        } catch (err) {
+            console.log(err)
+        }
+    }, [])
     
     
     function handleClick() {
-        console.log("taslaskjdf")
-        // toast({
-        //     variant: "default",
-        //     title: "Currently no packs are available",
-        //     description: "Explore different parts of the website till our team adds on the packs",
-        // })
+    //     console.log("taslaskjdf")
+    //     // toast({
+    //     //     variant: "default",
+    //     //     title: "Currently no packs are available",
+    //     //     description: "Explore different parts of the website till our team adds on the packs",
+    //     // })
 
-        setOpen(true)
+    //     var options = {
+    //         "key_id": "rzp_test_87q4PVk3kkoUaz",
+    //         "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    //         "currency": "INR",
+    // "name": "Acme Corp", //your business name
+    // "description": "Test Transaction",
+    // "image": "https://example.com/your_logo",
+    // "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    // "handler": function (response: any){
+    //     alert(response.razorpay_payment_id);
+    //     alert(response.razorpay_order_id);
+    //     alert(response.razorpay_signature)
+    // },
+    // "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+    //     "name": "Gaurav Kumar", //your customer's name
+    //     "email": "gaurav.kumar@example.com", 
+    //     "contact": "9000090000"  //Provide the customer's phone number for better conversion rates 
+    // },
+    // "notes": {
+    //     "address": "Razorpay Corporate Office"
+    // },
+    // "theme": {
+    //     "color": "#3399cc"
+    // }
+    //     };
+    //     var rzp1 = new Razorpay(options);
+
+    //     rzp1.open() ;
+
+    setOpen(true)
+
     }
 
 
