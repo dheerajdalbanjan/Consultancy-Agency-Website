@@ -29,7 +29,7 @@
     "colorthief": "^2.4.0",
     "embla-carousel-react": "^8.0.0-rc17",
     "fast-average-color": "^9.4.0",
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.2.10",
     "lucide-react": "^0.294.0",
     "mini-svg-data-uri": "^1.4.4",
     "mongoose": "^8.0.3",

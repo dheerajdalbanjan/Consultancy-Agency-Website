@@ -8,6 +8,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
+import {motion} from 'framer-motion'
+
 const inter = Inter({ subsets: ['latin'] })
 
 const b = Bai_Jamjuree({subsets: ['latin'], weight: '400'})
@@ -15,14 +17,14 @@ const b = Bai_Jamjuree({subsets: ['latin'], weight: '400'})
 const Hero = () => {
   const router = useRouter() ; 
   return (
-    <div className='relative items-center justify-center pb-8 md:py-8 bg-grid-dark_purple/10' style={b.style}>
-  <div className='flex h-full pt-24 px-8 items-start justify-center max-w-6xl mx-auto pb-20 w-full flex-col gap-y-2 md:gap-y-3 relative z-10'>
+    <div className='relative overflow-hidden mx-auto  items-center justify-center  md:py-8 bg-grid-dark_purple/5' style={b.style}>
+  <div   className='flex h-full pt-20  px-8 items-start justify-center max-w-6xl mx-auto pb-20 w-full flex-col gap-y-2 md:gap-y-2 relative z-10'>
     <Badge variant={'outline'} className='rounded-full mt-4 border-black/50 md:text-base'>We here | We Support | We Console</Badge>
-    <h2 className='text-3xl sm:text-4xl md:text-5xl my-4 text-neutral-800 antialiased font-semibold'>Your Feelings Matter, <span className='text-dark_purple-600'>You’re Not Alone</span></h2>
-    <h4 className='text-base font-normal text-start max-w-4xl'>Welcome to OurSoulss, your go-to platform for wellness and mental health. Connect with professionals like Psychiatrist, Psychologist, and Therapist, or talk to empathetic peers. We offer 24/7 support to help you through tough times. OurSoulss is always by your side!</h4>
-    <a href="/pricing"><Button size={'lg'} className='group mt-6 bg-[#242038] uppercase px-8 hover:opacity-90 rounded-full transition ease mx-auto max-w-fit duration-500'>
+    <motion.h2 whileInView={{translateY: 0}} initial={{translateY:15}} className='text-3xl sm:text-4xl md:text-5xl my-4 text-neutral-800 antialiased font-bold'>Your Feelings Matter, <span className='text-dark_purple-600'>You’re Not Alone</span></motion.h2>
+    <motion.h4 whileInView={{translateY: 0}} initial={{translateY:15}} className='text-base font-normal text-start max-w-4xl'>Welcome to OurSoulss, your go-to platform for wellness and mental health. Connect with professionals like Psychiatrist, Psychologist, and Therapist, or talk to empathetic peers. We offer 24/7 support to help you through tough times. OurSoulss is always by your side!</motion.h4>
+    <a href="/pricing"><motion.button initial={{scale:0.8}} whileInView={{scale:1}}  whileHover={{scale: 1.1, marginLeft: 1}} className='group mt-6 text-neutral-50 py-2 w-full flex bg-[#242038] uppercase px-6 items-center hover:opacity-90 rounded-full transition ease mx-auto max-w-fit duration-500'>
       Try now <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2 scale-0 group-hover:scale-100 transition-all duration-300 hover:scale-100'/>
-    </Button></a>
+    </motion.button></a>
   </div>
   {/* SVG Background */}
   {/* <div className='absolute inset-0'>

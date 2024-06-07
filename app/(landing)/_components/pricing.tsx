@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useState } from "react";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight } from "lucide-react";
+import {motion } from 'framer-motion'
 
 
 const Pricing = ()=>{
@@ -66,7 +67,7 @@ const Pricing = ()=>{
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
-                        <Card key={i} className="!w-full rounded-xl shadow-[#9067C6]/30 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-md  relative overflow-hidden">
+                        <motion.div initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}}  key={i} ><Card className="!w-full rounded-xl shadow-[#9067C6]/30 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-md  relative overflow-hidden">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
                             <CardHeader>
                                 <CardTitle>{e.Price}</CardTitle>
@@ -83,6 +84,7 @@ const Pricing = ()=>{
                                 <Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full" onClick={handleClick}>Buy now</Button>
                             </CardFooter>
                         </Card>
+                        </motion.div>
                     ))
                 }
             </div>

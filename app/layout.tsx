@@ -12,6 +12,7 @@ import Head from 'next/head'
 import { Dialog, DialogHeader } from '@/components/ui/dialog'
 import { DialogContent, DialogTitle } from '@radix-ui/react-dialog'
 import { useTheme } from 'next-themes'
+import { cn } from '@/lib/utils'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -43,7 +44,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning >
-      <body className={"min-h-screen w-full  bg-tropical_indigo-800  m-0 bg-dot-dark_purple/10 " }  style={inter.style} >
+      <body className={cn("min-h-screen w-full  from  m-0  ", inter.className) }  style={{background: 'radial-gradient(circle, rgba(238,224,174,1) 0%, rgba(148,187,233,1) 100%)'}} >
         
       <ThemeProvider
             attribute="class"
