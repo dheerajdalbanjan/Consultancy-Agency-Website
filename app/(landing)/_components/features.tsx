@@ -46,7 +46,7 @@ const Features = () => {
         <h2 className='text-2xl sm:text-start  sm:text-3xl md:text-4xl max-w-xl my-4 text-center antialiased font-bold tracking-tight'>Features </h2>
         <div className='flex items-center px-6 md:px-0 w-full justify-between md:gap-x-5 flex-col md:flex-row gap-y-4 md:gap-y-0' > 
             {features.map((e, i)=>
-            <motion.div key={i} initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}} >
+            <motion.div key={i} initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}} className='w-full'>
                 <Card  className='rounded-xl shadow-md shadow-[#9067C6]/30 border-blue-700/10  bg-opacity-50 backdrop-blur-md w-full h-56 md:w-64 relative group overflow-hidden cursor-pointer '>
                 <CardHeader >
                   <CardTitle>{e.title}</CardTitle>
