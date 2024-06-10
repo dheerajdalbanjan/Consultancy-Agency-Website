@@ -81,7 +81,7 @@ const Pricing = ()=>{
                                 <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
                             </CardContent>
                             <CardFooter >
-                                <Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full" onClick={handleClick}>Buy now</Button>
+                                <a href="/pricing"><Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full" onClick={handleClick}>Buy now</Button></a>
                             </CardFooter>
                         </Card>
                         </motion.div>
