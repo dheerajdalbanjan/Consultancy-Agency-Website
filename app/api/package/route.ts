@@ -1,10 +1,13 @@
 import { connectMongo } from "@/libs/mongodb";
 import Package from "@/model/package";
-import { getServerSession } from "next-auth";
+import { NextAuthOptions, getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOption } from "../auth/[...nextauth]/route";
 import { NextApiRequest, NextApiResponse } from "next";
 import mongoose from "mongoose";
+const bcrypt = require('bcrypt')
+
+import CredentialsProvider from "next-auth/providers/credentials"
+import User from "@/model/user";
 
 interface CustomUser {
     id: string;
@@ -13,6 +16,75 @@ interface CustomUser {
     image?: string | null;
     phone : string
   }
+
+
+  
+const authOption: NextAuthOptions = {
+    providers: [
+      CredentialsProvider({
+        name: "credentials",
+        id: "credentials",
+        credentials: {},
+        async authorize(credentials: any) {
+          console.log('ara bhai ')
+          const { email, password } = (credentials as any)
+  
+          try {
+            // ... authentication logic
+            const db = await connectMongo();
+  
+            const user = await User.findOne({ email: email })
+            if (!user) {
+              throw new Error('Email not found')
+            }
+            const passMatch = await bcrypt.compare(password, user?.password)
+            if (!passMatch) {
+              throw new Error('Password did not match')
+            }
+            return user;
+          } catch (error) {
+            console.error("Authentication error:", error);
+            if ((error as Error).message === 'Email not found' || (error as Error).message === 'Password did not match') {
+              throw error; // Pass along the original error
+            } 
+            else if((error as Error).message === 'Email not found' && (error as Error).message === 'Password did not match'){
+              throw new Error('Invalid credentials')
+            }else {
+              throw new Error('Something went wrong'); // For other unexpected errors
+            }
+          }
+        }
+  
+  
+  
+      })
+    ],
+    session: {
+      strategy: "jwt"
+    },
+    callbacks: {
+      async jwt({ token, user }) {
+        if (user) {
+          token.id = user.id;
+        }
+        return token;
+      },
+      async session({ session, token, user }) {
+        if (session && session.user) {
+          (session.user as CustomUser).id = token.id as string;
+        }
+        
+        return session;
+      }
+    },
+    
+    secret: process.env.NEXTAUTH_SECRET,
+    pages: {
+      signIn: '/login'
+    }
+  
+  }
+  
   
   
 
@@ -35,7 +107,7 @@ export async function POST(req: Request){
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
     const session = await getServerSession(authOption);
 
-    if (!session || !session.user) {
+    if (!session || !(session as any)?.user) {
         return NextResponse.json({ message: 'Not authenticated' }, {status: 404});
     }
 

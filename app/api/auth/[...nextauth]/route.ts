@@ -15,7 +15,7 @@ interface CustomUser {
 }
 
 
-export const authOption: NextAuthOptions = {
+const authOption: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",

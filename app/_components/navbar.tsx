@@ -166,6 +166,7 @@ const Navbar = () => {
               <DropdownMenuGroup>
                 <DropdownMenuItem>{session.user?.name}</DropdownMenuItem>
                 <DropdownMenuItem>{session.user?.email}</DropdownMenuItem>
+                <a href="/mypackages"><DropdownMenuItem>My Packages</DropdownMenuItem></a>
                 {/* <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Change Theme</DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
