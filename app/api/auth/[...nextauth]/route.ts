@@ -6,9 +6,16 @@ import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 const bcrypt = require('bcrypt')
 
+interface CustomUser {
+  id: string;
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
+  phone : string
+}
 
 
-const authOption: NextAuthOptions = {
+export const authOption: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -51,6 +58,22 @@ const authOption: NextAuthOptions = {
   session: {
     strategy: "jwt"
   },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token, user }) {
+      if (session && session.user) {
+        (session.user as CustomUser).id = token.id as string;
+      }
+      
+      return session;
+    }
+  },
+  
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/login'
