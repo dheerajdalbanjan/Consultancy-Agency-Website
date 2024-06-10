@@ -1,8 +1,7 @@
 import { connectMongo } from "@/libs/mongodb";
 import Package from "@/model/package";
 import { NextAuthOptions, getServerSession } from "next-auth";
-import { NextRequest, NextResponse } from "next/server";
-import { NextApiRequest, NextApiResponse } from "next";
+import {  NextResponse } from "next/server";
 import mongoose from "mongoose";
 const bcrypt = require('bcrypt')
 
@@ -104,7 +103,7 @@ export async function POST(req: Request){
 }
 
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req:Request) {
     const session = await getServerSession(authOption);
 
     if (!session || !(session as any)?.user) {
