@@ -9,7 +9,6 @@ import {motion } from 'framer-motion'
 
 
 const Pricing = ()=>{
-    const [open, setOpen] = useState(false);
     var pricing = [
         {
             type: "Starter Plus",
@@ -50,16 +49,7 @@ const Pricing = ()=>{
     ];
     
 
-    function handleClick() {
-        console.log("taslaskjdf")
-        // toast({
-        //     variant: "default",
-        //     title: "Currently no packs are available",
-        //     description: "Explore different parts of the website till our team adds on the packs",
-        // })
-
-        setOpen(true)
-    }
+    
 
     return (
         <div className="flex max-w-6xl w-full sm:w-auto mx-auto flex-col space-y-3 items-center justify-center">
@@ -81,7 +71,7 @@ const Pricing = ()=>{
                                 <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
                             </CardContent>
                             <CardFooter >
-                                <a href="/pricing"><Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full" onClick={handleClick}>Buy now</Button></a>
+                                <a href="/pricing" className="w-full"><Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full " >Buy now</Button></a>
                             </CardFooter>
                         </Card>
                         </motion.div>
@@ -91,27 +81,7 @@ const Pricing = ()=>{
             <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full bg-opacity-30 backdrop-blur-sm transition ease py-1 mx-auto max-w-fit duration-500'>
             Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
         </Button></a>
-            <Dialog open={open} onOpenChange={setOpen} >
-                <DialogContent className="w-80 text-start bg-opacity-50 border-none backdrop-blur-sm text-zinc-800 rounded-xl">
-                    <DialogHeader className="text-start justify-start">
-                        <DialogTitle>Attention here!</DialogTitle>
-                        <DialogDescription className="text-zinc-800">
-                            Due to some technical issues we are not able to proceed further payment so please do contact our team for the process of purchase
-                        </DialogDescription>
-                    </DialogHeader>
-
-                    <DialogFooter className="sm:justify-end items-end">
-                        <DialogClose asChild className="">
-                            <a href="/contact?pricing=true" className="w-fit float-right">
-                            <Button  type="button" className="float-right bg-dark_purple rounded-full px-4" >
-                                Contact 
-                            </Button>
-                            </a>
-                        </DialogClose>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
-
+            
         </div>
 
         

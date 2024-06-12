@@ -50,7 +50,7 @@ const Mypackages = () => {
   }, []);
 
   return (
-    <div className="min-h-screen max-w-6xl mx-auto pt-20">
+    <div className="min-h-screen max-w-6xl mx-auto px-5 pt-20">
       {loading && (
         <div className="fixed inset-0 w-full h-full  bg-opacity-50 backdrop-blur-xl z-50 flex items-center justify-center ">
           <LoaderIcon className="animate-spin" />
@@ -103,6 +103,10 @@ const Mypackages = () => {
             </CardFooter>
           </Card>
         ))}
+
+        {
+           data && data.length == 0 && <p className="my-3 text-lg ">No packages purchased</p>
+        }
 
         <Dialog open={success} onOpenChange={setSuccess}>
             

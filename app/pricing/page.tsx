@@ -118,7 +118,7 @@ const Pricing = () => {
     },
   ];
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<string>("");
   const router = useRouter()
 
   useEffect(() => {
@@ -139,7 +139,7 @@ const Pricing = () => {
         router.replace('/login')
         return ;
     }
-        setLoading(true);
+        setLoading(`${details.mode}_${details.price}`);
 
     const res = await fetch("api/razorpay", {
       method: "POST",
@@ -183,7 +183,7 @@ const Pricing = () => {
             const data = await res.json();
             if (res.ok) {
               setOpen(true);
-              setLoading(false);
+              setLoading("");
             }
           } else {
             alert("invalid payment");
@@ -206,6 +206,21 @@ const Pricing = () => {
       });
 
       rzp1.open();
+
+      rzp1.on('payment.cancelled', function() {
+        setLoading("")
+      })
+
+      rzp1.on('payment.failed', function (){
+        // alert(response.error.code);
+        // alert(response.error.description);
+        // alert(response.error.source);
+        // alert(response.error.step);
+        // alert(response.error.reason);
+        // alert(response.error.metadata.order_id);
+        // alert(response.error.metadata.payment_id);
+        setLoading("")
+    })
     }
     //     console.log("taslaskjdf")
     //     // toast({
@@ -258,9 +273,9 @@ const Pricing = () => {
               <Button
                 onClick={() => handleClick(e)}
                 className="w-full rounded-full bg-blue-950 hover:bg-blue-900 transition-colors"
-                disabled={loading ? true : false}
+                disabled={loading === `${e.mode}_${e.price}` ? true : false}
               >
-                {loading && (
+                {loading === `${e.mode}_${e.price}` && (
                   <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                 )}
                 Buy now
@@ -321,9 +336,9 @@ const Pricing = () => {
               <Button
                 onClick={() => handleClick(e)}
                 className="w-full rounded-full bg-blue-950 hover:bg-blue-900 transition-colors"
-                disabled={loading ? true : false}
+                disabled={loading === `${e.mode}_${e.price}` ? true : false}
               >
-                {loading && (
+                {loading === `${e.mode}_${e.price}` && (
                   <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                 )}
                 Buy now
