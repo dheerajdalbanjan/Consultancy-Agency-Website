@@ -18,7 +18,7 @@ const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
 })
 
-const inter = Bai_Jamjuree({subsets: ['latin'], weight: '400'})
+const inter = Inter({subsets:['latin']})
 const montserrat = Montserrat({subsets: ['latin']})
 const merriweather = Merriweather_Sans({subsets: ['latin']})
 const poppins = Poppins({subsets:['latin'], weight: '200'})

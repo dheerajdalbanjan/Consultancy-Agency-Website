@@ -43,7 +43,7 @@ export default function Home() {
     }
   })
   return (
-    <main className="h-full bg-dot-white/[0.03]">
+    <main className="h-full bg-dot-white/[0.03]" >
       <Hero />
       <Offers />
       

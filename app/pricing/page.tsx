@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogClose,
@@ -17,6 +18,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toast } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import { ReloadIcon } from "@radix-ui/react-icons";
@@ -38,45 +40,99 @@ interface CustomUser {
 }
 
 const Pricing = () => {
+  const [cdata, setCdata] = useState<any>(null);
+  const [btab, setBtab] = useState("non-professional") ; 
+  const [mtab, setMtab] = useState("non-professional" ) ; 
+  const [video, setVideo] = useState(false);
   const { data: session } = useSession();
   const [open, setOpen] = useState(false);
+  const [checkout, setCheckout] = useState(false);
+  const [amount, setAmount] = useState(0)
   var pricing = [
     {
       type: "Starter Plus",
       mode: "starter",
-      name: "15 Minute Session Package",
-      price: "99",
-      sessions_included: "1 session",
-      session_length: "15 mins",
-      counselor_matching: "with non-professional counseling",
-    },
-    {
-      type: "Starter Pro",
-      mode: "starter",
-      name: "30 Minute Session Package",
+      name: "40 Minute Session Package",
       price: "199",
       sessions_included: "1 session",
-      session_length: "30 mins",
-      counselor_matching: "with non-professional counseling",
-    },
-    {
+      session_length: "40 mins",
+      counselor_matching: "non-professional",
+      video: "89"
+  },
+  {
+      type: "Starter Pro",
+      mode: "starter",
+      name: "90 Minute Session Package",
+      price: "299",
+      sessions_included: "1 session",
+      session_length: "90 mins",
+      counselor_matching: "non-professional",
+      video: "89"
+  },
+  {
       type: "Add On Plus",
       mode: "add on",
       name: "15 Minute Add-On",
       price: "49",
       sessions_included: "1 session",
       session_length: "15 mins",
-      counselor_matching: "with non-professional counseling",
-    },
-    {
+      counselor_matching: "non-professional",
+      video: "89"
+  },
+  {
       type: "Add On Pro",
       mode: "add on",
       name: "30 Minute Add-On",
       price: "99",
       sessions_included: "1 session",
       session_length: "30 mins",
-      counselor_matching: "with non-professional counseling",
-    },
+      counselor_matching: "non-professional",
+      video: "89"
+  },
+
+    
+  {
+    type: "Starter Plus",
+    mode: "starter",
+    name: "Basic Pro 40 Minute Session",
+    price: "349",
+    sessions_included: "1 session",
+    session_length: "40 mins",
+    counselor_matching: "professional",
+    video: "89"
+},
+{
+    type: "Starter Pro",
+    mode: "starter",
+    name: "Basic Pro 90 Minute Session",
+    price: "499",
+    sessions_included: "1 session",
+    session_length: "90 mins",
+    counselor_matching: "professional",
+    video: "89"
+},
+{
+    type: "Add On Plus",
+    mode: "add on",
+    name: "Basic Pro 15 Minute Add-On",
+    price: "49",
+    sessions_included: "1 session",
+    session_length: "15 mins",
+    counselor_matching: "professional",
+    video: "89"
+},
+{
+    type: "Add On Pro",
+    mode: "add on",
+    name: "Basic Pro 30 Minute Add-On",
+    price: "99",
+    sessions_included: "1 session",
+    session_length: "30 mins",
+    counselor_matching: "professional",
+    video: "89"
+},
+
+
   ];
 
   let monthly = [
@@ -84,42 +140,86 @@ const Pricing = () => {
       name: "MONTHLY Silver",
       price: "599",
       bprice: "799",
-      discounted_price: "Rs. 599/-",
+      discounted_price: "₹599/-",
       sessions_included: "1 Month Subscription",
       session_length: "40 minutes each",
-      no_of_sessions: "4 phone sessions",
-      counselor_matching: "with professional counseling",
+      no_of_sessions: "4 sessions",
+      counselor_matching: "non-professional",
       access_term: "1 month from purchase date",
       mode: "monthly",
-    },
-    {
+      video: "299"
+  },
+  {
       name: "MONTHLY Gold",
       price: "1199",
       bprice: "1399",
-      discounted_price: "Rs. 1199/-",
+      discounted_price: "₹1199/-",
       sessions_included: "3 Month Subscription",
       session_length: "40 minutes each",
-      no_of_sessions: "13 phone sessions",
-      counselor_matching: "with professional counseling",
+      no_of_sessions: "10 sessions",
+      counselor_matching: "non-professional",
       access_term: "3 months from purchase date",
       mode: "monthly",
-    },
-    {
+      video: "299"
+  },
+  {
       name: "MONTHLY Platinum",
       price: "1599",
       bprice: "1799",
-      discounted_price: "Rs. 1599/-",
+      discounted_price: "₹1599/-",
       sessions_included: "6 Month Subscription",
       session_length: "40 minutes each",
-      no_of_sessions: "25 phone sessions",
-      counselor_matching: "with professional counseling",
+      no_of_sessions: "16 sessions",
+      counselor_matching: "non-professional",
       access_term: "6 months from purchase date",
       mode: "monthly",
-    },
+      video:"299"
+ },
+
+ {
+  name: "PRO Silver",
+  price: "1699",
+  bprice: "1799",
+  discounted_price: "₹1699/-",
+  sessions_included: "1 Month Subscription",
+  session_length: "45 minutes each",
+  no_of_sessions: "5 sessions",
+  counselor_matching: "professional",
+  access_term: "1 month from purchase date",
+  mode: "monthly",
+  video: "299"
+},
+{
+  name: "PRO Gold",
+  price: "3899",
+  bprice: "3999",
+  discounted_price: "₹3899/-",
+  sessions_included: "3 Month Subscription",
+  session_length: "45 minutes each",
+  no_of_sessions: "12 sessions",
+  counselor_matching: "professional",
+  access_term: "3 months from purchase date",
+  mode: "monthly",
+  video: "299"
+},
+{
+  name: "PRO Platinum",
+  price: "6949",
+  bprice: "7199",
+  discounted_price: "₹6949/-",
+  sessions_included: "6 Month Subscription",
+  session_length: "45 minutes each",
+  no_of_sessions: "20 sessions",
+  counselor_matching: "professional",
+  access_term: "6 months from purchase date",
+  mode: "monthly",
+  video: "299"
+},
+
   ];
 
   const [loading, setLoading] = useState<string>("");
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     try {
@@ -131,21 +231,27 @@ const Pricing = () => {
     }
   }, []);
 
-  async function handleClick(details: any) {
-    console.log(details);
+  function handleClick(details: any) {
+    setLoading(`${details.mode}_${details.price}`);
+    setCdata(details);
+    setAmount(Number(details.price))
+    setCheckout(true);
+  }
 
+  async function checkOut() {
+    const details = cdata ; 
+    setCheckout(false)
 
-    if(!session){
-        router.replace('/login')
-        return ;
+    if (!session) {
+      router.replace("/login");
+      return;
     }
-        setLoading(`${details.mode}_${details.price}`);
 
     const res = await fetch("api/razorpay", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
-        amount: Number(details.price * 100),
+        amount: Number(amount * 100),
         currency: "INR",
       }),
     });
@@ -207,11 +313,11 @@ const Pricing = () => {
 
       rzp1.open();
 
-      rzp1.on('payment.cancelled', function() {
-        setLoading("")
-      })
+      rzp1.on("payment.cancelled", function () {
+        setLoading("");
+      });
 
-      rzp1.on('payment.failed', function (){
+      rzp1.on("payment.failed", function () {
         // alert(response.error.code);
         // alert(response.error.description);
         // alert(response.error.source);
@@ -219,8 +325,8 @@ const Pricing = () => {
         // alert(response.error.reason);
         // alert(response.error.metadata.order_id);
         // alert(response.error.metadata.payment_id);
-        setLoading("")
-    })
+        setLoading("");
+      });
     }
     //     console.log("taslaskjdf")
     //     // toast({
@@ -231,17 +337,21 @@ const Pricing = () => {
   }
 
   return (
-    <div className="max-w-7xl px-2 mt-20 mx-auto min-h-screen">
-      <h1 className="bg-clip-text bg-gradient-to-br antialiased pl-5 my-5 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-semibold  tracking-tight lg:text-4xl">
+    <div className="max-w-6xl px-2 mt-20 mx-auto min-h-screen">
+      <h1 className=" antialiased pl-5 my-7 sm:text-start  text-3xl drop-shadow-md font-semibold  tracking-tight lg:text-4xl">
         Pricing
       </h1>
 
-      <h2 className="text-2xl sm:text-3xl font-bold antialiased mt-6 pl-5 list-disc">
-        Basic Plans
-      </h2>
-      <div className="flex flex-col l  md:flex-row my-5 items-center justify-start p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
-        {pricing.map((e, i) => (
-          <Card
+      <Tabs value={btab} onValueChange={setBtab}>
+        <TabsList className="ml-5 rounded-full bg-orange-50 backdrop-blur-sm overflow-auto md:overflow-hidden">
+          <TabsTrigger className={`rounded-full  ${btab === 'non-professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="non-professional">Basic non-professional plans</TabsTrigger>
+          <TabsTrigger className={`rounded-full  ${btab === 'professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="professional">Basic professional plans</TabsTrigger>
+        </TabsList>
+        <TabsContent value={btab}>
+        <div className="flex flex-col l  md:flex-row my-5 items-center justify-start p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+        {pricing.map((e, i) => {
+          if(e.counselor_matching === btab)
+          {return <Card
             key={i}
             className="!w-full bg-opacity-50 rounded-xl backdrop-blur-sm shadow-blue-950/10 shadow-lg  relative overflow-hidden"
           >
@@ -273,24 +383,33 @@ const Pricing = () => {
               <Button
                 onClick={() => handleClick(e)}
                 className="w-full rounded-full bg-blue-950 hover:bg-blue-900 transition-colors"
-                disabled={loading === `${e.mode}_${e.price}` ? true : false}
+                disabled={
+                  checkout && loading === `${e.mode}_${e.price}` ? true : false
+                }
               >
-                {loading === `${e.mode}_${e.price}` && (
+                {checkout && loading === `${e.mode}_${e.price}` && (
                   <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                 )}
                 Buy now
               </Button>
             </CardFooter>
-          </Card>
-        ))}
+          </Card>}
+})}
       </div>
 
-      <h2 className="text-2xl sm:text-3xl  font-bold antialiased mt-6 pl-5 list-disc">
-        Monthly Plans
-      </h2>
-      <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
-        {monthly.map((e, i) => (
-          <Card
+        </TabsContent>
+      </Tabs>
+
+      
+      <Tabs value={mtab} onValueChange={setMtab}>
+        <TabsList className="ml-5 rounded-full bg-orange-50 backdrop-blur-sm overflow-auto md:overflow-hidden">
+          <TabsTrigger className={`rounded-full  ${mtab === 'non-professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="non-professional">Monthly non-professional plans</TabsTrigger>
+          <TabsTrigger className={`rounded-full  ${mtab === 'professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="professional">Monthly professional plans</TabsTrigger>
+        </TabsList>
+        <TabsContent value={mtab}>
+        <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+        {monthly.map((e, i) => {
+          if(e.counselor_matching === mtab){ return <Card
             key={i}
             className="!w-full rounded-xl bg-opacity-50 backdrop-blur-sm  md:w-auto  relative overflow-hidden shadow-lg shadow-blue-950/10"
           >
@@ -336,17 +455,79 @@ const Pricing = () => {
               <Button
                 onClick={() => handleClick(e)}
                 className="w-full rounded-full bg-blue-950 hover:bg-blue-900 transition-colors"
-                disabled={loading === `${e.mode}_${e.price}` ? true : false}
+                disabled={
+                  checkout && loading === `${e.mode}_${e.price}` ? true : false
+                }
               >
-                {loading === `${e.mode}_${e.price}` && (
+                {checkout && loading === `${e.mode}_${e.price}` && (
                   <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                 )}
                 Buy now
               </Button>
             </CardFooter>
-          </Card>
-        ))}
+          </Card>}
+})}
       </div>
+        </TabsContent>
+        </Tabs>
+      
+
+      <Dialog open={checkout} onOpenChange={setCheckout}>
+        <DialogContent className="mx-3">
+          <DialogHeader>
+            <DialogTitle className="text-start">Checkout Page</DialogTitle>
+          </DialogHeader>
+          <div>
+            <div className="bg-emerald-50 p-4 rounded ">
+              <h3 className="text-xl font-semibold text-neutral-700">
+                Purchase Info
+              </h3>
+              {cdata && (
+                <>
+                  {" "}
+                  <div className="flex flex-col space-y-2 py-2">
+                    <div>
+                      Pack Name:{" "}
+                      <span className="text-neutral-900">{cdata.name}</span>
+                    </div>
+                    <div>
+                      Pack Price:{" "}
+                      <span className="text-neutral-900">
+                        Rs. {cdata.price}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2 py-2">
+                      <Checkbox
+                        id="video"
+                        onCheckedChange={(e) => {
+                          e ? setAmount(prev=>prev+ Number(cdata.video)) : setAmount(prev=>prev - Number(cdata.video));
+                        }}
+                      />
+                      <label
+                        htmlFor="video"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Prefer video meet (Addition Rs. {cdata.video} charges.)
+                      </label>
+                    </div>
+                    <div className="bg-emerald-100  rounded-md p-2 ">
+                      <h4 className="font-semibold antialiased text-emerald-900">
+                        Total price :{" "}
+                        <span>
+                          Rs. {amount}
+                        </span>
+                      </h4>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+          <DialogFooter>
+            <Button onClick={checkOut} className="px-4 bg-dark_purple rounded-full ">Make Payment</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="bg-emerald-700 border-none text-neutral-50">

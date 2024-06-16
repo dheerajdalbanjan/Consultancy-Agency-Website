@@ -96,7 +96,7 @@ const Navbar = () => {
         
       </div>
       <div className="flex justify-center items-center space-x-4">
-        <div className="hidden md:flex justify-center items-start space-x-4 text-zinc-950/80 font-medium">
+        <div className="hidden md:flex justify-center items-start space-x-4 text-zinc-950/80 ">
         <a href="/about"><div className="hover:opacity-50  cursor-pointer transition-all ease-in duration-300">
           About
         </div></a>
