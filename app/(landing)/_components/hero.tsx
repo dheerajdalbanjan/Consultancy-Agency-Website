@@ -26,7 +26,7 @@ const Hero = () => {
       Try now <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2 scale-0 group-hover:scale-100 transition-all duration-300 hover:scale-100'/>
     </motion.button></a>
     <div className='absolute !right-0 h-full aspect-square -z-10 '>
-    <motion.img initial={{scale:0.8}} whileInView={{scale: 1}} src='/poster1.png' className=' object-fill blur-sm'/>
+    <motion.img initial={{scale:0.8}} whileInView={{scale: 1}} src='/poster1.png' className=' object-fill blur-md'/>
   </div>
   
   </div>

@@ -473,7 +473,7 @@ const Pricing = () => {
       
 
       <Dialog open={checkout} onOpenChange={setCheckout}>
-        <DialogContent className="mx-3">
+        <DialogContent className="rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-start">Checkout Page</DialogTitle>
           </DialogHeader>
