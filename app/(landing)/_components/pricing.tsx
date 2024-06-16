@@ -13,39 +13,44 @@ const Pricing = ()=>{
         {
             type: "Starter Plus",
             mode: "starter",
-            Package: "15 Minute Session Package",
-            Price: "₹99",
-            SessionsIncluded: "1 session",
-            SessionLength: "15 mins",
-            CounselorMatching: "with non-professional counseling"
+            name: "40 Minute Session Package",
+            price: "199",
+            sessions_included: "1 session",
+            session_length: "40 mins",
+            counselor_matching: "non-professional",
+            video: "89"
         },
         {
             type: "Starter Pro",
             mode: "starter",
-            Package: "30 Minute Session Package",
-            Price: "₹199",
-            SessionsIncluded: "1 session",
-            SessionLength: "30 mins",
-            CounselorMatching: "with non-professional counseling"
+            name: "90 Minute Session Package",
+            price: "299",
+            sessions_included: "1 session",
+            session_length: "90 mins",
+            counselor_matching: "non-professional",
+            video: "89"
         },
         {
             type: "Add On Plus",
             mode: "add on",
-            Package: "15 Minute Add-On",
-            Price: "₹49/session",
-            SessionsIncluded: null,
-            SessionLength: "15 minutes",
-            CounselorMatching: "with non-professional counseling"
+            name: "15 Minute Add-On",
+            price: "49",
+            sessions_included: "1 session",
+            session_length: "15 mins",
+            counselor_matching: "non-professional",
+            video: "89"
         },
         {
             type: "Add On Pro",
             mode: "add on",
-            Package: "30 Minute Add-On",
-            Price: "₹99/session",
-            SessionsIncluded: null,
-            SessionLength: "30 minutes",
-            CounselorMatching: "with non-professional counseling"
-        }
+            name: "30 Minute Add-On",
+            price: "99",
+            sessions_included: "1 session",
+            session_length: "30 mins",
+            counselor_matching: "non-professional",
+            video: "89"
+        },
+    
     ];
     
 
@@ -60,15 +65,15 @@ const Pricing = ()=>{
                         <motion.div initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}}  key={i} ><Card className="!w-full rounded-xl shadow-[#9067C6]/30 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-md  relative overflow-hidden">
                             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">{e.mode}</p>
                             <CardHeader>
-                                <CardTitle>{e.Price}</CardTitle>
+                                <CardTitle>Rs. {e.price}</CardTitle>
                                 <CardDescription>
                                     <p className="text-lg ">{e.type}</p>
-                                    <p>{e.Package}</p>
+                                    <p>{e.name}</p>
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="">
-                                <p>Session Length: <p className="px-2 text-sm inline-flex text-center py-0.5  rounded-full bg-neutral-100 dark:bg-neutral-700">{e.SessionLength}</p></p>
-                                <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.CounselorMatching}</p></p>
+                                <p>Session Length: <p className="px-2 text-sm inline-flex text-center py-0.5  rounded-full bg-neutral-100 dark:bg-neutral-700">{e.session_length}</p></p>
+                                <p>Counsellor Matching: <p className=" text-sm inline-flex text-center py-0.5   ">{e.counselor_matching}</p></p>
                             </CardContent>
                             <CardFooter >
                                 <a href="/pricing" className="w-full"><Button className="w-full bg-[#242038] transition-colors duration-300 hover:opacity-95 rounded-full " >Buy now</Button></a>
