@@ -342,8 +342,8 @@ const Pricing = () => {
         Pricing
       </h1>
 
-      <Tabs value={btab} onValueChange={setBtab}>
-        <TabsList className="ml-5 rounded-full bg-orange-50 backdrop-blur-sm overflow-auto md:overflow-hidden">
+      <Tabs value={btab} onValueChange={setBtab} className="overflow-hidden">
+        <TabsList className="ml-5 rounded-xl p-2 md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit flex flex-col md:flex-row ">
           <TabsTrigger className={`rounded-full  ${btab === 'non-professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="non-professional">Basic non-professional plans</TabsTrigger>
           <TabsTrigger className={`rounded-full  ${btab === 'professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="professional">Basic professional plans</TabsTrigger>
         </TabsList>
@@ -401,10 +401,10 @@ const Pricing = () => {
       </Tabs>
 
       
-      <Tabs value={mtab} onValueChange={setMtab}>
-        <TabsList className="ml-5 rounded-full bg-orange-50 backdrop-blur-sm overflow-auto md:overflow-hidden">
-          <TabsTrigger className={`rounded-full  ${mtab === 'non-professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="non-professional">Monthly non-professional plans</TabsTrigger>
-          <TabsTrigger className={`rounded-full  ${mtab === 'professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="professional">Monthly professional plans</TabsTrigger>
+      <Tabs value={mtab} onValueChange={setMtab} className="overflow-hidden">
+        <TabsList className="ml-5 rounded-xl p-2 md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit flex flex-col md:flex-row  ">
+          <TabsTrigger className={`rounded-full   ${mtab === 'non-professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="non-professional">Monthly non-professional plans</TabsTrigger>
+          <TabsTrigger className={`rounded-full   ${mtab === 'professional'?'!bg-dark_purple-400 !text-neutral-50':'bg-transparent'}`} value="professional">Monthly professional plans</TabsTrigger>
         </TabsList>
         <TabsContent value={mtab}>
         <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
