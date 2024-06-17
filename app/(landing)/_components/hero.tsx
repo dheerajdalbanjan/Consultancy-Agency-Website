@@ -25,8 +25,8 @@ const Hero = () => {
     <a href="/pricing"><motion.button initial={{scale:0.8}} whileInView={{scale:1}}  whileHover={{scale: 1.1, marginLeft: 1}} className='group mt-6 text-neutral-50 py-2 w-full flex bg-[#242038] uppercase px-6 items-center hover:opacity-90 rounded-full transition ease mx-auto max-w-fit duration-500'>
       Try now <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2 scale-0 group-hover:scale-100 transition-all duration-300 hover:scale-100'/>
     </motion.button></a>
-    <div className='absolute !right-0 h-full aspect-square -z-10 '>
-    <motion.img initial={{scale:0.8}} whileInView={{scale: 1}} src='/poster2.png' className=' md:object-fill '/>
+    <div className='absolute top-0 hidden md:block !right-0 h-full aspect-square -z-10 '>
+    <motion.img initial={{scale:0.8}} whileInView={{scale: 1}} src='/poster2.png' className=' md:object-fill w-52 md:w-full '/>
   </div>
   
   </div>
