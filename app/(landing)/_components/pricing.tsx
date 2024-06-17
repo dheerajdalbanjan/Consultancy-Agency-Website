@@ -13,7 +13,7 @@ const Pricing = ()=>{
         {
             type: "Starter Plus",
             mode: "starter",
-            name: "40 Minute Session Package",
+            name: "40 Minute Starter",
             price: "199",
             sessions_included: "1 session",
             session_length: "40 mins",
@@ -23,7 +23,7 @@ const Pricing = ()=>{
         {
             type: "Starter Pro",
             mode: "starter",
-            name: "90 Minute Session Package",
+            name: "90 Minute Starter",
             price: "299",
             sessions_included: "1 session",
             session_length: "90 mins",
@@ -59,7 +59,7 @@ const Pricing = ()=>{
     return (
         <div className="flex max-w-6xl w-full sm:w-auto mx-auto flex-col space-y-3 items-center justify-center">
             <h2 className="text-3xl w-full sm:text-4xl text-center sm:text-start font-bold  antialiased mt-6 mb-3   list-disc ">Basic Pricing</h2>
-            <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+            {/* <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-center p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
                     pricing.map((e, i)=>(
                         <motion.div initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}}  key={i} ><Card className="!w-full rounded-xl shadow-[#9067C6]/30 bg-opacity-30 backdrop-blur-sm md:w-auto shadow-md  relative overflow-hidden">
@@ -82,7 +82,41 @@ const Pricing = ()=>{
                         </motion.div>
                     ))
                 }
-            </div>
+            </div> */}
+            <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
+                {
+                    pricing.slice(0,3).map((plan, i)=>(
+                        <motion.div initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}}  key={i} className="w-full" >
+                        <Card  className="w-full whitespace-nowrap max-w-md bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
+                        <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-500 p-6 text-center">
+                          <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+                          <p className="text-gray-200 mt-2">Get started with basic plan</p>
+                        </CardHeader>
+                        <CardContent className="p-6 space-y-6">
+                          <div className="flex items-baseline justify-center">
+                            <span className="text-4xl font-bold text-indigo-500 dark:text-indigo-400">₹{plan.price}</span>
+                            <span className="text-gray-500 dark:text-gray-400 text-sm ml-2">/session</span>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-gray-500 dark:text-gray-400">Session Length</span>
+                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included} minutes</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-gray-500 dark:text-gray-400">Counselor Matching</span>
+                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.counselor_matching}</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-gray-500 dark:text-gray-400">Sessions Included</span>
+                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included} session</span>
+                            </div>
+                          </div>
+                          <a href="/pricing" className="w-full"><Button className="w-full mt-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:from-indigo-600 hover:to-purple-600">
+                            Buy now
+                          </Button></a>
+                        </CardContent>
+                      </Card></motion.div>
+                      ))} </div>
             <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full bg-opacity-30 backdrop-blur-sm transition ease py-1 mx-auto max-w-fit duration-500'>
             Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>
         </Button></a>

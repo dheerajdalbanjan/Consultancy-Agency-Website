@@ -74,7 +74,7 @@ const Navbar = () => {
                   <a href={"/about"}>About</a>
                   <a href={"/contact"}>Contact</a>
                   <a href="/pricing">Pricing</a>
-                  {/* <a href="/affiliate">Affiliate</a> */}
+                  <a href="/affiliate">Affiliate</a>
                   <a href="/blog">Blog</a>
                 </div>
                 {!session && (
@@ -106,9 +106,9 @@ const Navbar = () => {
         <a href="/pricing"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Pricing
         </div></a>
-        {/* <a href="/affiliate"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
+        <a href="/affiliate"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Affiliate
-        </div></a> */}
+        </div></a>
         <a href="/blog"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Blog
         </div></a>
