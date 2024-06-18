@@ -1,3 +1,5 @@
+import { connectMongo } from "@/libs/mongodb";
+import Package from "@/model/package";
 import { NextRequest, NextResponse } from "next/server";
 
 type dataType = {
@@ -11,6 +13,7 @@ const nodemailer = require('nodemailer')
 export async function POST(req: NextRequest) {
   const data = await req.json();
   console.log(data)
+
 
 
   const transporter = nodemailer.createTransport({
@@ -38,8 +41,11 @@ export async function POST(req: NextRequest) {
 
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: ' + info.response);
+    await connectMongo() ; 
+    const res = await Package.findByIdAndUpdate(data._id, {availed: true})
+    console.log(res) ;
+    // const info = await transporter.sendMail(mailOptions);
+    // console.log('Email sent: ' + info.response);
     return NextResponse.json({message: "success"}, {status:200})
   } catch (error) {
     console.log(error);

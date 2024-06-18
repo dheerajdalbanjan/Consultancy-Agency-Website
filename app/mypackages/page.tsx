@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Check, LoaderIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Mypackages = () => {
@@ -11,6 +12,7 @@ const Mypackages = () => {
   const {data:session} = useSession() ;
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false)
+  const router = useRouter() 
 
 
   const handleClick = async (e: any)=>{
@@ -27,10 +29,12 @@ const Mypackages = () => {
     }
     finally {
         setLoading(false)
+       setData([])
     }
   }
 
   useEffect(() => {
+    setLoading(true)
     fetch("/api/package", { method: "GET" })
       .then((res) => {
         if (!res.ok) {

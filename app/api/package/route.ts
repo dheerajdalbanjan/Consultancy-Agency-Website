@@ -112,7 +112,7 @@ export async function GET(req:Request) {
 
     try {
         const userId = new mongoose.Types.ObjectId(session.user.id);
-        const data = await Package.find({ user_id: userId });
+        const data = await Package.find({ user_id: userId, availed: false });
 
         console.log(data);
 

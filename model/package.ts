@@ -1,4 +1,5 @@
 import mongoose, { models } from "mongoose";
+import { boolean } from "zod";
 
 const PackageSchema = new mongoose.Schema({
     name: {
@@ -37,7 +38,11 @@ const PackageSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true
+    },
+    availed: {
+      type: Boolean, 
+      default: false
     }
   }, { timestamps: true });
-const Package = models.Package || mongoose.model("Package", PackageSchema);
+const Package = mongoose.models.Package ||  mongoose.model("Package", PackageSchema);
 export default Package;

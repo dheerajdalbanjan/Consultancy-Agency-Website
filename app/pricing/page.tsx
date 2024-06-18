@@ -436,8 +436,8 @@ const Pricing = () => {
             {pricing.map((plan, i) => {
               if (plan.counselor_matching === btab) {
                 return (
-                  <Card key={i}  className="w-full max-w-md bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
-                        <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-500 p-6 text-center">
+                  <Card key={i}  className="w-full border-none max-w-md bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
+                        <CardHeader className="bg-indigo-500 to-amber-500 p-6 text-center">
                           <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
                           <p className="text-gray-200 mt-2">Get started with basic plan</p>
                         </CardHeader>
@@ -460,7 +460,7 @@ const Pricing = () => {
                               <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included}</span>
                             </div>
                           </div>
-                          <Button className="w-full mt-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:from-indigo-600 hover:to-purple-600"onClick={() => handleClick(plan)}
+                          <Button className="w-full mt-3 bg-indigo-500 to-purple-500 text-white hover:bg-indigo-600 hover:to-purple-600"onClick={() => handleClick(plan)}
                         
                         disabled={
                           checkout && loading === `${plan.mode}_${plan.price}`
@@ -535,10 +535,10 @@ const Pricing = () => {
             {monthly.map((plan, i) => {
               if (plan.counselor_matching === mtab) {
                 return (
-                  <Card key={i}  className="w-full max-w-md bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
+                  <Card key={i}  className="w-full max-w-md border-none bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
                         <CardHeader className="bg-gradient-to-r from-indigo-500 to-emerald-400 p-6 text-center">
                           <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-                          <p className="text-gray-200 mt-2">Get started with basic plan</p>
+                          <p className="text-gray-200 mt-2">Get started with monthly plan</p>
                         </CardHeader>
                         <CardContent className="p-6 space-y-6">
                           <div className="flex items-baseline justify-center">
@@ -590,7 +590,7 @@ const Pricing = () => {
       </Tabs>
 
       <Dialog   open={checkout} onOpenChange={(e)=>{setCheckout(e); setReferralCode(""); setDiscountApplied(false); setReferal(false)}}>
-        <DialogContent className="rounded-xl w-[96%] overflow-auto mx-auto">
+        <DialogContent className="rounded-xl w-[96%] max-h-screen overflow-y-auto overflow-auto mx-auto">
           <DialogHeader>
             <DialogTitle className="text-start">Checkout Page</DialogTitle>
           </DialogHeader>
@@ -669,7 +669,7 @@ const Pricing = () => {
                   )}
                   {referal && <Input className={`${discountApplied?'!ring-2 ring-emerald-500 ring-offset-2 ': ''}`} type="text" value={referralCode}
               onChange={(e) => {setReferralCode(e.target.value); applyReferralCode(e.target.value)}} placeholder="enter the referal code"/>}
-                  {discountApplied && <Formsuccess msg="successfully applied referral code"/>}
+                  {discountApplied && <Formsuccess  msg="successfully applied referral code"/>}
                  {cdata && cdata.mode === 'monthly' && <Button
                     variant={"link"}
                     onClick={(e) => {
