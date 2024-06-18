@@ -590,7 +590,7 @@ const Pricing = () => {
       </Tabs>
 
       <Dialog   open={checkout} onOpenChange={(e)=>{setCheckout(e); setReferralCode(""); setDiscountApplied(false); setReferal(false)}}>
-        <DialogContent className="rounded-xl w-[96%] max-h-screen overflow-y-auto overflow-auto mx-auto">
+        <DialogContent className="rounded-xl w-[96%] max-h-[90vh] p-3 overflow-y-auto overflow-auto mx-auto">
           <DialogHeader>
             <DialogTitle className="text-start">Checkout Page</DialogTitle>
           </DialogHeader>
