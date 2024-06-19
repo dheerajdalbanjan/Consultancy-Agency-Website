@@ -44,8 +44,8 @@ export async function POST(req: NextRequest) {
     await connectMongo() ; 
     const res = await Package.findByIdAndUpdate(data._id, {availed: true})
     console.log(res) ;
-    // const info = await transporter.sendMail(mailOptions);
-    // console.log('Email sent: ' + info.response);
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
     return NextResponse.json({message: "success"}, {status:200})
   } catch (error) {
     console.log(error);

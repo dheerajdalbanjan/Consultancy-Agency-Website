@@ -28,8 +28,10 @@ const Mypackages = () => {
         console.log(error)
     }
     finally {
-        setLoading(false)
-       setData([])
+        setLoading(false) ; 
+        
+        window.location.reload() 
+        
     }
   }
 
@@ -44,6 +46,7 @@ const Mypackages = () => {
       })
       .then((data: any) => {
         setData(data.data)
+        console.log(data.data)
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -101,15 +104,16 @@ const Mypackages = () => {
               <Button
                 className="w-fit px-5 float-right bg-[#242038] hover:opacity-95 transition-colors duration-300 rounded-full "
                 onClick={()=>handleClick(e)}
+                disabled={e.availed}
               >
-                Avail now
+                {e.availed?'Package Availed':'Avail now'}
               </Button>
             </CardFooter>
           </Card>
         ))}
 
         {
-           data && data.length == 0 && <p className="my-3 text-lg ">No packages purchased</p>
+           data && data.length === 0 && <p className="my-3 text-lg ">No packages purchased</p>
         }
 
         <Dialog open={success} onOpenChange={setSuccess}>

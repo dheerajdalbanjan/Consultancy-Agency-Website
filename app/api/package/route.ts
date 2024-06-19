@@ -4,6 +4,7 @@ import { NextAuthOptions, getServerSession } from "next-auth";
 import {  NextResponse } from "next/server";
 import mongoose from "mongoose";
 const bcrypt = require('bcrypt')
+const nodemailer = require('nodemailer')
 
 import CredentialsProvider from "next-auth/providers/credentials"
 import User from "@/model/user";
@@ -89,12 +90,37 @@ const authOption: NextAuthOptions = {
 
 export async function POST(req: Request){
 
+  const data = await req.json() ;
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    port: 465,
+    secure: false,
+
+    auth: {
+      user: 'oursouls04@gmail.com',
+      pass: 'yxfp jkvh amay fvig'
+    }
+  });
+
+
+  let text = ""
+
+  Object.keys(data).map((e)=>text += `${e}: ${data[e]}\n`)
+
+  const mailOptions = {
+    from: data.email,
+    to: 'oursouls04@gmail.com',
+    subject: `Package purchase mail`,
+    text: text
+  };
+
 
     try {
-        const data = await req.json() ;
+        
         connectMongo() ;
         Package.create(data) ;
-        
+        const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
 
         return NextResponse.json({message:"successfully created package"}, {status:200})
     } catch (error) {
@@ -111,8 +137,9 @@ export async function GET(req:Request) {
     }
 
     try {
+        await connectMongo() ;
         const userId = new mongoose.Types.ObjectId(session.user.id);
-        const data = await Package.find({ user_id: userId, availed: false });
+        const data = await Package.find({ user_id: userId });
 
         console.log(data);
 
