@@ -4,54 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight } from "lucide-react";
-import {motion } from 'framer-motion'
-
+import { ArrowRight, CheckIcon } from "lucide-react";
+import {motion } from 'framer-motion'; 
+import { pricing } from "@/lib/pricing_data";
 
 const Pricing = ()=>{
-    var pricing = [
-        {
-            type: "Starter Plus",
-            mode: "starter",
-            name: "40 Minute Starter",
-            price: "199",
-            sessions_included: "1 session",
-            session_length: "40 mins",
-            counselor_matching: "non-professional",
-            video: "89"
-        },
-        {
-            type: "Starter Pro",
-            mode: "starter",
-            name: "90 Minute Starter",
-            price: "299",
-            sessions_included: "1 session",
-            session_length: "90 mins",
-            counselor_matching: "non-professional",
-            video: "89"
-        },
-        {
-            type: "Add On Plus",
-            mode: "add on",
-            name: "15 Minute Add-On",
-            price: "49",
-            sessions_included: "1 session",
-            session_length: "15 mins",
-            counselor_matching: "non-professional",
-            video: "89"
-        },
-        {
-            type: "Add On Pro",
-            mode: "add on",
-            name: "30 Minute Add-On",
-            price: "99",
-            sessions_included: "1 session",
-            session_length: "30 mins",
-            counselor_matching: "non-professional",
-            video: "89"
-        },
-    
-    ];
     
 
     
@@ -85,37 +42,42 @@ const Pricing = ()=>{
             </div> */}
             <div className="flex flex-col md:flex-row my-5 !w-full px-6 sm:px-0 sm:w-fit items-center  justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
                 {
-                    pricing.slice(0,3).map((plan, i)=>(
+                    pricing.slice(0,4).map((plan, i)=>(
                         <motion.div initial={{translateY: 45}} whileInView={{translateY: 0}} transition={{delay: (i/10), duration: 0.3}}  key={i} className="w-full" >
-                        <Card  className="w-full whitespace-nowrap max-w-md bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
-                        <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-500 p-6 text-center">
-                          <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-                          <p className="text-gray-200 mt-2">Get started with basic plan</p>
-                        </CardHeader>
-                        <CardContent className="p-6 space-y-6">
-                          <div className="flex items-baseline justify-center">
-                            <span className="text-4xl font-bold text-indigo-500 dark:text-indigo-400">₹{plan.price}</span>
-                            <span className="text-gray-500 dark:text-gray-400 text-sm ml-2">/session</span>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Session Length</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included} minutes</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Counselor Matching</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.counselor_matching}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Sessions Included</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included} session</span>
-                            </div>
-                          </div>
-                          <a href="/pricing" className="w-full"><Button className="w-full mt-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:from-indigo-600 hover:to-purple-600">
-                            Buy now
-                          </Button></a>
-                        </CardContent>
-                      </Card></motion.div>
+                        <Card
+                    key={i}
+                    className="p-1 hover:-translate-y-2 transition-all duration-300  bg-opacity-70 backdrop-blur-sm rounded-lg shadow-md"
+                  >
+                    <CardHeader>
+                      <CardTitle className="text-lg font-semibold">
+                        {plan.type}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-muted-foreground">
+                        Get started with basic plan
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="">
+                      <div className="text-3xl font-bold text-gray-900">
+                        ₹{plan.price}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        /session
+                      </div>
+                      <a href="/pricing"><Button  className="mt-4 w-full  rounded-full py-2 px-4">
+                        Subscribe
+                      </Button></a>
+                      <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                        {(plan?.features as string[]).map(
+                          (f: any, i: number) => (
+                            <li key={i} className="flex items-center whitespace-nowrap">
+                              <CheckIcon className="w-4 h-4 mr-2 text-green-500" />
+                              {f}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </CardContent>
+                  </Card></motion.div>
                       ))} </div>
             <a href="/pricing"><Button size={'lg'} variant={'outline'} className='group rounded-full bg-opacity-30 backdrop-blur-sm transition ease py-1 mx-auto max-w-fit duration-500'>
             Explore more <ArrowRight className='w-4 h-4 -ml-4 group-hover:ml-2  scale-0 group-hover:scale-100  transition-all duration-300 hover:scale-100'/>

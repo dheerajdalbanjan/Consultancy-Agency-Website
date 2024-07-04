@@ -20,7 +20,13 @@ import {
 } from "@/components/ui/dialog";
 import Formsuccess from "@/components/ui/formsuccess";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toast } from "@/components/ui/toast";
@@ -30,6 +36,7 @@ import { Check } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { pricing, monthly } from "@/lib/pricing_data";
 
 const Razorpay = require("razorpay");
 
@@ -53,24 +60,23 @@ const Pricing = () => {
   const [open, setOpen] = useState(false);
   const [checkout, setCheckout] = useState(false);
   const [amount, setAmount] = useState<number>(0);
-  const [referralCode, setReferralCode] = useState('')
+  const [referralCode, setReferralCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
-  const [pamount , setPamount] = useState(0)
-
+  const [pamount, setPamount] = useState(0);
 
   const fixedDiscounts: any = {
     MANISH100OFF: 100,
     RONIT100OFF: 100,
     DHEERAJ100OFF: 100,
-    SATWIK100OFF: 100
+    SATWIK100OFF: 100,
   };
 
   const percentageDiscounts: any = {
-    VANYA10: 10 // 10% off
+    VANYA10: 10, // 10% off
   };
 
   const applyReferralCode = (value: any) => {
-    console.log(value)
+    console.log(value);
     let discount = 0;
 
     if (fixedDiscounts[value]) {
@@ -80,181 +86,20 @@ const Pricing = () => {
     }
 
     if (discount > 0) {
-      setAmount(prev =>{ setPamount(prev);  return Number((prev - discount).toFixed(2))});
+      setAmount((prev) => {
+        setPamount(prev);
+        return Number((prev - discount).toFixed(2));
+      });
       setDiscountApplied(true);
     } else {
-      if(discountApplied){
+      if (discountApplied) {
         setAmount(pamount);
-      setDiscountApplied(false);
+        setDiscountApplied(false);
       }
-      console.log('invalid code')
+      console.log("invalid code");
     }
   };
-  var pricing = [
-    {
-      type: "Starter Plus",
-      mode: "starter",
-      name: "40 Minute Session Package",
-      price: "199",
-      sessions_included: "1 session",
-      session_length: "40 mins",
-      counselor_matching: "non-professional",
-      video: "89",
-    },
-    {
-      type: "Starter Pro",
-      mode: "starter",
-      name: "90 Minute Session Package",
-      price: "299",
-      sessions_included: "1 session",
-      session_length: "90 mins",
-      counselor_matching: "non-professional",
-      video: "89",
-    },
-    {
-      type: "Add On Plus",
-      mode: "add on",
-      name: "15 Minute Add-On",
-      price: "49",
-      sessions_included: "1 session",
-      session_length: "15 mins",
-      counselor_matching: "non-professional",
-      video: "89",
-    },
-    {
-      type: "Add On Pro",
-      mode: "add on",
-      name: "30 Minute Add-On",
-      price: "99",
-      sessions_included: "1 session",
-      session_length: "30 mins",
-      counselor_matching: "non-professional",
-      video: "89",
-    },
-
-    {
-      type: "Starter Plus",
-      mode: "starter",
-      name: "Basic Pro 40 Minute Session",
-      price: "349",
-      sessions_included: "1 session",
-      session_length: "40 mins",
-      counselor_matching: "professional",
-      video: "89",
-    },
-    {
-      type: "Starter Pro",
-      mode: "starter",
-      name: "Basic Pro 90 Minute Session",
-      price: "499",
-      sessions_included: "1 session",
-      session_length: "90 mins",
-      counselor_matching: "professional",
-      video: "89",
-    },
-    {
-      type: "Add On Plus",
-      mode: "add on",
-      name: "Basic Pro 15 Minute Add-On",
-      price: "49",
-      sessions_included: "1 session",
-      session_length: "15 mins",
-      counselor_matching: "professional",
-      video: "89",
-    },
-    {
-      type: "Add On Pro",
-      mode: "add on",
-      name: "Basic Pro 30 Minute Add-On",
-      price: "99",
-      sessions_included: "1 session",
-      session_length: "30 mins",
-      counselor_matching: "professional",
-      video: "89",
-    },
-  ];
-
-  let monthly = [
-    {
-      name: "MONTHLY Silver",
-      price: "599",
-      bprice: "799",
-      discounted_price: "₹599/-",
-      sessions_included: "1 Month Subscription",
-      session_length: "40 minutes each",
-      no_of_sessions: "4 sessions",
-      counselor_matching: "non-professional",
-      access_term: "1 month from purchase date",
-      mode: "monthly",
-      video: "299",
-    },
-    {
-      name: "MONTHLY Gold",
-      price: "1199",
-      bprice: "1399",
-      discounted_price: "₹1199/-",
-      sessions_included: "3 Month Subscription",
-      session_length: "40 minutes each",
-      no_of_sessions: "10 sessions",
-      counselor_matching: "non-professional",
-      access_term: "3 months from purchase date",
-      mode: "monthly",
-      video: "299",
-    },
-    {
-      name: "MONTHLY Platinum",
-      price: "1599",
-      bprice: "1799",
-      discounted_price: "₹1599/-",
-      sessions_included: "6 Month Subscription",
-      session_length: "40 minutes each",
-      no_of_sessions: "16 sessions",
-      counselor_matching: "non-professional",
-      access_term: "6 months from purchase date",
-      mode: "monthly",
-      video: "299",
-    },
-
-    {
-      name: "PRO Silver",
-      price: "1699",
-      bprice: "1799",
-      discounted_price: "₹1699/-",
-      sessions_included: "1 Month Subscription",
-      session_length: "45 minutes each",
-      no_of_sessions: "5 sessions",
-      counselor_matching: "professional",
-      access_term: "1 month from purchase date",
-      mode: "monthly",
-      video: "299",
-    },
-    {
-      name: "PRO Gold",
-      price: "3899",
-      bprice: "3999",
-      discounted_price: "₹3899/-",
-      sessions_included: "3 Month Subscription",
-      session_length: "45 minutes each",
-      no_of_sessions: "12 sessions",
-      counselor_matching: "professional",
-      access_term: "3 months from purchase date",
-      mode: "monthly",
-      video: "299",
-    },
-    {
-      name: "PRO Platinum",
-      price: "6949",
-      bprice: "7199",
-      discounted_price: "₹6949/-",
-      sessions_included: "6 Month Subscription",
-      session_length: "45 minutes each",
-      no_of_sessions: "20 sessions",
-      counselor_matching: "professional",
-      access_term: "6 months from purchase date",
-      mode: "monthly",
-      video: "299",
-    },
-  ];
+  
 
   const [loading, setLoading] = useState<string>("");
   const router = useRouter();
@@ -384,31 +229,30 @@ const Pricing = () => {
       </h1>
 
       <Tabs value={btab} onValueChange={setBtab} className="overflow-hidden">
-      <Select
-      
-              value={btab}
-              onValueChange={(e) => {
-                setBtab(e)
-              }}
+        <Select
+          value={btab}
+          onValueChange={(e) => {
+            setBtab(e);
+          }}
+        >
+          <SelectTrigger className="w-[180px] !outline-none md:hidden ml-5  !ring-0 bg-opacity-50 backdrop-blur-md">
+            <SelectValue placeholder="select the packs" />
+          </SelectTrigger>
+          <SelectContent className="bg-opacity-50 backdrop-blur-md border-none">
+            <SelectItem
+              value={"non-professional"}
+              className="!bg-transparent text-start w-full cursor-pointer"
             >
-              <SelectTrigger className="w-[180px] !outline-none md:hidden ml-5  !ring-0 bg-opacity-50 backdrop-blur-md">
-                <SelectValue placeholder="select the packs" />
-              </SelectTrigger>
-              <SelectContent className="bg-opacity-50 backdrop-blur-md border-none">
-                  <SelectItem
-                    value={"non-professional"}
-                    className="!bg-transparent text-start w-full cursor-pointer"
-                  >
-                    non-professional
-                  </SelectItem>
-                  <SelectItem
-                    value={"professional"}
-                    className="!bg-transparent text-start w-full cursor-pointer"
-                  >
-                    professional
-                  </SelectItem>
-              </SelectContent>
-            </Select>
+              non-professional
+            </SelectItem>
+            <SelectItem
+              value={"professional"}
+              className="!bg-transparent text-start w-full cursor-pointer"
+            >
+              professional
+            </SelectItem>
+          </SelectContent>
+        </Select>
         <TabsList className="ml-5 hidden md:flex rounded-xl md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit  flex-col md:flex-row ">
           <TabsTrigger
             className={`rounded-full   ${
@@ -431,50 +275,52 @@ const Pricing = () => {
             Basic professional plans
           </TabsTrigger>
         </TabsList>
-        <TabsContent value={btab} >
-          <div className="grid grid-cols-1 md:grid-cols-2 p-5 gap-y-8 items-center justify-between">
+        <TabsContent value={btab}>
+          <div className="grid grid-cols-1 md:grid-cols-4 p-5 gap-x-4 gap-y-8 items-center justify-between">
             {pricing.map((plan, i) => {
               if (plan.counselor_matching === btab) {
                 return (
-                  <Card key={i}  className="w-full border-none max-w-md bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
-                        <CardHeader className="bg-indigo-500 to-amber-500 p-6 text-center">
-                          <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-                          <p className="text-gray-200 mt-2">Get started with basic plan</p>
-                        </CardHeader>
-                        <CardContent className="p-6 space-y-6">
-                          <div className="flex items-baseline justify-center">
-                            <span className="text-4xl font-bold text-indigo-500 dark:text-indigo-400">₹{plan.price}</span>
-                            <span className="text-gray-500 dark:text-gray-400 text-sm ml-2">/session</span>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Session Length</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.session_length}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Counselor Matching</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.counselor_matching}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Sessions Included</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included}</span>
-                            </div>
-                          </div>
-                          <Button className="w-full mt-3 bg-indigo-500 to-purple-500 text-white hover:bg-indigo-600 hover:to-purple-600"onClick={() => handleClick(plan)}
-                        
-                        disabled={
+                  <Card
+                    key={i}
+                    className="p-1 hover:-translate-y-2 transition-all duration-300  bg-opacity-70 backdrop-blur-sm rounded-lg shadow-md"
+                  >
+                    <CardHeader>
+                      <CardTitle className="text-lg font-semibold">
+                        {plan.type}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-muted-foreground">
+                        Get started with basic plan
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="">
+                      <div className="text-3xl font-bold text-gray-900">
+                        ₹{plan.price}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        /session
+                      </div>
+                      <Button onClick={() => handleClick(plan)} disabled={
                           checkout && loading === `${plan.mode}_${plan.price}`
                             ? true
                             : false
-                        }
-                      >
-                        {checkout && loading === `${plan.mode}_${plan.price}` && (
+                        } className="mt-4 w-full  rounded-full py-2 px-4">
+                          {checkout && loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}
-                            Buy now
-                          </Button>
-                        </CardContent>
-                      </Card>
+                        Subscribe
+                      </Button>
+                      <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                        {(plan?.features as string[]).map(
+                          (f: any, i: number) => (
+                            <li key={i} className="flex items-center whitespace-nowrap">
+                              <CheckIcon className="w-4 h-4 mr-2 text-green-500" />
+                              {f}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </CardContent>
+                  </Card>
                 );
               }
             })}
@@ -483,7 +329,7 @@ const Pricing = () => {
       </Tabs>
 
       <Tabs value={mtab} onValueChange={setMtab} className="overflow-hidden">
-        <TabsList className="ml-5 rounded-xl hidden  md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit md:flex flex-col md:flex-row  ">
+        <TabsList className="ml-5 mt-5 rounded-xl hidden  md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit md:flex flex-col md:flex-row  ">
           <TabsTrigger
             className={`rounded-full   ${
               mtab === "non-professional"
@@ -506,82 +352,75 @@ const Pricing = () => {
           </TabsTrigger>
         </TabsList>
         <Select
-      
-              value={mtab}
-              onValueChange={(e) => {
-                setMtab(e)
-              }}
+          value={mtab}
+          onValueChange={(e) => {
+            setMtab(e);
+          }}
+        >
+          <SelectTrigger className="w-fit !outline-none md:hidden ml-5  !ring-0 bg-opacity-50 backdrop-blur-md">
+            <SelectValue placeholder="select the packs" />
+          </SelectTrigger>
+          <SelectContent className="bg-opacity-50 backdrop-blur-md border-none">
+            <SelectItem
+              value={"non-professional"}
+              className="!bg-transparent text-start w-full cursor-pointer"
             >
-              <SelectTrigger className="w-fit !outline-none md:hidden ml-5  !ring-0 bg-opacity-50 backdrop-blur-md">
-                <SelectValue placeholder="select the packs" />
-              </SelectTrigger>
-              <SelectContent className="bg-opacity-50 backdrop-blur-md border-none">
-                  <SelectItem
-                    value={"non-professional"}
-                    className="!bg-transparent text-start w-full cursor-pointer"
-                  >
-                    Monthly Non-Professional
-                  </SelectItem>
-                  <SelectItem
-                    value={"professional"}
-                    className="!bg-transparent text-start w-full cursor-pointer"
-                  >
-                    Professional
-                  </SelectItem>
-              </SelectContent>
-            </Select>
+              Monthly Non-Professional
+            </SelectItem>
+            <SelectItem
+              value={"professional"}
+              className="!bg-transparent text-start w-full cursor-pointer"
+            >
+              Professional
+            </SelectItem>
+          </SelectContent>
+        </Select>
         <TabsContent value={mtab}>
           <div className="flex flex-col md:flex-row my-5 items-center justify-between p-5 space-x-0 md:space-x-5 space-y-4 md:space-y-0">
             {monthly.map((plan, i) => {
               if (plan.counselor_matching === mtab) {
                 return (
-                  <Card key={i}  className="w-full max-w-md border-none bg-opacity-50 backdrop-blur-md shadow-lg rounded-lg overflow-hidden dark:bg-gray-950">
-                        <CardHeader className="bg-gradient-to-r from-indigo-500 to-emerald-400 p-6 text-center">
-                          <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-                          <p className="text-gray-200 mt-2">Get started with monthly plan</p>
-                        </CardHeader>
-                        <CardContent className="p-6 space-y-6">
-                          <div className="flex items-baseline justify-center">
-                            <span className="text-4xl font-bold text-indigo-500 dark:text-indigo-400">₹{plan.price}</span>
-                            <span className="text-gray-500 dark:text-gray-400 text-sm ml-2">/session</span>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Session Length</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.session_length}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Counselor Matching</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.counselor_matching}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Sessions Included</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.sessions_included}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">Access Term</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.access_term}</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-gray-500 dark:text-gray-400">No. of sessions</span>
-                              <span className="text-gray-900 dark:text-gray-50 font-medium">{plan.no_of_sessions}</span>
-                            </div>
-                          </div>
-                          <Button className="w-full mt-3 transition-colors duration-300 bg-gradient-to-r from-indigo-500 to-emerald-400 text-white hover:from-indigo-600 hover:to-emerald-600"onClick={() => handleClick(plan)}
-                        
-                        disabled={
+                  <Card
+                    key={i}
+                    className="p-1 w-full hover:-translate-y-2 transition-all duration-300  bg-opacity-70 backdrop-blur-sm rounded-lg shadow-md"
+                  >
+                    <CardHeader>
+                      <CardTitle className="text-lg font-semibold">
+                        {plan.name}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-muted-foreground">
+                        Get started with basic plan
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="">
+                      <div className="text-3xl font-bold text-gray-900">
+                        ₹{plan.price}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        /session
+                      </div>
+                      <Button onClick={() => handleClick(plan)} disabled={
                           checkout && loading === `${plan.mode}_${plan.price}`
                             ? true
                             : false
-                        }
-                      >
-                        {checkout && loading === `${plan.mode}_${plan.price}` && (
+                        } className="mt-4 w-full  rounded-full py-2 px-4">
+                          {checkout && loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}
-                            Buy now
-                          </Button>
-                        </CardContent>
-                      </Card>
+                        Subscribe
+                      </Button>
+                      <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                        {(plan?.features as string[]).map(
+                          (f: any, i: number) => (
+                            <li key={i} className="flex items-center whitespace-nowrap">
+                              <CheckIcon className="w-4 h-4 mr-2 text-green-500" />
+                              {f}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </CardContent>
+                  </Card>
                 );
               }
             })}
@@ -589,8 +428,16 @@ const Pricing = () => {
         </TabsContent>
       </Tabs>
 
-      <Dialog   open={checkout} onOpenChange={(e)=>{setCheckout(e); setReferralCode(""); setDiscountApplied(false); setReferal(false)}}>
-        <DialogContent className="rounded-xl w-[96%] max-h-[90vh] p-3 overflow-y-auto overflow-auto mx-auto">
+      <Dialog
+        open={checkout}
+        onOpenChange={(e) => {
+          setCheckout(e);
+          setReferralCode("");
+          setDiscountApplied(false);
+          setReferal(false);
+        }}
+      >
+        <DialogContent className="rounded-xl max-h-[100vh]  overflow-y-auto overflow-auto mx-auto">
           <DialogHeader>
             <DialogTitle className="text-start">Checkout Page</DialogTitle>
           </DialogHeader>
@@ -667,19 +514,37 @@ const Pricing = () => {
                       </label>
                     </div>
                   )}
-                  {referal && <Input className={`${discountApplied?'!ring-2 ring-emerald-500 ring-offset-2 ': ''}`} type="text" value={referralCode}
-              onChange={(e) => {setReferralCode(e.target.value); applyReferralCode(e.target.value)}} placeholder="enter the referal code"/>}
-                  {discountApplied && <Formsuccess  msg="successfully applied referral code"/>}
-                 {cdata && cdata.mode === 'monthly' && <Button
-                    variant={"link"}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setReferal(!referal);
-                    }}
-                    className="text-blue-800 px-0 w-fit float-right"
-                  >
-                    Have a coupon code ?
-                  </Button>}
+                  {referal && (
+                    <Input
+                      className={`${
+                        discountApplied
+                          ? "!ring-2 ring-emerald-500 ring-offset-2 "
+                          : ""
+                      }`}
+                      type="text"
+                      value={referralCode}
+                      onChange={(e) => {
+                        setReferralCode(e.target.value);
+                        applyReferralCode(e.target.value);
+                      }}
+                      placeholder="enter the referal code"
+                    />
+                  )}
+                  {discountApplied && (
+                    <Formsuccess msg="successfully applied referral code" />
+                  )}
+                  {cdata && cdata.mode === "monthly" && (
+                    <Button
+                      variant={"link"}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setReferal(!referal);
+                      }}
+                      className="text-blue-800 px-0 w-fit float-right"
+                    >
+                      Have a coupon code ?
+                    </Button>
+                  )}
                   <Separator />
                   <div className="flex items-center justify-between font-bold">
                     <div>Total</div>
@@ -721,5 +586,24 @@ const Pricing = () => {
     </div>
   );
 };
+
+function CheckIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
 
 export default Pricing;

@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LoaderIcon } from "lucide-react";
 import {FastAverageColor} from 'fast-average-color';
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Page = () => {
   const [blogs, setBlogs] = useState([]);
@@ -43,7 +44,8 @@ const Page = () => {
       .catch((error) => {
         console.error(error);
         // Handle error
-      });
+      })
+      .finally(()=>setLoading(false))
   }, []);
 
 
@@ -74,14 +76,61 @@ const Page = () => {
 
   return (
     <div className="min-h-screen pt-20 z-50 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
-      {loading && <div className='fixed inset-0 w-full h-full  bg-opacity-50 backdrop-blur-xl z-50 flex items-center justify-center '>
-
-<LoaderIcon className='animate-spin' />
-</div>}
+      
       <h1 className="text-3xl  font-bold antialiased my-3">
         All Blogs
       </h1>
       <div className="flex flex-col space-y-7 my-3 py-5">
+       
+          {loading && <div  className="flex flex-col gap-y-3 md:flex-row items-center justify-between w-full md:h-56 gap-x-4">
+            <Skeleton className="md:h-full h-40  w-full md:w-1/3"/>
+            <div className="h-full w-full md:w-2/3 flex flex-col justify-between space-y-3">
+              <Skeleton className="h-16 mb-5 hidden md:block"/>
+              <div className="space-y-2">
+              <Skeleton className="h-6 "/>
+              <Skeleton className="h-6 w-[80%]"/>
+              </div>
+              <Skeleton className="h-5 w-24 rounded-full" />
+              <div className="flex space-x-2">
+              <Skeleton className="h-4 w-24 rounded-full" />
+              <Skeleton className="h-4 w-24 rounded-full" />
+              <Skeleton className="h-4 w-24 rounded-full" />
+              </div>
+            </div>
+          </div>}
+          {loading && <div  className="flex flex-col gap-y-3 md:flex-row items-center justify-between w-full md:h-56 gap-x-4">
+            <Skeleton className="md:h-full h-40  w-full md:w-1/3"/>
+            <div className="h-full w-full md:w-2/3 flex flex-col justify-between space-y-3">
+              <Skeleton className="h-16 mb-5 hidden md:block"/>
+              <div className="space-y-2">
+              <Skeleton className="h-6 "/>
+              <Skeleton className="h-6 w-[80%]"/>
+              </div>
+              <Skeleton className="h-5 w-24 rounded-full" />
+              <div className="flex space-x-2">
+              <Skeleton className="h-4 w-24 rounded-full" />
+              <Skeleton className="h-4 w-24 rounded-full" />
+              <Skeleton className="h-4 w-24 rounded-full" />
+              </div>
+            </div>
+          </div>}
+          {loading && <div  className="flex flex-col gap-y-3 md:flex-row items-center justify-between w-full md:h-56 gap-x-4">
+            <Skeleton className="md:h-full h-40  w-full md:w-1/3"/>
+            <div className="h-full w-full md:w-2/3 flex flex-col justify-between space-y-3">
+              <Skeleton className="h-16 mb-5 hidden md:block"/>
+              <div className="space-y-2">
+              <Skeleton className="h-6 "/>
+              <Skeleton className="h-6 w-[80%]"/>
+              </div>
+              <Skeleton className="h-5 w-24 rounded-full" />
+              <div className="flex space-x-2">
+              <Skeleton className="h-4 w-24 rounded-full" />
+              <Skeleton className="h-4 w-24 rounded-full" />
+              <Skeleton className="h-4 w-24 rounded-full" />
+              </div>
+            </div>
+          </div>}
+        
         {blogs.map((e: any, i) => (
           <a 
           key={i} href={`/blog/${e?.slug}`}>
@@ -92,7 +141,6 @@ const Page = () => {
             <CardContent id={i.toString()} className="md:w-1/2 w-full p-0 relative overflow-hidden">
               <img
                 crossOrigin="anonymous"
-                onLoad={imgLoad}
                 src={e.image}
                 alt={e.title}
                 width={300}

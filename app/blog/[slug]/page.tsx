@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import Markdown from 'react-markdown';
 import { FastAverageColor } from 'fast-average-color';
 import { Metadata, ResolvingMetadata } from 'next';
+import { Skeleton } from '@/components/ui/skeleton';
 
 
 
@@ -59,11 +60,31 @@ const Page = ({ params }: {params:{slug: string}}) => {
 
   return (
     <div className='min-h-screen py-16'>
-        {loading && <div className='fixed z-50 inset-0 w-full h-full bg-opacity-50  backdrop-blur-lg flex items-center justify-center '>
-
-            <LoaderIcon className='animate-spin' />
-        </div>}
+        
         <div className='max-w-4xl mx-auto px-8 md:px-0'>
+        {loading && <div className='space-y-3 pt-10'>
+            <Skeleton  className='h-5 w-full my-2'/>
+            <Skeleton  className='h-5 w-[80%]'/>
+            <Skeleton className='h-64 md:h-[60vh] w-full' />
+            <div className=' items-center flex justify-between'>
+              <Skeleton  className='w-24 rounded-full h-7'/>
+              <div className='flex space-x-2'>
+              <Skeleton  className='w-16 rounded-full h-5'/>
+              <Skeleton  className='w-16 rounded-full h-5'/>
+              <Skeleton  className='w-16 rounded-full h-5'/>
+              </div>
+            </div>
+            <div className='space-y-2 py-5'>
+            <Skeleton  className='h-4 w-full my-2'/>
+            <Skeleton  className='h-4 w-full my-2'/>
+            <Skeleton  className='h-4 w-full my-2'/>
+            <Skeleton  className='h-4 w-[80%]'/>
+            <Skeleton  className='h-4 w-full my-2 pt-2'/>
+            <Skeleton  className='h-4 w-full my-2'/>
+            <Skeleton  className='h-4 w-full my-2'/>
+            <Skeleton  className='h-4 w-[80%]'/>
+            </div>
+          </div>}
             <h1 className='text-2xl md:text-3xl font-bold tracking-tight my-5 md:mb-7 antialiased '>{data?.title}</h1>
             <div className='  w-full relative  '>
                 <img src={data?.image} crossOrigin='anonymous' onLoad={imageLoad} className='w-full object-fill rounded-lg '/>

@@ -14,7 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ArrowRight, ChevronLeft, ChevronRight, Menu } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, LogOut, Menu } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
@@ -160,13 +160,13 @@ const Navbar = () => {
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-opacity-70 backdrop-blur-sm">
+            <DropdownMenuContent className="">
               <DropdownMenuLabel>Profile</DropdownMenuLabel>
 
               <DropdownMenuGroup>
                 <DropdownMenuItem>{session.user?.name}</DropdownMenuItem>
                 <DropdownMenuItem>{session.user?.email}</DropdownMenuItem>
-                <a href="/mypackages"><DropdownMenuItem>My Packages</DropdownMenuItem></a>
+                <a href="/mypackages"><DropdownMenuItem className="flex items-center space-x-2 cursor-pointer"><span>My Packages</span> <svg className=" " xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg></DropdownMenuItem></a>
                 {/* <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Change Theme</DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
@@ -184,10 +184,10 @@ const Navbar = () => {
                   </DropdownMenuPortal>
                 </DropdownMenuSub> */}
                 <DropdownMenuItem
-                  className="!hover:bg-red-600/50 cursor-pointer hover:text-red-600"
+                  className="hover:!bg-red-600/10 cursor-pointer flex items-center !text-red-600"
                   onClick={() => signOut()}
                 >
-                  Log out
+                 <LogOut className="mr-2 w-4 h-4" /> Log out
                 </DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
