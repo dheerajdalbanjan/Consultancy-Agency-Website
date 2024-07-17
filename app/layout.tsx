@@ -13,6 +13,7 @@ import { Dialog, DialogHeader } from '@/components/ui/dialog'
 import { DialogContent, DialogTitle } from '@radix-ui/react-dialog'
 import { useTheme } from 'next-themes'
 import { cn } from '@/lib/utils'
+import Script from 'next/script'
 
 const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
@@ -61,22 +62,6 @@ export default function RootLayout({
           >
             <AuthProvider>
           <Head>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '871182718368577');
-                fbq('track', 'PageView');
-              `,
-            }}
-          />
           <noscript>
             <img
               height="1"
@@ -87,6 +72,22 @@ export default function RootLayout({
           </noscript>
   <link rel="icon" href="/public/favicn.jpg" />
 </Head>
+            <Script id='facebook-pixel'>
+              {`
+                !function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '871182718368577');
+fbq('track', 'PageView');
+
+              `}
+            </Script>
+            
 
         <Navbar />
         
