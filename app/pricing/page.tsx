@@ -118,7 +118,7 @@ const Pricing = () => {
     setLoading(`${details.mode}_${details.price}`);
     setCdata(details);
     let price = Number(details.price);
-    price += (price / 100) * 2 + 3 + (price / 100) * 18;
+    price += (price / 100) * 2 + 9;
     price = Number(price.toFixed(2));
     setAmount(price);
     setCheckout(true);
@@ -478,7 +478,7 @@ const Pricing = () => {
                   </div>
                   <div className="flex items-center justify-between">
                     <div>Platform Charge</div>
-                    <div className="font-bold">₹3</div>
+                    <div className="font-bold">₹9</div>
                   </div>
                   <div className="flex items-center justify-between">
                     <div>Payment Gateway Charge</div>
@@ -486,12 +486,7 @@ const Pricing = () => {
                       ₹{cdata && ((cdata.price / 100) * 2).toFixed(2)}
                     </div>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <div>GST (18%)</div>
-                    <div className="font-bold">
-                      ₹{cdata && ((cdata.price / 100) * 18).toFixed(2)}
-                    </div>
-                  </div>
+                  
                   {cdata && (
                     <div className="flex items-center space-x-2 py-2">
                       <Checkbox

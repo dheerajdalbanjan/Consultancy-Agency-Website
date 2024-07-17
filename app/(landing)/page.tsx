@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import Affiliate from "./_components/affiliate";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import TestimonialsComponent from "./_components/testimonials";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -49,6 +50,7 @@ export default function Home() {
       
       <Pricing />
       <Features />
+      {/* <TestimonialsComponent/> */}
       <Affiliate />
       <Dialog open={open} onOpenChange={()=>{setOpen(false) ; 
         setPopupshowed(true) ;}}>

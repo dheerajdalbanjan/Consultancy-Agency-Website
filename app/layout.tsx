@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next'
-import { Bai_Jamjuree, Inter, Merriweather_Sans, Montserrat, Poppins } from 'next/font/google'
+import { Bai_Jamjuree, Inter, Josefin_Sans, Merriweather_Sans, Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
 import dynamic  from 'next/dynamic'
 import { ThemeProvider } from '@/components/provider/theme-provider'
@@ -18,7 +18,13 @@ const Navbar = dynamic(()=> import('../app/_components/navbar') ,{
   ssr: false
 })
 
+
+const josafin  = Josefin_Sans({subsets:['latin']})
+
 const inter = Inter({subsets:['latin']})
+
+
+
 const montserrat = Montserrat({subsets: ['latin']})
 const merriweather = Merriweather_Sans({subsets: ['latin']})
 const poppins = Poppins({subsets:['latin'], weight: '200'})
@@ -55,6 +61,30 @@ export default function RootLayout({
           >
             <AuthProvider>
           <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '871182718368577');
+                fbq('track', 'PageView');
+              `,
+            }}
+          />
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src="https://www.facebook.com/tr?id=871182718368577&ev=PageView&noscript=1"
+            />
+          </noscript>
   <link rel="icon" href="/public/favicn.jpg" />
 </Head>
 
