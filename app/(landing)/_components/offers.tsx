@@ -47,7 +47,7 @@ const Offers = () => {
 
   return (
     <div className="bg-dot-white/[0.09] py-8 overflow-hidden flex items-center justify-center relative  self-center md:py-6 px-7 w-full md:px-24 mx-auto">
-      <motion.div initial={{translateX: '20%'}} transition={{duration: 0.5}} whileInView={{translateX: '0'}} className="flex  flex-col md:flex-row gap-y-4 md:gap-y-7 md:gap-x-16 md:justify-evenly items-center justify-center">
+      <motion.div initial={{scale:0.95}}  whileInView={{scale:1}} className="flex  flex-col md:flex-row gap-y-4 md:gap-y-7 md:gap-x-16 md:justify-evenly items-center justify-center">
       
       <h1 className="bg-clip-text bg-gradient-to-br  text-center my-2 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-bold  tracking-tight lg:text-5xl">
         Offers
@@ -60,12 +60,12 @@ const Offers = () => {
               <CarouselItem key={index}>
                 <div className="p-1 ">
                   <Card className="overflow-hidden group  relative">
-                    <CardHeader className="z-10 bg-[#F7ECE1]">
-                      <CardTitle>{_.title}</CardTitle>
-                      <CardDescription>{_.description}</CardDescription>
+                    <CardHeader className="z-10 bg-[#072B4C]">
+                      <CardTitle className="text-neutral-50">{_.title}</CardTitle>
+                      <CardDescription className="text-neutral-300">{_.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="flex group-hover:opacity-70 group-hover:blur-sm transition-all duration-300 ease-in-out aspect-square p-0 items-center justify-center relative   overflow-hidden">
-                      <div className="h-full absolute top-0  w-full bg-gradient-to-b from-[#F7ECE1]  dark:from-neutral-950 to-slate-50/5 z-10"></div>
+                    <CardContent className="flex group-hover:blur-sm transition-all duration-300 ease-in-out aspect-square p-0 items-center justify-center relative   overflow-hidden">
+                      <div className="h-full absolute top-0  w-full bg-gradient-to-b from-[#072B4C] via-neutral-200/5 dark:from-neutral-950 to-neutral-300/5 z-10"></div>
                       <Image
                         src={_.image}
                         alt="offer_image"
@@ -78,7 +78,7 @@ const Offers = () => {
                     <CardFooter className="group-hover:scale-100 scale-0 transition-all absolute bottom-[25%] left-[19%]">
                       <Dialog>
                         <DialogTrigger asChild>
-                          <button className="bg-transparent px-8 py-3 border-neutral-500 dark:border-neutral-200  active:scale-90 transition-all duration-200 text-neutral-700 dark:text-neutral-200 font-bold bg-opacity-80 border ">
+                          <button className="px-8 py-3 border-neutral-500 dark:border-neutral-200  active:scale-90 transition-all duration-200 text-neutral-700 dark:text-neutral-200 font-bold bg-white/40 border ">
                             Avail Offer
                           </button>
                         </DialogTrigger>

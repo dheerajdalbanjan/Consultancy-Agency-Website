@@ -43,11 +43,11 @@ const Navbar = () => {
 
   return (
     <div
-      className={` transition-all duration-300 ease-in-out  text-[#3D5280]  border-blue-700/10 ${
+      className={` transition-all duration-300 ease-in-out  text-neutral-50  border-blue-700/10 ${
         scrolled
-          ? " !h-16 border-b bg-[#F7ECE1] "
-          : "bg-transparent"
-      }  z-50 fixed top-0 h-20 flex items-center  justify-between w-full  px-8 md:px-48 `}
+          ? " !h-16 border-b bg-[#072B4C] "
+          : "bg-[#072b4cde]"
+      }  z-50 fixed top-0 h-[4.5rem] flex items-center  justify-between w-full  px-8 md:px-48 `}
     >
       
       <div className="flex gap-x-3 items-center justify-between ">
@@ -61,8 +61,8 @@ const Navbar = () => {
               <ChevronRight width={20}/>
             </Button> */}
             <div className={`flex flex-col ${open?'space-y-0':'space-y-[10px]'} justify-center items-center`}>
-              <div className={`w-6 h-[1px] bg-neutral-800 ${open?'rotate-45':''} transition-all duration-300 ease-in-out`}></div>
-              <div className={`w-6 h-[1px] bg-neutral-800 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
+              <div className={`w-6 h-[1px] bg-neutral-50 ${open?'rotate-45':''} transition-all duration-300 ease-in-out`}></div>
+              <div className={`w-6 h-[1px] bg-neutral-50 ${open?'-rotate-45':''} transition-all duration-300 ease-in-out`}></div>
             </div>
           </SheetTrigger>
           <SheetContent side={"left"} className="  border-blue-700/10 !bg-[#F7ECE1]">
@@ -96,7 +96,7 @@ const Navbar = () => {
         
       </div>
       <div className="flex justify-center items-center space-x-4">
-        <div className="hidden md:flex justify-center items-start space-x-4 text-zinc-950/80 ">
+        <div className="hidden md:flex justify-center items-start space-x-4 text-neutral-50 ">
         <a href="/about"><div className="hover:opacity-50  cursor-pointer transition-all ease-in duration-300">
           About
         </div></a>
@@ -123,7 +123,7 @@ const Navbar = () => {
                 <span className="absolute inset-0 overflow-hidden rounded-full">
                   <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                 </span>
-                <div className="relative flex space-x-2 items-center z-10 rounded-full bg-dark_purple py-0.5 px-4 ring-1 ring-white/10 ">
+                <div className="relative flex space-x-2 items-center z-10 rounded-full bg-[#FFC107] text-neutral-800 py-0.5 px-4 ring-1 ring-white/10 ">
                   <span>{`Sign Up`}</span>
                   <svg
                     width="16"

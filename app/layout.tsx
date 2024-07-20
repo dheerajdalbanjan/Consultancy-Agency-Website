@@ -51,7 +51,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning >
-      <body className={cn("min-h-screen w-full  from  m-0  ", inter.className) }  style={{background: 'radial-gradient(circle, rgba(238,224,174,1) 0%, rgba(148,187,233,1) 100%)'}} >
+      <body className={cn("min-h-screen w-full  from  m-0  ", inter.className) }  >
         
       <ThemeProvider
             attribute="class"
@@ -72,7 +72,7 @@ export default function RootLayout({
           </noscript>
   <link rel="icon" href="/public/favicn.jpg" />
 </Head>
-            <Script id='facebook-pixel'>
+            <Script id='facebook-pixel' >
               {`
                 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
