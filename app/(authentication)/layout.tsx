@@ -18,7 +18,7 @@ const Layout = ({children}: {children:React.ReactNode}) => {
     //   </div>
     // </div>
     // </div>
-    <Card className='max-w-[450px] sm:mx-auto p-2 bg-opacity-40 rounded-xl backdrop-blur-md shadow !mt-24 md:p-3 my-12 mx-5 '>
+    <Card className='max-w-[450px] sm:mx-auto p-2  bg-opacity-40 rounded-xl backdrop-blur-md shadow !mt-32 md:p-3 my-12 mx-5 '>
       <CardHeader>
         <CardTitle className='capitalize'>{pathname.slice(1) === 'forgotpassword'?'Forgot Password':pathname.slice(1)}</CardTitle>
         <CardDescription>{pathname.slice(1) === 'login' && 'Welcome back!'} Enter your credentials to continue</CardDescription>

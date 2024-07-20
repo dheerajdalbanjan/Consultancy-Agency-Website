@@ -27,17 +27,17 @@ const PricingCard = ({
   features: string[];
 }) => (
   <Card className={`w-full `}>
-    <CardHeader className="pb-2 px-10">
+    <CardHeader className="pb-2 ">
       <div className="w-full p-3 flex flex-col items-center aspect-auto ">
         <img className="object-fill w-full" src={image}  alt={name} />
-        <h3 className="text-3xl font-bold antialiased text-[#072B4C]">
+        <h3 className="md:text-3xl text-2xl font-bold antialiased text-[#072B4C]">
           {name}
         </h3>
       </div>
-      <CardTitle className="text-lg font-bold text-[#00427c]">
+      <CardTitle className="text-lg md:px-5 font-bold text-[#00427c]">
         {title}
       </CardTitle>
-      <p className="text-sm text-gray-600">{description}</p>
+      <p className="text-sm md:px-5 text-gray-600">{description}</p>
     </CardHeader>
     <CardContent className="">
       <ul className="space-y-4 px-6">
@@ -52,9 +52,9 @@ const PricingCard = ({
       </ul>
     </CardContent>
     <CardFooter className="flex flex-col items-start pt-4 px-10">
-      <Button className="mb-2 !py-0.5 px-5 bg-[#FFC107] hover:bg-[#FFC10780] transition-colors text-neutral-950 rounded-full">
+      <a href="/pricing"><Button className="mb-2 !py-0.5 px-5 bg-[#FFC107] hover:bg-[#FFC10780] transition-colors text-neutral-950 rounded-full">
         Get Started
-      </Button>
+      </Button></a>
       <div className="text-sm">
         <span className="font-semibold">Starting @ </span>
         <span className="text-lg font-bold text-[#00427c]">₹{price}</span>

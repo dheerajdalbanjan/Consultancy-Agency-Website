@@ -16,7 +16,6 @@ const oursoulss = [
   ];
   
   const other = [
-    "Only Professional Therapy / Counseling",
     "Call Sessions",
     "Video Session",
     "Easy Scheduling",
@@ -45,14 +44,14 @@ const Comparison = () => {
               <td className="py-2 px-4 border-b border-neutral-200/50">{service}</td>
               <td className="py-2 px-4 border-b border-neutral-200/50 text-center text-emerald-500">✔</td>
               <td className="py-2 px-4 border-b border-neutral-200/50 text-center text-emerald-500">
-                {other.includes(service) ? "✔" : ""}
+                {other.includes(service) ? "✔" : "❌"}
               </td>
             </tr>
           ))}
           {other.filter(service => !oursoulss.includes(service)).map((service, index) => (
             <tr key={index + oursoulss.length} className="border border-neutral-200/50">
               <td className="py-2 px-4 border-b border-neutral-200/50">{service}</td>
-              <td className="py-2 px-4 border-b border-neutral-200/50 text-center"></td>
+              <td className="py-2 px-4 border-b border-neutral-200/50 text-center">❌</td>
               <td className="py-2 px-4 border-b border-neutral-200/50 text-center text-emerald-500">✔</td>
             </tr>
           ))}

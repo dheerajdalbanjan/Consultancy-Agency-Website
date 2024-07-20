@@ -75,7 +75,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 z-50 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
+    <div className="min-h-screen pt-28 z-50 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
       
       <h1 className="text-3xl  font-bold antialiased my-3">
         All Blogs
@@ -136,7 +136,7 @@ const Page = () => {
           key={i} href={`/blog/${e?.slug}`}>
           <Card
             
-            className="relative shadow-blue-950/10 border-none flex flex-col md:flex-row p-0 md:h-60 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300 ease-in-out group"
+            className="relative shadow-blue-950/10  flex flex-col md:flex-row p-0 md:h-60 overflow-hidden cursor-pointer group hover:shadow-xl transition-all duration-300 ease-in-out group"
           >
             <CardContent id={i.toString()} className="md:w-1/2 w-full p-0 relative overflow-hidden">
               <img

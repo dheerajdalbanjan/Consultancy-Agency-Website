@@ -56,8 +56,8 @@ const TestimonialsComponent = () => {
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-grid-blue-500/[0.2] [mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)]" />
       </div>
-      <div className="container max-w-6xl mx-auto px-4 md:px-0">
-        <h2 className="text-4xl font-bold  mb-12 ">
+      <div className="container max-w-6xl mx-auto px-8  md:px-4">
+        <h2 className="md:text-4xl text-2xl text-center md:text-start antialiased font-bold  mb-12 ">
           What Our Clients Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

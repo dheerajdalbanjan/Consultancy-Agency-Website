@@ -223,7 +223,7 @@ const Pricing = () => {
   }
 
   return (
-    <div className="max-w-6xl px-2 mt-20 mx-auto min-h-screen">
+    <div className="max-w-6xl px-2 mt-28 mx-auto min-h-screen">
       <h1 className=" antialiased pl-5 my-7 sm:text-start  text-3xl drop-shadow-md font-semibold  tracking-tight lg:text-4xl">
         Pricing
       </h1>
@@ -257,7 +257,7 @@ const Pricing = () => {
           <TabsTrigger
             className={`rounded-full   ${
               btab === "non-professional"
-                ? "!bg-dark_purple-400 !text-neutral-50"
+                ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
             }`}
             value="non-professional"
@@ -267,7 +267,7 @@ const Pricing = () => {
           <TabsTrigger
             className={`rounded-full  ${
               btab === "professional"
-                ? "!bg-dark_purple-400 !text-neutral-50"
+                ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
             } `}
             value="professional"
@@ -303,7 +303,7 @@ const Pricing = () => {
                           checkout && loading === `${plan.mode}_${plan.price}`
                             ? true
                             : false
-                        } className="mt-4 w-full  rounded-full py-2 px-4">
+                        } className="mt-4 w-full bg-[#FFC107] hover:bg-[#ffc107cf] transition-colors text-neutral-800 rounded-full py-2 px-4">
                           {checkout && loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}
@@ -333,7 +333,7 @@ const Pricing = () => {
           <TabsTrigger
             className={`rounded-full   ${
               mtab === "non-professional"
-                ? "!bg-dark_purple-400 !text-neutral-50"
+                ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
             }`}
             value="non-professional"
@@ -343,7 +343,7 @@ const Pricing = () => {
           <TabsTrigger
             className={`rounded-full   ${
               mtab === "professional"
-                ? "!bg-dark_purple-400 !text-neutral-50"
+                ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
             }`}
             value="professional"
@@ -403,7 +403,7 @@ const Pricing = () => {
                           checkout && loading === `${plan.mode}_${plan.price}`
                             ? true
                             : false
-                        } className="mt-4 w-full  rounded-full py-2 px-4">
+                        } className="mt-4 w-full bg-[#FFC107] hover:bg-[#ffc107cf] transition-colors text-neutral-800   rounded-full py-2 px-4">
                           {checkout && loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}

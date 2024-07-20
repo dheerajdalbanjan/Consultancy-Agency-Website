@@ -46,7 +46,7 @@ const Experts = () => {
         <Carousel >
           <CarouselContent className="w-full !-ml-2">
             {employees.map((e,i)=>(<CarouselItem key={i} className=" w-full !-ml-0 ">
-                <Card className="flex md:flex-row flex-col w-full gap-y-4 p-6 !ml-0  group">
+                <Card className="flex md:flex-row flex-col w-full gap-y-4 p-5 !ml-0  group">
                     <CardHeader className="md:w-[25%] w-[60%] mx-auto outline outline-2 outline-emerald-500 outline-offset-2 p-0  aspect-square  rounded-full overflow-hidden shadow-sm">
                         <img src={e.image} className="object-fill group-hover:scale-110 transition-all duration-300"/>
                     </CardHeader>

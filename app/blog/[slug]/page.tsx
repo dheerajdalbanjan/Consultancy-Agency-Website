@@ -59,7 +59,7 @@ const Page = ({ params }: {params:{slug: string}}) => {
     }
 
   return (
-    <div className='min-h-screen py-16'>
+    <div className='min-h-screen py-16 pt-28'>
         
         <div className='max-w-4xl mx-auto px-8 md:px-0'>
         {loading && <div className='space-y-3 pt-10'>

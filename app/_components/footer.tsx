@@ -6,13 +6,13 @@ import { Button } from "@/components/ui/button";
 const Footer = () => {
   const social = socialIcons;
   return (
-    <div className="flex flex-col justify-between items-center md:px-24 py-6 border-t dark:border-gray-600 static bottom-0 mt-20 ">
+    <div className="flex flex-col justify-between bg-[#072B4C]  items-center md:px-40 py-6 border-t dark:border-gray-600 static bottom-0 mt-20 ">
       <div className="flex flex-col  sm:flex-row items-center justify-between   w-full">
         <div className="w-full p-5 ">
-          <h3 className="text-2xl antialiased my-2 font-semibold">Contact Information</h3>
-        <span className="text-base text-neutral-800 antialiased ">
-        <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss.com@gmail.com" className="underline block">oursoulss.com@gmail.com</a> PLOT NO - 88, C.I.T.B Gamanagatti , Navanagar Hubballi - 580025
-          <p className="text-neutral-600 text-sm my-1">Copyright ©{" "}
+          <h3 className="text-2xl antialiased my-2 font-semibold text-neutral-50">Contact Information</h3>
+        <span className="text-base text-neutral-100 antialiased ">
+        <a href="callto:+919353857659" className="underline">+91 93538 57659</a> <a href="mailto:oursoulss.com@gmail.com" className="underline block">oursoulss.com@gmail.com</a> Hubballi, Karnataka
+          <p className="text-neutral-400 text-sm my-1">Copyright ©{" "}
           
             OurSoulss
           . All Rights Reserved</p>
@@ -33,7 +33,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-between text-xs w-full sm:w-fit sm:text-base self-end sm:px-0 px-6 items-center space-x-4">
+      <div className="flex justify-between text-xs w-full text-neutral-200 sm:w-fit sm:text-base self-end sm:px-0 px-6 items-center space-x-4">
         <a href="/privacy_policy" className="underline ">
           Privacy Policy
         </a>

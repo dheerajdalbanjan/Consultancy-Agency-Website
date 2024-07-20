@@ -61,7 +61,7 @@ export default function Home() {
         <div className="max-w-4xl px-6 py-12 space-y-6 text-center">
           <div className="md:text-3xl text-2xl capitalize font-bold text-[#f0f0f0] drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
             {
-              "ALONE, THE WEIGHT ON YOUR HEART MAY SEEM INSURMOUNTABLE, BUTTOGETHER ,WITH THE STRENGTH OF OUR SHARED SPIRITS, WE CAN LIFT ANY BURDEN"
+              "ALONE, THE WEIGHT ON YOUR HEART MAY SEEM INSURMOUNTABLE, BUT TOGETHER ,WITH THE STRENGTH OF OUR SHARED SPIRITS, WE CAN LIFT ANY BURDEN"
             }
           </div>
           <div className="text-lg italic text-[#c0c0c0]">- OurSoulss</div>

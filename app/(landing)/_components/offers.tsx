@@ -40,7 +40,7 @@ const Offers = () => {
     },{
       title:"Healing Starts Here",
       description:"25% Off Counseling Services with Code \'OURSERVICES\'. Start Your Journey with OurSoulss!",
-      image:"https://i.ibb.co/CQqSYc5/www-oursoulss-com-1.jpg", 
+      image:"https://i.ibb.co/Ypbzkyn/Black-Purple-Illustration-Space-Sounds-Flyer-1.png", 
       coupon_code:"OURSERVICES"
     }
   ];
@@ -138,7 +138,7 @@ const Offers = () => {
           <CardDescription>Try OurSoulss for FREE!</CardDescription>
         </CardHeader>
         <CardFooter>
-          <a href="/signup"><Button className="rounded-full bg-yellow-800 text-neutral-50 !w-full">Request a free trial</Button></a>
+          <a href="/contact"><Button className="rounded-full bg-yellow-800 text-neutral-50 !w-full">Request a free trial</Button></a>
         </CardFooter>
       </Card>
       

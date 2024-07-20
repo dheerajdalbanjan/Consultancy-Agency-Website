@@ -36,7 +36,7 @@ const Page = () => {
   }
 
   return (
-    <div className="max-w-7xl px-2 mt-20 mx-auto min-h-screen">
+    <div className="max-w-6xl px-2 mt-28 mx-auto min-h-screen">
       <h1 className="bg-clip-text pl-5 md:pl-0 bg-gradient-to-br antialiased  my-3 sm:text-start from-pink-400 to-red-600 text-3xl drop-shadow-md font-semibold  tracking-tight lg:text-4xl">
         Our Products
       </h1>

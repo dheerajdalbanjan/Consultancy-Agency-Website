@@ -97,6 +97,9 @@ const Navbar = () => {
       </div>
       <div className="flex justify-center items-center space-x-4">
         <div className="hidden md:flex justify-center items-start space-x-4 text-neutral-50 ">
+        <a href="/"><div className="hover:opacity-50  cursor-pointer transition-all ease-in duration-300">
+          Home
+        </div></a>
         <a href="/about"><div className="hover:opacity-50  cursor-pointer transition-all ease-in duration-300">
           About
         </div></a>
@@ -151,7 +154,7 @@ const Navbar = () => {
             <DropdownMenuTrigger className="focus:outline-none">
               <Button
                 variant={"outline"}
-                className="rounded-full ml-3 p-0 active:scale-95 scale-90 bg-opacity-50 border-zinc-300 hover:bg-opacity-60 transition-all duration-300"
+                className="rounded-full ml-3 p-0 active:scale-95 scale-90 bg-opacity-80 border-zinc-300 hover:bg-opacity-60 transition-all duration-300"
               >
                 <Avatar   >
                   <AvatarFallback className=" text-zinc-950  font-medium !bg-transparent" >

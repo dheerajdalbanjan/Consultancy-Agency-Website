@@ -153,7 +153,7 @@ const Page = () => {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="enter you name" className="bg-opacity-70" {...field} />
+                  <Input placeholder="Enter your Name" className="bg-opacity-70" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -168,7 +168,7 @@ const Page = () => {
                 <FormControl>
                   <Input
                     type="email"  className="bg-opacity-70"
-                    placeholder="enter you email"
+                    placeholder="Enter your Email"
                     {...field}
                   />
                 </FormControl>
@@ -185,7 +185,7 @@ const Page = () => {
                 <FormControl>
                   <Input
                     type="number"  className="bg-opacity-70"
-                    placeholder="enter your phone number"
+                    placeholder="Enter your Phone Number"
                     {...field}
                   />
                 </FormControl>
