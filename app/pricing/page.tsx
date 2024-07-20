@@ -307,7 +307,7 @@ const Pricing = () => {
                           {checkout && loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}
-                        Subscribe
+                        Buy Now
                       </Button>
                       <ul className="mt-4 space-y-2 text-sm text-gray-700">
                         {(plan?.features as string[]).map(

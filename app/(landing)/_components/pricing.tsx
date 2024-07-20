@@ -64,7 +64,7 @@ const Pricing = ()=>{
                         /session
                       </div>
                       <a href="/pricing"><Button  className="mt-4 w-full  rounded-full py-2 px-4">
-                        Subscribe
+                        Buy Now
                       </Button></a>
                       <ul className="mt-4 space-y-2 text-sm text-gray-700">
                         {(plan?.features as string[]).map(

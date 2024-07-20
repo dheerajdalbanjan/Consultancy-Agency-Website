@@ -39,7 +39,7 @@ const Offers = () => {
       coupon_code:"NEW_TO_OURSOULSS"
     },{
       title:"Healing Starts Here",
-      description:"25% Off Counseling Services with Code \'OURSERVICES\'. Start Your Journey with OurSoulss!",
+      description:"20% Off Counseling Services with Code \'OURSERVICES\'. Start Your Journey with OurSoulss!",
       image:"https://i.ibb.co/Ypbzkyn/Black-Purple-Illustration-Space-Sounds-Flyer-1.png", 
       coupon_code:"OURSERVICES"
     }
