@@ -11,7 +11,8 @@ const Mypackages = () => {
   const [data, setData] = useState<any>(null);
   const {data:session} = useSession() ;
   const [loading, setLoading] = useState(true);
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false);
+  const [availed, setAvailed] = useState(false) ;
   const router = useRouter() 
 
 
@@ -29,8 +30,8 @@ const Mypackages = () => {
     }
     finally {
         setLoading(false) ; 
+        setAvailed(true) ;
         
-        window.location.reload() 
         
     }
   }
@@ -54,7 +55,11 @@ const Mypackages = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+
+    // if(availed && !success){
+    //   window.location.reload() 
+    // }
+  }, [availed]);
 
   return (
     <div className="min-h-screen max-w-6xl mx-auto px-5 pt-20">
