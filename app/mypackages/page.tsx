@@ -74,7 +74,7 @@ const Mypackages = () => {
               {e.mode}
             </p>
             <CardHeader>
-              <CardTitle>{e.price}</CardTitle>
+              <CardTitle>Rs. {e.price}</CardTitle>
               <CardDescription>
                 <p className="text-lg ">{e.type}</p>
                 <p>{e.name}</p>

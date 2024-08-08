@@ -117,8 +117,8 @@ export async function POST(req: Request){
 
     try {
         
-        connectMongo() ;
-        Package.create(data) ;
+        await connectMongo() ;
+        await Package.create(data) ;
         const info = await transporter.sendMail(mailOptions);
     console.log('Email sent: ' + info.response);
 
@@ -143,7 +143,7 @@ export async function GET(req:Request) {
 
         console.log(data);
 
-        return NextResponse.json({message:"success", data: data}, {status: 201})
+        return NextResponse.json({message:"success", data: data.reverse()}, {status: 201})
     } catch (error) {
         console.error(error);
         return NextResponse.json({ message: 'Internal Server Error' }, {status: 500});
