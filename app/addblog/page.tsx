@@ -312,7 +312,7 @@ const AddBlog = () => {
           </CardContent>
 
           <CardFooter className="flex flex-col">
-            {success && <Formsuccess msg="Blog added successfully." />}
+            {success && <Formsuccess msg="Blog added successfully. Our team will authorize the blog." />}
             {error.length > 0 && <Formerror error={error} />}
             <Button
               type="submit"

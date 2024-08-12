@@ -8,11 +8,13 @@ import React, { useEffect, useState } from "react";
 const Page = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [success, setSuccess] = useState(false) ;
   const router = useRouter() ;
 
 
   const handleDelete = async (e: any)=>{
     setLoading(true)
+    setSuccess(false) ;
     const id = e.target.nextElementSibling.value ;
     const res = await fetch(`api/blog/${id}`, {method:"DELETE"})
     const data = await res.json() ; 
@@ -23,9 +25,21 @@ const Page = () => {
     }
   }
 
+  const handleAuthorize = async (e:any)=>{
+    setLoading(true) ; 
+    setSuccess(false) ;
+    const id = e.target.nextElementSibling.nextElementSibling.nextElementSibling.value ;
+    const res = await fetch(`api/blog_admin`, {method:"PUT", headers:{'Content-Type':"application/json"}, body:JSON.stringify({id})})
+    const data = await res.json() ; 
+    if(data.success){
+      setLoading(false) ; 
+      setSuccess(true) ;
+    }
+  }
+
   useEffect(() => {
     setLoading(true);
-    fetch("/api/blog")
+    fetch("/api/blog_admin")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
@@ -45,7 +59,7 @@ const Page = () => {
         // Handle error
       });
 
-  }, []);
+  }, [success]);
   return (
     <div className="min-h-screen pt-20 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
       {loading && (
@@ -64,6 +78,7 @@ const Page = () => {
             </CardHeader>
             <CardFooter>
               <div className="flex space-x-2 self-end ml-auto">
+                {<Button disabled={e?.authorized} onClick={handleAuthorize} variant={'outline'} className="rounded-full !py-0.5 px-5">Authorize</Button>}
                 <Button onClick={()=>{setLoading(true) ;router.push(`updateblog/${e.slug}`); setLoading(false)}} variant={'outline'} className="bg-blue-950 rounded-full text-neutral-50 hover:text-neutral-200  !py-0.5 px-5 hover:bg-blue-900 duration-300 transition-colors">Edit</Button>
                 <Button variant={'destructive'} className="rounded-full !py-0.5 px-5" onClick={handleDelete}>Delete</Button>
                 <input hidden value={e._id} />

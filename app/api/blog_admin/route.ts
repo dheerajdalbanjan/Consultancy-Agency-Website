@@ -6,23 +6,24 @@ export async function GET(req: NextRequest) {
   await connectMongo();
 
   try {
-    const blogPosts = await Blog.find({authorized:true});
+    const blogPosts = await Blog.find({});
     return NextResponse.json({ data: blogPosts.reverse(), success: true }, { status: 200 });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ success: false, error: 'Failed to fetch blog posts' }, { status: 400 });
   }
 }
-
-export async function POST(req: NextRequest) {
+export async function PUT(req: NextRequest) {
   await connectMongo();
+  const data = await req.json() ; 
+  console.log(data)
+  const id = data?.id ;
 
   try {
-    const body = await req.json(); // Parse the request body
-    const blogPost = await Blog.create(body);
-    return NextResponse.json({ success: true, data: blogPost }, { status: 201 });
+    const blogPosts = await Blog.findByIdAndUpdate({_id:id}, {authorized:true}) ;
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ success: false, error: 'Failed to create blog post' }, { status: 400 });
+    return NextResponse.json({ success: false, error: 'Failed to fetch blog posts' }, { status: 400 });
   }
 }

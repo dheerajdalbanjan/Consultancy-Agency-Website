@@ -76,6 +76,7 @@ const Navbar = () => {
                   <a href="/pricing">Pricing</a>
                   <a href="/affiliate">Affiliate</a>
                   <a href="/blog">Blog</a>
+                  <a href="/addblog">Add Blog</a>
                 </div>
                 {!session && (
                   <div className="flex items-center justify-between mt-auto gap-x-4 ml-auto">
@@ -115,6 +116,10 @@ const Navbar = () => {
         <a href="/blog"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
           Blog
         </div></a>
+        <a href="/addblog"><div className="hover:opacity-50 cursor-pointer transition-all ease-in duration-300">
+          Add Blog
+        </div></a>
+
         
 
         

@@ -43,12 +43,18 @@ const BlogPostSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  authorized:{
+    type: Boolean, 
+    default: false
+  }
 });
 
 BlogPostSchema.pre('save', function(next) {
   this.updatedAt = new Date();
   next();
 });
+
+
 
 const Blog = mongoose.models.Blog || mongoose.model('Blog', BlogPostSchema);
 
