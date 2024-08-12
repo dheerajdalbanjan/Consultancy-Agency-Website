@@ -12,6 +12,17 @@ import React from "react";
 const Experts = () => {
 
     const employees = [
+      {
+        name: "Payal Mishra",
+        role: "Professional Psychologist",
+        skills: [
+          "Counseling Psychology",
+          "Psychotherapy",
+          "Clinical Psychology"
+        ],
+        image:"/images/payal.jpg" ,
+        description: "Passionate and experienced psychology professional with extensive experience in providing innovative treatments and ongoing support to patients. Skilled in developing individualized treatment plans and leading therapy sessions."
+      },
         {
           name: "Vanya Sri Chettiar",
           role: "Non-Professional Therapist",
@@ -25,17 +36,7 @@ const Experts = () => {
           image:"/images/vanya.jpg" ,
           description: "Dynamic educational mentor and life coach with experience in tutoring, counseling, and habit coaching. Passionate about empowering individuals to achieve academic and personal success through tailored strategies and holistic development."
         },
-        {
-          name: "Payal Mishra",
-          role: "Professional Psychologist",
-          skills: [
-            "Counseling Psychology",
-            "Psychotherapy",
-            "Clinical Psychology"
-          ],
-          image:"/images/payal.jpg" ,
-          description: "Passionate and experienced psychology professional with extensive experience in providing innovative treatments and ongoing support to patients. Skilled in developing individualized treatment plans and leading therapy sessions."
-        }
+        
       ];
       
   return (

@@ -8,7 +8,7 @@ export async function GET(req: NextRequest,
     await connectMongo();
   
     try {
-      const blogPost = await Blog.findOne({slug: slug, authorized:true});
+      const blogPost = await Blog.findOne({slug: slug});
       console.log(blogPost)
       if (blogPost)
       return NextResponse.json({ data: blogPost, success: true }, { status: 200 });

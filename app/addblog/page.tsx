@@ -246,7 +246,7 @@ const AddBlog = () => {
                 </AccordionTrigger>
                 <AccordionContent>
                   <Markdown
-                    className={"prose prose-headings:text-neutral-50  "}
+                    className={"prose   "}
                   >
                     {methods.getValues().content}
                   </Markdown>

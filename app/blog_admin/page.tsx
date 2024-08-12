@@ -1,44 +1,43 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ReloadIcon } from "@radix-ui/react-icons";
 import { LoaderIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Page = () => {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState("");
   const [success, setSuccess] = useState(false) ;
   const router = useRouter() ;
 
 
   const handleDelete = async (e: any)=>{
-    setLoading(true)
     setSuccess(false) ;
-    const id = e.target.nextElementSibling.value ;
+    const id = e.target.nextElementSibling.value.split('_')[0] ;
     const res = await fetch(`api/blog/${id}`, {method:"DELETE"})
     const data = await res.json() ; 
     if(data.success){
       console.log('deleted successfully') ;
-      setLoading(false)
-      router.refresh() ;
+      setLoading("")
+      setSuccess(true) ;
     }
   }
 
   const handleAuthorize = async (e:any)=>{
-    setLoading(true) ; 
     setSuccess(false) ;
-    const id = e.target.nextElementSibling.nextElementSibling.nextElementSibling.value ;
-    const res = await fetch(`api/blog_admin`, {method:"PUT", headers:{'Content-Type':"application/json"}, body:JSON.stringify({id})})
+    const val = e.target.nextElementSibling.nextElementSibling.nextElementSibling.value ;
+    const b = val.split('_') ;
+    const res = await fetch(`api/blog_admin`, {method:"PUT", headers:{'Content-Type':"application/json"}, body:JSON.stringify({id:b[0], authorized:b[1]})})
     const data = await res.json() ; 
     if(data.success){
-      setLoading(false) ; 
+      setLoading("") ; 
       setSuccess(true) ;
     }
   }
 
   useEffect(() => {
-    setLoading(true);
     fetch("/api/blog_admin")
       .then((response) => {
         if (!response.ok) {
@@ -52,7 +51,6 @@ const Page = () => {
       })
       .finally(()=>{
         
-      setLoading(false)
       })
       .catch((error) => {
         console.error(error);
@@ -78,10 +76,17 @@ const Page = () => {
             </CardHeader>
             <CardFooter>
               <div className="flex space-x-2 self-end ml-auto">
-                {<Button disabled={e?.authorized} onClick={handleAuthorize} variant={'outline'} className="rounded-full !py-0.5 px-5">Authorize</Button>}
-                <Button onClick={()=>{setLoading(true) ;router.push(`updateblog/${e.slug}`); setLoading(false)}} variant={'outline'} className="bg-blue-950 rounded-full text-neutral-50 hover:text-neutral-200  !py-0.5 px-5 hover:bg-blue-900 duration-300 transition-colors">Edit</Button>
-                <Button variant={'destructive'} className="rounded-full !py-0.5 px-5" onClick={handleDelete}>Delete</Button>
-                <input hidden value={e._id} />
+                {<Button  onClick={(ev)=>{setLoading(`${e._id}_a`); handleAuthorize(ev);}} variant={'outline'} className="rounded-full !py-0.5 px-5">
+                {loading == `${e._id}_a` &&  <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+                  {!e.authorized?'Authorize':'Unauthorize'}</Button>}
+                <a href={`updateblog/${e.slug}`}><Button variant={'outline'} className="bg-blue-950 rounded-full text-neutral-50 hover:text-neutral-200  !py-0.5 px-5 hover:bg-blue-900 duration-300 transition-colors">
+                  
+                  Edit</Button></a>
+                <Button variant={'destructive'} className="rounded-full !py-0.5 px-5" onClick={(ev)=>{setLoading(`${e._id}_d`); handleDelete(ev);}}>
+                {loading == `${e._id}_d` &&  <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
+                  Delete
+                  </Button>
+                <input hidden value={`${e._id}_${!e.authorized}`} />
               </div>
             </CardFooter>
           </Card>

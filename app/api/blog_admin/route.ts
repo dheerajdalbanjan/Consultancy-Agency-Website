@@ -18,9 +18,10 @@ export async function PUT(req: NextRequest) {
   const data = await req.json() ; 
   console.log(data)
   const id = data?.id ;
+  const authorized = data?.authorized ;
 
   try {
-    const blogPosts = await Blog.findByIdAndUpdate({_id:id}, {authorized:true}) ;
+    const blogPosts = await Blog.findByIdAndUpdate({_id:id}, {authorized:authorized}) ;
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error(error);
