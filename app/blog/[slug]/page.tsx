@@ -37,26 +37,15 @@ const Page = ({ params }: {params:{slug: string}}) => {
       .catch((error) => {
         console.error(error);
         // Handle error
-      });
+      })
+      .finally(()=>{
+        setLoading(false) ;
+      })
 
     }, [])
 
    
-    const imageLoad = (e: any)=>{
-        const element = e.target.parentNode.nextElementSibling ;
-        const imgnext = e.target.nextElementSibling ;
-        const fac = new FastAverageColor() ;
-      const dominantColor = fac.getColor(e.currentTarget).rgb;
-        const gradien = `linear-gradient(to bottom, ${dominantColor}, transparent)`;
-        const gradien1 = `linear-gradient(to top, ${dominantColor}, transparent)`;
-        element.style.background = gradien; 
-        console.log(imgnext)
-        imgnext.style.background = gradien1 ;
 
-
-        setLoading(false)
-
-    }
 
   return (
     <div className='min-h-screen py-16 pt-28'>
@@ -87,7 +76,7 @@ const Page = ({ params }: {params:{slug: string}}) => {
           </div>}
             <h1 className='text-2xl md:text-3xl font-bold tracking-tight my-5 md:mb-7 antialiased '>{data?.title}</h1>
             <div className='  w-full relative  '>
-                <img src={data?.image} crossOrigin='anonymous' onLoad={imageLoad} className='w-full object-fill rounded-lg '/>
+                <img src={data?.image} crossOrigin='anonymous'  className='w-full object-fill rounded-lg '/>
                 <div className='absolute bottom-0 w-full h-1/2 '></div>
                 
             </div>

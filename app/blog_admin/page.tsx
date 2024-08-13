@@ -60,14 +60,16 @@ const Page = () => {
   }, [success]);
   return (
     <div className="min-h-screen pt-20 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
-      {loading && (
-        <div className="fixed inset-0 w-full h-full z-50 bg-opacity-50 backdrop-blur-lg flex items-center justify-center ">
-          <LoaderIcon className="animate-spin" />
-        </div>
-      )}
+      
       <h1 className="text-2xl md:text-3xl  font-bold antialiased my-5">
         Admin Panel
       </h1>
+      {
+        blogs.length == 0 && 
+        <div className="h-[60vh] w-full flex items-center animate-pulse justify-center">
+          loading...
+        </div>
+      }
       {
         blogs.map((e: any, i: any)=>(
           <Card key={i} className="mb-5 bg-opacity-50 backdrop-blur-sm rounded-xl">
@@ -76,9 +78,11 @@ const Page = () => {
             </CardHeader>
             <CardFooter>
               <div className="flex space-x-2 self-end ml-auto">
-                {<Button  onClick={(ev)=>{setLoading(`${e._id}_a`); handleAuthorize(ev);}} variant={'outline'} className="rounded-full !py-0.5 px-5">
-                {loading == `${e._id}_a` &&  <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
-                  {!e.authorized?'Authorize':'Unauthorize'}</Button>}
+                {<Button  onClick={(ev)=>{setLoading(`${e._id}_a`); handleAuthorize(ev);}} variant={'outline'} className="rounded-full transition-all duration-300 !py-0.5 px-5">
+                
+                  {!e.authorized?'Authorize':'Unauthorize'}
+                  {loading == `${e._id}_a` &&  <ReloadIcon className="ml-2 h-4 w-4 animate-spin" />}
+                  </Button>}
                 <a href={`updateblog/${e.slug}`}><Button variant={'outline'} className="bg-blue-950 rounded-full text-neutral-50 hover:text-neutral-200  !py-0.5 px-5 hover:bg-blue-900 duration-300 transition-colors">
                   
                   Edit</Button></a>

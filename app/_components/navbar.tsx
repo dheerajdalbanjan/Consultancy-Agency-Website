@@ -46,7 +46,7 @@ const Navbar = () => {
       className={` transition-all duration-300 ease-in-out  text-neutral-50  border-blue-700/10 ${
         scrolled
           ? " !h-16 border-b bg-[#072B4C] "
-          : "bg-[#072b4cde]"
+          : "bg-[#072B4C]"
       }  z-50 fixed top-0 h-[4.5rem] flex items-center  justify-between w-full  px-8 md:px-48 `}
     >
       

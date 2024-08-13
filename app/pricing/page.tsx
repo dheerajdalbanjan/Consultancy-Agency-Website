@@ -437,7 +437,7 @@ const Pricing = () => {
           setReferal(false);
         }}
       >
-        <DialogContent className="rounded-xl max-h-[100vh]  overflow-y-auto overflow-auto mx-auto">
+        <DialogContent className="rounded-xl max-h-[100vh] mx-auto w-[95vw]  overflow-y-auto overflow-auto ">
           <DialogHeader>
             <DialogTitle className="text-start">Checkout Page</DialogTitle>
           </DialogHeader>
@@ -556,10 +556,10 @@ const Pricing = () => {
       </Dialog>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="bg-emerald-700 border-none text-neutral-50">
+        <DialogContent className="bg-emerald-700 border-none w-[95vw] rounded-md text-neutral-50">
           <DialogHeader>
-            <DialogTitle>Payment successfull</DialogTitle>
-            <DialogDescription className="text-neutral-100">
+            <DialogTitle className="text-start">Payment successfull</DialogTitle>
+            <DialogDescription className="text-neutral-100 text-start">
               {" "}
               Your payment has been successfully verified by OurSoulss team, you
               can avail you package from the below link
