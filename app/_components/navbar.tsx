@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { UseScrollHook } from "@/hooks/UseScrollTop";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/dark-mode";
+import {motion} from 'framer-motion'
 import {
   Sheet,
   SheetContent,
@@ -37,6 +38,17 @@ const Navbar = () => {
   const scrolled = UseScrollHook();
   const [open, setOpen] = useState(false)
   const { data: session } = useSession();
+
+  const links = [
+    { "name": "Home", "link": "/" },
+    { "name": "About", "link": "/about" },
+    { "name": "Contact", "link": "/contact" },
+    { "name": "Pricing", "link": "/pricing" },
+    { "name": "Affiliate", "link": "/affiliate" },
+    { "name": "Blog", "link": "/blog" },
+    { "name": "Add Blog", "link": "/addblog" }
+  ] ;
+
   useEffect(() => {
     console.log(session);
   }, [session]);
@@ -70,13 +82,7 @@ const Navbar = () => {
               <SheetTitle className="text-zinc-900">OurSoulss</SheetTitle>
               <SheetDescription className="flex h-full w-full flex-col gap-y-8 items-start justify-between">
                 <div className="flex flex-col gap-y-4 justify-start mt-3 items-start text-zinc-800 text-[1.05rem]">
-                  <a href={"/"}>Home</a>
-                  <a href={"/about"}>About</a>
-                  <a href={"/contact"}>Contact</a>
-                  <a href="/pricing">Pricing</a>
-                  <a href="/affiliate">Affiliate</a>
-                  <a href="/blog">Blog</a>
-                  <a href="/addblog">Add Blog</a>
+                  {links.map((e , i)=> (<motion.a initial={{translateX:-30, opacity:0.7}} whileInView={{translateX:0, opacity:1}} transition={{delay: (i/20), duration: 0.4, ease: 'easeInOut'}}  key={i} href={e.link}>{e.name}</motion.a>))}
                 </div>
                 {!session && (
                   <div className="flex items-center justify-between mt-auto gap-x-4 ml-auto">
