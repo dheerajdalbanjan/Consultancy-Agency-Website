@@ -154,8 +154,8 @@ const AddBlog = () => {
 
   return (
     <Form {...methods}>
-      <form onSubmit={handleSubmit(onSubmitt)} className=" mt-20 px-5">
-        <Card className="max-w-5xl mx-auto md:p-5 bg-opacity-50 backdrop-blur-sm">
+      <form onSubmit={handleSubmit(onSubmitt)} className=" py-24 px-5 bg-neutral-200">
+        <Card className="max-w-5xl mx-auto md:p-5 bg-neutral-100 shadow-md">
           <CardHeader>
             <CardTitle>Add blog</CardTitle>
           </CardHeader>

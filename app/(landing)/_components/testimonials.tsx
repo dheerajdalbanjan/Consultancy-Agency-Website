@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { QuoteIcon, User } from 'lucide-react';
+import Marquee from '@/components/magicui/marquee';
 
 const testimonials = [
   {
@@ -31,7 +32,7 @@ content: 'I was hesitant about online therapy, but OurSoulss changed my mind. Th
 ];
 
 const TestimonialCard = ({ name, role, content }:{name: string, role : string, content: string}) => (
-  <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-opacity-70 border-blue-100">
+  <Card className="h-full overflow-hidden w-80 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-opacity-70 border-blue-100">
     <CardHeader className="relative pb-0">
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
@@ -56,15 +57,24 @@ const TestimonialsComponent = () => {
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-grid-blue-500/[0.2] [mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)]" />
       </div>
-      <div className="container max-w-6xl mx-auto px-8  md:px-4">
+      <div className="container  max-w-6xl mx-auto px-8   md:px-4">
         <h2 className="md:text-4xl text-2xl text-center md:text-start antialiased font-bold  mb-12 ">
           What Our Clients Say
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className='relative'>
+        <Marquee pauseOnHover  className="[--duration:20s]" >
           {testimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.id} {...testimonial} />
           ))}
-        </div>
+        </Marquee>
+        <Marquee pauseOnHover reverse  className="[--duration:20s]">
+          {testimonials.reverse().map((testimonial) => (
+            <TestimonialCard key={testimonial.id} {...testimonial} />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white dark:from-background"></div>
+      </div>
       </div>
     </div>
   );

@@ -72,7 +72,8 @@ const Pricing = () => {
   };
 
   const percentageDiscounts: any = {
-    VANYA10: 10, // 10% off
+    VANYA10: 10, // 10% off 
+    PAYAL10: 10
   };
 
   const applyReferralCode = (value: any) => {
@@ -170,6 +171,7 @@ const Pricing = () => {
                 order_id,
                 payment_id,
                 user_id: (session?.user as CustomUser).id,
+                referralCode
               }),
             });
             const data = await res.json();
@@ -437,13 +439,13 @@ const Pricing = () => {
           setReferal(false);
         }}
       >
-        <DialogContent className="rounded-xl max-h-[100vh] mx-auto w-[95vw]  overflow-y-auto overflow-auto ">
+        <DialogContent className="rounded-xl max-h-[95vh] p-4 mx-auto w-[95vw]  overflow-y-auto overflow-auto ">
           <DialogHeader>
-            <DialogTitle className="text-start">Checkout Page</DialogTitle>
+            <DialogTitle className="text-start font-semibold">Checkout Page</DialogTitle>
           </DialogHeader>
           <div>
             {cdata && (
-              <Card className="shadow-lg rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+              <Card className="shadow-lg rounded-lg bg-gradient-to-r from-amber-700 to-dark_purple-300 text-white">
                 <CardHeader>
                   <CardTitle>{cdata.sessions_included}</CardTitle>
                 </CardHeader>
@@ -526,7 +528,7 @@ const Pricing = () => {
                     />
                   )}
                   {discountApplied && (
-                    <Formsuccess msg="successfully applied referral code" />
+                    <Formsuccess msg="referral code applied!" />
                   )}
                   {cdata && cdata.mode === "monthly" && (
                     <Button

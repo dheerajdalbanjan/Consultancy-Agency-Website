@@ -14,7 +14,7 @@ import Vibrant from 'node-vibrant';
 import Markdown from "react-markdown";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { LoaderIcon } from "lucide-react";
+import { CalendarDays, LoaderIcon } from "lucide-react";
 import {FastAverageColor} from 'fast-average-color';
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -36,7 +36,6 @@ const Page = () => {
       })
       .then((data: any) => {
         // Set the fetched blogs to the state
-        console.log(data.data);
         setBlogs(data.data);
         setLen(data.data.length)
       })
@@ -68,14 +67,13 @@ const Page = () => {
       parent.style.background = gradien;
     e.target.nextElementSibling.style.background = gradien1;
     }
-    console.log(id + 1, length)
     if(length === Number(id) + 1){
       setLoading(false)
     }
   };
 
   return (
-    <div className="min-h-screen pt-28 z-50 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
+    <div className="min-h-screen pt-24 z-50 md:py-20 px-8 max-w-6xl mx-auto md:px-24 ">
       
       <h1 className="text-3xl  font-bold antialiased my-3">
         All Blogs
@@ -157,7 +155,10 @@ const Page = () => {
                 <Markdown className={"text-neutral-800"}>{e.content.split("\n\n")[1].slice(0, 150)}</Markdown>...
               </CardDescription>
               <div className="flex flex-col  h-full justify-end space-y-2">
+              <div className="flex space-x-3 items-center">
               <Badge className="w-fit my-2 !border-none">{e.author}</Badge>
+              <Badge variant={'secondary'} className="py-1 h-fit" ><CalendarDays className="mr-1 w-3 h-3 " /> {e.createdAt.split('T')[0]}</Badge>
+              </div>
               <div className="flex flex-wrap gap-2 my-3 ">
                 {e.tags.slice(0, 3).map((e: any, i: number) => (
                   <Badge variant={"outline"} className="border-neutral-600" key={i}>

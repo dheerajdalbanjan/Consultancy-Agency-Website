@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const Footer = () => {
   const social = socialIcons;
   return (
-    <div className="flex flex-col justify-between bg-[#072B4C]  items-center md:px-40 py-6 border-t dark:border-gray-600 static bottom-0 mt-20 ">
+    <div className="flex flex-col justify-between bg-[#072B4C]  items-center md:px-40 py-6 border-t dark:border-gray-600 static bottom-0 ">
       <div className="flex flex-col  sm:flex-row items-center justify-between   w-full">
         <div className="w-full p-5 ">
           <h3 className="text-2xl antialiased my-2 font-semibold text-neutral-50">Contact Information</h3>

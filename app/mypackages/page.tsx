@@ -62,13 +62,14 @@ const Mypackages = () => {
   }, [availed]);
 
   return (
-    <div className="min-h-screen max-w-6xl mx-auto px-5 pt-20">
+    <div className="min-h-screen max-w-6xl mx-auto px-5 pt-24">
+      
+      <h1 className="my-4 text-3xl font-bold antialiased">My packages</h1>
       {loading && (
-        <div className="fixed inset-0 w-full h-full  bg-opacity-50 backdrop-blur-xl z-50 flex items-center justify-center ">
-          <LoaderIcon className="animate-spin" />
+        <div className="w-full h-[60vh]  flex items-center justify-center ">
+          <p className="text-neutral-700 font-semibold animate-shimmer">loading...</p>
         </div>
       )}
-      <h1 className="my-3 text-3xl font-bold antialiased">My packages</h1>
       {data &&
         data.map((e: any, i: number) => (
             <Card

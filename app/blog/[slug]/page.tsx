@@ -48,7 +48,7 @@ const Page = ({ params }: {params:{slug: string}}) => {
 
 
   return (
-    <div className='min-h-screen py-16 pt-28'>
+    <div className='min-h-screen py-16 pt-24'>
         
         <div className='max-w-4xl mx-auto px-8 md:px-0'>
         {loading && <div className='space-y-3 pt-10'>
@@ -80,7 +80,7 @@ const Page = ({ params }: {params:{slug: string}}) => {
                 <div className='absolute bottom-0 w-full h-1/2 '></div>
                 
             </div>
-            <div className='flex flex-col px-4 md:px-8 md:py-8 rounded-b-lg  md:flex-row space-y-4 md:space-y-0 md:items-center justify-between py-5'>
+            <div className='flex flex-col   md:py-8 rounded-b-lg  md:flex-row space-y-4 md:space-y-0 md:items-center justify-between py-5'>
                     <Badge className='md:text-base md:px-4 w-fit border-none '>{data?.author}</Badge>
                     <div className='flex flex-wrap gap-2'>
                         {data?.tags.slice(0,3).map((e: any, i: number)=><Badge className='border-neutral-700 min-w-fit' variant={'outline'} key={i}>#{e}</Badge>)}

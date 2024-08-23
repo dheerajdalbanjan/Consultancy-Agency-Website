@@ -143,7 +143,7 @@ const Page = () => {
       <form
         method="post"
         onSubmit={handleSubmit(submitee)}
-        className="  bg-dot-white/[0.08]"
+        className="  bg-dot-white/[0.08] "
       >
         <CardContent className="gap-y-3  flex flex-col">
           <FormField
