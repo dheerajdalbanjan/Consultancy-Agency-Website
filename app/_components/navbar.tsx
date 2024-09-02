@@ -165,7 +165,7 @@ const Navbar = () => {
             <DropdownMenuTrigger asChild className="focus:outline-none">
               <Button
                 variant={"outline"}
-                className="rounded-full ml-3 p-0 active:scale-75 scale-90 bg-opacity-80 border-zinc-300 hover:bg-opacity-60 transition-all duration-300"
+                className="rounded-full ml-3 p-0  scale-90 bg-opacity-80 border-zinc-300 hover:bg-opacity-70 transition-all duration-300"
               >
                 <Avatar   >
                   <AvatarFallback className=" text-zinc-950  font-medium !bg-transparent" >

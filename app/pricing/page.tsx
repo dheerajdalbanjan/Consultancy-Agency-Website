@@ -154,6 +154,7 @@ const Pricing = () => {
         image: "/logo.png",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: async function (response: any) {
+          
           const body = { ...response };
           const res = await fetch("/api/verify_razorpay", {
             method: "POST",
@@ -199,6 +200,8 @@ const Pricing = () => {
         key_id: process.env.RAZOR_KEY_ID,
       });
 
+      setLoading('') ;
+
       rzp1.open();
 
       rzp1.on("payment.cancelled", function () {
@@ -215,6 +218,10 @@ const Pricing = () => {
         // alert(response.error.metadata.payment_id);
         setLoading("");
       });
+
+      rzp1.on("payment.exit", ()=>{
+        setLoading("" ) ;
+      })
     }
     //     console.log("taslaskjdf")
     //     // toast({
@@ -302,11 +309,11 @@ const Pricing = () => {
                         /session
                       </div>
                       <Button onClick={() => handleClick(plan)} disabled={
-                          checkout && loading === `${plan.mode}_${plan.price}`
+                          loading === `${plan.mode}_${plan.price}`
                             ? true
                             : false
                         } className="mt-4 w-full bg-[#FFC107] hover:bg-[#ffc107cf] transition-colors text-neutral-800 rounded-full py-2 px-4">
-                          {checkout && loading === `${plan.mode}_${plan.price}` && (
+                          {loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}
                         Buy Now
@@ -402,11 +409,11 @@ const Pricing = () => {
                         /session
                       </div>
                       <Button onClick={() => handleClick(plan)} disabled={
-                          checkout && loading === `${plan.mode}_${plan.price}`
+                          loading === `${plan.mode}_${plan.price}`
                             ? true
                             : false
                         } className="mt-4 w-full bg-[#FFC107] hover:bg-[#ffc107cf] transition-colors text-neutral-800   rounded-full py-2 px-4">
-                          {checkout && loading === `${plan.mode}_${plan.price}` && (
+                          { loading === `${plan.mode}_${plan.price}` && (
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}
                         Subscribe
@@ -433,19 +440,20 @@ const Pricing = () => {
       <Dialog
         open={checkout}
         onOpenChange={(e) => {
+          setLoading("") ;
           setCheckout(e);
           setReferralCode("");
           setDiscountApplied(false);
           setReferal(false);
         }}
       >
-        <DialogContent className="rounded-xl max-h-[95vh] p-4 mx-auto w-[95vw]  overflow-y-auto overflow-auto ">
+        <DialogContent className="rounded-xl max-h-[90vh] md:max-h-[95vh] p-4 mx-auto w-[95vw]  overflow-y-auto overflow-auto ">
           <DialogHeader>
             <DialogTitle className="text-start font-semibold">Checkout Page</DialogTitle>
           </DialogHeader>
           <div>
             {cdata && (
-              <Card className="shadow-lg rounded-lg bg-gradient-to-r from-amber-700 to-dark_purple-300 text-white">
+              <Card className="shadow-lg cursor-pointer active:scale-95 transition-all duration-300 rounded-lg bg-gradient-to-r from-amber-600 to-dark_purple-500 text-white">
                 <CardHeader>
                   <CardTitle>{cdata.sessions_included}</CardTitle>
                 </CardHeader>
@@ -470,7 +478,7 @@ const Pricing = () => {
 
             <Card className="shadow-lg rounded-lg mt-3">
               <CardHeader>
-                <CardTitle>Checkout</CardTitle>
+                <CardTitle className="text-xl">Checkout</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4">
@@ -524,7 +532,7 @@ const Pricing = () => {
                         setReferralCode(e.target.value);
                         applyReferralCode(e.target.value);
                       }}
-                      placeholder="enter the referal code"
+                      placeholder="Enter the referal code"
                     />
                   )}
                   {discountApplied && (
@@ -548,7 +556,7 @@ const Pricing = () => {
                     <div>₹{amount}</div>
                   </div>
                 </div>
-                <Button onClick={checkOut} className="w-full mt-4">
+                <Button onClick={checkOut} className="w-full mt-4 bg-dark_purple-300">
                   Proceed to Payment
                 </Button>
               </CardContent>

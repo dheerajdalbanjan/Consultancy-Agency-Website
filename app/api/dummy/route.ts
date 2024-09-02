@@ -28,6 +28,8 @@ export async function GET(req: Request) {
       await Package.create(signUpBonus) ; 
     });
 
+    // await Package.deleteMany({order_id: "ffff"}) ;
+
     return NextResponse.json({ message: "Updated packages" }, { status: 200 });
   } catch (error) {
     console.error("Error updating packages:", error);
