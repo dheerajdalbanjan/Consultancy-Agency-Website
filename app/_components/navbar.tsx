@@ -55,10 +55,10 @@ const Navbar = () => {
 
   return (
     <div
-      className={` transition-all duration-300 ease-in-out  text-neutral-50  border-blue-700/10 ${
+      className={` transition-all duration-300 ease-in-out bg-[#072B4C] bg-opacity-90 backdrop-blur-lg text-neutral-50  border-blue-700/10 ${
         scrolled
-          ? " !h-16 border-b bg-[#072B4C] "
-          : "bg-[#072B4C]"
+          ? " !h-16 border-b "
+          : ""
       }  z-50 fixed top-0 h-[4.5rem] flex items-center  justify-between w-full  px-8 md:px-48 `}
     >
       
@@ -161,11 +161,11 @@ const Navbar = () => {
           </a>
         )}
         {session && (
-          <DropdownMenu>
-            <DropdownMenuTrigger className="focus:outline-none">
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild className="focus:outline-none">
               <Button
                 variant={"outline"}
-                className="rounded-full ml-3 p-0 active:scale-95 scale-90 bg-opacity-80 border-zinc-300 hover:bg-opacity-60 transition-all duration-300"
+                className="rounded-full ml-3 p-0 active:scale-75 scale-90 bg-opacity-80 border-zinc-300 hover:bg-opacity-60 transition-all duration-300"
               >
                 <Avatar   >
                   <AvatarFallback className=" text-zinc-950  font-medium !bg-transparent" >
@@ -174,7 +174,7 @@ const Navbar = () => {
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="">
+            <DropdownMenuContent className="bg-opacity-80 backdrop-blur-lg">
               <DropdownMenuLabel>Profile</DropdownMenuLabel>
 
               <DropdownMenuGroup>

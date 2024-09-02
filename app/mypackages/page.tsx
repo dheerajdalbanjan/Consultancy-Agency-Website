@@ -62,9 +62,9 @@ const Mypackages = () => {
   }, [availed]);
 
   return (
-    <div className="min-h-screen max-w-6xl mx-auto px-5 pt-24">
+    <div className="min-h-screen max-w-6xl mx-auto px-8 pt-24">
       
-      <h1 className="my-4 text-3xl font-bold antialiased">My packages</h1>
+      <h1 className="my-5 text-3xl font-bold antialiased">My packages</h1>
       {loading && (
         <div className="w-full h-[60vh]  flex items-center justify-center ">
           <p className="text-neutral-700 font-semibold animate-shimmer">loading...</p>

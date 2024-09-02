@@ -36,12 +36,12 @@ const Offers = () => {
       title: "Sign Up offer", 
       description:"Sign Up to Oursoulss and get 30 minutes session free,which can be used anytime after signup.", 
       image:"https://i.ibb.co/XXkmQGW/sign-Up.png", 
-      coupon_code:"NEW_TO_OURSOULSS"
+      href: "/mypackages"
     },{
       title:"Healing Starts Here",
       description:"20% Off Counseling Services with Code \'OURSERVICES\'. Start Your Journey with OurSoulss!",
       image:"https://i.ibb.co/GHMjSdT/sign-Up-3.jpg", 
-      coupon_code:"OURSERVICES"
+      href: "/contact?offer=OURSERVICES"
     }
   ];
 
@@ -84,28 +84,9 @@ const Offers = () => {
                         </DialogTrigger>
                         <DialogContent className="mx-2 border-none min-w-[300px] w-fit p-5 bg-opacity-50 backdrop-blur-sm rounded-xl">
                           <DialogHeader>
-                            <DialogTitle>Coupon Code</DialogTitle>
-                            <DialogDescription className="text-zinc-800">
-                              Copy the coupon code from below and paste in the
-                              contact form to avail the offer.
-                            </DialogDescription>
+                            <DialogTitle>Oursoulss Offers</DialogTitle>
                           </DialogHeader>
-                          <div className="flex items-center space-x-2">
-                            <div className="grid flex-1 gap-2">
-                              <Label htmlFor="link" className="sr-only">
-                                Link
-                              </Label>
-                              <Input
-                                id="link"
-                                defaultValue={_.coupon_code}
-                                readOnly
-                              />
-                            </div>
-                            <Button type="submit" size="sm" className="px-3">
-                              <span className="sr-only">Copy</span>
-                              <CopyIcon className="h-4 w-4" />
-                            </Button>
-                          </div>
+                          
                           <DialogFooter className="sm:justify-start w-full">
                             <div className="w-full flex items-center justify-end space-x-3">
                             <DialogClose asChild>
@@ -114,7 +95,7 @@ const Offers = () => {
                               </Button>
                             </DialogClose>
 
-                            <a href={`/contact?offer=${_.coupon_code}`}>
+                            <a href={_.href}>
                               <Button className="bg-dark_purple">Avail Offer</Button>
                             </a>
                             </div>

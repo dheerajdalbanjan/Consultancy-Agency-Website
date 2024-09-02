@@ -1,30 +1,39 @@
 import { connectMongo } from "@/libs/mongodb";
 import Package from "@/model/package";
+import User from "@/model/user";
 import { NextResponse } from "next/server";
 
-
 export async function GET(req: Request) {
-    try {
-      await connectMongo();
-  
-      // Check the initial state of documents that should be updated
-      const initialPackages = await Package.find({ availed: { $exists: false } });
-      console.log('Initial packages to update:', initialPackages);
-  
-      const result = await Package.updateMany(
-        { availed: { $exists: false } },
-        { $set: { availed: false } } // Set a default value for the new field
-      );
-  
-      console.log('Update result:', result);
-  
-      // Re-fetch the updated documents to verify the changes
-      const updatedPackages = await Package.find({ availed: false });
-      console.log('Updated packages:', updatedPackages);
-  
-      return NextResponse.json({ message: "Updated packages", updatedPackages }, { status: 200 });
-    } catch (error) {
-      console.error('Error updating packages:', error);
-      return NextResponse.json({ message: "Couldn't update packages" }, { status: 400 });
-    }
+  try {
+    await connectMongo();
+
+    const users = await User.find();
+
+    users.forEach( async (e, i) => {
+      const signUpBonus = {
+        type: "Sign Up Package",
+        mode: "starter",
+        name: "30 Minute Session Package (Sign Up)",
+        price: "0",
+        sessions_included: "1 session",
+        session_length: "30 mins",
+        counselor_matching: "non-professional",
+        video: "89",
+        features: ["Single 30-minute session.", "Non-professional counselor."],
+        order_id: "ffff",
+        payment_id: "ffff",
+        user_id: e._id,
+      };
+
+      await Package.create(signUpBonus) ; 
+    });
+
+    return NextResponse.json({ message: "Updated packages" }, { status: 200 });
+  } catch (error) {
+    console.error("Error updating packages:", error);
+    return NextResponse.json(
+      { message: "Couldn't update packages" },
+      { status: 400 }
+    );
   }
+}
