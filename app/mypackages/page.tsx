@@ -62,31 +62,38 @@ const Mypackages = () => {
   }, [availed]);
 
   return (
-    <div className="min-h-screen max-w-6xl mx-auto px-8 pt-24">
+    <div className="min-h-screen max-w-6xl mx-auto px-8 pt-20">
       
       <h1 className="my-5 text-3xl font-bold antialiased">My packages</h1>
       {loading && (
         <div className="w-full h-[60vh]  flex items-center justify-center ">
-          <p className="text-neutral-700 font-semibold animate-shimmer">loading...</p>
+          <p className="text-neutral-700 font-semibold animate-pulse">loading...</p>
         </div>
       )}
       {data &&
         data.map((e: any, i: number) => (
             <Card
             key={i}
-            className="!w-full mb-4 bg-opacity-50 rounded-xl backdrop-blur-sm shadow-blue-950/10 shadow-lg  relative overflow-hidden"
+            className="!w-full mb-4 bg-gradient-to-tl from-violet-100 to-amber-100   relative overflow-hidden"
           >
             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">
               {e.mode}
             </p>
             <CardHeader>
-              <CardTitle>Rs. {e.price}</CardTitle>
+              <CardTitle className="animate-shimmer">Rs. {e.price}</CardTitle>
               <CardDescription>
                 <p className="text-lg ">{e.type}</p>
                 <p>{e.name}</p>
               </CardDescription>
             </CardHeader>
             <CardContent className="">
+            <Button
+                className="rounded-full  px-5 mb-3 bg-[#242038] hover:opacity-95 transition-colors duration-300 "
+                onClick={()=>handleClick(e)}
+                disabled={e.availed}
+              >
+                {e.availed?'Package Availed':'Avail now'}
+              </Button>
               <p>
                 Session Length:{" "}
                 <p className="px-2 text-sm inline-flex text-center py-0.5  rounded-full bg-neutral-100 dark:bg-neutral-700">
@@ -106,15 +113,7 @@ const Mypackages = () => {
                 </span>
               </p>
             </CardContent>
-            <CardFooter className="w-full flex justify-end ">
-              <Button
-                className="w-fit px-5 float-right bg-[#242038] hover:opacity-95 transition-colors duration-300 rounded-full "
-                onClick={()=>handleClick(e)}
-                disabled={e.availed}
-              >
-                {e.availed?'Package Availed':'Avail now'}
-              </Button>
-            </CardFooter>
+            
           </Card>
         ))}
 

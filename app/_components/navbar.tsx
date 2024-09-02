@@ -15,7 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ArrowRight, ChevronLeft, ChevronRight, LogOut, Menu } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, LogOut, Menu, User } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
@@ -164,14 +164,9 @@ const Navbar = () => {
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild className="focus:outline-none">
               <Button
-                variant={"outline"}
-                className="rounded-full ml-3 p-0  scale-90 bg-opacity-80 border-zinc-300 hover:bg-opacity-70 transition-all duration-300"
+                className="rounded-full ml-3 px-3 group !py-0 hover:bg-violet-300  bg-violet-200    transition-all duration-300"
               >
-                <Avatar   >
-                  <AvatarFallback className=" text-zinc-950  font-medium !bg-transparent" >
-                    {session.user?.name?.slice(0, 1)}
-                  </AvatarFallback>
-                </Avatar>
+                <User className="w-4 h-4 text-neutral-800 group-hover:scale-110 transition-all"/>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-opacity-80 backdrop-blur-lg">
