@@ -7,26 +7,26 @@ export async function GET(req: Request) {
   try {
     await connectMongo();
 
-    const users = await User.find();
+    // const users = await User.find();
 
-    users.forEach( async (e, i) => {
-      const signUpBonus = {
-        type: "Sign Up Package",
-        mode: "starter",
-        name: "30 Minute Session Package (Sign Up)",
-        price: "0",
-        sessions_included: "1 session",
-        session_length: "30 mins",
-        counselor_matching: "non-professional",
-        video: "89",
-        features: ["Single 30-minute session.", "Non-professional counselor."],
-        order_id: "ffff",
-        payment_id: "ffff",
-        user_id: e._id,
-      };
+    // users.forEach( async (e, i) => {
+    //   const signUpBonus = {
+    //     type: "Sign Up Package",
+    //     mode: "starter",
+    //     name: "30 Minute Session Package (Sign Up)",
+    //     price: "0",
+    //     sessions_included: "1 session",
+    //     session_length: "30 mins",
+    //     counselor_matching: "non-professional",
+    //     video: "89",
+    //     features: ["Single 30-minute session.", "Non-professional counselor."],
+    //     order_id: "ffff",
+    //     payment_id: "ffff",
+    //     user_id: e._id,
+    //   };
 
-      await Package.create(signUpBonus) ; 
-    });
+    //   await Package.create(signUpBonus) ; 
+    // });
 
     // await Package.deleteMany({order_id: "ffff"}) ;
 
