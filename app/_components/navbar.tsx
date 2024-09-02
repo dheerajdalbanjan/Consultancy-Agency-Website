@@ -164,7 +164,7 @@ const Navbar = () => {
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild className="focus:outline-none">
               <Button
-                className="rounded-full ml-3 px-3 group !py-0 hover:bg-violet-300  bg-violet-200    transition-all duration-300"
+                className="rounded-full ml-3 px-3 group !py-0 hover:bg-violet-100/80  bg-violet-100    transition-all duration-300"
               >
                 <User className="w-4 h-4 text-neutral-800 group-hover:scale-110 transition-all"/>
               </Button>
