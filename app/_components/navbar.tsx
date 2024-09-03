@@ -54,7 +54,10 @@ const Navbar = () => {
   }, [session]);
 
   return (
-    <div
+    <motion.div
+      initial={{translateY:-72}}
+      whileInView={{translateY:0}}
+      
       className={` transition-all duration-300 ease-in-out bg-[#072B4C] bg-opacity-90 backdrop-blur-lg text-neutral-50  border-blue-700/10 ${
         scrolled
           ? " !h-16 border-b "
@@ -162,7 +165,7 @@ const Navbar = () => {
         )}
         {session && (
           <DropdownMenu modal={false}>
-            <DropdownMenuTrigger asChild className="focus:outline-none">
+            <DropdownMenuTrigger asChild className="focus:outline-none active:scale-95 transition-all duration-300 ">
               <Button
                 className="rounded-full ml-3 px-3 group !py-0 hover:bg-violet-100/80  bg-violet-100    transition-all duration-300"
               >
@@ -204,7 +207,7 @@ const Navbar = () => {
         )}
       </div>
         
-    </div>
+    </motion.div>
   );
 };
 

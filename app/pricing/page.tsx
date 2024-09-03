@@ -32,11 +32,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Toast } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { Check } from "lucide-react";
+import { Check, Scale } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { pricing, monthly } from "@/lib/pricing_data";
+import {motion} from 'framer-motion'
 
 const Razorpay = require("razorpay");
 
@@ -264,7 +265,7 @@ const Pricing = () => {
         </Select>
         <TabsList className="ml-5 hidden md:flex rounded-xl md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit  flex-col md:flex-row ">
           <TabsTrigger
-            className={`rounded-full   ${
+            className={`rounded-full active:scale-95 transition-all   ${
               btab === "non-professional"
                 ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
@@ -274,7 +275,7 @@ const Pricing = () => {
             Basic non-professional plans
           </TabsTrigger>
           <TabsTrigger
-            className={`rounded-full  ${
+            className={`rounded-full active:scale-95 transition-all   ${
               btab === "professional"
                 ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
@@ -287,10 +288,10 @@ const Pricing = () => {
         <TabsContent value={btab}>
           <div className="grid grid-cols-1 md:grid-cols-4 p-5 gap-x-4 gap-y-8 items-center justify-between">
             {pricing.map((plan, i) => {
-              if (plan.counselor_matching === btab) {
+              if (plan.counselor_matching == btab) {
                 return (
-                  <Card
-                    key={i}
+                  <motion.div initial={{scale:0.92, opacity:0.8}} whileInView={{scale:1, opacity:1}} transition={{duration:0.3}} key={i}><Card
+                    
                     className="p-1 hover:-translate-y-2 transition-all duration-300  bg-opacity-70 backdrop-blur-sm rounded-lg shadow-md"
                   >
                     <CardHeader>
@@ -329,7 +330,7 @@ const Pricing = () => {
                         )}
                       </ul>
                     </CardContent>
-                  </Card>
+                  </Card></motion.div>
                 );
               }
             })}
@@ -340,7 +341,7 @@ const Pricing = () => {
       <Tabs value={mtab} onValueChange={setMtab} className="overflow-hidden">
         <TabsList className="ml-5 mt-5 rounded-xl hidden  md:rounded-full bg-orange-50 backdrop-blur-sm h-fit w-fit md:flex flex-col md:flex-row  ">
           <TabsTrigger
-            className={`rounded-full   ${
+            className={`rounded-full active:scale-95 transition-all   ${
               mtab === "non-professional"
                 ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
@@ -350,7 +351,7 @@ const Pricing = () => {
             Monthly non-professional plans
           </TabsTrigger>
           <TabsTrigger
-            className={`rounded-full   ${
+            className={`rounded-full active:scale-95 transition-all  ${
               mtab === "professional"
                 ? "!bg-[#072B4C] !text-neutral-50"
                 : "bg-transparent"
@@ -389,9 +390,9 @@ const Pricing = () => {
             {monthly.map((plan, i) => {
               if (plan.counselor_matching === mtab) {
                 return (
-                  <Card
-                    key={i}
-                    className="p-1 w-full hover:-translate-y-2 transition-all duration-300  bg-opacity-70 backdrop-blur-sm rounded-lg shadow-md"
+                  <motion.div className="w-full" initial={{scale:0.92, opacity:0.8}} whileInView={{scale:1, opacity:1}} transition={{duration:0.3}} key={i}> <Card
+                    
+                    className="p-1  hover:-translate-y-2 transition-all duration-300  bg-opacity-70 backdrop-blur-sm rounded-lg shadow-md"
                   >
                     <CardHeader>
                       <CardTitle className="text-lg font-semibold">
@@ -429,7 +430,7 @@ const Pricing = () => {
                         )}
                       </ul>
                     </CardContent>
-                  </Card>
+                  </Card></motion.div>
                 );
               }
             })}

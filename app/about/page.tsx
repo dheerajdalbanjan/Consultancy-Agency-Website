@@ -9,7 +9,7 @@ export const metadata : Metadata = {
 const page = () => {
 
   return (
-    <div className="max-w-3xl mx-auto p-6 rounded shadow mt-24">
+    <div className="max-w-3xl mx-auto p-6 rounded  my-20">
    <h1 className="text-3xl font-semibold mb-6">About Us</h1>
 
    <p className="mb-4">Get Support When You Need It Most. Help is Just One Call or Click Away.</p>

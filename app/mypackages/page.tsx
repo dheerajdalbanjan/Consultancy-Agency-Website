@@ -6,6 +6,7 @@ import { Check, LoaderIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import {motion} from 'framer-motion'
 
 const Mypackages = () => {
   const [data, setData] = useState<any>(null);
@@ -72,8 +73,7 @@ const Mypackages = () => {
       )}
       {data &&
         data.map((e: any, i: number) => (
-            <Card
-            key={i}
+            <motion.div initial={{scale:0.95}} whileInView={{scale:1}} transition={{duration:0.3}} key={i}><Card
             className="!w-full mb-4 bg-gradient-to-tl from-violet-100 to-amber-100   relative overflow-hidden"
           >
             <p className="absolute top-3 -right-8 py-0.5 w-28 text-center bg-gradient-to-r from-emerald-50 via-emerald-200 to-emerald-300 rotate-45 text-neutral-900  text-[13px] uppercase">
@@ -114,7 +114,7 @@ const Mypackages = () => {
               </p>
             </CardContent>
             
-          </Card>
+          </Card></motion.div>
         ))}
 
         {
