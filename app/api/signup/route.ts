@@ -2,6 +2,7 @@ import { connectMongo } from "@/libs/mongodb";
 import User from "@/model/user";
 import { NextResponse } from "next/server";
 import bcrypt from 'bcryptjs'
+import Package from "@/model/package";
 
 
 export async function POST(req: Request) {
@@ -29,9 +30,9 @@ export async function POST(req: Request) {
       user_id: user._id 
         }
 
-    const re = await fetch(`${process.env.NEXTAUTH_URL}/api/package`, {method:"POST",headers: { "Content-type": "application/json" },body:JSON.stringify(signUpBonus)}) ;
+   // const re = await fetch(`${process.env.NEXTAUTH_URL}/api/package`, {method:"POST",headers: { "Content-type": "application/json" },body:JSON.stringify(signUpBonus)}) ;
 
-
+        const re = await Package.create(signUpBonus) ;
 
 
     if(re.ok)
