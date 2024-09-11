@@ -17,7 +17,7 @@ const b = Bai_Jamjuree({ subsets: ['latin'], weight: '400' })
 const Hero = () => {
   const router = useRouter();
   return (
-    <div className='relative overflow-hidden flex mx-auto bg-[#072B4C] items-center justify-center  md:py-8 ' style={inter.style}>
+    <div className='relative overflow-hidden flex mx-auto bg-[#072b4c] items-center justify-center  md:py-8 ' style={inter.style}>
       <div className='flex h-full pt-20 px-8 md:px-1 items-start text-neutral-50 justify-center max-w-6xl mx-auto pb-20 w-full flex-col gap-y-2 md:gap-y-2 relative z-10' >
         <Badge variant={'outline'} className='rounded-full mt-4 border-neutral-200/50 text-neutral-50 md:text-base'>We here | We Support | We Console</Badge>
         <motion.h2 whileInView={{ translateY: 0 }} initial={{ translateY: 15 }} className='text-3xl backdrop-blur md:bg-gradient-to-r from-transparent to-blue-100/20 sm:text-4xl pr-3 rounded-full md:text-5xl my-4 text-neutral-50 antialiased font-semibold'>Your Feelings Matter, <span className='text-orange-500 drop-shadow-lg '>You’re Not Alone</span></motion.h2>

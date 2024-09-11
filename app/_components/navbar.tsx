@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { UseScrollHook } from "@/hooks/UseScrollTop";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/dark-mode";
-import {motion} from 'framer-motion'
+import {motion, useMotionValueEvent, useScroll, useSpring} from 'framer-motion'
 import {
   Sheet,
   SheetContent,
@@ -35,9 +35,18 @@ import { useTheme } from "next-themes";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
-  const scrolled = UseScrollHook();
+  const [scrolled, setScrolled] = useState(true) ;
   const [open, setOpen] = useState(false)
   const { data: session } = useSession();
+
+  const {scrollY} = useScroll() ;
+  const sscroll = useSpring(scrollY) ;
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log(scrollY, latest)
+    if(scrollY.get() - (scrollY.getPrevious() || 0) < -40) setScrolled(true) ;
+    else if(scrollY.get() - (scrollY.getPrevious() || 0) > 40) setScrolled(false);
+  })
 
   const links = [
     { "name": "Home", "link": "/" },
@@ -55,14 +64,12 @@ const Navbar = () => {
 
   return (
     <motion.div
-      initial={{translateY:-72}}
-      whileInView={{translateY:0}}
       
-      className={` transition-all duration-300 ease-in-out bg-[#072B4C] bg-opacity-90 backdrop-blur-lg text-neutral-50  border-blue-700/10 ${
+      className={` transition-all duration-300 ease-in-out bg-[#072B4C]  text-neutral-50  border-blue-700/10 ${
         scrolled
-          ? " !h-16 border-b "
-          : ""
-      }  z-50 fixed top-0 h-[4.5rem] flex items-center  justify-between w-full  px-8 md:px-48 `}
+          ? "  fixed translate-y-0 "
+          : "-translate-y-40"
+      }  z-50 fixed top-0 h-[4.5rem]  flex items-center  justify-between w-full  px-8 md:px-48 `}
     >
       
       <div className="flex gap-x-3 items-center justify-between ">

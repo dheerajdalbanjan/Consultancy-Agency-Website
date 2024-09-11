@@ -1,16 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Metadata } from 'next'
+"use client"
+
 import React from 'react'
+import {motion} from 'framer-motion'
 
-export const metadata : Metadata = {
-  title: "About Us"
-}
 
-const page = () => {
+const Page = () => {
 
   return (
-    <div className="max-w-3xl mx-auto p-6 rounded  my-20">
-   <h1 className="text-3xl font-semibold mb-6">About Us</h1>
+    <div className='py-16'>
+   <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:0.5}} className="text-3xl md:text-4xl md:px-52 px-8 text-neutral-50 font-semibold mb-6 py-12 bg-[#072B4C] w-full">About Us</motion.h1>
+   
+    <div className="max-w-6xl mx-auto p-8 rounded ">
 
    <p className="mb-4">Get Support When You Need It Most. Help is Just One Call or Click Away.</p>
 
@@ -28,7 +29,8 @@ const page = () => {
   <p>Developed by <span className='px-2 py-0.5 rounded-full bg-emerald-300/20 '>Dheeraj Dalbanjan</span></p>
 
     </div>
+    </div>
   )
 }
 
-export default page
+export default Page
